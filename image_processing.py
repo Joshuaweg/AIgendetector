@@ -12,52 +12,68 @@ import torch.nn.functional as F
 import torch
 import classifier
 import sys
+from captum.attr import IntegratedGradients
 
-resnet = models.resnet50(pretrained=True)
-modules = list(resnet.children())[:-2]  # delete the last fc layer.
-resnet = nn.Sequential(*modules)
-
-resnet.eval()
-for param in resnet.parameters():
-    param.requires_grad = False
 class PatchEncoder(nn.Module):
     def __init__(self):
         super(PatchEncoder, self).__init__()
         
-        # Convolutional layers to extract spatial features
-        self.conv1 = nn.Conv2d(in_channels=4, out_channels=16, kernel_size=3, stride=1, padding=1)
+         # Convolutional layers to extract spatial features
+        self.conv1 = nn.Conv2d(in_channels=1, out_channels=16, kernel_size=3, stride=1, padding=1)
         self.conv2 = nn.Conv2d(in_channels=16, out_channels=32, kernel_size=3, stride=1, padding=1)
         self.conv3 = nn.Conv2d(in_channels=32, out_channels=64, kernel_size=3, stride=1, padding=1)
         
         # Fully connected layer to reduce to 100-dimensional vector
-        self.fc = nn.Linear(64*24*24, 100)
+        self.fc = nn.Linear(64 * 24 * 24, 100)
         
     def forward(self, x):
+       
+        batch_size, segments, patches, height, width = x.shape
         # Apply convolutional layers with ReLU activation
-        x = torch.relu(self.conv1(x))
-        x = torch.relu(self.conv2(x))
-        x = torch.relu(self.conv3(x))
+         # Reshape input from (segments, patches, height, width) -> (segments * patches, 1, height, width)
+        x = x.view(-1, 1, height,width)  # Combine segments and patches into one batch dimension
         
-        # Flatten the output
-        x = x.flatten()
+        # Apply convolutional layers with ReLU activation
+        cl1= torch.relu(self.conv1(x))
+        cl2 = torch.relu(self.conv2(cl1))
+        cl3 = torch.relu(self.conv3(cl2))
+        
+        # Flatten the output, keeping the batch dimension
+        flat = cl3.view(cl3.size(0), -1)  # Flatten to (batch_size, 64*24*24)
         
         # Apply the fully connected layer
-        x = self.fc(x)
-        return x
+        output = self.fc(flat)  # Now (batch_size, 100)
+        output = output.view(batch_size, segments*patches, -1)  # Reshape to (batch_size, segments, patches, 100)
+        return output
 class CustomResNetEncoder(nn.Module):
-    def __init__(self, original_model):
+    def __init__(self):
         super(CustomResNetEncoder, self).__init__()
-        self.features =original_model
-        self.fc1 = nn.Linear(368640, 14400)  # Assuming final feature map size is (batch, 2048, 1, 1)
-        self.fc2 = nn.Linear(14400, 120*120)  # Map to 120x120
+        self.conv1 = nn.Conv2d(in_channels=3, out_channels=32, kernel_size=3, stride=2, padding=1)  # 3 -> 32 channels
+        self.conv2 = nn.Conv2d(in_channels=32, out_channels=64, kernel_size=3, stride=2, padding=1)  # 32 -> 64 channels
+        self.conv3 = nn.Conv2d(in_channels=64, out_channels=128, kernel_size=3, stride=2, padding=1)  # 64 -> 128 channels
+        self.conv4 = nn.Conv2d(in_channels=128, out_channels=256, kernel_size=3, stride=2, padding=1)  # 128 -> 256 channels
+        
+        # Fully connected layers
+        self.fc1 = nn.Linear(256 * 15 * 48, 14400)  # Adjust based on the output size of the conv layers
+        self.fc2 = nn.Linear(14400, 120 * 120)  # Map to 120x120 latent space
+    
 
     def forward(self, x):
-        x = self.features(x)
-        x = x.view(x.size(0), -1)  # Flatten the output
-        x = F.relu(self.fc1(x))
-        x = self.fc2(x)
-        x = x.view(-1, 120, 120)  # Reshape to (batch, 120, 120)
-        return x
+        cl1 = F.relu(self.conv1(x))  # Output shape: (batch, 32, height/2, width/2)
+        cl2 = F.relu(self.conv2(cl1))  # Output shape: (batch, 64, height/4, width/4)
+        cl3 = F.relu(self.conv3(cl2))  # Output shape: (batch, 128, height/8, width/8)
+        cl4 = F.relu(self.conv4(cl3))  # Output shape: (batch, 256, height/16, width/16)
+
+        # Flatten the output of the convolutional layers
+        flat = cl4.view(cl4.size(0), -1)  # Flatten to (batch_size, 256 * 15 * 15)
+        
+        # Pass through fully connected layers
+        r_flat= F.relu(self.fc1(flat))  # First fully connected layer
+        output = self.fc2(r_flat)  # Second fully connected layer
+        
+        # Reshape to (batch_size, 120, 120)
+        output = output.view(x.size(0), 120, 120)
+        return output
 #videoPath = "data/one/VideoCrafter_067.mp4
 def extractFrames(videoPath):
     vidcap = cv2.VideoCapture(videoPath)
@@ -75,25 +91,25 @@ def extractFrames(videoPath):
 #patches will be of size 4x32x32x3 (4 frames, 32x32 pixels, 3 channels)
 #the dimens of a single frame is 320 x 576. each frame can be cut into 180 32x32 pieces, so 4 frames will have 180 patches
 #again, we will take 4 frames at a time and extract 180 patches from them
-def extractPatches(frames):
-    spacetime_patches = []
-    for i in range(0,len(frames),4):
-        patches = []
-        for j in range(4):
-            frame = frames[i+j][0]
-            frame_patches = []
-            for k in range(0,120,24):
-                for l in range(0,120,24):
-                    patch = frame[k:k+24,l:l+24]
-                    if patch.shape == (24,24):
-                        #print(patch.shape)
-                        frame_patches.append(patch)
-            frame_patches = torch.stack(frame_patches)
-            patches.append(frame_patches)
-        patches = torch.stack(patches)
-        print(patches.shape)
-        spacetime_patches.append(patches)
-    return torch.stack(spacetime_patches)
+def extractPatches(latents):
+    
+    num_frames = latents.shape[0]
+    height = latents.shape[1]
+    width = latents.shape[2]
+    frames_per_patch = 4
+    height_per_patch = 24
+    width_per_patch = 24
+    patches = []
+    for segment in range(int(num_frames/frames_per_patch)):
+        segment_patches = []
+        for h in range(0, height, height_per_patch):
+            for w in range(0, width, width_per_patch):
+                for frame in range(segment*frames_per_patch, (segment+1)*frames_per_patch):
+                    patch = latents[frame, h:h+height_per_patch, w:w+width_per_patch]
+                    segment_patches.append(patch)
+        segment_patches = torch.stack(segment_patches)
+        patches.append(segment_patches)
+    return torch.stack(patches)
 #now what we will do is use a Variational Encoder to compress the frames into a lower dimension latent space (120x120)
 transform = transforms.Compose([
     transforms.ToTensor(),
@@ -101,7 +117,7 @@ transform = transforms.Compose([
                          std=[0.229, 0.224, 0.225])
 ])
 def compressFrames(frames):
-    latent_encoder = CustomResNetEncoder(resnet)
+    latent_encoder = CustomResNetEncoder().to(device)
     latent_frames = []
     for frame in frames:
         frame = transform(frame)
@@ -111,13 +127,9 @@ def compressFrames(frames):
     #print(len(latent_frames))
     return torch.stack(latent_frames)
 def vectorizePatches(patches):
-    encoder = PatchEncoder()
-    vectorized_patches = []
-    for p in range(150):
-        patch  = patches[p]
-        vectorized_patch = encoder(patch)
-        vectorized_patches.append(vectorized_patch)
-    return torch.stack(vectorized_patches)
+    patch_encoder = PatchEncoder().to(device)
+    vectors = patch_encoder(patches)
+    return vectors
 def create_patch_vector_dictionary(patches, vectors):
     patch_dict = {}
     vector_dict ={}
@@ -137,35 +149,45 @@ def get_spacetime (patches):
             spacetime_patches.append(sp_patch)
     return torch.stack(spacetime_patches)
 if __name__ == "__main__":
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    print(device)       
-    frames = extractFrames(r"data/one/VideoCrafter_067.mp4")
-    label = "fake"
-    categories = ["real", "fake"] 
-    # Convert label to tensor only once outside the loop
-    label_index = categories.index(label)
-    label_tensor = torch.tensor([label_index]).long().to(device)
-    label_list = [label_tensor.clone().detach() for _ in range(1000)]
-
-    latents = compressFrames(frames)
-    patches = extractPatches(latents)
-    sp_patches = get_spacetime(patches)
-    sp_patches = sp_patches.squeeze(1)
-
-    # Convert sp_patches to device only once
-    sp_vectors = vectorizePatches(sp_patches).float().to(device)
-    sp_vector_list = [sp_vectors.clone().detach() for _ in range(1000)]
+    device = torch.device("cpu")
+# Initialize models
+    latent_encoder = CustomResNetEncoder().to(device)
+    patch_encoder = PatchEncoder().to(device)
     clf = classifier.Classifier(100, 10, 1, 2).to(device)
     criterion = nn.CrossEntropyLoss().to(device)
     optimizer = torch.optim.Adam(clf.parameters(), lr=0.01)
 
-    for sp_vectors, label_tensor in zip(sp_vector_list, label_list):
-        optimizer.zero_grad()  # Reset gradients
-        outputs = clf(sp_vectors)  # Forward pass
-        print(outputs)
-        #print(label_tensor)
-        loss = criterion(outputs, label_tensor)  # Calculate loss
-        print("Loss: ",loss.item())  # Print loss value
-        loss.backward()  # Backward pass
-        optimizer.step()  # Update weights
+# Extract frames from the video and keep them in the graph
+    frames = extractFrames(r"data/one/VideoCrafter_067.mp4")
+    frames = [torch.from_numpy(frame).float() for frame in frames]
+    frames = torch.stack(frames)  # Preprocess and move to device
+    frames = frames.transpose(1,3).to(device)
+    print(frames.shape)
+# Forward pass through LatentEncoder (keep computation graph intact)
+    latents = latent_encoder(frames)
+    print(latents.shape)
+# Extract patches and spacetime vectors (do not detach)
+    patches = extractPatches(latents)  # Ensure this returns tensors connected to the graph
+    print(patches.shape)
+
+# Vectorize patches
+    vectors = vectorizePatches(patches.unsqueeze(0)).float().to(device)
+    print(vectors.shape)
+# Forward pass through Classifier
+    outputs = clf(vectors)
+    print(outputs)
+# Calculate loss
+    label = torch.tensor([1], dtype=torch.long).to(device)  # Fake label for example
+    print(label)
+    loss = criterion(outputs, label)
+
+# Backward pass (triggers gradients for Integrated Gradients)
+    loss.backward()
+
+# Perform Integrated Gradients (target = final output)
+    ig = IntegratedGradients(clf)
+
+# Now perform integrated gradients with respect to the original frames
+    attributions = ig.attribute(vectors, target=label, n_steps=1)
+    print(attributions.shape)
     
