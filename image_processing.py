@@ -92,24 +92,38 @@ def extractFrames(videoPath):
 #the dimens of a single frame is 320 x 576. each frame can be cut into 180 32x32 pieces, so 4 frames will have 180 patches
 #again, we will take 4 frames at a time and extract 180 patches from them
 def extractPatches(latents):
-    
+    # Input shape: (num_frames=24, height=120, width=120)
     num_frames = latents.shape[0]
     height = latents.shape[1]
     width = latents.shape[2]
+    
+    # Constants
     frames_per_patch = 4
     height_per_patch = 24
     width_per_patch = 24
-    patches = []
-    for segment in range(int(num_frames/frames_per_patch)):
-        segment_patches = []
+    
+    # Calculate number of patches in height and width
+    num_h_patches = height // height_per_patch  # 120//24 = 5
+    num_w_patches = width // width_per_patch    # 120//24 = 5
+    num_segments = num_frames // frames_per_patch  # 24//4 = 6
+    
+    # Initialize output tensor with correct shape
+    # (num_segments=6, spatial_patches=25, frames_per_patch=4, patch_height=24, patch_width=24)
+    patches = torch.zeros((num_segments, num_h_patches * num_w_patches, frames_per_patch,
+                          height_per_patch, width_per_patch), device=latents.device)
+    
+    # Extract patches
+    for segment in range(num_segments):
+        patch_idx = 0
         for h in range(0, height, height_per_patch):
             for w in range(0, width, width_per_patch):
-                for frame in range(segment*frames_per_patch, (segment+1)*frames_per_patch):
-                    patch = latents[frame, h:h+height_per_patch, w:w+width_per_patch]
-                    segment_patches.append(patch)
-        segment_patches = torch.stack(segment_patches)
-        patches.append(segment_patches)
-    return torch.stack(patches)
+                for f_idx in range(frames_per_patch):
+                    frame_idx = segment * frames_per_patch + f_idx
+                    patch = latents[frame_idx, h:h+height_per_patch, w:w+width_per_patch]
+                    patches[segment, patch_idx, f_idx] = patch
+                patch_idx += 1
+    
+    return patches
 #now what we will do is use a Variational Encoder to compress the frames into a lower dimension latent space (120x120)
 transform = transforms.Compose([
     transforms.ToTensor(),
@@ -162,32 +176,35 @@ if __name__ == "__main__":
     frames = [torch.from_numpy(frame).float() for frame in frames]
     frames = torch.stack(frames)  # Preprocess and move to device
     frames = frames.transpose(1,3).to(device)
+    print("frames")
     print(frames.shape)
 # Forward pass through LatentEncoder (keep computation graph intact)
     latents = latent_encoder(frames)
+    print("latents")
     print(latents.shape)
 # Extract patches and spacetime vectors (do not detach)
     patches = extractPatches(latents)  # Ensure this returns tensors connected to the graph
+    print("patches")
     print(patches.shape)
 
-# Vectorize patches
-    vectors = vectorizePatches(patches.unsqueeze(0)).float().to(device)
-    print(vectors.shape)
-# Forward pass through Classifier
-    outputs = clf(vectors)
-    print(outputs)
-# Calculate loss
-    label = torch.tensor([1], dtype=torch.long).to(device)  # Fake label for example
-    print(label)
-    loss = criterion(outputs, label)
+# # Vectorize patches
+#     vectors = vectorizePatches(patches.unsqueeze(0)).float().to(device)
+#     print(vectors.shape)
+# # Forward pass through Classifier
+#     outputs = clf(vectors)
+#     print(outputs)
+# # Calculate loss
+#     label = torch.tensor([1], dtype=torch.long).to(device)  # Fake label for example
+#     print(label)
+#     loss = criterion(outputs, label)
 
-# Backward pass (triggers gradients for Integrated Gradients)
-    loss.backward()
+# # Backward pass (triggers gradients for Integrated Gradients)
+#     loss.backward()
 
-# Perform Integrated Gradients (target = final output)
-    ig = IntegratedGradients(clf)
+# # Perform Integrated Gradients (target = final output)
+#     ig = IntegratedGradients(clf)
 
-# Now perform integrated gradients with respect to the original frames
-    attributions = ig.attribute(vectors, target=label, n_steps=1)
-    print(attributions.shape)
+# # Now perform integrated gradients with respect to the original frames
+#     attributions = ig.attribute(vectors, target=label, n_steps=1)
+#     print(attributions.shape)
     
