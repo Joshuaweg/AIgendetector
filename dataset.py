@@ -7,11 +7,13 @@ import torch.nn as nn
 import torch.nn.functional as F
 from torch.utils.data import Dataset, DataLoader
 import torch
-import classifier
 import sys
 import shutil
 import pandas as pd
 import random
+from pathlib import Path
+import tempfile
+import io
 
 realVideoPath =r"C:/Users/joshu/OneDrive/Desktop/GenVideo/kinetics/k400/train"
 fakeVideoPath =r"C:/Users/joshu/OneDrive/Desktop/GenVideo/zeroScope/ZeroScope/train_ZeroScope"
@@ -53,14 +55,72 @@ def get_video_list(path):
 """Next we need to define a dataloader for preparing the data for training.
 we will use OpenCV to extract the frames from the videos"""
 
-class VideoDataset (Dataset):
-    def __init__(self, real_dir, fake_dir, target_size=512, max_frames=24):
-        self.real_videos = [(os.path.join(real_dir, f), 1) for f in os.listdir(real_dir) if f.endswith('.mp4')]
-        self.fake_videos = [(os.path.join(fake_dir, f), 0) for f in os.listdir(fake_dir) if f.endswith('.mp4')]
-        self.videos = self.real_videos + self.fake_videos
-        random.shuffle(self.videos)
+class VideoDataset(Dataset):
+    def __init__(self, data_dir, target_size=512, max_frames=24):
+        """
+        Initialize the dataset from S3 or local directory
+        
+        Args:
+            data_dir (str): S3 path or local directory containing videos
+            target_size (int): Size to resize frames to
+            max_frames (int): Maximum number of frames to use per video
+        """
         self.target_size = target_size
         self.max_frames = max_frames
+        
+        if data_dir.startswith('s3://'):
+            import boto3  # Import boto3 only when needed
+            self.s3_client = boto3.client('s3')
+            bucket = data_dir.split('/')[2]
+            prefix = '/'.join(data_dir.split('/')[3:])
+            self.bucket = bucket
+            
+            # List all videos in the S3 bucket
+            paginator = self.s3_client.get_paginator('list_objects_v2')
+            self.videos = []
+            for page in paginator.paginate(Bucket=bucket, Prefix=prefix):
+                for obj in page.get('Contents', []):
+                    if obj['Key'].endswith('.mp4'):
+                        path = obj['Key']
+                        label = 1 if 'real_' in path else 0
+                        self.videos.append((path, label))
+        else:
+            self.data_dir = Path(data_dir)
+            self.videos = []
+            for video in self.data_dir.glob('*.mp4'):
+                if video.name.startswith('real_'):
+                    self.videos.append((str(video), 1))
+                elif video.name.startswith('ai_'):
+                    self.videos.append((str(video), 0))
+        
+        # Shuffle the videos
+        random.shuffle(self.videos)
+        
+        # Print dataset statistics
+        real_count = sum(1 for _, label in self.videos if label == 1)
+        ai_count = sum(1 for _, label in self.videos if label == 0)
+        print(f"\nDataset Statistics:")
+        print(f"Total videos: {len(self.videos)}")
+        print(f"Real videos: {real_count}")
+        print(f"AI-generated videos: {ai_count}")
+    
+    def load_video_from_s3(self, video_path):
+        """Load video from S3 bucket"""
+        with tempfile.NamedTemporaryFile(suffix='.mp4') as temp_file:
+            self.s3_client.download_file(self.bucket, video_path, temp_file.name)
+            frames = []
+            cap = cv2.VideoCapture(temp_file.name)
+            
+            while cap.isOpened():
+                ret, frame = cap.read()
+                if not ret:
+                    break
+                frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+                frame = self.resize_frame(frame)
+                frames.append(frame)
+            cap.release()
+            
+            return frames
         
     def resize_frame(self, frame):
         """Resize frame to target_size x target_size"""
@@ -71,13 +131,10 @@ class VideoDataset (Dataset):
         num_frames = len(frames)
         
         if num_frames <= self.max_frames:
-            # If we have fewer frames than max_frames, use all frames
             return frames
         else:
-            # Calculate random interval start
             diff = num_frames - self.max_frames
             interval_start = random.randint(0, diff)
-            # Select consecutive frames starting from interval_start
             return frames[interval_start:interval_start + self.max_frames]
         
     def __len__(self):
@@ -85,19 +142,20 @@ class VideoDataset (Dataset):
         
     def __getitem__(self, idx):
         video_path, label = self.videos[idx]
-        frames = []
-        cap = cv2.VideoCapture(video_path)
         
-        # Read all frames first
-        while cap.isOpened():
-            ret, frame = cap.read()
-            if not ret:
-                break
-            # Convert to RGB and resize
-            frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-            frame = self.resize_frame(frame)
-            frames.append(frame)
-        cap.release()
+        if hasattr(self, 's3_client'):
+            frames = self.load_video_from_s3(video_path)
+        else:
+            frames = []
+            cap = cv2.VideoCapture(str(video_path))
+            while cap.isOpened():
+                ret, frame = cap.read()
+                if not ret:
+                    break
+                frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+                frame = self.resize_frame(frame)
+                frames.append(frame)
+            cap.release()
         
         # Sample frames according to our strategy
         frames = self.sample_frames(frames)
@@ -107,7 +165,8 @@ class VideoDataset (Dataset):
         
         # Convert to tensor
         frames_tensor = torch.FloatTensor(frames)
-        return frames_tensor, label, video_path
+        return frames_tensor, label, str(video_path)
+
 class PreprocessedVideoDataset(Dataset):
     def __init__(self, real_dir, fake_dir, transform=None):
         self.real_files = [os.path.join(real_dir, file) for file in os.listdir(real_dir) if file.endswith('.npy')]
@@ -130,6 +189,7 @@ class PreprocessedVideoDataset(Dataset):
         frames_tensor = torch.from_numpy(frames_np).float()
 
         return frames_tensor, torch.tensor(label, dtype=torch.long)
+
 def pad_videos(videos, max_frames, max_height, max_width):
     padded_videos = []
     for video in videos:
@@ -240,6 +300,10 @@ class SizeBatchSampler:
         return (len(self.dataset) + self.batch_size - 1) // self.batch_size
 
 def custom_collate_fn(batch):
+    """
+    Custom collate function to handle variable-length videos.
+    Pads videos to the maximum length in the batch.
+    """
     videos, labels, paths = zip(*batch)
     
     # Find the max dimensions in the batch
@@ -286,6 +350,7 @@ def custom_collate_fn(batch):
     labels = torch.tensor(labels, dtype=torch.long)
     
     return padded_videos, labels, paths
+
 def preprocess_videos(video_paths, output_dir, transform=None):
     for idx, video_path in enumerate(video_paths):
         # Load the video
@@ -310,18 +375,35 @@ def preprocess_videos(video_paths, output_dir, transform=None):
         np.save(os.path.join(output_dir, f"video_{idx}.npy"), frames_np)
 
 if __name__ == '__main__':
-    real_videos = r'data/many/real'
-    fake_videos = r'data/many/fake'
-    dataset = VideoDataset(real_videos, fake_videos)
-    print(f"Dataset length: {len(dataset)}")
+    # Example usage
+    dataset = VideoDataset('F:/Gen-Video/dataset')
+    
+    # Create data loaders
     train_size = int(0.8 * len(dataset))
     test_size = len(dataset) - train_size
-
     train_dataset, test_dataset = torch.utils.data.random_split(dataset, [train_size, test_size])
-
-    train_loader = DataLoader(train_dataset,batch_size=4,shuffle=True, collate_fn=custom_collate_fn)
-    test_loader = DataLoader(test_dataset,batch_size=4,shuffle=False, collate_fn=custom_collate_fn)
-
-    for batch_idx, (data, labels) in enumerate(train_loader):
-        print(f"Batch {batch_idx} - Data shape: {data.shape}, Labels shape: {labels.shape}")
+    
+    train_loader = DataLoader(
+        train_dataset,
+        batch_size=4,
+        shuffle=True,
+        collate_fn=custom_collate_fn,
+        num_workers=4
+    )
+    
+    test_loader = DataLoader(
+        test_dataset,
+        batch_size=4,
+        shuffle=False,
+        collate_fn=custom_collate_fn,
+        num_workers=4
+    )
+    
+    # Test the data loader
+    for batch_idx, (data, labels, paths) in enumerate(train_loader):
+        print(f"Batch {batch_idx}")
+        print(f"Data shape: {data.shape}")
+        print(f"Labels shape: {labels.shape}")
+        print(f"Sample paths: {paths[:2]}")
+        break
         

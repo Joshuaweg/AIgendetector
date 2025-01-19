@@ -17,7 +17,7 @@ LOCAL_TESTING = True  # Set to False for deployment
 
 # Training configurations based on environment
 if LOCAL_TESTING:
-    BATCH_SIZE =2
+    BATCH_SIZE =10
     EPOCHS = 1
     NUM_WORKERS = 0
     PIN_MEMORY = True
