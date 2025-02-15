@@ -6,6 +6,7 @@ import torch.nn as nn
 from captum.attr import IntegratedGradients, LayerIntegratedGradients, LRP
 from captum.attr import visualization as viz
 from classifier import *
+from full_scale_classifier import *
 from dataset import VideoDataset, custom_collate_fn
 import random
 import cv2
@@ -13,6 +14,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from tqdm import tqdm
 import shutil
+import math
 
 def delete_all_files_in_folder(directory):
     # Check if the directory exists
@@ -50,68 +52,211 @@ def load_video(video_path, transform = None):
     video_capture = cv2.VideoCapture(video_path)
         
     frames = []
-    while video_capture.isOpened():
+    total_frames = int(video_capture.get(cv2.CAP_PROP_FRAME_COUNT))
+    
+    # Calculate frame sampling rate to get 24 frames
+    if total_frames < 24:
+        # If video has less than 24 frames, duplicate frames
+        sampling_rate = 1
+        duplicate_factor = math.ceil(24 / total_frames)
+    else:
+        # If video has more than 24 frames, sample frames evenly
+        indices = torch.linspace(0, total_frames - 1, 24).long().tolist()
+        
+    frame_count = 0
+    frame_idx = 0
+    
+    while frame_count < 24 and video_capture.isOpened():
         ret, frame = video_capture.read()
         if not ret:
             break
-            # Convert the frame from BGR (OpenCV default) to RGB
-        frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-            # Apply any optional transformations (e.g., resizing, normalization)
-        if transform:
-            frame = transform(frame)
-
-            # Collect the frames
-        frames.append(frame)
-        
-        # Release the video capture object
+            
+        # Only process frames at calculated indices
+        if total_frames >= 24:
+            if frame_idx in indices:
+                frame = cv2.resize(frame, (512, 512), interpolation=cv2.INTER_AREA)
+                frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+                frames.append(frame)
+                frame_count += 1
+        else:
+            # For short videos, use the duplicate strategy
+            if frame_idx % sampling_rate == 0:
+                frame = cv2.resize(frame, (512, 512), interpolation=cv2.INTER_AREA)
+                frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+                for _ in range(duplicate_factor):
+                    if frame_count < 24:
+                        frames.append(frame)
+                        frame_count += 1
+                
+        frame_idx += 1
+    
     video_capture.release()
-    frames_np = np.array(frames) 
-     # Convert list of frames to numpy array
+    
+    # If we still don't have enough frames, duplicate the last frame
+    while len(frames) < 24:
+        frames.append(frames[-1])
+    
+    # If we have too many frames, truncate
+    frames = frames[:24]
+    
+    # Convert frames list to tensor
+    frames_np = np.array(frames)
     frames_tensor = torch.from_numpy(frames_np).float()  # Convert numpy array to a tensor
-    return frames_tensor, label, video_path
-def load_model_for_inference(checkpoint_path, device):
-    # Initialize model
-    latentEncoder = LatentEncoder()
-    patchEncoder = PatchEncoder()
-    classifier = Classifier()
-    model = VideoClassifier(latentEncoder, patchEncoder, classifier).to(device)
     
-    # Load checkpoint
+    # Normalize using same values as training
+    mean = torch.tensor([0.485, 0.456, 0.406]).view(1, 1, 1, 3)
+    std = torch.tensor([0.229, 0.224, 0.225]).view(1, 1, 1, 3)
+    frames_tensor = frames_tensor / 255.0  # Scale to [0,1]
+    frames_tensor = (frames_tensor - mean) / std
+    
+    # Verify shape
+    assert frames_tensor.shape == (24, 512, 512, 3), f"Incorrect shape: {frames_tensor.shape}, expected (24, 512, 512, 3)"
+    
+    return frames_tensor,frames, label, video_path
+
+def verify_model_state(model, checkpoint_path):
+    # Load original checkpoint
+    device = next(model.parameters()).device  # Get the device of the model
     checkpoint = torch.load(checkpoint_path, map_location=device)
+    state_dict = checkpoint['model_state_dict']
     
-    # Load only model state
-    model.load_state_dict(checkpoint['model_state_dict'])
+    # Compare weights
+    model_state = model.state_dict()
+    for key in state_dict.keys():
+        if key in model_state:
+            checkpoint_weight = state_dict[key].to(device)  # Move checkpoint weight to same device
+            model_weight = model_state[key]
+            if not torch.equal(checkpoint_weight, model_weight):
+                print(f"Mismatch in {key}")
+                print(f"Checkpoint: mean={checkpoint_weight.mean()}, std={checkpoint_weight.std()}")
+                print(f"Model: mean={model_weight.mean()}, std={model_weight.std()}")
+
+def load_model_correctly(model_path, device):
+    # Initialize model components
+    latentEncoder = FullLatentEncoder().to(device)
+    patchEncoder = FullPatchEncoder().to(device)
+    classifier = FullClassifier().to(device)
     
-    # Set model to evaluation mode
+    # Create the full model and move to device
+    model = FullVideoClassifier(latentEncoder, patchEncoder, classifier).to(device)
+    
+    # Load the checkpoint
+    checkpoint = torch.load(model_path, map_location=device)
+    state_dict = checkpoint['model_state_dict']
+    
+    # Check if the state dict has DataParallel format
+    is_data_parallel = any(k.startswith('module.') for k in state_dict.keys())
+    
+    if is_data_parallel:
+        # Remove the 'module.' prefix if loading to a single GPU/CPU
+        state_dict = {k.replace('module.', ''): v for k, v in state_dict.items()}
+    
+    # Load the state dict
+    model.load_state_dict(state_dict)
+    
+    # Ensure all parameters are on the correct device
+    model = model.to(device)
+    for param in model.parameters():
+        param.data = param.data.to(device)
+    
+    # Set to evaluation mode
     model.eval()
     
+    # Verify the model state after loading
+    print("\nVerifying model state after loading...")
+    verify_model_state(model, model_path)
+    
     return model
-def forward_and_interpret(video):
-    classes = ['AI-Generated', 'real']
+
+def forward_and_interpret(video, frames):
+    classes = ['AI-Generated', 'Real']
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     print("device: ", device)
-    #device = torch.device("cpu")
     torch.cuda.empty_cache()
-    vclf = load_model_for_inference('model\\videoClassifier_epoch_11.pth', device)
-    #we will use Integrated Gradients to generate the attributions
-    torch.cuda.empty_cache()
-    ig = IntegratedGradients(vclf)
+    
+    # Load model and ensure it's in eval mode
+    vclf = load_model_correctly('model\\full_classifier_1_85.pt', device)
+    vclf.eval()
+    
+    # Store original unnormalized video for visualization
+    video_unnorm = video.clone()
+    
+    # Normalize video for model input
+   
+    
+    # Enable gradients for the input
     video = video.to(device)
-    #we will use the first frame of the video as the baseline
-    baseline = torch.zeros_like(video)
-    #conduct a forward pass
-    output = vclf(video)
-    pred = torch.argmax(output, dim=1)
-    #generate the attributions
-    print("predicted result: ", classes[pred.item()])
-    progress_bar = tqdm(total=100, desc='Calculating Gradients', position=pred.item(), leave=True)
+    video.requires_grad = True
+    
+    # Create baseline (black frames)
+    baseline = torch.zeros_like(video, device=device)
+    
+    # Initialize IG with the model
+    ig = IntegratedGradients(vclf)
+    
+    # Forward pass to get prediction
+    with torch.no_grad():
+        output = vclf(video)
+        pred = torch.argmax(output, dim=1)
+        confidence = torch.softmax(output, dim=1)[0][pred.item()].item()
+        print("\nPrediction Results:")
+        print(f"Predicted class: {classes[pred.item()]}")
+        print(f"Confidence: {confidence:.4f}")
+        print(f"Probabilities: AI-Gen: {torch.softmax(output, dim=1)[0][0]:.4f}, Real: {torch.softmax(output, dim=1)[0][1]:.4f}")
+    
+    # Calculate attributions with progress bar
+    print("\nCalculating frame attributions...")
+    progress_bar = tqdm(total=300, desc='Processing', position=0, leave=True)
+    
     def hook_fn(module, inputs):
         progress_bar.update(1)
+    
     hook = vclf.register_forward_pre_hook(hook_fn)
-    attributions, delta = ig.attribute(video, baseline, target=pred.item(), return_convergence_delta=True, n_steps=100,internal_batch_size=1)
-    progress_bar.close()
-    hook.remove()
+    
+    try:
+        attributions, delta = ig.attribute(
+            video,
+            baseline,
+            target=pred.item(),
+            return_convergence_delta=True,
+            n_steps=300,
+            internal_batch_size=1
+        )
+        
+        # Check if attributions are meaningful
+        if torch.all(attributions == 0) or torch.isnan(attributions).any():
+            print("\nWarning: Initial attributions are zero or NaN. Trying alternative approach...")
+            noise = torch.randn_like(video) * 0.1
+            baseline = torch.zeros_like(video) + noise
+            video_perturbed = video + torch.randn_like(video) * 1e-7
+            
+            attributions, delta = ig.attribute(
+                video_perturbed,
+                baseline,
+                target=pred.item(),
+                return_convergence_delta=True,
+                n_steps=5,
+                internal_batch_size=2
+            )
+    
+    finally:
+        progress_bar.close()
+        hook.remove()
+    
+    print("\nGenerating visualization...")
+    
+    # Process attributions for visualization
+    attr_per_frame = attributions.squeeze(0)  # Remove batch dimension
+    video_frames = video.squeeze(0)  # Remove batch dimension
+    frames = torch.tensor(frames)    
+    visualize(attributions,frames, save_path='plots', label="Video Classified: "+classes[pred.item()]+" with Integrated Gradients")
+    
+    # Create video from the frames
+    save_attributions_video('plots', 'attributions_4.mp4')
+    print("\nAttribution video saved as 'attributions_4.mp4'")
+    
     return attributions, output, classes[pred.item()]
+
 def forward_and_interpret_LRP(video):
     classes = ['AI-Generated', 'real']
     #device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -143,6 +288,7 @@ def forward_and_interpret_LRP(video):
     progress_bar.close()
     hook.remove()
     return attributions, output, classes[pred.item()]
+
 #finally we will visualize the attributions
 def visualize(attributions, video, save_path='plots', label=""):
     # Squeeze out the batch dimension
@@ -154,16 +300,16 @@ def visualize(attributions, video, save_path='plots', label=""):
     for i, (v_frame, a_frame) in enumerate(zip(video, attributions)):
         v_frame = v_frame.transpose(1, 2, 0).astype(np.uint8)
         a_frame = a_frame.transpose(1, 2, 0)
-        fig,ax=viz.visualize_image_attr_multiple(
+        fig,ax=viz.visualize_image_attr(
             a_frame,
             v_frame,
-            signs=["all", "positive"], 
-            methods=["original_image", "heat_map"], 
-            cmap='coolwarm', 
+            sign="positive", 
+            method="blended_heat_map", 
+            cmap='seismic', 
             fig_size=(12, 9),
             show_colorbar=True,
             use_pyplot=False,
-            titles=["Original Video -"+label, "Pixel-Wise Attribution of Video - "+label],
+            title=label,
         )
         
         # Save the plot as an image
@@ -172,34 +318,50 @@ def visualize(attributions, video, save_path='plots', label=""):
         
         # Close the figure to avoid displaying it and free up memory
         plt.close(fig)
-def visualize_overlay(attributions, video, save_path='plots', label=""):
-    # Squeeze out the batch dimension
-    print("attributions from 1 frame: ",attributions[0])
-    video = video.squeeze(0)
-    attributions = attributions.squeeze(0)
-    video = video.permute(0, 3, 1, 2).detach().cpu().numpy()
-    attributions = attributions.permute(0, 3, 1, 2).detach().cpu().numpy()
-    delete_all_files_in_folder(save_path)
-    for i, (v_frame, a_frame) in enumerate(zip(video, attributions)):
-        v_frame = v_frame.transpose(1, 2, 0).astype(np.uint8)
-        a_frame = a_frame.transpose(1, 2, 0)
-        fig, ax=viz.visualize_image_attr(
-            a_frame,
-            v_frame,
-            method="heat_map", 
-            cmap='seismic',
-            fig_size=(20, 15),
-            show_colorbar=True,
-            use_pyplot=False,
-            title="Pixel-Wise Attribution of Video - "+label,
-        )
-        
-        # Save the plot as an image
-        save_frame_path = f"{save_path}\\attributions_frame_{i+1:03}.png"
-        fig.savefig(save_frame_path, bbox_inches='tight')
-        
-        # Close the figure to avoid displaying it and free up memory
-        plt.close(fig)
+
+def visualize_overlay(frame, attr, importance, save_path='plots', label=""):
+    # Convert tensors to numpy arrays and move to CPU
+    frame = frame.detach().cpu().numpy()
+    attr = attr.detach().cpu().numpy()
+    
+    # Unnormalize the frame using the same values from training
+    mean = np.array([0.485, 0.456, 0.406])
+    std = np.array([0.229, 0.224, 0.225])
+    
+    # Unnormalize: pixel = (normalized * std) + mean
+    frame = (frame * std + mean)
+    
+    # Clip values to [0, 1] range and convert to uint8
+    frame = np.clip(frame * 255, 0, 255).astype(np.uint8)
+    
+    # Create heatmap from attributions
+    attr_norm = np.abs(attr)
+    attr_norm = attr_norm / (attr_norm.max() + 1e-8)  # Add small epsilon to prevent division by zero
+    
+    # Create figure
+    fig, ax = plt.subplots(figsize=(20, 15))
+    
+    # Display the original frame
+    ax.imshow(frame)
+    
+    # Overlay heatmap
+    heatmap = ax.imshow(attr_norm.mean(axis=2), cmap='seismic', alpha=0.5)
+    
+    # Add colorbar
+    plt.colorbar(heatmap)
+    
+    # Add title with importance score
+    plt.title(f"Frame Attribution (Importance: {importance:.3f})")
+    
+    # Save the figure
+    plt.savefig(f"{save_path}/frame_temp.png", bbox_inches='tight', dpi=300)
+    plt.close()
+    
+    # Read the saved image and convert for video
+    overlay_img = cv2.imread(f"{save_path}/frame_temp.png")
+    os.remove(f"{save_path}/frame_temp.png")  # Clean up temporary file
+    
+    return overlay_img
 
 def save_attributions_video(image_folder='plots', output_video='output_video_real_Overlay_test_e8_2.mp4', fps=8):
 
@@ -225,18 +387,23 @@ def save_attributions_video(image_folder='plots', output_video='output_video_rea
     video.release()
 
     print(f"Video saved as {output_video}")
-if __name__=="__main__":
-    video_path = "data\\many\\fake\\VideoCrafter_117891.mp4" #fake
-    #video_path = "data\\many\\fake\VideoCrafter_100838.mp4"
-    #video_path = "data\\many\\real\\5lwcgRvkUAI_000011_000021.mp4" #real
-    if "VideoCraft" in video_path:
-        frames_per_second = 8
-    else:
-        frames_per_second = 30
-    print(video_path)
-    video,label,path = load_video(video_path)
-    video = video.unsqueeze(0)
-    attributions, output, label = forward_and_interpret(video)
-    print("generating attribution visualizations")
-    visualize_overlay(attributions, video, label=label)
-    save_attributions_video(output_video='output_video_real_Overlay_test_e11_1_as.mp4')
+
+if __name__ == "__main__":
+    # Process a single video with attributions
+    video_path = r"F:\Gen-Video\dataset\ai_dynamiccrafter_DynamicCrafter_43162.mp4"
+    print(f"\nProcessing video: {video_path}")
+    
+    # Load and preprocess the video
+    video, frames, label, _ = load_video(video_path)
+    video = video.unsqueeze(0)  # Add batch dimension
+    
+    # Ensure video is on the correct device
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    video = video.to(device)
+    
+    # Run attribution analysis
+    attributions, output, prediction = forward_and_interpret(video, frames)
+    
+    print("\nAttribution analysis complete!")
+    print("Check 'plots' directory for frame visualizations")
+    print("Check 'attributions.mp4' for the complete visualization video")

@@ -1,0 +1,5818 @@
+Real Videos Results:
+
+Path: data\many\real\-1brKJdL-iM_000093_000103.mp4
+Prediction: real
+Confidence: 0.9473
+AI-Generated Probability: 0.0527
+Real Probability: 0.9473
+--------------------------------------------------
+Path: data\many\real\-1_m2Igd2Yc_000209_000219.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0540
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\-2KezGiYpZA_000048_000058.mp4
+Prediction: real
+Confidence: 0.9438
+AI-Generated Probability: 0.0562
+Real Probability: 0.9438
+--------------------------------------------------
+Path: data\many\real\-3etcrOAM-E_000014_000024.mp4
+Prediction: real
+Confidence: 0.9473
+AI-Generated Probability: 0.0526
+Real Probability: 0.9473
+--------------------------------------------------
+Path: data\many\real\-49XwJ_o9XI_000007_000017.mp4
+Prediction: real
+Confidence: 0.9438
+AI-Generated Probability: 0.0562
+Real Probability: 0.9438
+--------------------------------------------------
+Path: data\many\real\-51p8XCHUvU_000007_000017.mp4
+Prediction: real
+Confidence: 0.9497
+AI-Generated Probability: 0.0502
+Real Probability: 0.9497
+--------------------------------------------------
+Path: data\many\real\-58gQSNMClg_000010_000020.mp4
+Prediction: real
+Confidence: 0.9438
+AI-Generated Probability: 0.0559
+Real Probability: 0.9438
+--------------------------------------------------
+Path: data\many\real\-5hjHtrjrBQ_000008_000018.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0552
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\-5Lb5xpM1ZQ_000006_000016.mp4
+Prediction: real
+Confidence: 0.9438
+AI-Generated Probability: 0.0560
+Real Probability: 0.9438
+--------------------------------------------------
+Path: data\many\real\-86xbR-_1E8_000335_000345.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0550
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\-8ieGoxXh0A_000011_000021.mp4
+Prediction: real
+Confidence: 0.9468
+AI-Generated Probability: 0.0532
+Real Probability: 0.9468
+--------------------------------------------------
+Path: data\many\real\-at41X_mVW4_000148_000158.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0540
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\-AxU1RV_iFg_000134_000144.mp4
+Prediction: real
+Confidence: 0.9468
+AI-Generated Probability: 0.0533
+Real Probability: 0.9468
+--------------------------------------------------
+Path: data\many\real\-b5vQ-sabYg_000003_000013.mp4
+Prediction: real
+Confidence: 0.9473
+AI-Generated Probability: 0.0526
+Real Probability: 0.9473
+--------------------------------------------------
+Path: data\many\real\-c6VgUOvCSM_000319_000329.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0539
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\-c7TtG--GTc_000050_000060.mp4
+Prediction: real
+Confidence: 0.9468
+AI-Generated Probability: 0.0532
+Real Probability: 0.9468
+--------------------------------------------------
+Path: data\many\real\-CQ7GWxuEUc_000110_000120.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0536
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\-D03cnNac3g_000012_000022.mp4
+Prediction: real
+Confidence: 0.9473
+AI-Generated Probability: 0.0527
+Real Probability: 0.9473
+--------------------------------------------------
+Path: data\many\real\-dAWQCYyE2Q_000008_000018.mp4
+Prediction: real
+Confidence: 0.9443
+AI-Generated Probability: 0.0557
+Real Probability: 0.9443
+--------------------------------------------------
+Path: data\many\real\-DFgO-LaXWE_000000_000010.mp4
+Prediction: real
+Confidence: 0.9468
+AI-Generated Probability: 0.0530
+Real Probability: 0.9468
+--------------------------------------------------
+Path: data\many\real\-EkAGBzhWe4_000010_000020.mp4
+Prediction: real
+Confidence: 0.9424
+AI-Generated Probability: 0.0577
+Real Probability: 0.9424
+--------------------------------------------------
+Path: data\many\real\-eo0zp_hyyI_000158_000168.mp4
+Prediction: real
+Confidence: 0.9443
+AI-Generated Probability: 0.0556
+Real Probability: 0.9443
+--------------------------------------------------
+Path: data\many\real\-f0mGPf6TrM_000173_000183.mp4
+Prediction: real
+Confidence: 0.9258
+AI-Generated Probability: 0.0741
+Real Probability: 0.9258
+--------------------------------------------------
+Path: data\many\real\-fdmnzySFiQ_000000_000010.mp4
+Prediction: real
+Confidence: 0.9404
+AI-Generated Probability: 0.0598
+Real Probability: 0.9404
+--------------------------------------------------
+Path: data\many\real\-flfP3yiji8_000057_000067.mp4
+Prediction: real
+Confidence: 0.9419
+AI-Generated Probability: 0.0580
+Real Probability: 0.9419
+--------------------------------------------------
+Path: data\many\real\-GbUR6K-Q5M_000128_000138.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0524
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\-gUszkPchcI_000003_000013.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0536
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\-gxmZpZzlQU_000001_000011.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0545
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\-gyxhuDFffs_000019_000029.mp4
+Prediction: real
+Confidence: 0.9380
+AI-Generated Probability: 0.0621
+Real Probability: 0.9380
+--------------------------------------------------
+Path: data\many\real\-gZeSY1XHHA_000091_000101.mp4
+Prediction: real
+Confidence: 0.9443
+AI-Generated Probability: 0.0558
+Real Probability: 0.9443
+--------------------------------------------------
+Path: data\many\real\-HvBJeRSQLA_000271_000281.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0542
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\-i9QQn7vopY_000006_000016.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0542
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\-JFUrs_s64k_000014_000024.mp4
+Prediction: real
+Confidence: 0.9468
+AI-Generated Probability: 0.0533
+Real Probability: 0.9468
+--------------------------------------------------
+Path: data\many\real\-JJiyN8fwcI_000107_000117.mp4
+Prediction: real
+Confidence: 0.9473
+AI-Generated Probability: 0.0528
+Real Probability: 0.9473
+--------------------------------------------------
+Path: data\many\real\-jOk_NWoUwQ_000033_000043.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0546
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\-k1jF9CkQ2A_000163_000173.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0542
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\-k9uXgZF6o8_000061_000071.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0540
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\-kBCX4HmGrE_000032_000042.mp4
+Prediction: real
+Confidence: 0.9468
+AI-Generated Probability: 0.0530
+Real Probability: 0.9468
+--------------------------------------------------
+Path: data\many\real\-kSWh65d0AY_000002_000012.mp4
+Prediction: real
+Confidence: 0.9365
+AI-Generated Probability: 0.0637
+Real Probability: 0.9365
+--------------------------------------------------
+Path: data\many\real\-KX8ZEdKlX4_000017_000027.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0535
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\-L1TzRJYQbk_000001_000011.mp4
+Prediction: real
+Confidence: 0.9429
+AI-Generated Probability: 0.0571
+Real Probability: 0.9429
+--------------------------------------------------
+Path: data\many\real\-LblDlF0WZ4_000078_000088.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0552
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\-lgTBrMOyrs_000000_000010.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0550
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\-LR0gXR8c9c_000010_000020.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0552
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\-MB6Wxglgzw_000005_000015.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0551
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\-MCsuU2vibI_000035_000045.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0536
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\-mDRf2N08EI_000027_000037.mp4
+Prediction: real
+Confidence: 0.9292
+AI-Generated Probability: 0.0706
+Real Probability: 0.9292
+--------------------------------------------------
+Path: data\many\real\-MMxEvltTLo_000024_000034.mp4
+Prediction: real
+Confidence: 0.9404
+AI-Generated Probability: 0.0594
+Real Probability: 0.9404
+--------------------------------------------------
+Path: data\many\real\-Nd6v_JKd6I_000043_000053.mp4
+Prediction: real
+Confidence: 0.9409
+AI-Generated Probability: 0.0592
+Real Probability: 0.9409
+--------------------------------------------------
+Path: data\many\real\-NhFLKKuNa4_000040_000050.mp4
+Prediction: real
+Confidence: 0.9424
+AI-Generated Probability: 0.0575
+Real Probability: 0.9424
+--------------------------------------------------
+Path: data\many\real\-nHjW0ifdi8_000017_000027.mp4
+Prediction: real
+Confidence: 0.9380
+AI-Generated Probability: 0.0619
+Real Probability: 0.9380
+--------------------------------------------------
+Path: data\many\real\-ni1UWaBmL0_000056_000066.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0552
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\-nt-svW8Bqo_000098_000108.mp4
+Prediction: real
+Confidence: 0.9419
+AI-Generated Probability: 0.0579
+Real Probability: 0.9419
+--------------------------------------------------
+Path: data\many\real\-ObF2ZIr1eg_000001_000011.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0520
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\-OVyUdLh0Qw_000001_000011.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0550
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\-pCZZ-Cky24_000002_000012.mp4
+Prediction: real
+Confidence: 0.9419
+AI-Generated Probability: 0.0581
+Real Probability: 0.9419
+--------------------------------------------------
+Path: data\many\real\-pZSoDDD44s_000010_000020.mp4
+Prediction: real
+Confidence: 0.9438
+AI-Generated Probability: 0.0559
+Real Probability: 0.9438
+--------------------------------------------------
+Path: data\many\real\-qAC8YY5F1Q_000040_000050.mp4
+Prediction: real
+Confidence: 0.9307
+AI-Generated Probability: 0.0693
+Real Probability: 0.9307
+--------------------------------------------------
+Path: data\many\real\-QfOEoMWe5c_000014_000024.mp4
+Prediction: real
+Confidence: 0.9438
+AI-Generated Probability: 0.0561
+Real Probability: 0.9438
+--------------------------------------------------
+Path: data\many\real\-QFr0bEZ61k_000015_000025.mp4
+Prediction: real
+Confidence: 0.9429
+AI-Generated Probability: 0.0571
+Real Probability: 0.9429
+--------------------------------------------------
+Path: data\many\real\-R9SHHPG_rs_000001_000011.mp4
+Prediction: real
+Confidence: 0.9409
+AI-Generated Probability: 0.0590
+Real Probability: 0.9409
+--------------------------------------------------
+Path: data\many\real\-rVYwU5SNsI_000003_000013.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0546
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\-Sb-EK_m4gM_000150_000160.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0549
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\-Sd-j0rKeKw_000013_000023.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0549
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\-SmfJbcO8WI_000001_000011.mp4
+Prediction: real
+Confidence: 0.9399
+AI-Generated Probability: 0.0601
+Real Probability: 0.9399
+--------------------------------------------------
+Path: data\many\real\-t9wJpqmG0Y_000004_000014.mp4
+Prediction: real
+Confidence: 0.9473
+AI-Generated Probability: 0.0529
+Real Probability: 0.9473
+--------------------------------------------------
+Path: data\many\real\-TJHwkpAlls_000006_000016.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0538
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\-TJM6ngoJKg_000010_000020.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0536
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\-tJrm7ahIgc_000003_000013.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0543
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\-TmPgEIQh1I_000213_000223.mp4
+Prediction: real
+Confidence: 0.9482
+AI-Generated Probability: 0.0519
+Real Probability: 0.9482
+--------------------------------------------------
+Path: data\many\real\-tTDXLTRZwQ_000011_000021.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0540
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\-U2frOP59dc_000016_000026.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0543
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\-u59xQTOcmY_000182_000192.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0539
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\-U850eM6NNY_000007_000017.mp4
+Prediction: real
+Confidence: 0.9473
+AI-Generated Probability: 0.0525
+Real Probability: 0.9473
+--------------------------------------------------
+Path: data\many\real\-Ubzo-TKF60_000181_000191.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0539
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\-ucHY_dvTyY_000000_000010.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0522
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\-W1d_vhMasw_000004_000014.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0548
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\-W9-MeRbLeA_000110_000120.mp4
+Prediction: real
+Confidence: 0.9297
+AI-Generated Probability: 0.0704
+Real Probability: 0.9297
+--------------------------------------------------
+Path: data\many\real\-w94k14h8OA_000003_000013.mp4
+Prediction: real
+Confidence: 0.9419
+AI-Generated Probability: 0.0582
+Real Probability: 0.9419
+--------------------------------------------------
+Path: data\many\real\-wBzAoBIsJk_000031_000041.mp4
+Prediction: real
+Confidence: 0.9419
+AI-Generated Probability: 0.0581
+Real Probability: 0.9419
+--------------------------------------------------
+Path: data\many\real\-wHwso53dGw_000378_000388.mp4
+Prediction: real
+Confidence: 0.9434
+AI-Generated Probability: 0.0565
+Real Probability: 0.9434
+--------------------------------------------------
+Path: data\many\real\-Wq2rT-020w_000054_000064.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0522
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\-wsrVyB2zn4_000328_000338.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0550
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\-x78DitkbpU_000023_000033.mp4
+Prediction: real
+Confidence: 0.9429
+AI-Generated Probability: 0.0571
+Real Probability: 0.9429
+--------------------------------------------------
+Path: data\many\real\-XA9ixioG8I_000147_000157.mp4
+Prediction: real
+Confidence: 0.9473
+AI-Generated Probability: 0.0526
+Real Probability: 0.9473
+--------------------------------------------------
+Path: data\many\real\-XoRyRfUtaU_000011_000021.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0523
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\-y5lZekYyEk_000024_000034.mp4
+Prediction: real
+Confidence: 0.9429
+AI-Generated Probability: 0.0570
+Real Probability: 0.9429
+--------------------------------------------------
+Path: data\many\real\-YfaGnMFTPw_000024_000034.mp4
+Prediction: real
+Confidence: 0.9414
+AI-Generated Probability: 0.0586
+Real Probability: 0.9414
+--------------------------------------------------
+Path: data\many\real\-yJjlhYseLs_000004_000014.mp4
+Prediction: real
+Confidence: 0.9399
+AI-Generated Probability: 0.0601
+Real Probability: 0.9399
+--------------------------------------------------
+Path: data\many\real\-yNGuu-nuiI_000037_000047.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0542
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\-YRRqM8F-AY_000000_000010.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0520
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\-ytKvwrcXT4_000002_000012.mp4
+Prediction: real
+Confidence: 0.9219
+AI-Generated Probability: 0.0784
+Real Probability: 0.9219
+--------------------------------------------------
+Path: data\many\real\-YXeu9rqc90_000002_000012.mp4
+Prediction: real
+Confidence: 0.9473
+AI-Generated Probability: 0.0529
+Real Probability: 0.9473
+--------------------------------------------------
+Path: data\many\real\-ZgS98Hnqlg_000002_000012.mp4
+Prediction: real
+Confidence: 0.9473
+AI-Generated Probability: 0.0526
+Real Probability: 0.9473
+--------------------------------------------------
+Path: data\many\real\-ZL1iFgufAA_000033_000043.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0536
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\-ZOAbhigGxg_000030_000040.mp4
+Prediction: real
+Confidence: 0.9473
+AI-Generated Probability: 0.0528
+Real Probability: 0.9473
+--------------------------------------------------
+Path: data\many\real\-zOr2AuHF1E_000120_000130.mp4
+Prediction: real
+Confidence: 0.9409
+AI-Generated Probability: 0.0592
+Real Probability: 0.9409
+--------------------------------------------------
+Path: data\many\real\-zy1Zw2jHg8_000004_000014.mp4
+Prediction: real
+Confidence: 0.9438
+AI-Generated Probability: 0.0561
+Real Probability: 0.9438
+--------------------------------------------------
+Path: data\many\real\-_p30g_Xb0s_000025_000035.mp4
+Prediction: real
+Confidence: 0.9438
+AI-Generated Probability: 0.0562
+Real Probability: 0.9438
+--------------------------------------------------
+Path: data\many\real\-_X6oUUgmJU_000017_000027.mp4
+Prediction: real
+Confidence: 0.9468
+AI-Generated Probability: 0.0534
+Real Probability: 0.9468
+--------------------------------------------------
+Path: data\many\real\-_xug6P1f5Y_000056_000066.mp4
+Prediction: real
+Confidence: 0.9468
+AI-Generated Probability: 0.0532
+Real Probability: 0.9468
+--------------------------------------------------
+Path: data\many\real\0-LxljeDzzc_000058_000068.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0524
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\0-r7swaqMc8_000002_000012.mp4
+Prediction: real
+Confidence: 0.9473
+AI-Generated Probability: 0.0527
+Real Probability: 0.9473
+--------------------------------------------------
+Path: data\many\real\0-rDoto2S8o_000003_000013.mp4
+Prediction: real
+Confidence: 0.9438
+AI-Generated Probability: 0.0562
+Real Probability: 0.9438
+--------------------------------------------------
+Path: data\many\real\00feCOo8CEg_000018_000028.mp4
+Prediction: real
+Confidence: 0.9434
+AI-Generated Probability: 0.0566
+Real Probability: 0.9434
+--------------------------------------------------
+Path: data\many\real\00Rm9LTOdGs_000096_000106.mp4
+Prediction: real
+Confidence: 0.9307
+AI-Generated Probability: 0.0694
+Real Probability: 0.9307
+--------------------------------------------------
+Path: data\many\real\01nnP6k_f_A_000010_000020.mp4
+Prediction: real
+Confidence: 0.9443
+AI-Generated Probability: 0.0555
+Real Probability: 0.9443
+--------------------------------------------------
+Path: data\many\real\01QdtRZKXc4_000065_000075.mp4
+Prediction: real
+Confidence: 0.9409
+AI-Generated Probability: 0.0590
+Real Probability: 0.9409
+--------------------------------------------------
+Path: data\many\real\02MNrgUMpsc_000000_000010.mp4
+Prediction: real
+Confidence: 0.9438
+AI-Generated Probability: 0.0562
+Real Probability: 0.9438
+--------------------------------------------------
+Path: data\many\real\02mqLT9Y2sc_000059_000069.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0554
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\03biQYd1lAc_000067_000077.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0550
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\04yiI0AYPPQ_000076_000086.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0547
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\05MI7UlnY4A_000014_000024.mp4
+Prediction: real
+Confidence: 0.9419
+AI-Generated Probability: 0.0583
+Real Probability: 0.9419
+--------------------------------------------------
+Path: data\many\real\05oqa_VKjfE_000035_000045.mp4
+Prediction: real
+Confidence: 0.9434
+AI-Generated Probability: 0.0568
+Real Probability: 0.9434
+--------------------------------------------------
+Path: data\many\real\05oSBt2s5lE_000005_000015.mp4
+Prediction: real
+Confidence: 0.9434
+AI-Generated Probability: 0.0565
+Real Probability: 0.9434
+--------------------------------------------------
+Path: data\many\real\06ofnvq2Hjs_000065_000075.mp4
+Prediction: real
+Confidence: 0.9341
+AI-Generated Probability: 0.0661
+Real Probability: 0.9341
+--------------------------------------------------
+Path: data\many\real\07dVkTTGXv4_000367_000377.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0535
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\07xXjxsohjA_000130_000140.mp4
+Prediction: real
+Confidence: 0.9419
+AI-Generated Probability: 0.0583
+Real Probability: 0.9419
+--------------------------------------------------
+Path: data\many\real\08gPg6wvJU4_000001_000011.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0524
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\08iGOn1T5tY_000050_000060.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0553
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\09fekgqyx_4_000084_000094.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0540
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\09ksvsdwCXY_000002_000012.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0552
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\0A7bjpkmc1E_000185_000195.mp4
+Prediction: real
+Confidence: 0.9438
+AI-Generated Probability: 0.0562
+Real Probability: 0.9438
+--------------------------------------------------
+Path: data\many\real\0afypHPeHms_000002_000012.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0536
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\0aH-yGW_NyM_000155_000165.mp4
+Prediction: real
+Confidence: 0.9404
+AI-Generated Probability: 0.0598
+Real Probability: 0.9404
+--------------------------------------------------
+Path: data\many\real\0AHW5Xlyi3A_000182_000192.mp4
+Prediction: real
+Confidence: 0.9468
+AI-Generated Probability: 0.0534
+Real Probability: 0.9468
+--------------------------------------------------
+Path: data\many\real\0AWkgm4Fydo_000006_000016.mp4
+Prediction: real
+Confidence: 0.9146
+AI-Generated Probability: 0.0856
+Real Probability: 0.9146
+--------------------------------------------------
+Path: data\many\real\0bpIIP9DLi0_000000_000010.mp4
+Prediction: real
+Confidence: 0.9419
+AI-Generated Probability: 0.0582
+Real Probability: 0.9419
+--------------------------------------------------
+Path: data\many\real\0BPu1XNLCLI_000221_000231.mp4
+Prediction: real
+Confidence: 0.9395
+AI-Generated Probability: 0.0606
+Real Probability: 0.9395
+--------------------------------------------------
+Path: data\many\real\0ci7NqfcycM_000004_000014.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0541
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\0CIWw4iT8fk_000000_000010.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0550
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\0cLUOV3oMbQ_000028_000038.mp4
+Prediction: real
+Confidence: 0.9468
+AI-Generated Probability: 0.0532
+Real Probability: 0.9468
+--------------------------------------------------
+Path: data\many\real\0cRYsT9pHOM_000051_000061.mp4
+Prediction: real
+Confidence: 0.9443
+AI-Generated Probability: 0.0556
+Real Probability: 0.9443
+--------------------------------------------------
+Path: data\many\real\0CwJ4RlDJEQ_000002_000012.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0548
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\0cXMPf2bdFA_001142_001152.mp4
+Prediction: real
+Confidence: 0.9419
+AI-Generated Probability: 0.0583
+Real Probability: 0.9419
+--------------------------------------------------
+Path: data\many\real\0DAJHbg8Wtc_000037_000047.mp4
+Prediction: real
+Confidence: 0.9429
+AI-Generated Probability: 0.0571
+Real Probability: 0.9429
+--------------------------------------------------
+Path: data\many\real\0DRoNmNvgG4_000066_000076.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0522
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\0DRwTNPTrVo_000079_000089.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0520
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\0e7L82fphoQ_000012_000022.mp4
+Prediction: real
+Confidence: 0.9395
+AI-Generated Probability: 0.0605
+Real Probability: 0.9395
+--------------------------------------------------
+Path: data\many\real\0eAbf3x4foY_000253_000263.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0552
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\0EezE5Ylj-g_000158_000168.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0551
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\0EgDnFCBCeo_000167_000177.mp4
+Prediction: real
+Confidence: 0.9424
+AI-Generated Probability: 0.0575
+Real Probability: 0.9424
+--------------------------------------------------
+Path: data\many\real\0EO13FILDb4_000054_000064.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0520
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\0eO5VvQRuD0_000052_000062.mp4
+Prediction: real
+Confidence: 0.9443
+AI-Generated Probability: 0.0558
+Real Probability: 0.9443
+--------------------------------------------------
+Path: data\many\real\0eq080SUzbU_000105_000115.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0524
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\0eU4Pnr10PU_000001_000011.mp4
+Prediction: real
+Confidence: 0.9360
+AI-Generated Probability: 0.0640
+Real Probability: 0.9360
+--------------------------------------------------
+Path: data\many\real\0FaXLfqcphQ_000015_000025.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0546
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\0fCZ4MW3jYU_000212_000222.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0544
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\0fdqmRoi6Xc_000525_000535.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0540
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\0fiKxKzPRZk_000000_000010.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0539
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\0FK9vQbe8Ik_000181_000191.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0520
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\0fkXnqqHlwI_000002_000012.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0544
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\0FYtENQd_DU_000046_000056.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0538
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\0G4ivBZu6Dg_000064_000074.mp4
+Prediction: real
+Confidence: 0.9429
+AI-Generated Probability: 0.0572
+Real Probability: 0.9429
+--------------------------------------------------
+Path: data\many\real\0G5Xq1UqImY_000013_000023.mp4
+Prediction: real
+Confidence: 0.9434
+AI-Generated Probability: 0.0569
+Real Probability: 0.9434
+--------------------------------------------------
+Path: data\many\real\0GER2Qd0vFw_000083_000093.mp4
+Prediction: real
+Confidence: 0.9404
+AI-Generated Probability: 0.0594
+Real Probability: 0.9404
+--------------------------------------------------
+Path: data\many\real\0gEwu1nl5OM_000107_000117.mp4
+Prediction: real
+Confidence: 0.9355
+AI-Generated Probability: 0.0644
+Real Probability: 0.9355
+--------------------------------------------------
+Path: data\many\real\0Gi-V-NK-Ks_000278_000288.mp4
+Prediction: real
+Confidence: 0.9424
+AI-Generated Probability: 0.0577
+Real Probability: 0.9424
+--------------------------------------------------
+Path: data\many\real\0GkEGPcIkaE_000626_000636.mp4
+Prediction: real
+Confidence: 0.9409
+AI-Generated Probability: 0.0590
+Real Probability: 0.9409
+--------------------------------------------------
+Path: data\many\real\0GrWihD18NI_000067_000077.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0540
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\0gS58eezZjs_000177_000187.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0520
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\0H1C-nllaWk_000006_000016.mp4
+Prediction: real
+Confidence: 0.9468
+AI-Generated Probability: 0.0530
+Real Probability: 0.9468
+--------------------------------------------------
+Path: data\many\real\0hOiHj9oXlQ_000050_000060.mp4
+Prediction: real
+Confidence: 0.9482
+AI-Generated Probability: 0.0518
+Real Probability: 0.9482
+--------------------------------------------------
+Path: data\many\real\0hr3KZf0r-k_000073_000083.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0538
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\0h_adJ1gguA_000339_000349.mp4
+Prediction: real
+Confidence: 0.9482
+AI-Generated Probability: 0.0518
+Real Probability: 0.9482
+--------------------------------------------------
+Path: data\many\real\0IUbKG0-CX0_000019_000029.mp4
+Prediction: real
+Confidence: 0.9468
+AI-Generated Probability: 0.0530
+Real Probability: 0.9468
+--------------------------------------------------
+Path: data\many\real\0iUcN9h7Kd8_000042_000052.mp4
+Prediction: real
+Confidence: 0.9419
+AI-Generated Probability: 0.0579
+Real Probability: 0.9419
+--------------------------------------------------
+Path: data\many\real\0j9QZ8LnfCs_000215_000225.mp4
+Prediction: real
+Confidence: 0.9409
+AI-Generated Probability: 0.0592
+Real Probability: 0.9409
+--------------------------------------------------
+Path: data\many\real\0jGzu5eakYQ_000021_000031.mp4
+Prediction: real
+Confidence: 0.9443
+AI-Generated Probability: 0.0558
+Real Probability: 0.9443
+--------------------------------------------------
+Path: data\many\real\0jJdBQAjbs8_000020_000030.mp4
+Prediction: real
+Confidence: 0.9424
+AI-Generated Probability: 0.0576
+Real Probability: 0.9424
+--------------------------------------------------
+Path: data\many\real\0JLSWsyglqY_000082_000092.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0540
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\0jOrRzjfbAI_000019_000029.mp4
+Prediction: real
+Confidence: 0.9414
+AI-Generated Probability: 0.0587
+Real Probability: 0.9414
+--------------------------------------------------
+Path: data\many\real\0JVsRpeasfY_000004_000014.mp4
+Prediction: real
+Confidence: 0.9341
+AI-Generated Probability: 0.0657
+Real Probability: 0.9341
+--------------------------------------------------
+Path: data\many\real\0k0mUCgpItw_000017_000027.mp4
+Prediction: real
+Confidence: 0.9468
+AI-Generated Probability: 0.0532
+Real Probability: 0.9468
+--------------------------------------------------
+Path: data\many\real\0kCRjIrTxqE_000072_000082.mp4
+Prediction: real
+Confidence: 0.9419
+AI-Generated Probability: 0.0581
+Real Probability: 0.9419
+--------------------------------------------------
+Path: data\many\real\0KN0jPgapvI_000003_000013.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0550
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\0L84E07zeYw_000025_000035.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0535
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\0l9p2qfoI6I_000049_000059.mp4
+Prediction: real
+Confidence: 0.9404
+AI-Generated Probability: 0.0598
+Real Probability: 0.9404
+--------------------------------------------------
+Path: data\many\real\0MbHg7EIZBE_000022_000032.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0536
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\0mR_JpazrtA_000019_000029.mp4
+Prediction: real
+Confidence: 0.9482
+AI-Generated Probability: 0.0518
+Real Probability: 0.9482
+--------------------------------------------------
+Path: data\many\real\0my6-Xr31Ek_000004_000014.mp4
+Prediction: real
+Confidence: 0.9434
+AI-Generated Probability: 0.0566
+Real Probability: 0.9434
+--------------------------------------------------
+Path: data\many\real\0NIzLI3uk-A_000142_000152.mp4
+Prediction: real
+Confidence: 0.9438
+AI-Generated Probability: 0.0562
+Real Probability: 0.9438
+--------------------------------------------------
+Path: data\many\real\0nN4PM1ub_s_000003_000013.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0548
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\0nUL5Qi9k7Q_000056_000066.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0550
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\0ogdoF3ayO8_000015_000025.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0549
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\0OoCb3J-ids_000000_000010.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0540
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\0oohuA5rTdE_000112_000122.mp4
+Prediction: real
+Confidence: 0.9424
+AI-Generated Probability: 0.0577
+Real Probability: 0.9424
+--------------------------------------------------
+Path: data\many\real\0OOUOM8KRB4_000097_000107.mp4
+Prediction: real
+Confidence: 0.9419
+AI-Generated Probability: 0.0579
+Real Probability: 0.9419
+--------------------------------------------------
+Path: data\many\real\0ovgum9F9-Y_000002_000012.mp4
+Prediction: real
+Confidence: 0.9468
+AI-Generated Probability: 0.0532
+Real Probability: 0.9468
+--------------------------------------------------
+Path: data\many\real\0P30A-kxQGo_000001_000011.mp4
+Prediction: real
+Confidence: 0.9424
+AI-Generated Probability: 0.0577
+Real Probability: 0.9424
+--------------------------------------------------
+Path: data\many\real\0p55jTqnXD8_000036_000046.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0543
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\0PL3ioahHLo_000149_000159.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0544
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\0pU0fWbn48o_000013_000023.mp4
+Prediction: real
+Confidence: 0.9355
+AI-Generated Probability: 0.0645
+Real Probability: 0.9355
+--------------------------------------------------
+Path: data\many\real\0PzwR7827Iw_000082_000092.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0536
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\0q38QR1rV_Y_000109_000119.mp4
+Prediction: real
+Confidence: 0.9443
+AI-Generated Probability: 0.0555
+Real Probability: 0.9443
+--------------------------------------------------
+Path: data\many\real\0qcwqmkRLaw_000033_000043.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0544
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\0qnwyvAzH94_000088_000098.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0540
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\0qTKgJZTU3U_000036_000046.mp4
+Prediction: real
+Confidence: 0.9395
+AI-Generated Probability: 0.0606
+Real Probability: 0.9395
+--------------------------------------------------
+Path: data\many\real\0R0Aklb0X3Q_000365_000375.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0542
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\0R4rZNiVlbU_000017_000027.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0538
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\0RhZR_xQw3A_000004_000014.mp4
+Prediction: real
+Confidence: 0.9473
+AI-Generated Probability: 0.0528
+Real Probability: 0.9473
+--------------------------------------------------
+Path: data\many\real\0R_GmXLeVLM_000089_000099.mp4
+Prediction: real
+Confidence: 0.9443
+AI-Generated Probability: 0.0558
+Real Probability: 0.9443
+--------------------------------------------------
+Path: data\many\real\0S20SCkkeFA_000020_000030.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0522
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\0s7Pb7EtwN0_000032_000042.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0544
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\0sIv8pLQsPo_000005_000015.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0538
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\0smbThmn46c_001361_001371.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0536
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\0ssER51PqQc_000535_000545.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0542
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\0TaXT4S6iWc_000015_000025.mp4
+Prediction: real
+Confidence: 0.9365
+AI-Generated Probability: 0.0634
+Real Probability: 0.9365
+--------------------------------------------------
+Path: data\many\real\0un10iEUhG4_000007_000017.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0552
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\0USt8u8lLHc_000461_000471.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0538
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\0u_WQyfsUa4_000000_000010.mp4
+Prediction: real
+Confidence: 0.9443
+AI-Generated Probability: 0.0556
+Real Probability: 0.9443
+--------------------------------------------------
+Path: data\many\real\0vJBFSDG1ss_000189_000199.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0520
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\0w8U1C-6qFw_000000_000010.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0523
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\0wAXr5fVNVs_000000_000010.mp4
+Prediction: real
+Confidence: 0.9404
+AI-Generated Probability: 0.0598
+Real Probability: 0.9404
+--------------------------------------------------
+Path: data\many\real\0wb1qpN5Pnw_000103_000113.mp4
+Prediction: real
+Confidence: 0.9468
+AI-Generated Probability: 0.0530
+Real Probability: 0.9468
+--------------------------------------------------
+Path: data\many\real\0WDRWysQK2k_000035_000045.mp4
+Prediction: real
+Confidence: 0.9360
+AI-Generated Probability: 0.0640
+Real Probability: 0.9360
+--------------------------------------------------
+Path: data\many\real\0wHfDUOATc4_000034_000044.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0537
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\0Wo98IdOc08_000037_000047.mp4
+Prediction: real
+Confidence: 0.9395
+AI-Generated Probability: 0.0604
+Real Probability: 0.9395
+--------------------------------------------------
+Path: data\many\real\0wR6cO3yRPs_000217_000227.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0535
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\0WzFqH4CPzI_000001_000011.mp4
+Prediction: real
+Confidence: 0.9424
+AI-Generated Probability: 0.0577
+Real Probability: 0.9424
+--------------------------------------------------
+Path: data\many\real\0x3Ye9DeGYc_000065_000075.mp4
+Prediction: real
+Confidence: 0.9341
+AI-Generated Probability: 0.0659
+Real Probability: 0.9341
+--------------------------------------------------
+Path: data\many\real\0XBTTkt34iU_000071_000081.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0536
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\0xe0Jp5GiAk_000009_000019.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0544
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\0XixUktJ0UY_000000_000010.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0543
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\0xZreisqYSo_000005_000015.mp4
+Prediction: real
+Confidence: 0.9434
+AI-Generated Probability: 0.0565
+Real Probability: 0.9434
+--------------------------------------------------
+Path: data\many\real\0Y8qF7YPnNU_000038_000048.mp4
+Prediction: real
+Confidence: 0.9473
+AI-Generated Probability: 0.0526
+Real Probability: 0.9473
+--------------------------------------------------
+Path: data\many\real\0y93FzaC3l4_000197_000207.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0538
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\0zBwfkC6fNQ_000041_000051.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0522
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\0zF-6j-OHoc_000037_000047.mp4
+Prediction: real
+Confidence: 0.9443
+AI-Generated Probability: 0.0558
+Real Probability: 0.9443
+--------------------------------------------------
+Path: data\many\real\0ZGhc42rU7k_000037_000047.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0548
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\0zqmuRpChLw_000001_000011.mp4
+Prediction: real
+Confidence: 0.9473
+AI-Generated Probability: 0.0525
+Real Probability: 0.9473
+--------------------------------------------------
+Path: data\many\real\0Zyak3mqRuc_000048_000058.mp4
+Prediction: real
+Confidence: 0.9307
+AI-Generated Probability: 0.0695
+Real Probability: 0.9307
+--------------------------------------------------
+Path: data\many\real\0_eMRgpwd6c_000162_000172.mp4
+Prediction: real
+Confidence: 0.9434
+AI-Generated Probability: 0.0565
+Real Probability: 0.9434
+--------------------------------------------------
+Path: data\many\real\0_kTqI6MSLo_000000_000010.mp4
+Prediction: real
+Confidence: 0.9429
+AI-Generated Probability: 0.0571
+Real Probability: 0.9429
+--------------------------------------------------
+Path: data\many\real\1-Wz8oFfKEE_000149_000159.mp4
+Prediction: real
+Confidence: 0.9419
+AI-Generated Probability: 0.0579
+Real Probability: 0.9419
+--------------------------------------------------
+Path: data\many\real\10UXZ6Dxoi8_000217_000227.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0540
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\10YOXkW1S4M_000003_000013.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0544
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\11yaEDr9rLw_000132_000142.mp4
+Prediction: real
+Confidence: 0.9331
+AI-Generated Probability: 0.0671
+Real Probability: 0.9331
+--------------------------------------------------
+Path: data\many\real\12RruUYAYmU_000002_000012.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0546
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\12sz7NMvyfI_000000_000010.mp4
+Prediction: real
+Confidence: 0.9438
+AI-Generated Probability: 0.0563
+Real Probability: 0.9438
+--------------------------------------------------
+Path: data\many\real\12TmAxGMAHc_000031_000041.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0542
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\13TM50BdAFQ_000001_000011.mp4
+Prediction: real
+Confidence: 0.9297
+AI-Generated Probability: 0.0704
+Real Probability: 0.9297
+--------------------------------------------------
+Path: data\many\real\143fisREp3k_000079_000089.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0541
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\14DNP7HlPSM_000240_000250.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0520
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\14PatN6qnsQ_000051_000061.mp4
+Prediction: real
+Confidence: 0.9414
+AI-Generated Probability: 0.0588
+Real Probability: 0.9414
+--------------------------------------------------
+Path: data\many\real\15gE9E_SC8s_000003_000013.mp4
+Prediction: real
+Confidence: 0.9360
+AI-Generated Probability: 0.0642
+Real Probability: 0.9360
+--------------------------------------------------
+Path: data\many\real\17vXT6tMNOU_000008_000018.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0524
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\181dlOYLsl4_000038_000048.mp4
+Prediction: real
+Confidence: 0.9404
+AI-Generated Probability: 0.0597
+Real Probability: 0.9404
+--------------------------------------------------
+Path: data\many\real\19DdD2JaU-Q_000013_000023.mp4
+Prediction: real
+Confidence: 0.9473
+AI-Generated Probability: 0.0526
+Real Probability: 0.9473
+--------------------------------------------------
+Path: data\many\real\19TE_hjj92Q_000000_000010.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0542
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\19VZ4JAAUBg_000121_000131.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0541
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\1a-1JWfZODM_000585_000595.mp4
+Prediction: real
+Confidence: 0.9434
+AI-Generated Probability: 0.0569
+Real Probability: 0.9434
+--------------------------------------------------
+Path: data\many\real\1aA7lPPfCrw_000008_000018.mp4
+Prediction: real
+Confidence: 0.9468
+AI-Generated Probability: 0.0530
+Real Probability: 0.9468
+--------------------------------------------------
+Path: data\many\real\1AHHCqMbb50_000148_000158.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0540
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\1al4jWs8hX4_000222_000232.mp4
+Prediction: real
+Confidence: 0.9360
+AI-Generated Probability: 0.0640
+Real Probability: 0.9360
+--------------------------------------------------
+Path: data\many\real\1be1Nb8riDw_000004_000014.mp4
+Prediction: real
+Confidence: 0.9346
+AI-Generated Probability: 0.0656
+Real Probability: 0.9346
+--------------------------------------------------
+Path: data\many\real\1bI-CTRl9Zk_000007_000017.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0554
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\1bI8pGLBagY_000227_000237.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0548
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\1bPkD-SqSjQ_000033_000043.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0522
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\1Bql-Tr08ts_000004_000014.mp4
+Prediction: real
+Confidence: 0.9160
+AI-Generated Probability: 0.0842
+Real Probability: 0.9160
+--------------------------------------------------
+Path: data\many\real\1bTVNdbOhEw_000034_000044.mp4
+Prediction: real
+Confidence: 0.9375
+AI-Generated Probability: 0.0626
+Real Probability: 0.9375
+--------------------------------------------------
+Path: data\many\real\1bvce8I9IaI_000060_000070.mp4
+Prediction: real
+Confidence: 0.9429
+AI-Generated Probability: 0.0571
+Real Probability: 0.9429
+--------------------------------------------------
+Path: data\many\real\1C3HkgpKJp8_000127_000137.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0542
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\1C4SkwtFef0_000304_000314.mp4
+Prediction: real
+Confidence: 0.9380
+AI-Generated Probability: 0.0619
+Real Probability: 0.9380
+--------------------------------------------------
+Path: data\many\real\1C8QxwE5mao_000000_000010.mp4
+Prediction: real
+Confidence: 0.9409
+AI-Generated Probability: 0.0592
+Real Probability: 0.9409
+--------------------------------------------------
+Path: data\many\real\1cC1BMR0A78_000097_000107.mp4
+Prediction: real
+Confidence: 0.9487
+AI-Generated Probability: 0.0513
+Real Probability: 0.9487
+--------------------------------------------------
+Path: data\many\real\1CKYGiJJ1RA_000229_000239.mp4
+Prediction: real
+Confidence: 0.9468
+AI-Generated Probability: 0.0532
+Real Probability: 0.9468
+--------------------------------------------------
+Path: data\many\real\1CPHOTGMpBc_000044_000054.mp4
+Prediction: real
+Confidence: 0.9468
+AI-Generated Probability: 0.0530
+Real Probability: 0.9468
+--------------------------------------------------
+Path: data\many\real\1CSOIiEJwx0_000008_000018.mp4
+Prediction: real
+Confidence: 0.9438
+AI-Generated Probability: 0.0560
+Real Probability: 0.9438
+--------------------------------------------------
+Path: data\many\real\1da2O_7L0rM_000021_000031.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0554
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\1DANNB6_6RI_000135_000145.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0541
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\1dH7ehh-BwU_000040_000050.mp4
+Prediction: real
+Confidence: 0.8921
+AI-Generated Probability: 0.1078
+Real Probability: 0.8921
+--------------------------------------------------
+Path: data\many\real\1Dtq86tW7b4_000227_000237.mp4
+Prediction: real
+Confidence: 0.9487
+AI-Generated Probability: 0.0511
+Real Probability: 0.9487
+--------------------------------------------------
+Path: data\many\real\1DzWcOlSb4o_000004_000014.mp4
+Prediction: real
+Confidence: 0.9419
+AI-Generated Probability: 0.0581
+Real Probability: 0.9419
+--------------------------------------------------
+Path: data\many\real\1eFZzPSzWY4_000033_000043.mp4
+Prediction: real
+Confidence: 0.9443
+AI-Generated Probability: 0.0558
+Real Probability: 0.9443
+--------------------------------------------------
+Path: data\many\real\1ehDWXzIGFU_000045_000055.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0524
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\1eJ2h-dVPmA_000004_000014.mp4
+Prediction: real
+Confidence: 0.9443
+AI-Generated Probability: 0.0558
+Real Probability: 0.9443
+--------------------------------------------------
+Path: data\many\real\1eMXETpS9yo_000004_000014.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0524
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\1eXa1EnU-AY_000097_000107.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0554
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\1FHhQ_fB8ok_000139_000149.mp4
+Prediction: real
+Confidence: 0.9434
+AI-Generated Probability: 0.0565
+Real Probability: 0.9434
+--------------------------------------------------
+Path: data\many\real\1fLI-0NsMgg_000182_000192.mp4
+Prediction: real
+Confidence: 0.9434
+AI-Generated Probability: 0.0566
+Real Probability: 0.9434
+--------------------------------------------------
+Path: data\many\real\1FpAg9qA5AY_000011_000021.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0549
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\1fvYvV6qFMo_000016_000026.mp4
+Prediction: real
+Confidence: 0.9419
+AI-Generated Probability: 0.0579
+Real Probability: 0.9419
+--------------------------------------------------
+Path: data\many\real\1Gm6Ez2rBDI_000004_000014.mp4
+Prediction: real
+Confidence: 0.9438
+AI-Generated Probability: 0.0560
+Real Probability: 0.9438
+--------------------------------------------------
+Path: data\many\real\1Gv4p9t4eUI_000211_000221.mp4
+Prediction: real
+Confidence: 0.9292
+AI-Generated Probability: 0.0706
+Real Probability: 0.9292
+--------------------------------------------------
+Path: data\many\real\1gw9SOsuxNM_000083_000093.mp4
+Prediction: real
+Confidence: 0.9429
+AI-Generated Probability: 0.0571
+Real Probability: 0.9429
+--------------------------------------------------
+Path: data\many\real\1HAz1Le9cX8_000025_000035.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0553
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\1hFbhQWMb5E_000080_000090.mp4
+Prediction: real
+Confidence: 0.9438
+AI-Generated Probability: 0.0560
+Real Probability: 0.9438
+--------------------------------------------------
+Path: data\many\real\1hN_tv36Zsc_000094_000104.mp4
+Prediction: real
+Confidence: 0.9468
+AI-Generated Probability: 0.0534
+Real Probability: 0.9468
+--------------------------------------------------
+Path: data\many\real\1hQi5hnjmQk_000052_000062.mp4
+Prediction: real
+Confidence: 0.9399
+AI-Generated Probability: 0.0599
+Real Probability: 0.9399
+--------------------------------------------------
+Path: data\many\real\1hRO69CmjyA_000029_000039.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0538
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\1iaMa-ZMyJU_000000_000010.mp4
+Prediction: real
+Confidence: 0.9443
+AI-Generated Probability: 0.0557
+Real Probability: 0.9443
+--------------------------------------------------
+Path: data\many\real\1ibqSd-0zMY_000014_000024.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0524
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\1IOA3vBE8tc_000004_000014.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0550
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\1IOecKg59pQ_000001_000011.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0520
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\1IsnjOggg7M_000187_000197.mp4
+Prediction: real
+Confidence: 0.9282
+AI-Generated Probability: 0.0716
+Real Probability: 0.9282
+--------------------------------------------------
+Path: data\many\real\1ISyWYj3MFg_000010_000020.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0524
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\1iTBe41B6S8_000111_000121.mp4
+Prediction: real
+Confidence: 0.9429
+AI-Generated Probability: 0.0573
+Real Probability: 0.9429
+--------------------------------------------------
+Path: data\many\real\1iwnC17MbD4_000472_000482.mp4
+Prediction: real
+Confidence: 0.9331
+AI-Generated Probability: 0.0667
+Real Probability: 0.9331
+--------------------------------------------------
+Path: data\many\real\1IyL90mcMqo_000017_000027.mp4
+Prediction: real
+Confidence: 0.9434
+AI-Generated Probability: 0.0566
+Real Probability: 0.9434
+--------------------------------------------------
+Path: data\many\real\1jC5IUQW4cE_000992_001002.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0549
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\1jMO4OgHB7w_000314_000324.mp4
+Prediction: real
+Confidence: 0.9380
+AI-Generated Probability: 0.0619
+Real Probability: 0.9380
+--------------------------------------------------
+Path: data\many\real\1JWY9fVlSRg_000004_000014.mp4
+Prediction: real
+Confidence: 0.9077
+AI-Generated Probability: 0.0922
+Real Probability: 0.9077
+--------------------------------------------------
+Path: data\many\real\1ksnUQsmNS0_000006_000016.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0536
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\1L7446WAsBU_000027_000037.mp4
+Prediction: real
+Confidence: 0.9414
+AI-Generated Probability: 0.0588
+Real Probability: 0.9414
+--------------------------------------------------
+Path: data\many\real\1laE8asWvhw_000210_000220.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0544
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\1lazWx5N_sc_000007_000017.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0554
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\1Le62NMxC2U_000030_000040.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0545
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\1LEi3W2VWFs_000008_000018.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0522
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\1lkVUYC8dWU_000052_000062.mp4
+Prediction: real
+Confidence: 0.9434
+AI-Generated Probability: 0.0569
+Real Probability: 0.9434
+--------------------------------------------------
+Path: data\many\real\1LPRAIcnboE_000195_000205.mp4
+Prediction: real
+Confidence: 0.9424
+AI-Generated Probability: 0.0575
+Real Probability: 0.9424
+--------------------------------------------------
+Path: data\many\real\1LYbyjgFvOY_000000_000010.mp4
+Prediction: real
+Confidence: 0.9468
+AI-Generated Probability: 0.0530
+Real Probability: 0.9468
+--------------------------------------------------
+Path: data\many\real\1l_djoystQs_000063_000073.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0542
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\1m-tbzOtgJY_000181_000191.mp4
+Prediction: real
+Confidence: 0.9434
+AI-Generated Probability: 0.0566
+Real Probability: 0.9434
+--------------------------------------------------
+Path: data\many\real\1m0huRosO4A_000047_000057.mp4
+Prediction: real
+Confidence: 0.9399
+AI-Generated Probability: 0.0599
+Real Probability: 0.9399
+--------------------------------------------------
+Path: data\many\real\1m5La62jLkg_000003_000013.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0536
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\1mBoLLyL9A0_000216_000226.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0542
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\1MEKQFgWvts_000076_000086.mp4
+Prediction: real
+Confidence: 0.9429
+AI-Generated Probability: 0.0571
+Real Probability: 0.9429
+--------------------------------------------------
+Path: data\many\real\1mFaU7lQMP0_000000_000010.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0543
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\1mZ4pj8NQAA_000082_000092.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0547
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\1NAqrWjtSsU_000012_000022.mp4
+Prediction: real
+Confidence: 0.9443
+AI-Generated Probability: 0.0557
+Real Probability: 0.9443
+--------------------------------------------------
+Path: data\many\real\1Nbu9k7OKWQ_000000_000010.mp4
+Prediction: real
+Confidence: 0.9287
+AI-Generated Probability: 0.0715
+Real Probability: 0.9287
+--------------------------------------------------
+Path: data\many\real\1ncgjy8JWxI_000033_000043.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0544
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\1nfUsuIhRXU_000165_000175.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0542
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\1NIDUPARiFk_000002_000012.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0536
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\1NkiX_rp2J4_000034_000044.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0524
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\1NobReQ1SZY_000001_000011.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0538
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\1nTVDSyIKoc_000004_000014.mp4
+Prediction: real
+Confidence: 0.9473
+AI-Generated Probability: 0.0525
+Real Probability: 0.9473
+--------------------------------------------------
+Path: data\many\real\1NVBOJ-G5ec_000148_000158.mp4
+Prediction: real
+Confidence: 0.9438
+AI-Generated Probability: 0.0560
+Real Probability: 0.9438
+--------------------------------------------------
+Path: data\many\real\1NVLzNcs1hI_000000_000010.mp4
+Prediction: real
+Confidence: 0.9443
+AI-Generated Probability: 0.0556
+Real Probability: 0.9443
+--------------------------------------------------
+Path: data\many\real\1ODUvjo62ZE_000000_000010.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0546
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\1ofTY__n_24_000045_000055.mp4
+Prediction: real
+Confidence: 0.9438
+AI-Generated Probability: 0.0563
+Real Probability: 0.9438
+--------------------------------------------------
+Path: data\many\real\1oSL7Od5Km0_000160_000170.mp4
+Prediction: real
+Confidence: 0.9307
+AI-Generated Probability: 0.0695
+Real Probability: 0.9307
+--------------------------------------------------
+Path: data\many\real\1OW_PUOKpiw_000003_000013.mp4
+Prediction: real
+Confidence: 0.9434
+AI-Generated Probability: 0.0569
+Real Probability: 0.9434
+--------------------------------------------------
+Path: data\many\real\1oZapTLnScY_000009_000019.mp4
+Prediction: real
+Confidence: 0.9380
+AI-Generated Probability: 0.0621
+Real Probability: 0.9380
+--------------------------------------------------
+Path: data\many\real\1oZOLQMIXlg_000002_000012.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0521
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\1O_YYrIe4wI_000032_000042.mp4
+Prediction: real
+Confidence: 0.9468
+AI-Generated Probability: 0.0534
+Real Probability: 0.9468
+--------------------------------------------------
+Path: data\many\real\1pc5hffnre0_000018_000028.mp4
+Prediction: real
+Confidence: 0.9473
+AI-Generated Probability: 0.0528
+Real Probability: 0.9473
+--------------------------------------------------
+Path: data\many\real\1pioUMbKZA4_000070_000080.mp4
+Prediction: real
+Confidence: 0.9434
+AI-Generated Probability: 0.0565
+Real Probability: 0.9434
+--------------------------------------------------
+Path: data\many\real\1pMWY61FQT8_000006_000016.mp4
+Prediction: real
+Confidence: 0.9429
+AI-Generated Probability: 0.0571
+Real Probability: 0.9429
+--------------------------------------------------
+Path: data\many\real\1ppLo4u_rWU_000029_000039.mp4
+Prediction: real
+Confidence: 0.9395
+AI-Generated Probability: 0.0606
+Real Probability: 0.9395
+--------------------------------------------------
+Path: data\many\real\1PUAgnrJR_4_000477_000487.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0522
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\1Pz8NMzRqqs_000041_000051.mp4
+Prediction: real
+Confidence: 0.9351
+AI-Generated Probability: 0.0649
+Real Probability: 0.9351
+--------------------------------------------------
+Path: data\many\real\1QIi3NjeENY_000269_000279.mp4
+Prediction: real
+Confidence: 0.9424
+AI-Generated Probability: 0.0577
+Real Probability: 0.9424
+--------------------------------------------------
+Path: data\many\real\1qJD5uPkvX8_000002_000012.mp4
+Prediction: real
+Confidence: 0.9390
+AI-Generated Probability: 0.0609
+Real Probability: 0.9390
+--------------------------------------------------
+Path: data\many\real\1QoXeQlAyLQ_000062_000072.mp4
+Prediction: real
+Confidence: 0.9487
+AI-Generated Probability: 0.0512
+Real Probability: 0.9487
+--------------------------------------------------
+Path: data\many\real\1Q_jpBG28vc_000005_000015.mp4
+Prediction: real
+Confidence: 0.9434
+AI-Generated Probability: 0.0565
+Real Probability: 0.9434
+--------------------------------------------------
+Path: data\many\real\1r-zf9IibBs_000005_000015.mp4
+Prediction: real
+Confidence: 0.9434
+AI-Generated Probability: 0.0565
+Real Probability: 0.9434
+--------------------------------------------------
+Path: data\many\real\1RbSLP2TKzg_000073_000083.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0546
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\1rGkFWHA5lc_000043_000053.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0522
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\1RNOlgZ8kNU_000063_000073.mp4
+Prediction: real
+Confidence: 0.9292
+AI-Generated Probability: 0.0708
+Real Probability: 0.9292
+--------------------------------------------------
+Path: data\many\real\1rptfQKlOTY_000002_000012.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0540
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\1RqNq2ntqms_000073_000083.mp4
+Prediction: real
+Confidence: 0.9438
+AI-Generated Probability: 0.0562
+Real Probability: 0.9438
+--------------------------------------------------
+Path: data\many\real\1RWLlXFPWk4_000095_000105.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0550
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\1SscAwdPasM_000292_000302.mp4
+Prediction: real
+Confidence: 0.9434
+AI-Generated Probability: 0.0565
+Real Probability: 0.9434
+--------------------------------------------------
+Path: data\many\real\1sUXjuZUOLM_000023_000033.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0542
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\1Sv231gCUfY_000012_000022.mp4
+Prediction: real
+Confidence: 0.9277
+AI-Generated Probability: 0.0725
+Real Probability: 0.9277
+--------------------------------------------------
+Path: data\many\real\1SwdgbSrYbA_000109_000119.mp4
+Prediction: real
+Confidence: 0.9399
+AI-Generated Probability: 0.0599
+Real Probability: 0.9399
+--------------------------------------------------
+Path: data\many\real\1S_Dw8RCMrQ_000164_000174.mp4
+Prediction: real
+Confidence: 0.9390
+AI-Generated Probability: 0.0610
+Real Probability: 0.9390
+--------------------------------------------------
+Path: data\many\real\1U1FoLA-JME_000020_000030.mp4
+Prediction: real
+Confidence: 0.9443
+AI-Generated Probability: 0.0558
+Real Probability: 0.9443
+--------------------------------------------------
+Path: data\many\real\1ugT8qDI0pw_000023_000033.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0542
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\1umpYVA7dUk_000002_000012.mp4
+Prediction: real
+Confidence: 0.9409
+AI-Generated Probability: 0.0591
+Real Probability: 0.9409
+--------------------------------------------------
+Path: data\many\real\1Uy2GV5hVY4_000004_000014.mp4
+Prediction: real
+Confidence: 0.9482
+AI-Generated Probability: 0.0518
+Real Probability: 0.9482
+--------------------------------------------------
+Path: data\many\real\1v1GglsCAqg_000290_000300.mp4
+Prediction: real
+Confidence: 0.9419
+AI-Generated Probability: 0.0582
+Real Probability: 0.9419
+--------------------------------------------------
+Path: data\many\real\1VBoQJFEmS8_000001_000011.mp4
+Prediction: real
+Confidence: 0.9395
+AI-Generated Probability: 0.0604
+Real Probability: 0.9395
+--------------------------------------------------
+Path: data\many\real\1veV95LuUI8_000000_000010.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0547
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\1vFocGNLcr4_000080_000090.mp4
+Prediction: real
+Confidence: 0.9409
+AI-Generated Probability: 0.0591
+Real Probability: 0.9409
+--------------------------------------------------
+Path: data\many\real\1Vl5p7nuRNM_000266_000276.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0546
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\1W2Cz2Jj76Q_000057_000067.mp4
+Prediction: real
+Confidence: 0.9351
+AI-Generated Probability: 0.0649
+Real Probability: 0.9351
+--------------------------------------------------
+Path: data\many\real\1Wa7xJishrQ_000004_000014.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0536
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\1wGbjfCeurw_000439_000449.mp4
+Prediction: real
+Confidence: 0.9424
+AI-Generated Probability: 0.0577
+Real Probability: 0.9424
+--------------------------------------------------
+Path: data\many\real\1wGIlgs3oYc_000002_000012.mp4
+Prediction: real
+Confidence: 0.9482
+AI-Generated Probability: 0.0518
+Real Probability: 0.9482
+--------------------------------------------------
+Path: data\many\real\1whWOSPz1TI_000573_000583.mp4
+Prediction: real
+Confidence: 0.9355
+AI-Generated Probability: 0.0646
+Real Probability: 0.9355
+--------------------------------------------------
+Path: data\many\real\1WMahWIntfI_000002_000012.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0540
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\1woIr-bMcV8_000070_000080.mp4
+Prediction: real
+Confidence: 0.9468
+AI-Generated Probability: 0.0534
+Real Probability: 0.9468
+--------------------------------------------------
+Path: data\many\real\1wQX9m-gEi4_000093_000103.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0550
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\1Wtoz-_nOBU_000022_000032.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0524
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\1x7iDOx8VjA_000003_000013.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0542
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\1xbAFUgd188_000002_000012.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0536
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\1XtdtLcNCt8_000180_000190.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0536
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\1Ynk1oFiqGs_000007_000017.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0547
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\1zAchZkk61c_000042_000052.mp4
+Prediction: real
+Confidence: 0.9351
+AI-Generated Probability: 0.0648
+Real Probability: 0.9351
+--------------------------------------------------
+Path: data\many\real\1zctllXrZW8_000011_000021.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0539
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\1zjHVf-iNBA_000178_000188.mp4
+Prediction: real
+Confidence: 0.9351
+AI-Generated Probability: 0.0648
+Real Probability: 0.9351
+--------------------------------------------------
+Path: data\many\real\1ZondDnB7eE_000014_000024.mp4
+Prediction: real
+Confidence: 0.9438
+AI-Generated Probability: 0.0559
+Real Probability: 0.9438
+--------------------------------------------------
+Path: data\many\real\1zqlvOhQoms_000006_000016.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0546
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\1zseqT7zl54_000025_000035.mp4
+Prediction: real
+Confidence: 0.9482
+AI-Generated Probability: 0.0515
+Real Probability: 0.9482
+--------------------------------------------------
+Path: data\many\real\1ZYlcwOcHdQ_000067_000077.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0547
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\1_mzyphs9ew_000007_000017.mp4
+Prediction: real
+Confidence: 0.9404
+AI-Generated Probability: 0.0594
+Real Probability: 0.9404
+--------------------------------------------------
+Path: data\many\real\1_noX9Q-PXY_000008_000018.mp4
+Prediction: real
+Confidence: 0.9443
+AI-Generated Probability: 0.0558
+Real Probability: 0.9443
+--------------------------------------------------
+Path: data\many\real\1_YukG-VShI_000042_000052.mp4
+Prediction: real
+Confidence: 0.9443
+AI-Generated Probability: 0.0555
+Real Probability: 0.9443
+--------------------------------------------------
+Path: data\many\real\2-frX5l1ToA_000212_000222.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0548
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\2-KM_3XGJLs_000106_000116.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0522
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\2-WQXj1sxZw_000000_000010.mp4
+Prediction: real
+Confidence: 0.9434
+AI-Generated Probability: 0.0569
+Real Probability: 0.9434
+--------------------------------------------------
+Path: data\many\real\20oNkpdCKhw_000050_000060.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0552
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\213tsB6r9hc_000014_000024.mp4
+Prediction: real
+Confidence: 0.9443
+AI-Generated Probability: 0.0557
+Real Probability: 0.9443
+--------------------------------------------------
+Path: data\many\real\22uDvoxoPvE_000048_000058.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0541
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\23-8ZlAN1lc_000136_000146.mp4
+Prediction: real
+Confidence: 0.9419
+AI-Generated Probability: 0.0579
+Real Probability: 0.9419
+--------------------------------------------------
+Path: data\many\real\23iEASIH0H8_000043_000053.mp4
+Prediction: real
+Confidence: 0.9438
+AI-Generated Probability: 0.0562
+Real Probability: 0.9438
+--------------------------------------------------
+Path: data\many\real\23V2VTBqsHg_000107_000117.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0550
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\24kMQaTaRP0_000070_000080.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0544
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\24pUFYUftD0_000059_000069.mp4
+Prediction: real
+Confidence: 0.9429
+AI-Generated Probability: 0.0570
+Real Probability: 0.9429
+--------------------------------------------------
+Path: data\many\real\25C19ax0scs_000198_000208.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0548
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\25H-iT18gqw_000216_000226.mp4
+Prediction: real
+Confidence: 0.9468
+AI-Generated Probability: 0.0531
+Real Probability: 0.9468
+--------------------------------------------------
+Path: data\many\real\27Gyi2p4lqI_000315_000325.mp4
+Prediction: real
+Confidence: 0.9473
+AI-Generated Probability: 0.0528
+Real Probability: 0.9473
+--------------------------------------------------
+Path: data\many\real\27pNuwMr918_000001_000011.mp4
+Prediction: real
+Confidence: 0.9473
+AI-Generated Probability: 0.0526
+Real Probability: 0.9473
+--------------------------------------------------
+Path: data\many\real\27Z1wi2hxrQ_000034_000044.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0538
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\284joz_tEk0_000007_000017.mp4
+Prediction: real
+Confidence: 0.9419
+AI-Generated Probability: 0.0581
+Real Probability: 0.9419
+--------------------------------------------------
+Path: data\many\real\28Vn1seslmg_000034_000044.mp4
+Prediction: real
+Confidence: 0.9468
+AI-Generated Probability: 0.0534
+Real Probability: 0.9468
+--------------------------------------------------
+Path: data\many\real\29EXiH_MZpY_000000_000010.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0546
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\29jI9tNv_Cs_000010_000020.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0522
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\29SVj-0xIlU_000041_000051.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0542
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\29Whkk7pFhg_000044_000054.mp4
+Prediction: real
+Confidence: 0.9414
+AI-Generated Probability: 0.0587
+Real Probability: 0.9414
+--------------------------------------------------
+Path: data\many\real\2a5uhNuRw08_000016_000026.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0544
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\2A70xH7wSdY_000007_000017.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0546
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\2ABtuh2XXD4_000031_000041.mp4
+Prediction: real
+Confidence: 0.9419
+AI-Generated Probability: 0.0579
+Real Probability: 0.9419
+--------------------------------------------------
+Path: data\many\real\2apeE2oJFGc_000001_000011.mp4
+Prediction: real
+Confidence: 0.9473
+AI-Generated Probability: 0.0528
+Real Probability: 0.9473
+--------------------------------------------------
+Path: data\many\real\2BCrD_jA_Gg_000002_000012.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0545
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\2Bg0Jbxz-ZI_000079_000089.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0539
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\2BMZLwgMQ3M_000013_000023.mp4
+Prediction: real
+Confidence: 0.9434
+AI-Generated Probability: 0.0566
+Real Probability: 0.9434
+--------------------------------------------------
+Path: data\many\real\2bz3WZ1cQA0_000046_000056.mp4
+Prediction: real
+Confidence: 0.9473
+AI-Generated Probability: 0.0529
+Real Probability: 0.9473
+--------------------------------------------------
+Path: data\many\real\2CIpMV7UvSI_000002_000012.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0554
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\2cmjJeoTYpQ_000006_000016.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0522
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\2CqZo_5mvC4_000028_000038.mp4
+Prediction: real
+Confidence: 0.9385
+AI-Generated Probability: 0.0616
+Real Probability: 0.9385
+--------------------------------------------------
+Path: data\many\real\2czSZr1DMRI_000016_000026.mp4
+Prediction: AI-Generated
+Confidence: 0.9980
+AI-Generated Probability: 0.9980
+Real Probability: 0.0022
+--------------------------------------------------
+Path: data\many\real\2DaVGCjFMSo_000000_000010.mp4
+Prediction: real
+Confidence: 0.9473
+AI-Generated Probability: 0.0525
+Real Probability: 0.9473
+--------------------------------------------------
+Path: data\many\real\2Dn_pVLc750_000026_000036.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0554
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\2DPR1XtONMU_000193_000203.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0522
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\2DrQQ9x6bTY_000038_000048.mp4
+Prediction: real
+Confidence: 0.9395
+AI-Generated Probability: 0.0608
+Real Probability: 0.9395
+--------------------------------------------------
+Path: data\many\real\2dx9pK9Fk4I_000142_000152.mp4
+Prediction: real
+Confidence: 0.9473
+AI-Generated Probability: 0.0529
+Real Probability: 0.9473
+--------------------------------------------------
+Path: data\many\real\2dYrcD0PGmc_000318_000328.mp4
+Prediction: real
+Confidence: 0.9414
+AI-Generated Probability: 0.0588
+Real Probability: 0.9414
+--------------------------------------------------
+Path: data\many\real\2elLtiD6lQQ_000232_000242.mp4
+Prediction: real
+Confidence: 0.9360
+AI-Generated Probability: 0.0640
+Real Probability: 0.9360
+--------------------------------------------------
+Path: data\many\real\2F0DvdY8sac_000014_000024.mp4
+Prediction: real
+Confidence: 0.9395
+AI-Generated Probability: 0.0608
+Real Probability: 0.9395
+--------------------------------------------------
+Path: data\many\real\2F96BO5AGL0_000008_000018.mp4
+Prediction: real
+Confidence: 0.9321
+AI-Generated Probability: 0.0678
+Real Probability: 0.9321
+--------------------------------------------------
+Path: data\many\real\2FeEwCSqPGM_000000_000010.mp4
+Prediction: real
+Confidence: 0.9404
+AI-Generated Probability: 0.0598
+Real Probability: 0.9404
+--------------------------------------------------
+Path: data\many\real\2fo4qYgrg-U_000000_000010.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0542
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\2fOkJ7dqP7g_000002_000012.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0538
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\2FqjtH5WS9Q_000016_000026.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0546
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\2FQnumC8Cnk_000002_000012.mp4
+Prediction: real
+Confidence: 0.9438
+AI-Generated Probability: 0.0560
+Real Probability: 0.9438
+--------------------------------------------------
+Path: data\many\real\2frIUG7q4Lc_000024_000034.mp4
+Prediction: real
+Confidence: 0.9468
+AI-Generated Probability: 0.0532
+Real Probability: 0.9468
+--------------------------------------------------
+Path: data\many\real\2GgbuIBce6U_000063_000073.mp4
+Prediction: real
+Confidence: 0.9468
+AI-Generated Probability: 0.0532
+Real Probability: 0.9468
+--------------------------------------------------
+Path: data\many\real\2GIyTRGHr7E_000017_000027.mp4
+Prediction: real
+Confidence: 0.9424
+AI-Generated Probability: 0.0575
+Real Probability: 0.9424
+--------------------------------------------------
+Path: data\many\real\2gMMvqVr7_k_000100_000110.mp4
+Prediction: real
+Confidence: 0.9438
+AI-Generated Probability: 0.0562
+Real Probability: 0.9438
+--------------------------------------------------
+Path: data\many\real\2Gmqx0Pq9dE_000034_000044.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0540
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\2GnDzTEA4YY_000001_000011.mp4
+Prediction: real
+Confidence: 0.9443
+AI-Generated Probability: 0.0556
+Real Probability: 0.9443
+--------------------------------------------------
+Path: data\many\real\2GWyKnOEo7w_000066_000076.mp4
+Prediction: real
+Confidence: 0.9380
+AI-Generated Probability: 0.0621
+Real Probability: 0.9380
+--------------------------------------------------
+Path: data\many\real\2gywhZmpRSE_000000_000010.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0553
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\2H2zPeq0C-w_000003_000013.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0536
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\2Hjoma2FjtA_000004_000014.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0538
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\2HQfpQMQpgM_000013_000023.mp4
+Prediction: real
+Confidence: 0.9443
+AI-Generated Probability: 0.0557
+Real Probability: 0.9443
+--------------------------------------------------
+Path: data\many\real\2IubrHALncE_000158_000168.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0554
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\2Iynirxvpjg_000045_000055.mp4
+Prediction: real
+Confidence: 0.9277
+AI-Generated Probability: 0.0725
+Real Probability: 0.9277
+--------------------------------------------------
+Path: data\many\real\2IZdQ5Yss5w_000002_000012.mp4
+Prediction: real
+Confidence: 0.9468
+AI-Generated Probability: 0.0533
+Real Probability: 0.9468
+--------------------------------------------------
+Path: data\many\real\2jJx1U7tpIU_000001_000011.mp4
+Prediction: real
+Confidence: 0.9434
+AI-Generated Probability: 0.0569
+Real Probability: 0.9434
+--------------------------------------------------
+Path: data\many\real\2JKgIbicp34_000003_000013.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0552
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\2jv6QODCuiw_000235_000245.mp4
+Prediction: real
+Confidence: 0.9473
+AI-Generated Probability: 0.0529
+Real Probability: 0.9473
+--------------------------------------------------
+Path: data\many\real\2K8CN3ZQbTM_000014_000024.mp4
+Prediction: real
+Confidence: 0.9434
+AI-Generated Probability: 0.0566
+Real Probability: 0.9434
+--------------------------------------------------
+Path: data\many\real\2KbpdC_7DsM_000234_000244.mp4
+Prediction: real
+Confidence: 0.9414
+AI-Generated Probability: 0.0586
+Real Probability: 0.9414
+--------------------------------------------------
+Path: data\many\real\2kkFcDVoENA_000022_000032.mp4
+Prediction: real
+Confidence: 0.9414
+AI-Generated Probability: 0.0588
+Real Probability: 0.9414
+--------------------------------------------------
+Path: data\many\real\2KMV20xxE_o_000005_000015.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0545
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\2KSbcxLDBLY_000008_000018.mp4
+Prediction: real
+Confidence: 0.9482
+AI-Generated Probability: 0.0518
+Real Probability: 0.9482
+--------------------------------------------------
+Path: data\many\real\2KVH9jCJrEA_000056_000066.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0548
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\2L7fhXFApbc_000169_000179.mp4
+Prediction: real
+Confidence: 0.9395
+AI-Generated Probability: 0.0605
+Real Probability: 0.9395
+--------------------------------------------------
+Path: data\many\real\2LilHQSu43c_000787_000797.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0547
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\2lkb-9kmX8I_000119_000129.mp4
+Prediction: real
+Confidence: 0.9209
+AI-Generated Probability: 0.0790
+Real Probability: 0.9209
+--------------------------------------------------
+Path: data\many\real\2LVd6I6Zqig_000004_000014.mp4
+Prediction: real
+Confidence: 0.9473
+AI-Generated Probability: 0.0529
+Real Probability: 0.9473
+--------------------------------------------------
+Path: data\many\real\2LVihFiUHv8_000098_000108.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0542
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\2LvvWRJ-jGk_000025_000035.mp4
+Prediction: real
+Confidence: 0.9482
+AI-Generated Probability: 0.0518
+Real Probability: 0.9482
+--------------------------------------------------
+Path: data\many\real\2mBA49IuzZs_002852_002862.mp4
+Prediction: real
+Confidence: 0.9414
+AI-Generated Probability: 0.0586
+Real Probability: 0.9414
+--------------------------------------------------
+Path: data\many\real\2mbrIcrukWQ_000004_000014.mp4
+Prediction: real
+Confidence: 0.9443
+AI-Generated Probability: 0.0556
+Real Probability: 0.9443
+--------------------------------------------------
+Path: data\many\real\2MHiTQ5nS3s_000027_000037.mp4
+Prediction: real
+Confidence: 0.9287
+AI-Generated Probability: 0.0715
+Real Probability: 0.9287
+--------------------------------------------------
+Path: data\many\real\2mM-5cB3kfQ_000331_000341.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0548
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\2MYMnNfAcco_000032_000042.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0542
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\2ngmait2oWc_000041_000051.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0550
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\2niNGGRmwuM_000040_000050.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0543
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\2NOQh8fV35c_000086_000096.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0540
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\2o2_eQMUUUg_000177_000187.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0524
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\2OBq11HYl6k_000007_000017.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0541
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\2OdvuTSDCWs_000749_000759.mp4
+Prediction: real
+Confidence: 0.9473
+AI-Generated Probability: 0.0526
+Real Probability: 0.9473
+--------------------------------------------------
+Path: data\many\real\2oxMGUd5gZQ_000392_000402.mp4
+Prediction: real
+Confidence: 0.9468
+AI-Generated Probability: 0.0530
+Real Probability: 0.9468
+--------------------------------------------------
+Path: data\many\real\2p0IFMC6Y8Q_000033_000043.mp4
+Prediction: real
+Confidence: 0.9424
+AI-Generated Probability: 0.0576
+Real Probability: 0.9424
+--------------------------------------------------
+Path: data\many\real\2P2z9dhQTFw_000011_000021.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0539
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\2pFUa7nAJ9A_000003_000013.mp4
+Prediction: real
+Confidence: 0.9409
+AI-Generated Probability: 0.0592
+Real Probability: 0.9409
+--------------------------------------------------
+Path: data\many\real\2pg0JFkEZQg_000061_000071.mp4
+Prediction: real
+Confidence: 0.9414
+AI-Generated Probability: 0.0586
+Real Probability: 0.9414
+--------------------------------------------------
+Path: data\many\real\2pgOmM9rdBo_000012_000022.mp4
+Prediction: real
+Confidence: 0.9468
+AI-Generated Probability: 0.0530
+Real Probability: 0.9468
+--------------------------------------------------
+Path: data\many\real\2phBDRv6Z1g_000679_000689.mp4
+Prediction: real
+Confidence: 0.9473
+AI-Generated Probability: 0.0526
+Real Probability: 0.9473
+--------------------------------------------------
+Path: data\many\real\2pLvlV0iWlY_000000_000010.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0550
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\2PNgEilg6Xk_000367_000377.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0549
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\2pYqtH3xQGM_000004_000014.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0546
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\2qh2nVrRzbw_000002_000012.mp4
+Prediction: real
+Confidence: 0.9468
+AI-Generated Probability: 0.0533
+Real Probability: 0.9468
+--------------------------------------------------
+Path: data\many\real\2qjcH-bhDrk_000010_000020.mp4
+Prediction: real
+Confidence: 0.8901
+AI-Generated Probability: 0.1101
+Real Probability: 0.8901
+--------------------------------------------------
+Path: data\many\real\2qoUPjgc_n0_000036_000046.mp4
+Prediction: real
+Confidence: 0.9468
+AI-Generated Probability: 0.0531
+Real Probability: 0.9468
+--------------------------------------------------
+Path: data\many\real\2RIBdKujTiY_000003_000013.mp4
+Prediction: real
+Confidence: 0.9482
+AI-Generated Probability: 0.0517
+Real Probability: 0.9482
+--------------------------------------------------
+Path: data\many\real\2Rjirc0aOWU_000080_000090.mp4
+Prediction: real
+Confidence: 0.9434
+AI-Generated Probability: 0.0569
+Real Probability: 0.9434
+--------------------------------------------------
+Path: data\many\real\2rmM_9pMF5o_000199_000209.mp4
+Prediction: real
+Confidence: 0.9438
+AI-Generated Probability: 0.0562
+Real Probability: 0.9438
+--------------------------------------------------
+Path: data\many\real\2SCPGvv6r4I_000045_000055.mp4
+Prediction: real
+Confidence: 0.9429
+AI-Generated Probability: 0.0573
+Real Probability: 0.9429
+--------------------------------------------------
+Path: data\many\real\2Sf6pMkfk-I_000016_000026.mp4
+Prediction: real
+Confidence: 0.9404
+AI-Generated Probability: 0.0595
+Real Probability: 0.9404
+--------------------------------------------------
+Path: data\many\real\2sfsGM-UUk8_000006_000016.mp4
+Prediction: real
+Confidence: 0.9429
+AI-Generated Probability: 0.0571
+Real Probability: 0.9429
+--------------------------------------------------
+Path: data\many\real\2SrUusfAWBw_000164_000174.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0551
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\2sSP6xdRn4A_000084_000094.mp4
+Prediction: real
+Confidence: 0.9399
+AI-Generated Probability: 0.0600
+Real Probability: 0.9399
+--------------------------------------------------
+Path: data\many\real\2sYf6mR3pTI_000000_000010.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0539
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\2sywFP6JCzM_000051_000061.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0552
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\2T-SUPBR_xM_000023_000033.mp4
+Prediction: real
+Confidence: 0.9482
+AI-Generated Probability: 0.0515
+Real Probability: 0.9482
+--------------------------------------------------
+Path: data\many\real\2tD8l9ifiNo_000008_000018.mp4
+Prediction: real
+Confidence: 0.9438
+AI-Generated Probability: 0.0562
+Real Probability: 0.9438
+--------------------------------------------------
+Path: data\many\real\2tEJCSL9mrQ_000013_000023.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0540
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\2tTPh8r3xiM_000001_000011.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0520
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\2TzGCnlXqTc_000056_000066.mp4
+Prediction: real
+Confidence: 0.9429
+AI-Generated Probability: 0.0572
+Real Probability: 0.9429
+--------------------------------------------------
+Path: data\many\real\2u0kaJfVs0I_000349_000359.mp4
+Prediction: real
+Confidence: 0.9429
+AI-Generated Probability: 0.0571
+Real Probability: 0.9429
+--------------------------------------------------
+Path: data\many\real\2VoafVwWsWw_000138_000148.mp4
+Prediction: real
+Confidence: 0.9482
+AI-Generated Probability: 0.0519
+Real Probability: 0.9482
+--------------------------------------------------
+Path: data\many\real\2VSB69NY_wM_000665_000675.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0524
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\2VvBXmYVGjg_000024_000034.mp4
+Prediction: real
+Confidence: 0.9409
+AI-Generated Probability: 0.0593
+Real Probability: 0.9409
+--------------------------------------------------
+Path: data\many\real\2W0luVW5qek_000009_000019.mp4
+Prediction: real
+Confidence: 0.9429
+AI-Generated Probability: 0.0572
+Real Probability: 0.9429
+--------------------------------------------------
+Path: data\many\real\2wIVFwWW0VY_000206_000216.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0536
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\2Wjn-1N2kT0_000095_000105.mp4
+Prediction: real
+Confidence: 0.9272
+AI-Generated Probability: 0.0728
+Real Probability: 0.9272
+--------------------------------------------------
+Path: data\many\real\2WLWD2ML26M_000004_000014.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0552
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\2X6VpK0_Xtg_000007_000017.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0553
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\2XGPXxBpDbw_000002_000012.mp4
+Prediction: real
+Confidence: 0.9326
+AI-Generated Probability: 0.0672
+Real Probability: 0.9326
+--------------------------------------------------
+Path: data\many\real\2xmiqVfV3Dk_000032_000042.mp4
+Prediction: real
+Confidence: 0.9482
+AI-Generated Probability: 0.0518
+Real Probability: 0.9482
+--------------------------------------------------
+Path: data\many\real\2xTzdb3xHSc_000161_000171.mp4
+Prediction: real
+Confidence: 0.9438
+AI-Generated Probability: 0.0562
+Real Probability: 0.9438
+--------------------------------------------------
+Path: data\many\real\2XYN4AQhxAs_000058_000068.mp4
+Prediction: real
+Confidence: 0.9243
+AI-Generated Probability: 0.0757
+Real Probability: 0.9243
+--------------------------------------------------
+Path: data\many\real\2XYpAceipk8_000134_000144.mp4
+Prediction: real
+Confidence: 0.9468
+AI-Generated Probability: 0.0532
+Real Probability: 0.9468
+--------------------------------------------------
+Path: data\many\real\2y4Qm4s1330_000314_000324.mp4
+Prediction: real
+Confidence: 0.9438
+AI-Generated Probability: 0.0561
+Real Probability: 0.9438
+--------------------------------------------------
+Path: data\many\real\2y6qIBb-Qi4_000006_000016.mp4
+Prediction: real
+Confidence: 0.9438
+AI-Generated Probability: 0.0560
+Real Probability: 0.9438
+--------------------------------------------------
+Path: data\many\real\2y6wWTIFK-s_000036_000046.mp4
+Prediction: real
+Confidence: 0.9419
+AI-Generated Probability: 0.0583
+Real Probability: 0.9419
+--------------------------------------------------
+Path: data\many\real\2Y9BnZW8ITo_000248_000258.mp4
+Prediction: real
+Confidence: 0.9365
+AI-Generated Probability: 0.0634
+Real Probability: 0.9365
+--------------------------------------------------
+Path: data\many\real\2yBWbHuFPXY_000168_000178.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0540
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\2YH-0M8Vz6Y_000202_000212.mp4
+Prediction: real
+Confidence: 0.9473
+AI-Generated Probability: 0.0526
+Real Probability: 0.9473
+--------------------------------------------------
+Path: data\many\real\2zHlMtfTGgw_000001_000011.mp4
+Prediction: real
+Confidence: 0.5024
+AI-Generated Probability: 0.4978
+Real Probability: 0.5024
+--------------------------------------------------
+Path: data\many\real\2zkSuZvck1c_000059_000069.mp4
+Prediction: real
+Confidence: 0.9443
+AI-Generated Probability: 0.0558
+Real Probability: 0.9443
+--------------------------------------------------
+Path: data\many\real\2Znoa9d_mE8_000052_000062.mp4
+Prediction: real
+Confidence: 0.9297
+AI-Generated Probability: 0.0702
+Real Probability: 0.9297
+--------------------------------------------------
+Path: data\many\real\2zTMxyz7j4E_000012_000022.mp4
+Prediction: real
+Confidence: 0.9424
+AI-Generated Probability: 0.0575
+Real Probability: 0.9424
+--------------------------------------------------
+Path: data\many\real\30T_ujbBkuw_000204_000214.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0547
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\30zNPSNHFTM_000051_000061.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0538
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\317c7BcmwWY_000011_000021.mp4
+Prediction: real
+Confidence: 0.9473
+AI-Generated Probability: 0.0528
+Real Probability: 0.9473
+--------------------------------------------------
+Path: data\many\real\31gVOpImdAc_000005_000015.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0542
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\31jxqZkGWEM_000001_000011.mp4
+Prediction: real
+Confidence: 0.9443
+AI-Generated Probability: 0.0556
+Real Probability: 0.9443
+--------------------------------------------------
+Path: data\many\real\33eydjChAqs_000037_000047.mp4
+Prediction: real
+Confidence: 0.9482
+AI-Generated Probability: 0.0519
+Real Probability: 0.9482
+--------------------------------------------------
+Path: data\many\real\33iR98tW5mI_000106_000116.mp4
+Prediction: real
+Confidence: 0.9434
+AI-Generated Probability: 0.0565
+Real Probability: 0.9434
+--------------------------------------------------
+Path: data\many\real\34XczvTaRiI_000454_000464.mp4
+Prediction: real
+Confidence: 0.9429
+AI-Generated Probability: 0.0571
+Real Probability: 0.9429
+--------------------------------------------------
+Path: data\many\real\35BtjozqwpA_000051_000061.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0548
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\36fAzAQmSGs_000702_000712.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0546
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\381aYexNTuc_000041_000051.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0554
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\384YTrBM-js_000070_000080.mp4
+Prediction: real
+Confidence: 0.9482
+AI-Generated Probability: 0.0517
+Real Probability: 0.9482
+--------------------------------------------------
+Path: data\many\real\38Hy-bt5uI0_000038_000048.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0524
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\399e0Yjy5RM_000418_000428.mp4
+Prediction: real
+Confidence: 0.9468
+AI-Generated Probability: 0.0531
+Real Probability: 0.9468
+--------------------------------------------------
+Path: data\many\real\39jEjPxheXU_000027_000037.mp4
+Prediction: real
+Confidence: 0.9438
+AI-Generated Probability: 0.0559
+Real Probability: 0.9438
+--------------------------------------------------
+Path: data\many\real\39VuPx7kf2s_000014_000024.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0544
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\39yUbjNDU_Y_000032_000042.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0535
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\3b5H6Wjo_vk_000098_000108.mp4
+Prediction: real
+Confidence: 0.9355
+AI-Generated Probability: 0.0644
+Real Probability: 0.9355
+--------------------------------------------------
+Path: data\many\real\3b7d0M0y9mY_000002_000012.mp4
+Prediction: real
+Confidence: 0.9473
+AI-Generated Probability: 0.0526
+Real Probability: 0.9473
+--------------------------------------------------
+Path: data\many\real\3B7jyN8N12k_000002_000012.mp4
+Prediction: real
+Confidence: 0.9355
+AI-Generated Probability: 0.0644
+Real Probability: 0.9355
+--------------------------------------------------
+Path: data\many\real\3BpwUe_6AEQ_000061_000071.mp4
+Prediction: real
+Confidence: 0.9468
+AI-Generated Probability: 0.0530
+Real Probability: 0.9468
+--------------------------------------------------
+Path: data\many\real\3bVFvtQ1nlc_000027_000037.mp4
+Prediction: real
+Confidence: 0.9365
+AI-Generated Probability: 0.0635
+Real Probability: 0.9365
+--------------------------------------------------
+Path: data\many\real\3BxOlvZbqx0_000209_000219.mp4
+Prediction: real
+Confidence: 0.9434
+AI-Generated Probability: 0.0569
+Real Probability: 0.9434
+--------------------------------------------------
+Path: data\many\real\3cKiBxc2T_0_000114_000124.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0542
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\3CkrqMd0wz0_000058_000068.mp4
+Prediction: real
+Confidence: 0.9048
+AI-Generated Probability: 0.0953
+Real Probability: 0.9048
+--------------------------------------------------
+Path: data\many\real\3cqZA9EhiFw_000046_000056.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0542
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\3Crlrf8UAqY_000002_000012.mp4
+Prediction: real
+Confidence: 0.9360
+AI-Generated Probability: 0.0641
+Real Probability: 0.9360
+--------------------------------------------------
+Path: data\many\real\3cwciulf7us_000135_000145.mp4
+Prediction: real
+Confidence: 0.9468
+AI-Generated Probability: 0.0534
+Real Probability: 0.9468
+--------------------------------------------------
+Path: data\many\real\3D-RlDaCXBk_000003_000013.mp4
+Prediction: real
+Confidence: 0.9434
+AI-Generated Probability: 0.0565
+Real Probability: 0.9434
+--------------------------------------------------
+Path: data\many\real\3da2_dDLqSM_000032_000042.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0546
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\3dab5Vwlbu0_000024_000034.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0538
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\3Dpkr3XeZRc_000091_000101.mp4
+Prediction: real
+Confidence: 0.9434
+AI-Generated Probability: 0.0565
+Real Probability: 0.9434
+--------------------------------------------------
+Path: data\many\real\3E3zTCJE8Jc_000052_000062.mp4
+Prediction: real
+Confidence: 0.9302
+AI-Generated Probability: 0.0699
+Real Probability: 0.9302
+--------------------------------------------------
+Path: data\many\real\3E448_prMYM_000044_000054.mp4
+Prediction: real
+Confidence: 0.9473
+AI-Generated Probability: 0.0525
+Real Probability: 0.9473
+--------------------------------------------------
+Path: data\many\real\3EjewsItf0c_000091_000101.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0546
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\3EQgXZNswXU_000030_000040.mp4
+Prediction: real
+Confidence: 0.9419
+AI-Generated Probability: 0.0580
+Real Probability: 0.9419
+--------------------------------------------------
+Path: data\many\real\3F0pYZJHhKg_000022_000032.mp4
+Prediction: real
+Confidence: 0.9390
+AI-Generated Probability: 0.0610
+Real Probability: 0.9390
+--------------------------------------------------
+Path: data\many\real\3F32-JQNCeQ_000155_000165.mp4
+Prediction: real
+Confidence: 0.9468
+AI-Generated Probability: 0.0532
+Real Probability: 0.9468
+--------------------------------------------------
+Path: data\many\real\3FL4nW3KL7w_000025_000035.mp4
+Prediction: real
+Confidence: 0.9434
+AI-Generated Probability: 0.0569
+Real Probability: 0.9434
+--------------------------------------------------
+Path: data\many\real\3Flrv_1Ovq0_000003_000013.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0540
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\3Fr652d6Tg0_000004_000014.mp4
+Prediction: real
+Confidence: 0.9438
+AI-Generated Probability: 0.0562
+Real Probability: 0.9438
+--------------------------------------------------
+Path: data\many\real\3fsQecYyTjQ_000009_000019.mp4
+Prediction: real
+Confidence: 0.9355
+AI-Generated Probability: 0.0646
+Real Probability: 0.9355
+--------------------------------------------------
+Path: data\many\real\3gaxkGRORXk_000119_000129.mp4
+Prediction: real
+Confidence: 0.9473
+AI-Generated Probability: 0.0526
+Real Probability: 0.9473
+--------------------------------------------------
+Path: data\many\real\3gMgNoCntEk_000438_000448.mp4
+Prediction: real
+Confidence: 0.9482
+AI-Generated Probability: 0.0517
+Real Probability: 0.9482
+--------------------------------------------------
+Path: data\many\real\3Gpoz9l1eoE_000011_000021.mp4
+Prediction: real
+Confidence: 0.9097
+AI-Generated Probability: 0.0901
+Real Probability: 0.9097
+--------------------------------------------------
+Path: data\many\real\3gWy3xWSDsg_000004_000014.mp4
+Prediction: real
+Confidence: 0.7759
+AI-Generated Probability: 0.2240
+Real Probability: 0.7759
+--------------------------------------------------
+Path: data\many\real\3GznvUGWPLQ_000026_000036.mp4
+Prediction: real
+Confidence: 0.9473
+AI-Generated Probability: 0.0526
+Real Probability: 0.9473
+--------------------------------------------------
+Path: data\many\real\3h0z03_xeno_000097_000107.mp4
+Prediction: real
+Confidence: 0.9443
+AI-Generated Probability: 0.0555
+Real Probability: 0.9443
+--------------------------------------------------
+Path: data\many\real\3h6TKvttulg_000003_000013.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0522
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\3H9MojL2eKk_000155_000165.mp4
+Prediction: real
+Confidence: 0.9468
+AI-Generated Probability: 0.0534
+Real Probability: 0.9468
+--------------------------------------------------
+Path: data\many\real\3hII9QR7sag_000051_000061.mp4
+Prediction: real
+Confidence: 0.9429
+AI-Generated Probability: 0.0573
+Real Probability: 0.9429
+--------------------------------------------------
+Path: data\many\real\3HjIs325dd4_000000_000010.mp4
+Prediction: real
+Confidence: 0.9385
+AI-Generated Probability: 0.0618
+Real Probability: 0.9385
+--------------------------------------------------
+Path: data\many\real\3hon79RsGBM_000019_000029.mp4
+Prediction: AI-Generated
+Confidence: 0.6748
+AI-Generated Probability: 0.6748
+Real Probability: 0.3252
+--------------------------------------------------
+Path: data\many\real\3hrxuUEumGI_000373_000383.mp4
+Prediction: real
+Confidence: 0.9468
+AI-Generated Probability: 0.0534
+Real Probability: 0.9468
+--------------------------------------------------
+Path: data\many\real\3HY-ekA8dBc_000047_000057.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0522
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\3hyA6tl4I-0_000004_000014.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0541
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\3ieUAwdiumE_000035_000045.mp4
+Prediction: real
+Confidence: 0.9468
+AI-Generated Probability: 0.0534
+Real Probability: 0.9468
+--------------------------------------------------
+Path: data\many\real\3iNn-L68FCw_000004_000014.mp4
+Prediction: real
+Confidence: 0.9272
+AI-Generated Probability: 0.0726
+Real Probability: 0.9272
+--------------------------------------------------
+Path: data\many\real\3IWHE7_WFDE_000002_000012.mp4
+Prediction: real
+Confidence: 0.9429
+AI-Generated Probability: 0.0571
+Real Probability: 0.9429
+--------------------------------------------------
+Path: data\many\real\3jaoYhEQb1M_000000_000010.mp4
+Prediction: real
+Confidence: 0.9434
+AI-Generated Probability: 0.0565
+Real Probability: 0.9434
+--------------------------------------------------
+Path: data\many\real\3jjVO-dnzDA_000330_000340.mp4
+Prediction: real
+Confidence: 0.9473
+AI-Generated Probability: 0.0528
+Real Probability: 0.9473
+--------------------------------------------------
+Path: data\many\real\3K8HRPKpm8w_000004_000014.mp4
+Prediction: real
+Confidence: 0.9468
+AI-Generated Probability: 0.0532
+Real Probability: 0.9468
+--------------------------------------------------
+Path: data\many\real\3k8PCuYldBs_000468_000478.mp4
+Prediction: real
+Confidence: 0.9468
+AI-Generated Probability: 0.0531
+Real Probability: 0.9468
+--------------------------------------------------
+Path: data\many\real\3kLCncjQYNg_000000_000010.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0524
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\3kUYkcOupjo_000111_000121.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0544
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\3kvbqTYc0N4_000029_000039.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0553
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\3KzNcY8vJQs_000011_000021.mp4
+Prediction: real
+Confidence: 0.9395
+AI-Generated Probability: 0.0603
+Real Probability: 0.9395
+--------------------------------------------------
+Path: data\many\real\3lNGPkGcJQY_000014_000024.mp4
+Prediction: real
+Confidence: 0.9468
+AI-Generated Probability: 0.0534
+Real Probability: 0.9468
+--------------------------------------------------
+Path: data\many\real\3lRUiuJG6Zw_000012_000022.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0521
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\3LuEdZMSWOg_000027_000037.mp4
+Prediction: real
+Confidence: 0.9414
+AI-Generated Probability: 0.0588
+Real Probability: 0.9414
+--------------------------------------------------
+Path: data\many\real\3mHTAmY6PFc_000001_000011.mp4
+Prediction: real
+Confidence: 0.9409
+AI-Generated Probability: 0.0590
+Real Probability: 0.9409
+--------------------------------------------------
+Path: data\many\real\3miId5JGk7o_000015_000025.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0546
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\3mkBU39Wr24_000334_000344.mp4
+Prediction: real
+Confidence: 0.9424
+AI-Generated Probability: 0.0575
+Real Probability: 0.9424
+--------------------------------------------------
+Path: data\many\real\3MSDXAfvpEA_000028_000038.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0520
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\3MwZP3DS0PA_000013_000023.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0522
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\3mXJl1vL228_000000_000010.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0544
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\3n4J5S4kCj0_000152_000162.mp4
+Prediction: real
+Confidence: 0.9473
+AI-Generated Probability: 0.0528
+Real Probability: 0.9473
+--------------------------------------------------
+Path: data\many\real\3ND3t_F_Qn4_000001_000011.mp4
+Prediction: real
+Confidence: 0.9438
+AI-Generated Probability: 0.0562
+Real Probability: 0.9438
+--------------------------------------------------
+Path: data\many\real\3NIqKWxIRp8_000084_000094.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0550
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\3NP-1Jz8bwU_000163_000173.mp4
+Prediction: real
+Confidence: 0.9087
+AI-Generated Probability: 0.0914
+Real Probability: 0.9087
+--------------------------------------------------
+Path: data\many\real\3nzzmd3YQj8_000039_000049.mp4
+Prediction: real
+Confidence: 0.9277
+AI-Generated Probability: 0.0725
+Real Probability: 0.9277
+--------------------------------------------------
+Path: data\many\real\3OBslQkOLs0_000036_000046.mp4
+Prediction: real
+Confidence: 0.9434
+AI-Generated Probability: 0.0565
+Real Probability: 0.9434
+--------------------------------------------------
+Path: data\many\real\3P1oRlBzWNo_000042_000052.mp4
+Prediction: real
+Confidence: 0.9473
+AI-Generated Probability: 0.0528
+Real Probability: 0.9473
+--------------------------------------------------
+Path: data\many\real\3p21hGvlRZc_000125_000135.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0536
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\3P2xsTISvRI_000071_000081.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0536
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\3p3HRFp68Ec_000209_000219.mp4
+Prediction: real
+Confidence: 0.9321
+AI-Generated Probability: 0.0677
+Real Probability: 0.9321
+--------------------------------------------------
+Path: data\many\real\3paZyFpoTh8_000423_000433.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0546
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\3peoA1An-qo_000200_000210.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0554
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\3pnM1Ya67I0_000141_000151.mp4
+Prediction: real
+Confidence: 0.9414
+AI-Generated Probability: 0.0588
+Real Probability: 0.9414
+--------------------------------------------------
+Path: data\many\real\3PSOS6rZ6ik_000014_000024.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0538
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\3Q8ziLWP_YY_000000_000010.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0540
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\3ql1ZXxaUrM_000000_000010.mp4
+Prediction: real
+Confidence: 0.9482
+AI-Generated Probability: 0.0517
+Real Probability: 0.9482
+--------------------------------------------------
+Path: data\many\real\3qLknZ3kCnM_000021_000031.mp4
+Prediction: real
+Confidence: 0.9419
+AI-Generated Probability: 0.0580
+Real Probability: 0.9419
+--------------------------------------------------
+Path: data\many\real\3QnEKof40ao_000336_000346.mp4
+Prediction: real
+Confidence: 0.9390
+AI-Generated Probability: 0.0610
+Real Probability: 0.9390
+--------------------------------------------------
+Path: data\many\real\3qSeJMs_Zvo_000182_000192.mp4
+Prediction: real
+Confidence: 0.9434
+AI-Generated Probability: 0.0565
+Real Probability: 0.9434
+--------------------------------------------------
+Path: data\many\real\3QYnDCKdqOg_000001_000011.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0552
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\3r-x7uoVtdA_000024_000034.mp4
+Prediction: real
+Confidence: 0.9404
+AI-Generated Probability: 0.0597
+Real Probability: 0.9404
+--------------------------------------------------
+Path: data\many\real\3r2EYr6EWp8_000145_000155.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0548
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\3rG6kxnHyy8_000068_000078.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0548
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\3rHoxtU7iT0_000003_000013.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0552
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\3RoKIc75qXw_000054_000064.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0548
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\3RVx3yiKZ-E_000675_000685.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0549
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\3sB37LjfWdw_000023_000033.mp4
+Prediction: real
+Confidence: 0.9419
+AI-Generated Probability: 0.0579
+Real Probability: 0.9419
+--------------------------------------------------
+Path: data\many\real\3SmLHMVNwKc_000136_000146.mp4
+Prediction: real
+Confidence: 0.9438
+AI-Generated Probability: 0.0563
+Real Probability: 0.9438
+--------------------------------------------------
+Path: data\many\real\3sqwwhJLrV4_000020_000030.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0538
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\3sSxqG80obE_000047_000057.mp4
+Prediction: real
+Confidence: 0.9468
+AI-Generated Probability: 0.0534
+Real Probability: 0.9468
+--------------------------------------------------
+Path: data\many\real\3sZNzUmu7RQ_000305_000315.mp4
+Prediction: real
+Confidence: 0.9438
+AI-Generated Probability: 0.0562
+Real Probability: 0.9438
+--------------------------------------------------
+Path: data\many\real\3TLxZRY7Rvo_000020_000030.mp4
+Prediction: real
+Confidence: 0.9443
+AI-Generated Probability: 0.0555
+Real Probability: 0.9443
+--------------------------------------------------
+Path: data\many\real\3TUYNyf6IUo_000060_000070.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0520
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\3TvGuVBXCIo_000000_000010.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0550
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\3ud5kDJQbO4_000001_000011.mp4
+Prediction: real
+Confidence: 0.9404
+AI-Generated Probability: 0.0597
+Real Probability: 0.9404
+--------------------------------------------------
+Path: data\many\real\3UR5u_w2q2c_000159_000169.mp4
+Prediction: real
+Confidence: 0.9482
+AI-Generated Probability: 0.0518
+Real Probability: 0.9482
+--------------------------------------------------
+Path: data\many\real\3UtxyupRZm8_000002_000012.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0548
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\3V9AFm_tUtI_000034_000044.mp4
+Prediction: real
+Confidence: 0.9434
+AI-Generated Probability: 0.0565
+Real Probability: 0.9434
+--------------------------------------------------
+Path: data\many\real\3v9cmDcTTAc_001916_001926.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0520
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\3W3bGkkFjnY_000095_000105.mp4
+Prediction: real
+Confidence: 0.9468
+AI-Generated Probability: 0.0534
+Real Probability: 0.9468
+--------------------------------------------------
+Path: data\many\real\3W3iM9x0zLQ_000006_000016.mp4
+Prediction: real
+Confidence: 0.9438
+AI-Generated Probability: 0.0562
+Real Probability: 0.9438
+--------------------------------------------------
+Path: data\many\real\3w6Z-KI4WTI_000012_000022.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0522
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\3WL0y2LA-q4_001300_001310.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0552
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\3wm78WGKOt4_000013_000023.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0544
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\3WMC117DD8c_000058_000068.mp4
+Prediction: real
+Confidence: 0.9429
+AI-Generated Probability: 0.0571
+Real Probability: 0.9429
+--------------------------------------------------
+Path: data\many\real\3wPyjU-05y0_000047_000057.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0537
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\3xN6no2Mdro_000019_000029.mp4
+Prediction: real
+Confidence: 0.9468
+AI-Generated Probability: 0.0530
+Real Probability: 0.9468
+--------------------------------------------------
+Path: data\many\real\3xte815Hisc_000004_000014.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0524
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\3XvWQneLMc4_000085_000095.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0550
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\3YjkoCDADAM_000074_000084.mp4
+Prediction: real
+Confidence: 0.9375
+AI-Generated Probability: 0.0626
+Real Probability: 0.9375
+--------------------------------------------------
+Path: data\many\real\3Yn5SapCFBA_000215_000225.mp4
+Prediction: real
+Confidence: 0.9395
+AI-Generated Probability: 0.0608
+Real Probability: 0.9395
+--------------------------------------------------
+Path: data\many\real\3YRYRRJyHsA_000118_000128.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0524
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\3z1rs17cTVI_000000_000010.mp4
+Prediction: real
+Confidence: 0.9385
+AI-Generated Probability: 0.0618
+Real Probability: 0.9385
+--------------------------------------------------
+Path: data\many\real\3Z1tebmk6wA_000001_000011.mp4
+Prediction: real
+Confidence: 0.9468
+AI-Generated Probability: 0.0530
+Real Probability: 0.9468
+--------------------------------------------------
+Path: data\many\real\3Z5SadGuaz0_000004_000014.mp4
+Prediction: real
+Confidence: 0.8682
+AI-Generated Probability: 0.1318
+Real Probability: 0.8682
+--------------------------------------------------
+Path: data\many\real\3Z5Tr_-1Nic_000001_000011.mp4
+Prediction: real
+Confidence: 0.9438
+AI-Generated Probability: 0.0562
+Real Probability: 0.9438
+--------------------------------------------------
+Path: data\many\real\3Zld8eZKNe0_000005_000015.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0550
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\3ZTg9zHZX84_000105_000115.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0538
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\3ZXpfuyOUo8_000130_000140.mp4
+Prediction: real
+Confidence: 0.9409
+AI-Generated Probability: 0.0589
+Real Probability: 0.9409
+--------------------------------------------------
+Path: data\many\real\3_zk-fpr5ik_000004_000014.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0544
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\4-Vc-aGsuPQ_000054_000064.mp4
+Prediction: real
+Confidence: 0.9414
+AI-Generated Probability: 0.0587
+Real Probability: 0.9414
+--------------------------------------------------
+Path: data\many\real\40PtXzEvrb8_000070_000080.mp4
+Prediction: real
+Confidence: 0.9473
+AI-Generated Probability: 0.0526
+Real Probability: 0.9473
+--------------------------------------------------
+Path: data\many\real\41YxghjkouA_000175_000185.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0522
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\421i19AgwFg_000019_000029.mp4
+Prediction: real
+Confidence: 0.9468
+AI-Generated Probability: 0.0532
+Real Probability: 0.9468
+--------------------------------------------------
+Path: data\many\real\42bHG4ftwdE_000028_000038.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0540
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\42bTv2KS4ws_000004_000014.mp4
+Prediction: real
+Confidence: 0.9438
+AI-Generated Probability: 0.0562
+Real Probability: 0.9438
+--------------------------------------------------
+Path: data\many\real\43TWSxvaSUE_000016_000026.mp4
+Prediction: real
+Confidence: 0.9482
+AI-Generated Probability: 0.0519
+Real Probability: 0.9482
+--------------------------------------------------
+Path: data\many\real\43_fgthS7F0_000107_000117.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0536
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\44VlFBWZSqA_000166_000176.mp4
+Prediction: real
+Confidence: 0.9429
+AI-Generated Probability: 0.0571
+Real Probability: 0.9429
+--------------------------------------------------
+Path: data\many\real\44VuJna9Ia8_000040_000050.mp4
+Prediction: real
+Confidence: 0.9414
+AI-Generated Probability: 0.0586
+Real Probability: 0.9414
+--------------------------------------------------
+Path: data\many\real\451Vu8AZYWY_000059_000069.mp4
+Prediction: real
+Confidence: 0.9429
+AI-Generated Probability: 0.0573
+Real Probability: 0.9429
+--------------------------------------------------
+Path: data\many\real\45knxbrDmM8_000000_000010.mp4
+Prediction: real
+Confidence: 0.9473
+AI-Generated Probability: 0.0528
+Real Probability: 0.9473
+--------------------------------------------------
+Path: data\many\real\45L2H_9Bm7Q_000001_000011.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0554
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\45th535mj0Q_000023_000033.mp4
+Prediction: real
+Confidence: 0.9424
+AI-Generated Probability: 0.0575
+Real Probability: 0.9424
+--------------------------------------------------
+Path: data\many\real\46gZn7nkT_w_000000_000010.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0554
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\475ZMvOl4GQ_000000_000010.mp4
+Prediction: real
+Confidence: 0.9385
+AI-Generated Probability: 0.0618
+Real Probability: 0.9385
+--------------------------------------------------
+Path: data\many\real\47B-OAyhPjo_000163_000173.mp4
+Prediction: real
+Confidence: 0.9473
+AI-Generated Probability: 0.0526
+Real Probability: 0.9473
+--------------------------------------------------
+Path: data\many\real\47SdsAwmEys_000173_000183.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0540
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\48ECC--nJe4_000095_000105.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0552
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\48I_BDcnKZo_000001_000011.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0554
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\48UwVdv84Jg_000047_000057.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0542
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\49OK6fgce8Q_000009_000019.mp4
+Prediction: real
+Confidence: 0.9209
+AI-Generated Probability: 0.0792
+Real Probability: 0.9209
+--------------------------------------------------
+Path: data\many\real\4a15SzBWjYQ_000020_000030.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0550
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\4AJ9g5J81OU_000002_000012.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0536
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\4an878MudqI_000003_000013.mp4
+Prediction: real
+Confidence: 0.9497
+AI-Generated Probability: 0.0505
+Real Probability: 0.9497
+--------------------------------------------------
+Path: data\many\real\4BcpqCbZDQE_000010_000020.mp4
+Prediction: real
+Confidence: 0.9443
+AI-Generated Probability: 0.0558
+Real Probability: 0.9443
+--------------------------------------------------
+Path: data\many\real\4cBt8pNlEp8_000102_000112.mp4
+Prediction: real
+Confidence: 0.9370
+AI-Generated Probability: 0.0629
+Real Probability: 0.9370
+--------------------------------------------------
+Path: data\many\real\4cTafh6wzDI_000054_000064.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0538
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\4cxuBW2dzcg_000063_000073.mp4
+Prediction: real
+Confidence: 0.9404
+AI-Generated Probability: 0.0597
+Real Probability: 0.9404
+--------------------------------------------------
+Path: data\many\real\4d5jWUfFKL0_000362_000372.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0545
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\4d6SIGmndJM_000049_000059.mp4
+Prediction: real
+Confidence: 0.9468
+AI-Generated Probability: 0.0532
+Real Probability: 0.9468
+--------------------------------------------------
+Path: data\many\real\4dB5xc76NcU_000336_000346.mp4
+Prediction: real
+Confidence: 0.9429
+AI-Generated Probability: 0.0573
+Real Probability: 0.9429
+--------------------------------------------------
+Path: data\many\real\4eHPEsfek5M_000109_000119.mp4
+Prediction: real
+Confidence: 0.9443
+AI-Generated Probability: 0.0556
+Real Probability: 0.9443
+--------------------------------------------------
+Path: data\many\real\4eNQvdEonPU_000002_000012.mp4
+Prediction: real
+Confidence: 0.9468
+AI-Generated Probability: 0.0531
+Real Probability: 0.9468
+--------------------------------------------------
+Path: data\many\real\4F2J-ESGoxY_000027_000037.mp4
+Prediction: real
+Confidence: 0.9390
+AI-Generated Probability: 0.0609
+Real Probability: 0.9390
+--------------------------------------------------
+Path: data\many\real\4F9ziCGpSjE_000006_000016.mp4
+Prediction: real
+Confidence: 0.9434
+AI-Generated Probability: 0.0566
+Real Probability: 0.9434
+--------------------------------------------------
+Path: data\many\real\4FoaX6Deh8M_000129_000139.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0548
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\4fwgWKEBKoM_000027_000037.mp4
+Prediction: real
+Confidence: 0.9434
+AI-Generated Probability: 0.0565
+Real Probability: 0.9434
+--------------------------------------------------
+Path: data\many\real\4GB0b-quLmo_000027_000037.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0547
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\4Gf_8BKZENI_000002_000012.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0552
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\4gJRVUQ65M4_000075_000085.mp4
+Prediction: real
+Confidence: 0.9482
+AI-Generated Probability: 0.0518
+Real Probability: 0.9482
+--------------------------------------------------
+Path: data\many\real\4gtD_tj_qmg_000014_000024.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0549
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\4guSPVpvyjM_000045_000055.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0520
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\4gYlIQUYH-0_000003_000013.mp4
+Prediction: real
+Confidence: 0.9434
+AI-Generated Probability: 0.0566
+Real Probability: 0.9434
+--------------------------------------------------
+Path: data\many\real\4h30pau1Sus_000022_000032.mp4
+Prediction: real
+Confidence: 0.9468
+AI-Generated Probability: 0.0530
+Real Probability: 0.9468
+--------------------------------------------------
+Path: data\many\real\4h3NOCGItYQ_000106_000116.mp4
+Prediction: real
+Confidence: 0.9365
+AI-Generated Probability: 0.0635
+Real Probability: 0.9365
+--------------------------------------------------
+Path: data\many\real\4haZVWuL98M_000168_000178.mp4
+Prediction: real
+Confidence: 0.9482
+AI-Generated Probability: 0.0518
+Real Probability: 0.9482
+--------------------------------------------------
+Path: data\many\real\4Hecs1_f5yc_000008_000018.mp4
+Prediction: real
+Confidence: 0.9468
+AI-Generated Probability: 0.0534
+Real Probability: 0.9468
+--------------------------------------------------
+Path: data\many\real\4HrNsYCV-nc_000060_000070.mp4
+Prediction: real
+Confidence: 0.9492
+AI-Generated Probability: 0.0509
+Real Probability: 0.9492
+--------------------------------------------------
+Path: data\many\real\4hzuCE5w7cg_000136_000146.mp4
+Prediction: real
+Confidence: 0.9438
+AI-Generated Probability: 0.0559
+Real Probability: 0.9438
+--------------------------------------------------
+Path: data\many\real\4IRdCAoK35o_000004_000014.mp4
+Prediction: real
+Confidence: 0.9468
+AI-Generated Probability: 0.0530
+Real Probability: 0.9468
+--------------------------------------------------
+Path: data\many\real\4ITwZ1Vd8dU_000001_000011.mp4
+Prediction: real
+Confidence: 0.9468
+AI-Generated Probability: 0.0534
+Real Probability: 0.9468
+--------------------------------------------------
+Path: data\many\real\4IZkyZOivZg_000039_000049.mp4
+Prediction: real
+Confidence: 0.9419
+AI-Generated Probability: 0.0583
+Real Probability: 0.9419
+--------------------------------------------------
+Path: data\many\real\4J6fSN26Yhk_000000_000010.mp4
+Prediction: real
+Confidence: 0.8970
+AI-Generated Probability: 0.1032
+Real Probability: 0.8970
+--------------------------------------------------
+Path: data\many\real\4jfpJMNzQZw_000001_000011.mp4
+Prediction: real
+Confidence: 0.9399
+AI-Generated Probability: 0.0601
+Real Probability: 0.9399
+--------------------------------------------------
+Path: data\many\real\4jPouNYb57w_000000_000010.mp4
+Prediction: real
+Confidence: 0.9316
+AI-Generated Probability: 0.0683
+Real Probability: 0.9316
+--------------------------------------------------
+Path: data\many\real\4jrSnwwTD-o_000000_000010.mp4
+Prediction: real
+Confidence: 0.9434
+AI-Generated Probability: 0.0566
+Real Probability: 0.9434
+--------------------------------------------------
+Path: data\many\real\4jzz0TeRkhM_000124_000134.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0542
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\4K55KBsXZeM_000118_000128.mp4
+Prediction: real
+Confidence: 0.9482
+AI-Generated Probability: 0.0518
+Real Probability: 0.9482
+--------------------------------------------------
+Path: data\many\real\4K6IuMyLO6w_000000_000010.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0537
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\4k7fcPh3jCU_000028_000038.mp4
+Prediction: real
+Confidence: 0.9419
+AI-Generated Probability: 0.0581
+Real Probability: 0.9419
+--------------------------------------------------
+Path: data\many\real\4Kn7ocNh8hk_000001_000011.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0520
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\4KqH4UtAGBM_000071_000081.mp4
+Prediction: real
+Confidence: 0.9468
+AI-Generated Probability: 0.0530
+Real Probability: 0.9468
+--------------------------------------------------
+Path: data\many\real\4L8teHQKUCo_000006_000016.mp4
+Prediction: real
+Confidence: 0.9473
+AI-Generated Probability: 0.0527
+Real Probability: 0.9473
+--------------------------------------------------
+Path: data\many\real\4LF0hL-mgks_000208_000218.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0537
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\4lG-Cer8R1k_000012_000022.mp4
+Prediction: real
+Confidence: 0.9438
+AI-Generated Probability: 0.0562
+Real Probability: 0.9438
+--------------------------------------------------
+Path: data\many\real\4LGc9mBFwUM_000108_000118.mp4
+Prediction: real
+Confidence: 0.9438
+AI-Generated Probability: 0.0560
+Real Probability: 0.9438
+--------------------------------------------------
+Path: data\many\real\4lHApP8MsmE_000090_000100.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0520
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\4Lt8S9uip0A_000016_000026.mp4
+Prediction: real
+Confidence: 0.9438
+AI-Generated Probability: 0.0563
+Real Probability: 0.9438
+--------------------------------------------------
+Path: data\many\real\4Mpekw-KS2U_000008_000018.mp4
+Prediction: real
+Confidence: 0.9468
+AI-Generated Probability: 0.0532
+Real Probability: 0.9468
+--------------------------------------------------
+Path: data\many\real\4mraSzO8HDo_000012_000022.mp4
+Prediction: real
+Confidence: 0.9424
+AI-Generated Probability: 0.0574
+Real Probability: 0.9424
+--------------------------------------------------
+Path: data\many\real\4mSRlyzpOCY_000048_000058.mp4
+Prediction: real
+Confidence: 0.9482
+AI-Generated Probability: 0.0518
+Real Probability: 0.9482
+--------------------------------------------------
+Path: data\many\real\4na-FCBz3sg_000033_000043.mp4
+Prediction: real
+Confidence: 0.9438
+AI-Generated Probability: 0.0563
+Real Probability: 0.9438
+--------------------------------------------------
+Path: data\many\real\4NEFN0EOp5c_000078_000088.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0554
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\4OkPc6tWZOQ_000007_000017.mp4
+Prediction: real
+Confidence: 0.9443
+AI-Generated Probability: 0.0556
+Real Probability: 0.9443
+--------------------------------------------------
+Path: data\many\real\4oOKWYOV358_000005_000015.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0546
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\4oUxDdr3Ldg_000047_000057.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0546
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\4phZ3BogRZo_000025_000035.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0542
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\4pkC6qX4Auw_000110_000120.mp4
+Prediction: real
+Confidence: 0.9399
+AI-Generated Probability: 0.0602
+Real Probability: 0.9399
+--------------------------------------------------
+Path: data\many\real\4pKJxaQuYkQ_000032_000042.mp4
+Prediction: real
+Confidence: 0.9468
+AI-Generated Probability: 0.0534
+Real Probability: 0.9468
+--------------------------------------------------
+Path: data\many\real\4pQcr5qZGB4_000254_000264.mp4
+Prediction: real
+Confidence: 0.9409
+AI-Generated Probability: 0.0590
+Real Probability: 0.9409
+--------------------------------------------------
+Path: data\many\real\4q8B9Ix6Tss_000124_000134.mp4
+Prediction: real
+Confidence: 0.9429
+AI-Generated Probability: 0.0573
+Real Probability: 0.9429
+--------------------------------------------------
+Path: data\many\real\4qs9lk_Kyuw_000045_000055.mp4
+Prediction: real
+Confidence: 0.9473
+AI-Generated Probability: 0.0528
+Real Probability: 0.9473
+--------------------------------------------------
+Path: data\many\real\4reHuwgbwyg_000151_000161.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0540
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\4RM67QN9034_000181_000191.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0552
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\4RnhjOLB7k4_000007_000017.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0536
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\4RZWbKQZGZ8_000043_000053.mp4
+Prediction: real
+Confidence: 0.9395
+AI-Generated Probability: 0.0608
+Real Probability: 0.9395
+--------------------------------------------------
+Path: data\many\real\4s80_nGVW7c_000038_000048.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0547
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\4SS-6H54t-w_000052_000062.mp4
+Prediction: real
+Confidence: 0.9375
+AI-Generated Probability: 0.0627
+Real Probability: 0.9375
+--------------------------------------------------
+Path: data\many\real\4SwLn4VZQok_000014_000024.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0536
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\4T9yOXzwqDE_000007_000017.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0546
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\4TanrR9F0pw_000002_000012.mp4
+Prediction: real
+Confidence: 0.9429
+AI-Generated Probability: 0.0570
+Real Probability: 0.9429
+--------------------------------------------------
+Path: data\many\real\4Tedc9c2bV8_000097_000107.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0554
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\4tgb9BHUYko_000241_000251.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0546
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\4TuSHXWguCY_000064_000074.mp4
+Prediction: real
+Confidence: 0.9419
+AI-Generated Probability: 0.0583
+Real Probability: 0.9419
+--------------------------------------------------
+Path: data\many\real\4twzVlHuDEY_000052_000062.mp4
+Prediction: real
+Confidence: 0.9282
+AI-Generated Probability: 0.0720
+Real Probability: 0.9282
+--------------------------------------------------
+Path: data\many\real\4u-D_eT7Cls_000022_000032.mp4
+Prediction: real
+Confidence: 0.9438
+AI-Generated Probability: 0.0560
+Real Probability: 0.9438
+--------------------------------------------------
+Path: data\many\real\4uAl4TK5Iww_000278_000288.mp4
+Prediction: real
+Confidence: 0.9468
+AI-Generated Probability: 0.0534
+Real Probability: 0.9468
+--------------------------------------------------
+Path: data\many\real\4uI8sAwf5bc_000249_000259.mp4
+Prediction: real
+Confidence: 0.9297
+AI-Generated Probability: 0.0702
+Real Probability: 0.9297
+--------------------------------------------------
+Path: data\many\real\4UZL6Bavbos_000077_000087.mp4
+Prediction: real
+Confidence: 0.8862
+AI-Generated Probability: 0.1140
+Real Probability: 0.8862
+--------------------------------------------------
+Path: data\many\real\4u_u3VPnGDM_000018_000028.mp4
+Prediction: real
+Confidence: 0.9443
+AI-Generated Probability: 0.0558
+Real Probability: 0.9443
+--------------------------------------------------
+Path: data\many\real\4vbYtphBPG0_000028_000038.mp4
+Prediction: real
+Confidence: 0.9429
+AI-Generated Probability: 0.0573
+Real Probability: 0.9429
+--------------------------------------------------
+Path: data\many\real\4vk-aRsuwD8_000176_000186.mp4
+Prediction: real
+Confidence: 0.9443
+AI-Generated Probability: 0.0556
+Real Probability: 0.9443
+--------------------------------------------------
+Path: data\many\real\4vLJNmw27J0_000067_000077.mp4
+Prediction: real
+Confidence: 0.9434
+AI-Generated Probability: 0.0569
+Real Probability: 0.9434
+--------------------------------------------------
+Path: data\many\real\4vmczI6G9tI_000004_000014.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0548
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\4VmjTi1jXks_000001_000011.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0548
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\4VXL_EYZs8M_000022_000032.mp4
+Prediction: real
+Confidence: 0.9009
+AI-Generated Probability: 0.0991
+Real Probability: 0.9009
+--------------------------------------------------
+Path: data\many\real\4W9sMmldd7Y_000048_000058.mp4
+Prediction: real
+Confidence: 0.9336
+AI-Generated Probability: 0.0662
+Real Probability: 0.9336
+--------------------------------------------------
+Path: data\many\real\4WR28Na5XYY_000008_000018.mp4
+Prediction: real
+Confidence: 0.9409
+AI-Generated Probability: 0.0591
+Real Probability: 0.9409
+--------------------------------------------------
+Path: data\many\real\4wsVfw1Pxrw_000106_000116.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0552
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\4wTV1H8riNs_000002_000012.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0549
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\4XAiRvYopDA_000014_000024.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0539
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\4xFxNBh9-N4_000003_000013.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0523
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\4XLzgoGx8e4_000073_000083.mp4
+Prediction: real
+Confidence: 0.9468
+AI-Generated Probability: 0.0532
+Real Probability: 0.9468
+--------------------------------------------------
+Path: data\many\real\4XutckhYy08_000060_000070.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0552
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\4XXoUv0nhcE_000397_000407.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0554
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\4Y94njisJd0_000002_000012.mp4
+Prediction: real
+Confidence: 0.9487
+AI-Generated Probability: 0.0515
+Real Probability: 0.9487
+--------------------------------------------------
+Path: data\many\real\4YdtPO5P9Z4_000000_000010.mp4
+Prediction: real
+Confidence: 0.9399
+AI-Generated Probability: 0.0599
+Real Probability: 0.9399
+--------------------------------------------------
+Path: data\many\real\4yFUtbLtcGc_000129_000139.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0548
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\4ynocW3UW5I_000104_000114.mp4
+Prediction: real
+Confidence: 0.9214
+AI-Generated Probability: 0.0788
+Real Probability: 0.9214
+--------------------------------------------------
+Path: data\many\real\4z-FlVe71aQ_000317_000327.mp4
+Prediction: real
+Confidence: 0.9360
+AI-Generated Probability: 0.0638
+Real Probability: 0.9360
+--------------------------------------------------
+Path: data\many\real\4Z4faemPNeQ_000005_000015.mp4
+Prediction: real
+Confidence: 0.9238
+AI-Generated Probability: 0.0764
+Real Probability: 0.9238
+--------------------------------------------------
+Path: data\many\real\4zpt9vPb59E_000009_000019.mp4
+Prediction: real
+Confidence: 0.9258
+AI-Generated Probability: 0.0743
+Real Probability: 0.9258
+--------------------------------------------------
+Path: data\many\real\4zxERBPsfD0_000068_000078.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0554
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\4Z_yrgRG80Q_000094_000104.mp4
+Prediction: real
+Confidence: 0.9482
+AI-Generated Probability: 0.0519
+Real Probability: 0.9482
+--------------------------------------------------
+Path: data\many\real\5-8rkb1lWVc_000002_000012.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0521
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\5-erlyTZJY0_000007_000017.mp4
+Prediction: real
+Confidence: 0.9395
+AI-Generated Probability: 0.0606
+Real Probability: 0.9395
+--------------------------------------------------
+Path: data\many\real\50EqCWWvC7Y_000026_000036.mp4
+Prediction: real
+Confidence: 0.9395
+AI-Generated Probability: 0.0603
+Real Probability: 0.9395
+--------------------------------------------------
+Path: data\many\real\51CYcmdAg-0_000156_000166.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0520
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\523BxCuhvaU_000008_000018.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0541
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\523sWrqVeVc_000007_000017.mp4
+Prediction: real
+Confidence: 0.9468
+AI-Generated Probability: 0.0533
+Real Probability: 0.9468
+--------------------------------------------------
+Path: data\many\real\52yOwzBwT7k_000001_000011.mp4
+Prediction: real
+Confidence: 0.9468
+AI-Generated Probability: 0.0531
+Real Probability: 0.9468
+--------------------------------------------------
+Path: data\many\real\5355rG9kGV4_000042_000052.mp4
+Prediction: real
+Confidence: 0.9385
+AI-Generated Probability: 0.0614
+Real Probability: 0.9385
+--------------------------------------------------
+Path: data\many\real\53bEOyksXJU_000517_000527.mp4
+Prediction: real
+Confidence: 0.9385
+AI-Generated Probability: 0.0616
+Real Probability: 0.9385
+--------------------------------------------------
+Path: data\many\real\53K3xFaxG7A_000030_000040.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0552
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\53v5IPFpP0Y_000182_000192.mp4
+Prediction: real
+Confidence: 0.9434
+AI-Generated Probability: 0.0565
+Real Probability: 0.9434
+--------------------------------------------------
+Path: data\many\real\54LV_Bx_O2Y_000052_000062.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0550
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\54OWjikk7gM_000437_000447.mp4
+Prediction: real
+Confidence: 0.9443
+AI-Generated Probability: 0.0558
+Real Probability: 0.9443
+--------------------------------------------------
+Path: data\many\real\54Wd8EojrYo_000065_000075.mp4
+Prediction: real
+Confidence: 0.9443
+AI-Generated Probability: 0.0558
+Real Probability: 0.9443
+--------------------------------------------------
+Path: data\many\real\55d5rLrAVic_000023_000033.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0553
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\55txxt0-gIY_000017_000027.mp4
+Prediction: real
+Confidence: 0.9424
+AI-Generated Probability: 0.0576
+Real Probability: 0.9424
+--------------------------------------------------
+Path: data\many\real\562xrnxCQ1M_000005_000015.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0540
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\56ezzP626fk_000002_000012.mp4
+Prediction: real
+Confidence: 0.9404
+AI-Generated Probability: 0.0594
+Real Probability: 0.9404
+--------------------------------------------------
+Path: data\many\real\56u5kFyNV_I_000000_000010.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0540
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\57Fq_taJnn4_000493_000503.mp4
+Prediction: real
+Confidence: 0.9473
+AI-Generated Probability: 0.0526
+Real Probability: 0.9473
+--------------------------------------------------
+Path: data\many\real\57XbvKdmYr4_000232_000242.mp4
+Prediction: real
+Confidence: 0.9473
+AI-Generated Probability: 0.0526
+Real Probability: 0.9473
+--------------------------------------------------
+Path: data\many\real\58ea3_7Vuh4_000002_000012.mp4
+Prediction: real
+Confidence: 0.9424
+AI-Generated Probability: 0.0575
+Real Probability: 0.9424
+--------------------------------------------------
+Path: data\many\real\591I_P99VKk_000080_000090.mp4
+Prediction: real
+Confidence: 0.9429
+AI-Generated Probability: 0.0573
+Real Probability: 0.9429
+--------------------------------------------------
+Path: data\many\real\59mBgF6cxmQ_000002_000012.mp4
+Prediction: real
+Confidence: 0.9419
+AI-Generated Probability: 0.0581
+Real Probability: 0.9419
+--------------------------------------------------
+Path: data\many\real\5a9gEQclntg_000017_000027.mp4
+Prediction: real
+Confidence: 0.9429
+AI-Generated Probability: 0.0571
+Real Probability: 0.9429
+--------------------------------------------------
+Path: data\many\real\5aFEQxnLsw8_000018_000028.mp4
+Prediction: real
+Confidence: 0.9434
+AI-Generated Probability: 0.0566
+Real Probability: 0.9434
+--------------------------------------------------
+Path: data\many\real\5ahVW6y8S3I_000039_000049.mp4
+Prediction: real
+Confidence: 0.9438
+AI-Generated Probability: 0.0561
+Real Probability: 0.9438
+--------------------------------------------------
+Path: data\many\real\5ayMRPi7Lg4_000008_000018.mp4
+Prediction: real
+Confidence: 0.9443
+AI-Generated Probability: 0.0556
+Real Probability: 0.9443
+--------------------------------------------------
+Path: data\many\real\5bKMTiUH2qA_000119_000129.mp4
+Prediction: real
+Confidence: 0.9434
+AI-Generated Probability: 0.0566
+Real Probability: 0.9434
+--------------------------------------------------
+Path: data\many\real\5BRXg3O5h4s_000005_000015.mp4
+Prediction: real
+Confidence: 0.9390
+AI-Generated Probability: 0.0611
+Real Probability: 0.9390
+--------------------------------------------------
+Path: data\many\real\5bWTpelJMJY_000005_000015.mp4
+Prediction: real
+Confidence: 0.9346
+AI-Generated Probability: 0.0654
+Real Probability: 0.9346
+--------------------------------------------------
+Path: data\many\real\5C2kLm4knGA_000122_000132.mp4
+Prediction: real
+Confidence: 0.9419
+AI-Generated Probability: 0.0581
+Real Probability: 0.9419
+--------------------------------------------------
+Path: data\many\real\5C2tYxUP0Ro_000001_000011.mp4
+Prediction: real
+Confidence: 0.9424
+AI-Generated Probability: 0.0577
+Real Probability: 0.9424
+--------------------------------------------------
+Path: data\many\real\5C68qpUv_JM_000067_000077.mp4
+Prediction: real
+Confidence: 0.9146
+AI-Generated Probability: 0.0854
+Real Probability: 0.9146
+--------------------------------------------------
+Path: data\many\real\5cQJJfPnMPo_000058_000068.mp4
+Prediction: real
+Confidence: 0.9443
+AI-Generated Probability: 0.0556
+Real Probability: 0.9443
+--------------------------------------------------
+Path: data\many\real\5cxPddvzLLg_000013_000023.mp4
+Prediction: real
+Confidence: 0.9443
+AI-Generated Probability: 0.0556
+Real Probability: 0.9443
+--------------------------------------------------
+Path: data\many\real\5cxreyLIy3s_000200_000210.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0536
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\5c_Jyx0i_hw_000002_000012.mp4
+Prediction: real
+Confidence: 0.9092
+AI-Generated Probability: 0.0911
+Real Probability: 0.9092
+--------------------------------------------------
+Path: data\many\real\5DBRm8mMEpY_000019_000029.mp4
+Prediction: real
+Confidence: 0.9409
+AI-Generated Probability: 0.0589
+Real Probability: 0.9409
+--------------------------------------------------
+Path: data\many\real\5diAhXS_ajo_000020_000030.mp4
+Prediction: real
+Confidence: 0.9316
+AI-Generated Probability: 0.0683
+Real Probability: 0.9316
+--------------------------------------------------
+Path: data\many\real\5DoYY5GScEc_000000_000010.mp4
+Prediction: real
+Confidence: 0.9468
+AI-Generated Probability: 0.0530
+Real Probability: 0.9468
+--------------------------------------------------
+Path: data\many\real\5dvf4WEXl1I_000000_000010.mp4
+Prediction: real
+Confidence: 0.9473
+AI-Generated Probability: 0.0526
+Real Probability: 0.9473
+--------------------------------------------------
+Path: data\many\real\5DZz2Uc6mn0_000048_000058.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0538
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\5e8q48eN6Yk_000088_000098.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0536
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\5E9p0osDEYs_000020_000030.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0535
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\5ecN__cZiAg_000046_000056.mp4
+Prediction: real
+Confidence: 0.9404
+AI-Generated Probability: 0.0594
+Real Probability: 0.9404
+--------------------------------------------------
+Path: data\many\real\5eGZtskNW3s_000007_000017.mp4
+Prediction: real
+Confidence: 0.9443
+AI-Generated Probability: 0.0556
+Real Probability: 0.9443
+--------------------------------------------------
+Path: data\many\real\5evJjUnJUro_000013_000023.mp4
+Prediction: real
+Confidence: 0.9438
+AI-Generated Probability: 0.0562
+Real Probability: 0.9438
+--------------------------------------------------
+Path: data\many\real\5ezgYGZMFMQ_000000_000010.mp4
+Prediction: real
+Confidence: 0.9438
+AI-Generated Probability: 0.0562
+Real Probability: 0.9438
+--------------------------------------------------
+Path: data\many\real\5FaUBVEQlNc_000019_000029.mp4
+Prediction: real
+Confidence: 0.7920
+AI-Generated Probability: 0.2081
+Real Probability: 0.7920
+--------------------------------------------------
+Path: data\many\real\5fdjeWMVscM_000033_000043.mp4
+Prediction: real
+Confidence: 0.9414
+AI-Generated Probability: 0.0588
+Real Probability: 0.9414
+--------------------------------------------------
+Path: data\many\real\5foY7XzlTAE_000005_000015.mp4
+Prediction: real
+Confidence: 0.9238
+AI-Generated Probability: 0.0764
+Real Probability: 0.9238
+--------------------------------------------------
+Path: data\many\real\5G135RGpmTM_000006_000016.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0520
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\5GdN8Eeu7dA_000122_000132.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0544
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\5GLb9sh9XYo_000000_000010.mp4
+Prediction: real
+Confidence: 0.9482
+AI-Generated Probability: 0.0517
+Real Probability: 0.9482
+--------------------------------------------------
+Path: data\many\real\5h3dzg5NEFg_000003_000013.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0536
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\5H3S_xLQCI0_000004_000014.mp4
+Prediction: real
+Confidence: 0.9375
+AI-Generated Probability: 0.0626
+Real Probability: 0.9375
+--------------------------------------------------
+Path: data\many\real\5HabQp_UHWk_000001_000011.mp4
+Prediction: real
+Confidence: 0.9209
+AI-Generated Probability: 0.0789
+Real Probability: 0.9209
+--------------------------------------------------
+Path: data\many\real\5HhefhTJqxE_000037_000047.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0523
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\5HMBOQ8e1-8_000054_000064.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0554
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\5Hnk04BF4Ek_000023_000033.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0524
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\5hUxVwtvFgc_000016_000026.mp4
+Prediction: real
+Confidence: 0.9424
+AI-Generated Probability: 0.0575
+Real Probability: 0.9424
+--------------------------------------------------
+Path: data\many\real\5iLiWxhpiRc_000006_000016.mp4
+Prediction: real
+Confidence: 0.9434
+AI-Generated Probability: 0.0565
+Real Probability: 0.9434
+--------------------------------------------------
+Path: data\many\real\5INyPzrghAw_000020_000030.mp4
+Prediction: real
+Confidence: 0.9473
+AI-Generated Probability: 0.0528
+Real Probability: 0.9473
+--------------------------------------------------
+Path: data\many\real\5j---T3xCmk_000041_000051.mp4
+Prediction: real
+Confidence: 0.9409
+AI-Generated Probability: 0.0593
+Real Probability: 0.9409
+--------------------------------------------------
+Path: data\many\real\5j12XCKC_io_000002_000012.mp4
+Prediction: real
+Confidence: 0.9443
+AI-Generated Probability: 0.0558
+Real Probability: 0.9443
+--------------------------------------------------
+Path: data\many\real\5J2IzgVw0lU_000004_000014.mp4
+Prediction: real
+Confidence: 0.9473
+AI-Generated Probability: 0.0527
+Real Probability: 0.9473
+--------------------------------------------------
+Path: data\many\real\5jj11JBmDkM_000000_000010.mp4
+Prediction: real
+Confidence: 0.9473
+AI-Generated Probability: 0.0528
+Real Probability: 0.9473
+--------------------------------------------------
+Path: data\many\real\5jObpb0ds6E_000148_000158.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0543
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\5JyByRv2MsM_000027_000037.mp4
+Prediction: real
+Confidence: 0.9355
+AI-Generated Probability: 0.0646
+Real Probability: 0.9355
+--------------------------------------------------
+Path: data\many\real\5KDmlRNnjfg_000027_000037.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0542
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\5kU5t2tDUs8_000039_000049.mp4
+Prediction: real
+Confidence: 0.9399
+AI-Generated Probability: 0.0601
+Real Probability: 0.9399
+--------------------------------------------------
+Path: data\many\real\5l8dVuLEI44_000376_000386.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0544
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\5lClJCVabLo_000000_000010.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0522
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\5LfxOXAAS9w_000163_000173.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0536
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\5LgaXYu0ByM_000085_000095.mp4
+Prediction: real
+Confidence: 0.9473
+AI-Generated Probability: 0.0526
+Real Probability: 0.9473
+--------------------------------------------------
+Path: data\many\real\5lIUJ25WADg_000001_000011.mp4
+Prediction: real
+Confidence: 0.9341
+AI-Generated Probability: 0.0661
+Real Probability: 0.9341
+--------------------------------------------------
+Path: data\many\real\5lwcgRvkUAI_000011_000021.mp4
+Prediction: real
+Confidence: 0.9302
+AI-Generated Probability: 0.0701
+Real Probability: 0.9302
+--------------------------------------------------
+Path: data\many\real\5M2OmvR6vpw_000023_000033.mp4
+Prediction: real
+Confidence: 0.9443
+AI-Generated Probability: 0.0556
+Real Probability: 0.9443
+--------------------------------------------------
+Path: data\many\real\5MbKOiAiFMo_000000_000010.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0548
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\5Me1J35FJ7Y_000000_000010.mp4
+Prediction: real
+Confidence: 0.9346
+AI-Generated Probability: 0.0656
+Real Probability: 0.9346
+--------------------------------------------------
+Path: data\many\real\5Me3J2tKtC8_000015_000025.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0546
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\5MoHPbxNCJw_000085_000095.mp4
+Prediction: real
+Confidence: 0.9399
+AI-Generated Probability: 0.0599
+Real Probability: 0.9399
+--------------------------------------------------
+Path: data\many\real\5MyaRf1_LVw_000443_000453.mp4
+Prediction: real
+Confidence: 0.9385
+AI-Generated Probability: 0.0618
+Real Probability: 0.9385
+--------------------------------------------------
+Path: data\many\real\5mYL5LToz4k_000002_000012.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0538
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\5MzQI3NnX-U_000017_000027.mp4
+Prediction: real
+Confidence: 0.9482
+AI-Generated Probability: 0.0517
+Real Probability: 0.9482
+--------------------------------------------------
+Path: data\many\real\5N7B_KK2d7Y_000004_000014.mp4
+Prediction: real
+Confidence: 0.9473
+AI-Generated Probability: 0.0528
+Real Probability: 0.9473
+--------------------------------------------------
+Path: data\many\real\5NHcm33dKHE_000057_000067.mp4
+Prediction: real
+Confidence: 0.9414
+AI-Generated Probability: 0.0587
+Real Probability: 0.9414
+--------------------------------------------------
+Path: data\many\real\5nVqKUGj3BU_000000_000010.mp4
+Prediction: real
+Confidence: 0.9424
+AI-Generated Probability: 0.0578
+Real Probability: 0.9424
+--------------------------------------------------
+Path: data\many\real\5o27SXtzpUE_000087_000097.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0521
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\5oCMdsrAZeg_000135_000145.mp4
+Prediction: real
+Confidence: 0.9346
+AI-Generated Probability: 0.0654
+Real Probability: 0.9346
+--------------------------------------------------
+Path: data\many\real\5OEyr23hyOc_000000_000010.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0520
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\5OgknE1g_9w_000078_000088.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0550
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\5oPNA8o3mlM_000018_000028.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0554
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\5oubgbl9n2w_000000_000010.mp4
+Prediction: real
+Confidence: 0.9487
+AI-Generated Probability: 0.0515
+Real Probability: 0.9487
+--------------------------------------------------
+Path: data\many\real\5oXYu_JIpYo_000002_000012.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0552
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\5pdwShpNQFU_000003_000013.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0523
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\5Pivh53_NkU_000429_000439.mp4
+Prediction: real
+Confidence: 0.9399
+AI-Generated Probability: 0.0600
+Real Probability: 0.9399
+--------------------------------------------------
+Path: data\many\real\5PNu5vjYTMM_000001_000011.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0550
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\5PTzWpA34Sw_000019_000029.mp4
+Prediction: real
+Confidence: 0.9443
+AI-Generated Probability: 0.0555
+Real Probability: 0.9443
+--------------------------------------------------
+Path: data\many\real\5Q1frS7ip88_000035_000045.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0549
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\5Q2lXyq2eG4_000003_000013.mp4
+Prediction: real
+Confidence: 0.9473
+AI-Generated Probability: 0.0526
+Real Probability: 0.9473
+--------------------------------------------------
+Path: data\many\real\5q6KbYHP3aU_000456_000466.mp4
+Prediction: real
+Confidence: 0.9380
+AI-Generated Probability: 0.0622
+Real Probability: 0.9380
+--------------------------------------------------
+Path: data\many\real\5Qa7GzAEWCg_000054_000064.mp4
+Prediction: real
+Confidence: 0.9404
+AI-Generated Probability: 0.0594
+Real Probability: 0.9404
+--------------------------------------------------
+Path: data\many\real\5Qi5ZJ_4YQU_000000_000010.mp4
+Prediction: real
+Confidence: 0.9468
+AI-Generated Probability: 0.0530
+Real Probability: 0.9468
+--------------------------------------------------
+Path: data\many\real\5Qiypu8X-sg_000038_000048.mp4
+Prediction: real
+Confidence: 0.9468
+AI-Generated Probability: 0.0534
+Real Probability: 0.9468
+--------------------------------------------------
+Path: data\many\real\5r2qIXvcGSY_000003_000013.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0546
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\5R9WPnRn_M4_000210_000220.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0535
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\5rkkyBNqPrc_000105_000115.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0540
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\5S8HdrRUPCo_000003_000013.mp4
+Prediction: real
+Confidence: 0.9443
+AI-Generated Probability: 0.0556
+Real Probability: 0.9443
+--------------------------------------------------
+Path: data\many\real\5S9jTuq1T1Y_000009_000019.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0521
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\5SesONQCA5k_000101_000111.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0522
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\5SpHomfOoZ8_000045_000055.mp4
+Prediction: real
+Confidence: 0.9468
+AI-Generated Probability: 0.0533
+Real Probability: 0.9468
+--------------------------------------------------
+Path: data\many\real\5tbpjvcrjxU_000030_000040.mp4
+Prediction: real
+Confidence: 0.9307
+AI-Generated Probability: 0.0695
+Real Probability: 0.9307
+--------------------------------------------------
+Path: data\many\real\5tP1FtKALyU_000081_000091.mp4
+Prediction: real
+Confidence: 0.9434
+AI-Generated Probability: 0.0569
+Real Probability: 0.9434
+--------------------------------------------------
+Path: data\many\real\5tPHXJ9YnsQ_000075_000085.mp4
+Prediction: real
+Confidence: 0.9473
+AI-Generated Probability: 0.0526
+Real Probability: 0.9473
+--------------------------------------------------
+Path: data\many\real\5Tq5X4A9ahM_000163_000173.mp4
+Prediction: real
+Confidence: 0.9438
+AI-Generated Probability: 0.0560
+Real Probability: 0.9438
+--------------------------------------------------
+Path: data\many\real\5Ts6VkRZb3k_000056_000066.mp4
+Prediction: real
+Confidence: 0.9473
+AI-Generated Probability: 0.0526
+Real Probability: 0.9473
+--------------------------------------------------
+Path: data\many\real\5U1FuWcH_2o_000020_000030.mp4
+Prediction: real
+Confidence: 0.9482
+AI-Generated Probability: 0.0518
+Real Probability: 0.9482
+--------------------------------------------------
+Path: data\many\real\5U54sZ_hoPw_000031_000041.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0538
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\5uajVlBkmZc_000002_000012.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0520
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\5Ugn8u2Uh1o_000035_000045.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0547
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\5UJ1JnW6MVE_000033_000043.mp4
+Prediction: real
+Confidence: 0.9473
+AI-Generated Probability: 0.0529
+Real Probability: 0.9473
+--------------------------------------------------
+Path: data\many\real\5UlHJlaNcwg_000000_000010.mp4
+Prediction: real
+Confidence: 0.9424
+AI-Generated Probability: 0.0577
+Real Probability: 0.9424
+--------------------------------------------------
+Path: data\many\real\5UNGEXxhkTA_000027_000037.mp4
+Prediction: real
+Confidence: 0.9312
+AI-Generated Probability: 0.0688
+Real Probability: 0.9312
+--------------------------------------------------
+Path: data\many\real\5vaAkYyPcc4_000098_000108.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0544
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\5vHvrO8mTZk_000014_000024.mp4
+Prediction: real
+Confidence: 0.9434
+AI-Generated Probability: 0.0569
+Real Probability: 0.9434
+--------------------------------------------------
+Path: data\many\real\5vPDEg8cefE_000418_000428.mp4
+Prediction: real
+Confidence: 0.9473
+AI-Generated Probability: 0.0528
+Real Probability: 0.9473
+--------------------------------------------------
+Path: data\many\real\5VVInLTAURU_000139_000149.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0522
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\5vY0SHmq3co_000001_000011.mp4
+Prediction: real
+Confidence: 0.9482
+AI-Generated Probability: 0.0517
+Real Probability: 0.9482
+--------------------------------------------------
+Path: data\many\real\5vzs1PUkmF8_000040_000050.mp4
+Prediction: real
+Confidence: 0.9424
+AI-Generated Probability: 0.0575
+Real Probability: 0.9424
+--------------------------------------------------
+Path: data\many\real\5w75SA4DswY_000074_000084.mp4
+Prediction: real
+Confidence: 0.9341
+AI-Generated Probability: 0.0661
+Real Probability: 0.9341
+--------------------------------------------------
+Path: data\many\real\5WApU5NHFfc_000000_000010.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0554
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\5WF9Y4J5k3E_000001_000011.mp4
+Prediction: real
+Confidence: 0.9292
+AI-Generated Probability: 0.0709
+Real Probability: 0.9292
+--------------------------------------------------
+Path: data\many\real\5wFJqYEB3-M_000258_000268.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0544
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\5Woz0h7QpZ4_000030_000040.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0546
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\5XBK2227f9Q_000056_000066.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0554
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\5Y6vcyyhBxk_000031_000041.mp4
+Prediction: real
+Confidence: 0.9434
+AI-Generated Probability: 0.0569
+Real Probability: 0.9434
+--------------------------------------------------
+Path: data\many\real\5YF-2BGnYg4_000054_000064.mp4
+Prediction: real
+Confidence: 0.9443
+AI-Generated Probability: 0.0555
+Real Probability: 0.9443
+--------------------------------------------------
+Path: data\many\real\5YpQGPhFk-E_000004_000014.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0553
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\5YUCvQY0aAw_000076_000086.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0554
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\5z0TwfIxcTc_000131_000141.mp4
+Prediction: real
+Confidence: 0.9414
+AI-Generated Probability: 0.0588
+Real Probability: 0.9414
+--------------------------------------------------
+Path: data\many\real\5zcm2aYFYHw_000044_000054.mp4
+Prediction: real
+Confidence: 0.9443
+AI-Generated Probability: 0.0556
+Real Probability: 0.9443
+--------------------------------------------------
+Path: data\many\real\5ZDdRCgx66w_000002_000012.mp4
+Prediction: real
+Confidence: 0.9434
+AI-Generated Probability: 0.0566
+Real Probability: 0.9434
+--------------------------------------------------
+Path: data\many\real\5zoMAvwKGfk_000110_000120.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0524
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\5Zt0gmjePzg_000109_000119.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0538
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\5_49YZnf00U_000012_000022.mp4
+Prediction: real
+Confidence: 0.9482
+AI-Generated Probability: 0.0518
+Real Probability: 0.9482
+--------------------------------------------------
+Path: data\many\real\5_XhgTkJW0E_000004_000014.mp4
+Prediction: real
+Confidence: 0.9360
+AI-Generated Probability: 0.0640
+Real Probability: 0.9360
+--------------------------------------------------
+Path: data\many\real\5_yDLlf5h0Y_000000_000010.mp4
+Prediction: real
+Confidence: 0.9434
+AI-Generated Probability: 0.0566
+Real Probability: 0.9434
+--------------------------------------------------
+Path: data\many\real\6-lUaTqETNI_001074_001084.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0554
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\6-O5ahdLOxA_000002_000012.mp4
+Prediction: real
+Confidence: 0.9331
+AI-Generated Probability: 0.0670
+Real Probability: 0.9331
+--------------------------------------------------
+Path: data\many\real\601v8cwpYrw_000010_000020.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0538
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\60HcAbLsVTU_000003_000013.mp4
+Prediction: real
+Confidence: 0.9429
+AI-Generated Probability: 0.0573
+Real Probability: 0.9429
+--------------------------------------------------
+Path: data\many\real\60rccmj30iM_000077_000087.mp4
+Prediction: real
+Confidence: 0.8984
+AI-Generated Probability: 0.1014
+Real Probability: 0.8984
+--------------------------------------------------
+Path: data\many\real\61-y723V1tI_000020_000030.mp4
+Prediction: real
+Confidence: 0.8970
+AI-Generated Probability: 0.1028
+Real Probability: 0.8970
+--------------------------------------------------
+Path: data\many\real\62QLMam7GPs_000000_000010.mp4
+Prediction: real
+Confidence: 0.9458
+AI-Generated Probability: 0.0543
+Real Probability: 0.9458
+--------------------------------------------------
+Path: data\many\real\62xuT2_C9ro_000001_000011.mp4
+Prediction: real
+Confidence: 0.9429
+AI-Generated Probability: 0.0573
+Real Probability: 0.9429
+--------------------------------------------------
+Path: data\many\real\63W9nVU49Xg_000148_000158.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0538
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\63zXr8TfSFE_000036_000046.mp4
+Prediction: real
+Confidence: 0.9419
+AI-Generated Probability: 0.0579
+Real Probability: 0.9419
+--------------------------------------------------
+Path: data\many\real\64SyyNEbrPU_000000_000010.mp4
+Prediction: real
+Confidence: 0.9365
+AI-Generated Probability: 0.0637
+Real Probability: 0.9365
+--------------------------------------------------
+Path: data\many\real\64TJxH14RNE_000025_000035.mp4
+Prediction: real
+Confidence: 0.9385
+AI-Generated Probability: 0.0616
+Real Probability: 0.9385
+--------------------------------------------------
+Path: data\many\real\64UBH371Jj8_000004_000014.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0554
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\658yUprsP0Q_000363_000373.mp4
+Prediction: real
+Confidence: 0.9468
+AI-Generated Probability: 0.0532
+Real Probability: 0.9468
+--------------------------------------------------
+Path: data\many\real\65ZruvW3r4s_000030_000040.mp4
+Prediction: real
+Confidence: 0.9414
+AI-Generated Probability: 0.0588
+Real Probability: 0.9414
+--------------------------------------------------
+Path: data\many\real\65ZVyNf1Q-Q_000074_000084.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0524
+Real Probability: 0.9478
+--------------------------------------------------
+Path: data\many\real\6620x_zMMV0_000008_000018.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0548
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\66jzPKA0ElU_000246_000256.mp4
+Prediction: real
+Confidence: 0.9463
+AI-Generated Probability: 0.0536
+Real Probability: 0.9463
+--------------------------------------------------
+Path: data\many\real\66zkOVhxUB0_000029_000039.mp4
+Prediction: real
+Confidence: 0.9448
+AI-Generated Probability: 0.0550
+Real Probability: 0.9448
+--------------------------------------------------
+Path: data\many\real\67b69dTmbv4_000015_000025.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0546
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\681Js-HgD2Q_000010_000020.mp4
+Prediction: real
+Confidence: 0.9268
+AI-Generated Probability: 0.0731
+Real Probability: 0.9268
+--------------------------------------------------
+Path: data\many\real\69AKLxJ5DFM_000004_000014.mp4
+Prediction: real
+Confidence: 0.9468
+AI-Generated Probability: 0.0534
+Real Probability: 0.9468
+--------------------------------------------------
+Path: data\many\real\69QTr37kqqw_000043_000053.mp4
+Prediction: real
+Confidence: 0.9453
+AI-Generated Probability: 0.0547
+Real Probability: 0.9453
+--------------------------------------------------
+Path: data\many\real\69XCCb6Cvhs_000108_000118.mp4
+Prediction: real
+Confidence: 0.9482
+AI-Generated Probability: 0.0518
+Real Probability: 0.9482
+--------------------------------------------------
+Path: data\many\real\6AAKbAWvfcs_000164_000174.mp4
+Prediction: real
+Confidence: 0.9473
+AI-Generated Probability: 0.0528
+Real Probability: 0.9473
+--------------------------------------------------
+Path: data\many\real\6ATVqwnu68w_000007_000017.mp4
+Prediction: real
+Confidence: 0.9443
+AI-Generated Probability: 0.0555
+Real Probability: 0.9443
+--------------------------------------------------
+Path: data\many\real\6AXAqLou0zs_000066_000076.mp4
+Prediction: real
+Confidence: 0.9468
+AI-Generated Probability: 0.0534
+Real Probability: 0.9468
+--------------------------------------------------
+Path: data\many\real\6AzikdsiY-0_000004_000014.mp4
+Prediction: real
+Confidence: 0.9478
+AI-Generated Probability: 0.0520
+Real Probability: 0.9478
+--------------------------------------------------
+
+AI-Generated Videos Results:

@@ -1,34 +1,29 @@
-FROM pytorch/pytorch:2.1.0-cuda12.1-cudnn8-runtime
+FROM pytorch/pytorch:2.1.0-cuda12.1-cudnn8-devel
 
-# Set working directory
-WORKDIR /opt/ml/code
-
+ENV PATH="/opt/conda/bin:${PATH}"
+ENV PYTHONUNBUFFERED=TRUE
+ENV PYTHONDONTWRITEBYTECODE=TRUE
 ENV DEBIAN_FRONTEND=noninteractive
-ENV TZ=UTC
-# Install system dependencies
-RUN apt-get update && apt-get install -y \
-    git \
-    python3-pip \
-    ffmpeg \
-    libsm6 \
-    libxext6 \
-    && rm -rf /var/lib/apt/lists/*
 
-# Copy requirements and install dependencies
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt \
+RUN apt-get update && apt-get install -y ffmpeg && \
+    apt-get install -y libsm6 && \
+    apt-get install -y libxext6 && \
+    apt-get install -y gcc && \
+    apt-get install -y g++ && \
+    rm -rf /var/lib/apt/lists/*
+
+RUN pip install --no-cache-dir \
+    opencv-python-headless==4.8.1.78 \
+    boto3==1.34.14 \
     sagemaker-training \
-    sagemaker-pytorch-training
+    smdebug
 
-# Set environment variables for GPU support
-ENV NVIDIA_VISIBLE_DEVICES all
-ENV NVIDIA_DRIVER_CAPABILITIES compute,utility
+COPY requirements.txt /opt/ml/code/requirements.txt
+RUN pip install --no-cache-dir -r /opt/ml/code/requirements.txt -f https://download.pytorch.org/whl/cu121/torch_stable.html
 
-# Copy training code and dependencies
-COPY . .
+COPY sm_train.py /opt/ml/code/train.py
+COPY full_scale_classifier.py /opt/ml/code/model.py
+COPY dataset.py /opt/ml/code/dataset.py
 
-# Make training script executable
-RUN chmod +x full_train.py
-
-# Set entry point for SageMaker
-ENTRYPOINT ["python3", "full_train.py"]
+ENV SAGEMAKER_PROGRAM train.py
+WORKDIR /opt/ml/code

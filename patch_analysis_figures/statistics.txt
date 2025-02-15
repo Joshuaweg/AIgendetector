@@ -1,0 +1,11 @@
+Patch Analysis Statistics
+========================
+
+total_patches: 15,360.00
+unique_clusters: 100.00
+active_clusters: 93.00
+avg_patches_per_cluster: 153.60
+std_patches_per_cluster: 124.98
+real_only_patches: 7,680.00
+ai_only_patches: 7,680.00
+shared_patches: 0.00

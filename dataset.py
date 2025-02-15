@@ -68,7 +68,8 @@ class VideoDataset(Dataset):
         self.target_size = target_size
         self.max_frames = max_frames
         
-        if data_dir.startswith('s3://'):
+        if str(data_dir).startswith('s3://'):
+            print(f"Initializing dataset from S3: {data_dir}")
             import boto3  # Import boto3 only when needed
             self.s3_client = boto3.client('s3')
             bucket = data_dir.split('/')[2]
@@ -76,21 +77,26 @@ class VideoDataset(Dataset):
             self.bucket = bucket
             
             # List all videos in the S3 bucket
+            print(f"Scanning S3 bucket: {bucket} with prefix: {prefix}")
             paginator = self.s3_client.get_paginator('list_objects_v2')
             self.videos = []
             for page in paginator.paginate(Bucket=bucket, Prefix=prefix):
                 for obj in page.get('Contents', []):
                     if obj['Key'].endswith('.mp4'):
                         path = obj['Key']
-                        label = 1 if 'real_' in path else 0
+                        # Determine label based on filename prefix
+                        label = 1 if 'real_' in path.lower() else 0
                         self.videos.append((path, label))
+                        
+            print(f"Found {len(self.videos)} videos in S3")
         else:
+            print(f"Initializing dataset from local path: {data_dir}")
             self.data_dir = Path(data_dir)
             self.videos = []
-            for video in self.data_dir.glob('*.mp4'):
-                if video.name.startswith('real_'):
+            for video in self.data_dir.glob('**/*.mp4'):  # Recursive search
+                if video.name.startswith(('real_', 'REAL_')):
                     self.videos.append((str(video), 1))
-                elif video.name.startswith('ai_'):
+                elif video.name.startswith(('ai_', 'AI_', 'fake_', 'FAKE_')):
                     self.videos.append((str(video), 0))
         
         # Shuffle the videos
@@ -106,21 +112,70 @@ class VideoDataset(Dataset):
     
     def load_video_from_s3(self, video_path):
         """Load video from S3 bucket"""
-        with tempfile.NamedTemporaryFile(suffix='.mp4') as temp_file:
-            self.s3_client.download_file(self.bucket, video_path, temp_file.name)
-            frames = []
-            cap = cv2.VideoCapture(temp_file.name)
-            
-            while cap.isOpened():
-                ret, frame = cap.read()
-                if not ret:
-                    break
-                frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-                frame = self.resize_frame(frame)
-                frames.append(frame)
-            cap.release()
-            
-            return frames
+        try:
+            with tempfile.NamedTemporaryFile(suffix='.mp4') as temp_file:
+                self.s3_client.download_file(self.bucket, video_path, temp_file.name)
+                frames = []
+                cap = cv2.VideoCapture(temp_file.name)
+                
+                # Check if video opened successfully
+                if not cap.isOpened():
+                    print(f"Failed to open video file: {video_path}")
+                    return None
+                
+                # Get video properties with validation
+                total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
+                if total_frames <= 0 or total_frames > 1000:  # Add reasonable upper limit
+                    print(f"Invalid frame count ({total_frames}) for video: {video_path}")
+                    return None
+                
+                # Validate frame dimensions
+                width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+                height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+                if width <= 0 or height <= 0:
+                    print(f"Invalid dimensions (width={width}, height={height}) for video: {video_path}")
+                    return None
+                
+                # Read frames with additional validation
+                frame_count = 0
+                while frame_count < self.max_frames * 2:  # Limit maximum frames to prevent memory issues
+                    ret, frame = cap.read()
+                    if not ret:
+                        break
+                    
+                    try:
+                        frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+                        frame = self.resize_frame(frame)
+                        
+                        # Validate frame after processing
+                        if frame.shape[:2] != (self.target_size, self.target_size):
+                            print(f"Incorrect frame size {frame.shape} for video {video_path}")
+                            continue
+                        
+                        frames.append(frame)
+                        frame_count += 1
+                        
+                    except Exception as e:
+                        print(f"Error processing frame {frame_count} from {video_path}: {str(e)}")
+                        continue
+                    
+                cap.release()
+                
+                if not frames:
+                    print(f"No valid frames extracted from video: {video_path}")
+                    return None
+                
+                # Convert to numpy array and validate
+                frames = np.array(frames, dtype=np.float32)
+                if np.isnan(frames).any() or np.isinf(frames).any():
+                    print(f"Invalid values (NaN/Inf) detected in frames from {video_path}")
+                    return None
+                    
+                return frames
+                
+        except Exception as e:
+            print(f"Error loading video from S3 ({video_path}): {str(e)}")
+            return None
         
     def resize_frame(self, frame):
         """Resize frame to target_size x target_size"""
@@ -141,31 +196,51 @@ class VideoDataset(Dataset):
         return len(self.videos)
         
     def __getitem__(self, idx):
-        video_path, label = self.videos[idx]
-        
-        if hasattr(self, 's3_client'):
-            frames = self.load_video_from_s3(video_path)
-        else:
-            frames = []
-            cap = cv2.VideoCapture(str(video_path))
-            while cap.isOpened():
-                ret, frame = cap.read()
-                if not ret:
-                    break
-                frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-                frame = self.resize_frame(frame)
-                frames.append(frame)
-            cap.release()
-        
-        # Sample frames according to our strategy
-        frames = self.sample_frames(frames)
-        
-        # Convert to numpy array and normalize
-        frames = np.array(frames) / 255.0
-        
-        # Convert to tensor
-        frames_tensor = torch.FloatTensor(frames)
-        return frames_tensor, label, str(video_path)
+        try:
+            video_path, label = self.videos[idx]
+            
+            if hasattr(self, 's3_client'):
+                frames = self.load_video_from_s3(video_path)
+                if len(frames) == 0:
+                    print(f"Failed to load video: {video_path}")
+                    return None, None, str(video_path)
+            else:
+                try:
+                    frames = []
+                    cap = cv2.VideoCapture(str(video_path))
+                    if not cap.isOpened():
+                        print(f"Failed to open video: {video_path}")
+                        return None, None, str(video_path)
+                        
+                    while cap.isOpened():
+                        ret, frame = cap.read()
+                        if not ret:
+                            break
+                        frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+                        frame = self.resize_frame(frame)
+                        frames.append(frame)
+                    cap.release()
+                    
+                    if len(frames) == 0:
+                        print(f"No frames extracted from video: {video_path}")
+                        return None, None, str(video_path)
+                except Exception as e:
+                    print(f"Error loading video {video_path}: {str(e)}")
+                    return None, None, str(video_path)
+            
+            # Sample frames according to our strategy
+            frames = self.sample_frames(frames)
+            
+            # Convert to numpy array and normalize
+            frames = np.array(frames) / 255.0
+            
+            # Convert to tensor
+            frames_tensor = torch.FloatTensor(frames)
+            return frames_tensor, label, str(video_path)
+            
+        except Exception as e:
+            print(f"Error processing video {video_path}: {str(e)}")
+            return None, None, str(video_path)
 
 class PreprocessedVideoDataset(Dataset):
     def __init__(self, real_dir, fake_dir, transform=None):
@@ -302,9 +377,15 @@ class SizeBatchSampler:
 def custom_collate_fn(batch):
     """
     Custom collate function to handle variable-length videos.
-    Pads videos to the maximum length in the batch.
+    Filters out any None values from failed video loads.
     """
-    videos, labels, paths = zip(*batch)
+    # Filter out None values from failed video loads
+    valid_batch = [(video, label, path) for video, label, path in batch if video is not None and isinstance(video, torch.Tensor)]
+    
+    if len(valid_batch) == 0:
+        raise RuntimeError("No valid videos in batch")
+    
+    videos, labels, paths = zip(*valid_batch)
     
     # Find the max dimensions in the batch
     max_frames = max([video.shape[0] for video in videos])

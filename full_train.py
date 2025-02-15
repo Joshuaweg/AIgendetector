@@ -3,7 +3,7 @@ import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader
 from full_scale_classifier import *
-from dataset import VideoDataset, custom_collate_fn, SizeBatchSampler
+from dataset import VideoDataset, custom_collate_fn
 import time
 from torch.utils.tensorboard import SummaryWriter
 import numpy as np
@@ -12,8 +12,23 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from datetime import datetime
 
+TRAINING_CHANNEL = os.environ.get('SM_CHANNEL_TRAINING')
+print(TRAINING_CHANNEL)
+MODEL_DIR = os.environ.get('SM_MODEL_DIR', 'model')
+print(MODEL_DIR)
+NUM_GPUS = int(os.environ.get('SM_NUM_GPUS', 0))
+print(NUM_GPUS)
+CURRENT_HOST = os.environ.get('SM_CURRENT_HOST')
+print(CURRENT_HOST)
+HOSTS = os.environ.get('SM_HOSTS')
+print(HOSTS)
+
+print("All environment variables:")
+for key, value in os.environ.items():
+    print(f"{key}: {value}")
+
 # Configuration flags
-LOCAL_TESTING = True  # Set to False for deployment
+LOCAL_TESTING = False  # Set to False for deployment
 
 # Training configurations based on environment
 if LOCAL_TESTING:
@@ -36,19 +51,28 @@ else:
 
 # Memory management settings
 if LOCAL_TESTING:
-    os.environ['PYTORCH_CUDA_ALLOC_CONF'] = 'max_split_size_mb:512,expandable_segments:True'
+    os.environ['PYTORCH_CUDA_ALLOC_CONF'] = 'max_split_size_mb:512'
 else:
     # AWS optimized memory settings
-    os.environ['PYTORCH_CUDA_ALLOC_CONF'] = 'max_split_size_mb:1024,expandable_segments:True,roundup_power2:True'
+    os.environ['PYTORCH_CUDA_ALLOC_CONF'] = 'max_split_size_mb:1024,garbage_collection_threshold:0.8'
 
 def clear_gpu_memory():
-    """Function to thoroughly clear GPU memory"""
-    torch.cuda.empty_cache()
+    """Function to safely clear GPU memory"""
     gc.collect()
     if torch.cuda.is_available():
-        torch.cuda.synchronize()
+        try:
+            # Empty CUDA cache
+            torch.cuda.empty_cache()
+            # Only try to synchronize if CUDA is actually initialized
+            if torch.cuda.is_initialized():
+                torch.cuda.synchronize()
+        except RuntimeError as e:
+            print(f"Warning: Could not synchronize CUDA: {e}")
+            # Continue execution even if synchronization fails
+            pass
 
 if __name__ == "__main__":
+    os.makedirs(MODEL_DIR, exist_ok=True)
     # Enable anomaly detection only in LOCAL_TESTING
     if LOCAL_TESTING:
         torch.autograd.set_detect_anomaly(True)
@@ -76,10 +100,20 @@ if __name__ == "__main__":
     optimizer = torch.optim.Adam(vclf.parameters(), lr=0.0005, eps=1e-8)
     
     # Load the videos with max size of 512
-    real_videos_path = 'data\\many\\real'
-    fake_videos_path = 'data\\many\\fake'
+    if TRAINING_CHANNEL:
+        # Use SageMaker training channel path
+        dataset_path = TRAINING_CHANNEL
+        print(f"Loading dataset from SageMaker channel: {dataset_path}")
+    else:
+        # Fallback for local testing
+        s3_bucket = 's3://genvideo-dataset-complete/dataset/'
+        dataset_path = s3_bucket
+        print(f"Loading dataset from local path: {dataset_path}")
+        # Create directory if it doesn't exist
+        #os.makedirs(dataset_path, exist_ok=True)
+
     print("Loading dataset")
-    dataset = VideoDataset(real_videos_path, fake_videos_path, max_frames=24)
+    dataset = VideoDataset(dataset_path, target_size=512, max_frames=24)
     print(f"Dataset length: {len(dataset)}")
     
     train_size = int(0.8 * len(dataset))
@@ -112,10 +146,6 @@ if __name__ == "__main__":
         persistent_workers=PERSISTENT_WORKERS if NUM_WORKERS > 0 else False
     )
     
-    # Save test paths
-    with open('data\\test_paths.txt', 'w') as f:
-        for video in test_dataset:
-            f.write(video[2] + '\n')
     
     print("Begin Training")
     scaler = torch.cuda.amp.GradScaler()
@@ -127,11 +157,17 @@ if __name__ == "__main__":
         print(f"GPU memory cached before training: {torch.cuda.memory_reserved()/1e9:.2f}GB")
     
     # Initialize TensorBoard writer
+    if os.environ.get('TENSORBOARD_DIR'):
+        tensorboard_dir = os.environ['TENSORBOARD_DIR']
+    else:
+        tensorboard_dir = 'runs'
+    os.makedirs(tensorboard_dir, exist_ok=True)
     run_name = datetime.now().strftime("%Y%m%d-%H%M%S")
-    writer = SummaryWriter(f'runs/training_{run_name}')
+    writer = SummaryWriter(f'{tensorboard_dir}/training_{run_name}')
     
     # Create directories for additional visualizations
-    os.makedirs('conference_plots', exist_ok=True)
+    plots_dir = os.path.join(MODEL_DIR, 'conference_plots')
+    os.makedirs(plots_dir, exist_ok=True)
     
     # Log model graph and architecture summary
     dummy_input = torch.zeros((1, 16, 256, 256, 3), device=device)
@@ -197,7 +233,7 @@ if __name__ == "__main__":
         
         plt.tight_layout()
         writer.add_figure('Training Metrics', plt.gcf(), epoch)
-        plt.savefig(f'conference_plots/training_metrics_epoch_{epoch}.png')
+        plt.savefig(os.path.join(plots_dir, f'training_metrics_epoch_{epoch}.png'))
         plt.close()
     
     def analyze_predictions(val_preds, val_labels, epoch):
@@ -222,7 +258,7 @@ if __name__ == "__main__":
         
         plt.tight_layout()
         writer.add_figure('Prediction Analysis', plt.gcf(), epoch)
-        plt.savefig(f'conference_plots/prediction_analysis_epoch_{epoch}.png')
+        plt.savefig(os.path.join(plots_dir, f'prediction_analysis_epoch_{epoch}.png'))
         plt.close()
     
     # Add per-class metrics tracking
@@ -449,7 +485,7 @@ if __name__ == "__main__":
             plt.title(f'ROC Curve - Epoch {epoch}')
             plt.legend(loc="lower right")
             writer.add_figure('ROC_Curves/Epoch', plt.gcf(), epoch)
-            plt.savefig(f'conference_plots/roc_curve_epoch_{epoch}.png')
+            plt.savefig(os.path.join(plots_dir, f'roc_curve_epoch_{epoch}.png'))
             plt.close()
             
             # Generate confusion matrix for this epoch
@@ -474,7 +510,7 @@ if __name__ == "__main__":
             
             plt.tight_layout()
             writer.add_figure('Confusion_Matrices/Epoch', plt.gcf(), epoch)
-            plt.savefig(f'conference_plots/confusion_matrices_epoch_{epoch}.png')
+            plt.savefig(os.path.join(plots_dir, f'confusion_matrices_epoch_{epoch}.png'))
             plt.close()
             
             # Log AUC score for this epoch
@@ -488,8 +524,8 @@ if __name__ == "__main__":
         # Save model if validation improves
         if accuracy_pct > best_accuracy:
             best_accuracy = accuracy_pct
-            torch.save(vclf.state_dict(), f'model/videoClassifier_full_best.pth')
-        torch.save(vclf.state_dict(), f'model/videoClassifier_full_epoch_{epoch}.pth')
+            torch.save(vclf.state_dict(), os.path.join(MODEL_DIR, 'videoClassifier_full_best.pth'))
+        torch.save(vclf.state_dict(), os.path.join(MODEL_DIR, 'videoClassifier_full_epoch_{epoch}.pth'))
         
         end_epoch_time = time.time()
         elapsed_time = end_epoch_time - start_epoch_time
