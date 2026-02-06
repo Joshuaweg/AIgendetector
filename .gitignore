@@ -1,0 +1,57 @@
+# Environment / Dependencies
+venv/
+env/
+.venv/
+.env
+node_modules/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+
+# Training data / Models / Outputs
+model/
+data/
+runs/
+visuals/
+plots/
+diffusion_analysis/
+spectral_analysis/
+*.pkl
+*.pt
+*.pth
+*.h5
+*.hdf5
+*.npy
+*.npz
+
+# Videos / Images
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.png
+*.jpg
+*.jpeg
+*.gif
+
+# Build artifacts
+build/
+dist/
+*.whl
+
+# IDE / OS
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Frontend
+nextjs-integration/
+
+# Misc
+*.log

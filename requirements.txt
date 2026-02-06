@@ -1,0 +1,39 @@
+
+# Core ML and data processing libraries
+matplotlib==3.8.0
+numpy>=1.24.0,<2.0.0
+pandas>=2.0.0
+scikit-learn==1.5.2
+seaborn==0.13.2
+tqdm==4.66.5
+scipy>=1.11.0  # For spectral analysis (FFT, signal processing)
+
+# GPU utilities and visualization
+gputil>=1.4.0
+torchviz>=0.0.2
+tensorboard>=2.15.0
+
+# Computer vision and image processing
+opencv-python-headless>=4.8.0
+pillow>=10.0.0
+PyWavelets>=1.4.0  # For wavelet analysis in diffusion fingerprints
+
+# AWS and cloud services
+boto3>=1.34.14
+sagemaker-training
+
+# PyTorch with CUDA support - use standard installation
+--index-url https://download.pytorch.org/whl/cu126
+torch
+torchvision
+torchaudio
+
+# ML interpretability - install after PyTorch
+--index-url https://pypi.org/simple/
+captum>=0.7.0
+
+# Web API and deployment
+flask>=3.0.0
+flask-cors>=4.0.0
+gunicorn>=21.2.0
+gradio>=4.0.0

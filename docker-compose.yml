@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    container_name: video-detector-api
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./model:/app/model:ro  # Mount model directory (read-only)
+      - ./temp_uploads:/app/temp_uploads
+      - ./temp_results:/app/temp_results
+    environment:
+      - CUDA_VISIBLE_DEVICES=0  # Use first GPU
+      - PYTHONUNBUFFERED=1
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+  # Optional: Add nginx reverse proxy
+  nginx:
+    image: nginx:alpine
+    container_name: video-detector-nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./ssl:/etc/nginx/ssl:ro  # For HTTPS certificates
+    depends_on:
+      - api
+    restart: unless-stopped
+
+volumes:
+  model_data:
+  temp_uploads:
+  temp_results:

@@ -1,0 +1,29 @@
+# Git
+.git
+.gitignore
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.env/
+
+# Data and logs
+data/
+runs/
+conference_plots/
+*.mp4
+*.png
+
+# IDE
+.vscode/
+.idea/
+
+# Misc
+*.log
+*.swp
+.DS_Store

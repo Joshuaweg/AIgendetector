@@ -1,0 +1,5 @@
+Final Accuracy: 0.000
+ROC AUC: nan
+Training Time (hours): 0.005
+Best Accuracy: 0.000
+Final Learning Rate: 0.001

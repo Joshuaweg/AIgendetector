@@ -1,0 +1,19 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Force batch scripts to use CRLF
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Force shell scripts to use LF
+*.sh text eol=lf
+
+# Binary files
+*.pkl binary
+*.pt binary
+*.pth binary
+*.h5 binary
+*.hdf5 binary
+*.mp4 binary
+*.avi binary
+*.mov binary
