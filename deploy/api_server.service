@@ -1,0 +1,35 @@
+[Unit]
+Description=AI Video Detector API Server
+After=network.target
+# Wait for GPU to be ready
+After=sys-devices-virtual-misc-nvidia*.device
+
+[Service]
+Type=simple
+User=ubuntu
+Group=ubuntu
+WorkingDirectory=/home/ubuntu/AIgendetector
+
+# Tunable: stop instance after this many idle minutes
+Environment=IDLE_TIMEOUT_MINUTES=15
+
+# One worker so GPU memory is not double-allocated.
+# Threads handle concurrent lightweight requests (health, feedback).
+# Backlog queues incoming connections while the worker is busy.
+ExecStart=/home/ubuntu/AIgendetector/venv/bin/gunicorn \
+    --workers 1 \
+    --threads 4 \
+    --timeout 300 \
+    --backlog 64 \
+    --bind 127.0.0.1:5000 \
+    --access-logfile /var/log/api_server/access.log \
+    --error-logfile  /var/log/api_server/error.log \
+    api_server:app
+
+Restart=on-failure
+RestartSec=10
+StandardOutput=append:/var/log/api_server/server.log
+StandardError=append:/var/log/api_server/server.log
+
+[Install]
+WantedBy=multi-user.target

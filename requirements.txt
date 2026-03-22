@@ -1,4 +1,13 @@
 
+# Primary index: PyTorch CUDA wheels; PyPI as fallback for everything else
+--index-url https://download.pytorch.org/whl/cu126
+--extra-index-url https://pypi.org/simple/
+
+# PyTorch with CUDA 12.6 support
+torch
+torchvision
+torchaudio
+
 # Core ML and data processing libraries
 matplotlib==3.8.0
 numpy>=1.24.0,<2.0.0
@@ -6,7 +15,7 @@ pandas>=2.0.0
 scikit-learn==1.5.2
 seaborn==0.13.2
 tqdm==4.66.5
-scipy>=1.11.0  # For spectral analysis (FFT, signal processing)
+scipy>=1.11.0
 
 # GPU utilities and visualization
 gputil>=1.4.0
@@ -16,21 +25,16 @@ tensorboard>=2.15.0
 # Computer vision and image processing
 opencv-python-headless>=4.8.0
 pillow>=10.0.0
-PyWavelets>=1.4.0  # For wavelet analysis in diffusion fingerprints
+PyWavelets>=1.4.0
 
 # AWS and cloud services
 boto3>=1.34.14
-sagemaker-training
 
-# PyTorch with CUDA support - use standard installation
---index-url https://download.pytorch.org/whl/cu126
-torch
-torchvision
-torchaudio
-
-# ML interpretability - install after PyTorch
---index-url https://pypi.org/simple/
+# ML interpretability
 captum>=0.7.0
+
+# Video encoding (ffmpeg binary for H.264 browser-compatible output)
+imageio[ffmpeg]
 
 # Web API and deployment
 flask>=3.0.0

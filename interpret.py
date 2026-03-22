@@ -330,6 +330,7 @@ def forward_and_interpret_LRP(video):
 
 #finally we will visualize the attributions
 def visualize(attributions, video, save_path='plots', label=""):
+    from scipy.ndimage import gaussian_filter
     # Squeeze out the batch dimension
     video = video.squeeze(0)
     attributions = attributions.squeeze(0)
@@ -338,23 +339,32 @@ def visualize(attributions, video, save_path='plots', label=""):
     delete_all_files_in_folder(save_path)
     for i, (v_frame, a_frame) in enumerate(zip(video, attributions)):
         v_frame = v_frame.transpose(1, 2, 0).astype(np.uint8)
-        a_frame = a_frame.transpose(1, 2, 0)
-        fig,ax=viz.visualize_image_attr(
-            a_frame,
+        a_frame = a_frame.transpose(1, 2, 0)  # H, W, C
+
+        # Smooth each channel spatially to consolidate scattered pixel activations
+        # into coherent regions, then reconstruct per-channel for captum
+        a_smooth = np.stack(
+            [gaussian_filter(a_frame[:, :, c], sigma=12) for c in range(a_frame.shape[2])],
+            axis=2
+        )
+
+        fig, ax = viz.visualize_image_attr(
+            a_smooth,
             v_frame,
-            sign="positive", 
-            method="blended_heat_map", 
-            cmap='seismic', 
+            sign="absolute_value",
+            method="blended_heat_map",
+            cmap='inferno',
+            alpha_overlay=0.65,
             fig_size=(12, 9),
             show_colorbar=True,
             use_pyplot=False,
             title=label,
         )
-        
+
         # Save the plot as an image using cross-platform path
         save_frame_path = os.path.join(save_path, f"attributions_frame_{i+1:03}.png")
         fig.savefig(save_frame_path, bbox_inches='tight')
-        
+
         # Close the figure to avoid displaying it and free up memory
         plt.close(fig)
 
@@ -413,9 +423,11 @@ def save_attributions_video(image_folder, output_video, fps=30):
     frame = cv2.imread(os.path.join(image_folder, images[0]))
     height, width, layers = frame.shape
 
-# Define the video codec and create a VideoWriter object
-    fourcc = cv2.VideoWriter_fourcc(*'mp4v')  # You can also use 'XVID' or other codecs
-    video = cv2.VideoWriter(output_video, fourcc, fps, (width, height))
+# Write to a temp file first, then re-encode to H.264 for browser compatibility
+    import tempfile, subprocess, shutil
+    tmp_path = output_video + '.tmp.mp4'
+    fourcc = cv2.VideoWriter_fourcc(*'mp4v')
+    video = cv2.VideoWriter(tmp_path, fourcc, fps, (width, height))
 
 # Loop through all images and write them into the video
     for image in images:
@@ -425,6 +437,23 @@ def save_attributions_video(image_folder, output_video, fps=30):
 
 # Release the video writer
     video.release()
+
+    # Re-encode to H.264 with faststart for browser streaming
+    try:
+        import imageio_ffmpeg
+        ffmpeg = imageio_ffmpeg.get_ffmpeg_exe()
+    except ImportError:
+        ffmpeg = shutil.which('ffmpeg')
+    if ffmpeg:
+        subprocess.run(
+            [ffmpeg, '-y', '-i', tmp_path,
+             '-vcodec', 'libx264', '-pix_fmt', 'yuv420p',
+             '-movflags', '+faststart', output_video],
+            check=True, capture_output=True
+        )
+        os.remove(tmp_path)
+    else:
+        os.rename(tmp_path, output_video)
 
     print(f"Video saved as {output_video}")
 

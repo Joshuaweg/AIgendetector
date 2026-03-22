@@ -3,7 +3,7 @@ Flask API Server for AI-Generated Video Detection
 Designed to integrate with Next.js frontend via REST API
 """
 
-from flask import Flask, request, jsonify, send_file
+from flask import Flask, request, jsonify, send_file, Response
 from flask_cors import CORS
 import torch
 import cv2
@@ -17,6 +17,9 @@ import io
 from datetime import datetime
 import uuid
 import json
+import threading
+import time
+import urllib.request
 
 # Import model components
 from full_scale_classifier import FullLatentEncoder, FullPatchEncoder, FullClassifier, FullVideoClassifier
@@ -27,14 +30,83 @@ from captum.attr import IntegratedGradients
 app = Flask(__name__)
 CORS(app)  # Enable CORS for Next.js frontend
 
+# ---------------------------------------------------------------------------
+# Idle watchdog — stops the EC2 instance after N minutes of no requests
+# ---------------------------------------------------------------------------
+IDLE_TIMEOUT_SECONDS = int(os.environ.get('IDLE_TIMEOUT_MINUTES', '15')) * 60
+_last_activity = time.time()
+
+
+@app.before_request
+def _record_activity():
+    global _last_activity
+    _last_activity = time.time()
+
+
+def _get_instance_metadata(path):
+    """Fetch EC2 instance metadata (IMDSv2)."""
+    token = urllib.request.urlopen(
+        urllib.request.Request(
+            'http://169.254.169.254/latest/api/token',
+            headers={'X-aws-ec2-metadata-token-ttl-seconds': '21600'},
+            method='PUT',
+        ),
+        timeout=2,
+    ).read().decode()
+    return urllib.request.urlopen(
+        urllib.request.Request(
+            f'http://169.254.169.254/latest/meta-data/{path}',
+            headers={'X-aws-ec2-metadata-token': token},
+        ),
+        timeout=2,
+    ).read().decode()
+
+
+def _idle_watchdog():
+    """Background thread: stop the EC2 instance when idle too long."""
+    import boto3
+    print(f"Idle watchdog started — will stop instance after "
+          f"{IDLE_TIMEOUT_SECONDS // 60} min of inactivity.")
+    while True:
+        time.sleep(60)
+        idle_for = time.time() - _last_activity
+        if idle_for >= IDLE_TIMEOUT_SECONDS:
+            print(f"Idle for {idle_for:.0f}s — sending stop-instance command...")
+            try:
+                instance_id = _get_instance_metadata('instance-id')
+                region = _get_instance_metadata('placement/region')
+                boto3.client('ec2', region_name=region).stop_instances(
+                    InstanceIds=[instance_id]
+                )
+                print(f"Stop command sent for {instance_id} in {region}.")
+            except Exception as e:
+                print(f"Watchdog stop failed: {e}")
+
+
+def _start_watchdog_if_ec2():
+    """Only activate the watchdog when running on an actual EC2 instance."""
+    try:
+        urllib.request.urlopen(
+            'http://169.254.169.254/latest/api/token', timeout=1
+        )
+        t = threading.Thread(target=_idle_watchdog, daemon=True)
+        t.start()
+    except Exception:
+        print("Not running on EC2 — idle watchdog disabled.")
+
 # Configuration
 UPLOAD_FOLDER = 'temp_uploads'
-RESULTS_FOLDER = 'temp_results'
+RESULTS_FOLDER = 'saved_attributions'
+SAVED_VIDEOS_FOLDER = 'saved_videos'
 MAX_FILE_SIZE = 100 * 1024 * 1024  # 100MB
 ALLOWED_EXTENSIONS = {'mp4', 'avi', 'mov', 'mkv', 'webm'}
 
+FEEDBACK_FOLDER = 'feedback'
+
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 os.makedirs(RESULTS_FOLDER, exist_ok=True)
+os.makedirs(SAVED_VIDEOS_FOLDER, exist_ok=True)
+os.makedirs(FEEDBACK_FOLDER, exist_ok=True)
 
 # Global model instance
 model = None
@@ -55,7 +127,9 @@ def initialize_model(model_path=None):
 
         # Check if model exists locally
         if not os.path.exists(model_path):
-            model_path = 'model/full_classifier_best.pt'  # Try relative path
+            # Try relative to this script's directory
+            script_dir = os.path.dirname(os.path.abspath(__file__))
+            model_path = os.path.join(script_dir, 'model', 'full_classifier_best.pt')
 
         if not os.path.exists(model_path):
             raise FileNotFoundError(
@@ -72,6 +146,15 @@ def initialize_model(model_path=None):
 def allowed_file(filename):
     """Check if file extension is allowed"""
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+
+def save_video_permanently(src_path, video_id, original_filename):
+    """Copy an uploaded video to saved_videos/ for permanent storage."""
+    ext = original_filename.rsplit('.', 1)[-1].lower() if '.' in original_filename else 'mp4'
+    dest_filename = f"{video_id}__{original_filename}"
+    dest_path = os.path.join(SAVED_VIDEOS_FOLDER, dest_filename)
+    shutil.copy2(src_path, dest_path)
+    return dest_path
 
 def cleanup_old_files(folder, max_age_seconds=3600):
     """Remove files older than max_age_seconds"""
@@ -169,10 +252,13 @@ def predict():
     # Generate unique ID for this request
     video_id = str(uuid.uuid4())
 
-    # Save uploaded file
+    # Save uploaded file to temp location
     filename = f"{video_id}_{file.filename}"
     filepath = os.path.join(UPLOAD_FOLDER, filename)
     file.save(filepath)
+
+    # Persist a permanent copy immediately after saving
+    save_video_permanently(filepath, video_id, file.filename)
 
     try:
         # Process video
@@ -212,13 +298,13 @@ def predict():
             if attribution_path:
                 response_data['attribution_video_url'] = f'/api/download/{video_id}'
 
-        # Cleanup uploaded file
+        # Cleanup temp only (permanent copy is already saved)
         cleanup_old_files(UPLOAD_FOLDER)
 
         return jsonify(response_data)
 
     except Exception as e:
-        # Cleanup on error
+        # Cleanup temp on error (permanent copy is kept)
         try:
             os.remove(filepath)
         except:
@@ -280,6 +366,9 @@ def analyze_frames():
     filepath = os.path.join(UPLOAD_FOLDER, filename)
     file.save(filepath)
 
+    # Persist a permanent copy immediately after saving
+    save_video_permanently(filepath, video_id, file.filename)
+
     try:
         # Process video
         video_tensor, frames = process_video_from_path(filepath)
@@ -313,7 +402,7 @@ def analyze_frames():
         threshold = frame_importance_norm.mean() + frame_importance_norm.std()
         key_frames = np.where(frame_importance_norm > threshold)[0].tolist()
 
-        # Cleanup
+        # Cleanup temp only
         os.remove(filepath)
 
         return jsonify({
@@ -342,7 +431,7 @@ def analyze_frames():
 
 @app.route('/api/download/<video_id>', methods=['GET'])
 def download_attribution(video_id):
-    """Download attribution video"""
+    """Stream attribution video with Range request support for browser playback"""
     filepath = os.path.join(RESULTS_FOLDER, f"{video_id}_attribution.mp4")
 
     if not os.path.exists(filepath):
@@ -351,12 +440,33 @@ def download_attribution(video_id):
             'error': 'Attribution video not found'
         }), 404
 
-    return send_file(
-        filepath,
-        mimetype='video/mp4',
-        as_attachment=True,
-        download_name=f'attribution_{video_id}.mp4'
-    )
+    file_size = os.path.getsize(filepath)
+    range_header = request.headers.get('Range')
+
+    if range_header:
+        # Parse Range: bytes=start-end
+        byte_range = range_header.replace('bytes=', '').split('-')
+        start = int(byte_range[0])
+        end = int(byte_range[1]) if byte_range[1] else file_size - 1
+        length = end - start + 1
+
+        with open(filepath, 'rb') as f:
+            f.seek(start)
+            data = f.read(length)
+
+        response = Response(
+            data,
+            status=206,
+            mimetype='video/mp4',
+            headers={
+                'Content-Range': f'bytes {start}-{end}/{file_size}',
+                'Accept-Ranges': 'bytes',
+                'Content-Length': str(length),
+            }
+        )
+        return response
+
+    return send_file(filepath, mimetype='video/mp4', conditional=True)
 
 @app.route('/api/batch/predict', methods=['POST'])
 def batch_predict():
@@ -420,6 +530,9 @@ def batch_predict():
         filepath = os.path.join(UPLOAD_FOLDER, filename)
         file.save(filepath)
 
+        # Persist a permanent copy immediately after saving
+        save_video_permanently(filepath, video_id, file.filename)
+
         try:
             # Process and predict
             video_tensor, _ = process_video_from_path(filepath)
@@ -435,6 +548,7 @@ def batch_predict():
 
             results.append({
                 'filename': file.filename,
+                'video_id': video_id,
                 'success': True,
                 'prediction': {
                     'class': classes[pred],
@@ -446,7 +560,7 @@ def batch_predict():
                 }
             })
 
-            # Cleanup
+            # Cleanup temp only
             os.remove(filepath)
 
         except Exception as e:
@@ -488,7 +602,8 @@ def generate_attributions(video_tensor, frames, pred_class, video_id):
             baseline,
             target=pred_class,
             n_steps=50,
-            internal_batch_size=1
+            internal_batch_size=1,
+            return_convergence_delta=True
         )
 
         # Visualize
@@ -511,6 +626,120 @@ def generate_attributions(video_tensor, frames, pred_class, video_id):
 
     finally:
         shutil.rmtree(temp_dir, ignore_errors=True)
+
+@app.route('/api/feedback', methods=['GET'])
+def get_feedback():
+    """Return all feedback entries plus aggregate stats."""
+    feedback_file = os.path.join(FEEDBACK_FOLDER, 'feedback.jsonl')
+
+    entries = []
+    if os.path.exists(feedback_file):
+        with open(feedback_file, 'r', encoding='utf-8') as f:
+            for line in f:
+                line = line.strip()
+                if line:
+                    try:
+                        entries.append(json.loads(line))
+                    except json.JSONDecodeError:
+                        pass
+
+    total = len(entries)
+    correct = sum(1 for e in entries if e.get('was_correct'))
+    ai_entries = [e for e in entries if e.get('prediction') == 'AI-Generated']
+    real_entries = [e for e in entries if e.get('prediction') == 'Real']
+    model_counts: dict = {}
+    for e in entries:
+        m = e.get('model_used')
+        if m:
+            model_counts[m] = model_counts.get(m, 0) + 1
+
+    return jsonify({
+        'success': True,
+        'stats': {
+            'total': total,
+            'correct': correct,
+            'incorrect': total - correct,
+            'accuracy': round(correct / total, 4) if total else None,
+            'ai_generated_submissions': len(ai_entries),
+            'real_submissions': len(real_entries),
+            'model_counts': model_counts,
+        },
+        'entries': entries,
+    })
+
+
+@app.route('/api/feedback/export', methods=['GET'])
+def export_feedback_csv():
+    """Download feedback as a CSV file."""
+    import csv, io
+    feedback_file = os.path.join(FEEDBACK_FOLDER, 'feedback.jsonl')
+
+    entries = []
+    if os.path.exists(feedback_file):
+        with open(feedback_file, 'r', encoding='utf-8') as f:
+            for line in f:
+                line = line.strip()
+                if line:
+                    try:
+                        entries.append(json.loads(line))
+                    except json.JSONDecodeError:
+                        pass
+
+    output = io.StringIO()
+    writer = csv.DictWriter(
+        output,
+        fieldnames=['video_id', 'prediction', 'was_correct', 'model_used', 'timestamp'],
+        extrasaction='ignore',
+    )
+    writer.writeheader()
+    writer.writerows(entries)
+
+    return Response(
+        output.getvalue(),
+        mimetype='text/csv',
+        headers={'Content-Disposition': 'attachment; filename=feedback.csv'},
+    )
+
+
+@app.route('/api/feedback', methods=['POST'])
+def submit_feedback():
+    """
+    Collect user feedback on classification accuracy.
+
+    Request JSON:
+        {
+            "video_id": "uuid",
+            "prediction": "AI-Generated" | "Real",
+            "was_correct": true | false,
+            "model_used": "Sora" (optional, for AI-generated videos)
+        }
+    """
+    data = request.get_json(silent=True)
+    if not data:
+        return jsonify({'success': False, 'error': 'JSON body required'}), 400
+
+    video_id = data.get('video_id', '')
+    prediction = data.get('prediction', '')
+    was_correct = data.get('was_correct')
+    model_used = data.get('model_used', '').strip()
+
+    if not video_id or prediction not in ('AI-Generated', 'Real') or was_correct is None:
+        return jsonify({'success': False, 'error': 'Missing or invalid fields'}), 400
+
+    entry = {
+        'video_id': video_id,
+        'prediction': prediction,
+        'was_correct': bool(was_correct),
+        'model_used': model_used or None,
+        'timestamp': datetime.now().isoformat(),
+    }
+
+    feedback_file = os.path.join(FEEDBACK_FOLDER, 'feedback.jsonl')
+    with open(feedback_file, 'a', encoding='utf-8') as f:
+        f.write(json.dumps(entry) + '\n')
+
+    return jsonify({'success': True})
+
 
 @app.route('/api/stats', methods=['GET'])
 def get_stats():
@@ -560,6 +789,9 @@ if __name__ == '__main__':
     except Exception as e:
         print(f"\n✗ Error initializing model: {e}")
         print("The server will start but predictions will fail until model is loaded.")
+
+    # Start idle watchdog (no-op when not on EC2)
+    _start_watchdog_if_ec2()
 
     print("\n" + "=" * 60)
     print("Starting API server...")
