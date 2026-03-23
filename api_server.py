@@ -28,6 +28,7 @@ from captum.attr import IntegratedGradients
 
 # Initialize Flask app
 app = Flask(__name__)
+app.config['MAX_CONTENT_LENGTH'] = 500 * 1024 * 1024
 CORS(app)  # Enable CORS for Next.js frontend
 
 # ---------------------------------------------------------------------------
