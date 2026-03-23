@@ -113,6 +113,10 @@ os.makedirs(FEEDBACK_FOLDER, exist_ok=True)
 model = None
 device = None
 
+# Attribution job tracker: video_id -> {"status": "processing"|"ready"|"error", "error": str}
+_attribution_jobs: dict = {}
+_attribution_jobs_lock = threading.Lock()
+
 def initialize_model(model_path=None):
     """Initialize the model once at startup"""
     global model, device
@@ -291,13 +295,18 @@ def predict():
             'timestamp': datetime.now().isoformat()
         }
 
-        # Generate explanations if requested
+        # Generate explanations if requested — runs in background to avoid timeout
         if generate_explanations:
-            attribution_path = generate_attributions(
-                video_tensor, frames, pred, video_id
+            with _attribution_jobs_lock:
+                _attribution_jobs[video_id] = {'status': 'processing'}
+            t = threading.Thread(
+                target=_run_attributions_background,
+                args=(video_tensor.detach().clone(), frames, pred, video_id),
+                daemon=True,
             )
-            if attribution_path:
-                response_data['attribution_video_url'] = f'/api/download/{video_id}'
+            t.start()
+            response_data['attribution_video_url'] = f'/api/download/{video_id}'
+            response_data['attribution_status'] = 'processing'
 
         # Cleanup temp only (permanent copy is already saved)
         cleanup_old_files(UPLOAD_FOLDER)
@@ -582,6 +591,42 @@ def batch_predict():
         'results': results,
         'timestamp': datetime.now().isoformat()
     })
+
+def _run_attributions_background(video_tensor, frames, pred_class, video_id):
+    """Run attribution generation in a background thread and update job status."""
+    try:
+        video_tensor = video_tensor.to(device)
+        result = generate_attributions(video_tensor, frames, pred_class, video_id)
+        with _attribution_jobs_lock:
+            if result:
+                _attribution_jobs[video_id] = {'status': 'ready'}
+            else:
+                _attribution_jobs[video_id] = {'status': 'error', 'error': 'Attribution generation failed'}
+    except Exception as e:
+        with _attribution_jobs_lock:
+            _attribution_jobs[video_id] = {'status': 'error', 'error': str(e)}
+
+
+@app.route('/api/attributions/status/<video_id>', methods=['GET'])
+def attribution_status(video_id):
+    """Poll attribution generation status for a given video_id."""
+    with _attribution_jobs_lock:
+        job = _attribution_jobs.get(video_id)
+
+    if job is None:
+        # Check if the file already exists (e.g. from a previous run)
+        filepath = os.path.join(RESULTS_FOLDER, f"{video_id}_attribution.mp4")
+        if os.path.exists(filepath):
+            return jsonify({'status': 'ready', 'attribution_video_url': f'/api/download/{video_id}'})
+        return jsonify({'status': 'not_found'}), 404
+
+    response = {'status': job['status']}
+    if job['status'] == 'ready':
+        response['attribution_video_url'] = f'/api/download/{video_id}'
+    if job['status'] == 'error':
+        response['error'] = job.get('error', 'Unknown error')
+    return jsonify(response)
+
 
 def generate_attributions(video_tensor, frames, pred_class, video_id):
     """Generate attribution visualizations"""
