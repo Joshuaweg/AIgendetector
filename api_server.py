@@ -29,7 +29,7 @@ from captum.attr import IntegratedGradients
 # Initialize Flask app
 app = Flask(__name__)
 app.config['MAX_CONTENT_LENGTH'] = 500 * 1024 * 1024
-CORS(app)  # Enable CORS for Next.js frontend
+CORS(app,origins=['http://analystrix.com'])  # Enable CORS for Next.js frontend
 
 # ---------------------------------------------------------------------------
 # Idle watchdog — stops the EC2 instance after N minutes of no requests
