@@ -10,6 +10,7 @@ __pycache__/
 *.so
 *.egg
 *.egg-info/
+*.pem
 
 # Training data / Models / Outputs
 model/
