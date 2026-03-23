@@ -38,9 +38,15 @@ IDLE_TIMEOUT_SECONDS = int(os.environ.get('IDLE_TIMEOUT_MINUTES', '15')) * 60
 _last_activity = time.time()
 
 
+_IDLE_EXCLUDED_PATHS = {'/api/health', '/api/attributions/status'}
+
 @app.before_request
 def _record_activity():
     global _last_activity
+    # Don't count health checks or status polls as real activity
+    path = request.path
+    if path in _IDLE_EXCLUDED_PATHS or path.startswith('/api/attributions/status/'):
+        return
     _last_activity = time.time()
 
 
@@ -80,8 +86,10 @@ def _idle_watchdog():
                     InstanceIds=[instance_id]
                 )
                 print(f"Stop command sent for {instance_id} in {region}.")
+                return  # Stop looping — instance is shutting down
             except Exception as e:
                 print(f"Watchdog stop failed: {e}")
+                time.sleep(300)  # Back off 5 min before retrying
 
 
 def _start_watchdog_if_ec2():
@@ -103,6 +111,7 @@ MAX_FILE_SIZE = 100 * 1024 * 1024  # 100MB
 ALLOWED_EXTENSIONS = {'mp4', 'avi', 'mov', 'mkv', 'webm'}
 
 FEEDBACK_FOLDER = 'feedback'
+ADMIN_API_KEY = os.environ.get('ADMIN_API_KEY', '')
 
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 os.makedirs(RESULTS_FOLDER, exist_ok=True)
@@ -673,9 +682,22 @@ def generate_attributions(video_tensor, frames, pred_class, video_id):
     finally:
         shutil.rmtree(temp_dir, ignore_errors=True)
 
+def _require_admin():
+    """Return a 401 response if the request lacks a valid admin API key, else None."""
+    if not ADMIN_API_KEY:
+        return jsonify({'success': False, 'error': 'Admin API key not configured on server'}), 500
+    key = request.headers.get('X-API-Key', '')
+    if not key or key != ADMIN_API_KEY:
+        return jsonify({'success': False, 'error': 'Unauthorized'}), 401
+    return None
+
+
 @app.route('/api/feedback', methods=['GET'])
 def get_feedback():
-    """Return all feedback entries plus aggregate stats."""
+    """Return all feedback entries plus aggregate stats. Requires X-API-Key header."""
+    err = _require_admin()
+    if err:
+        return err
     feedback_file = os.path.join(FEEDBACK_FOLDER, 'feedback.jsonl')
 
     entries = []
@@ -716,7 +738,10 @@ def get_feedback():
 
 @app.route('/api/feedback/export', methods=['GET'])
 def export_feedback_csv():
-    """Download feedback as a CSV file."""
+    """Download feedback as a CSV file. Requires X-API-Key header."""
+    err = _require_admin()
+    if err:
+        return err
     import csv, io
     feedback_file = os.path.join(FEEDBACK_FOLDER, 'feedback.jsonl')
 
