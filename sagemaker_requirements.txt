@@ -1,0 +1,9 @@
+# SageMaker DLC already provides: torch, torchvision, numpy, scipy, boto3, tensorboard
+# Only install what's missing from the PyTorch 2.8 DLC
+captum>=0.7.0
+opencv-python-headless>=4.8.0
+scikit-learn>=1.3.0
+seaborn>=0.13.0
+matplotlib>=3.7.0
+PyWavelets>=1.4.0
+imageio[ffmpeg]

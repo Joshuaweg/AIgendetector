@@ -131,60 +131,24 @@ class FullLatentEncoder(nn.Module):
 
     def forward(self, x):
         batch_size, num_frames, height, width, channels = x.shape
-        
-        # Calculate output dimensions (factor of 8 reduction)
-        o_height = height // 8
-        o_width = width // 8
-        
-        # Handle non-divisible dimensions using torch operations
-        pad_height = (8 - (height % 8)) % 8
-        pad_width = (8 - (width % 8)) % 8
-        
-        if pad_height > 0 or pad_width > 0:
-            o_height += 1
-            o_width += 1
-            
-        outputs = []
-        
-        for f in range(num_frames):
-            batch = x[:, f]
-            batch = batch.permute(0, 3, 1, 2)  # NHWC -> NCHW
-            
-            # Ensure input_mean and input_std are on the same device as the input
-            if self.input_mean.device != batch.device:
-                self.input_mean = self.input_mean.to(batch.device)
-                self.input_std = self.input_std.to(batch.device)
-            
-            # Normalize input
-            batch = (batch - self.input_mean) / self.input_std
-            
-            # Apply convolutions with normalization and activation
-            # Use small epsilon in ReLU to prevent exact zeros
-            try:
-                with torch.amp.autocast('cuda'):  # Updated to new API
-                    x1 = F.relu(self.norm1(self.conv1(batch)), inplace=False) + 1e-8
-                    x2 = F.relu(self.norm2(self.conv2(x1)), inplace=False) + 1e-8
-                    output = F.relu(self.norm3(self.conv3(x2)), inplace=False) + 1e-8
-                    
-                    # Clip extreme values
-                    output = torch.clamp(output, -10, 10)
-                    outputs.append(output)
-                    
-                    # Clean up intermediates
-                    del x1, x2
-                    
-            except RuntimeError as e:
-                print(f"Error processing frame {f}: {str(e)}")
-                raise
-                
-            # Force CUDA synchronization after each frame if using GPU
-            if torch.cuda.is_available():
-                torch.cuda.synchronize()
-        
-        # Stack all outputs
-        final_output = torch.stack(outputs, dim=1)
-        del outputs
-        
+
+        # Reshape all frames into batch dim for a single vectorized forward pass
+        x_flat = x.contiguous().view(batch_size * num_frames, height, width, channels)
+        x_flat = x_flat.permute(0, 3, 1, 2)  # [B*T, C, H, W]
+
+        # Normalize (buffers move with model.to(device), no manual device check needed)
+        x_flat = (x_flat - self.input_mean) / self.input_std
+
+        # Apply convolutions
+        x1 = F.relu(self.norm1(self.conv1(x_flat)), inplace=False) + 1e-8
+        x2 = F.relu(self.norm2(self.conv2(x1)), inplace=False) + 1e-8
+        output = F.relu(self.norm3(self.conv3(x2)), inplace=False) + 1e-8
+        output = torch.clamp(output, -10, 10)
+
+        # Reshape back to [B, T, 128, H', W']
+        _, c_out, h_out, w_out = output.shape
+        final_output = output.view(batch_size, num_frames, c_out, h_out, w_out)
+
         return final_output
       
 class FullPatchEncoder(nn.Module):
@@ -195,7 +159,8 @@ class FullPatchEncoder(nn.Module):
         self.patch_extractor = extractPatches
         
         # Convolutional layers for patch processing
-        self.conv1 = nn.Conv2d(in_channels=128, out_channels=192, kernel_size=3, stride=2, padding=1)
+        # conv1 takes 256 channels: both frames concatenated on channel dim (tubelet encoding)
+        self.conv1 = nn.Conv2d(in_channels=256, out_channels=192, kernel_size=3, stride=2, padding=1)
         self.conv2 = nn.Conv2d(in_channels=192, out_channels=384, kernel_size=3, stride=2, padding=1)
         self.conv3 = nn.Conv2d(in_channels=384, out_channels=768, kernel_size=2, stride=1, padding=0)
         
@@ -223,62 +188,34 @@ class FullPatchEncoder(nn.Module):
                 nn.init.zeros_(m.bias)
 
     def forward(self, latents):
-        # Extract patches
+        # Extract patches: [B, segments, num_patches, 2, C, H, W]
         patches, _ = self.patch_extractor(latents)
-        
-        # Get dimensions
+
         batch_size, segments, num_patches, frames, channels, height, width = patches.shape
         total_patches = segments * num_patches
-        
-        # Initialize output tensor
-        vectors = torch.zeros((batch_size, total_patches, 768), 
-                            device=latents.device,
-                            dtype=latents.dtype)
-        
-        # Process each patch
-        for seg in range(segments):
-            for p in range(num_patches):
-                with torch.amp.autocast('cuda'):  # Updated to new API
-                    # Process first frame
-                    patch_0 = patches[:, seg, p, 0]
-                    if torch.isnan(patch_0).any():
-                        raise ValueError(f"NaN in input patch at segment {seg}, patch {p}, frame 0")
-                        
-                    x1 = self.gn1(F.relu(self.conv1(patch_0)))
-                    x1 = self.gn2(F.relu(self.conv2(x1)))
-                    x1 = self.gn3(F.relu(self.conv3(x1)))
-                    x1 = x1.flatten(start_dim=1)
-                    
-                    # Process second frame
-                    patch_1 = patches[:, seg, p, 1]
-                    if torch.isnan(patch_1).any():
-                        raise ValueError(f"NaN in input patch at segment {seg}, patch {p}, frame 1")
-                        
-                    x2 = self.gn1(F.relu(self.conv1(patch_1)))
-                    x2 = self.gn2(F.relu(self.conv2(x2)))
-                    x2 = self.gn3(F.relu(self.conv3(x2)))
-                    x2 = x2.flatten(start_dim=1)
-                    
-                    # Average embeddings and normalize
-                    embeddings = self.norm((x1 + x2) / 2)
-                    
-                    if torch.isnan(embeddings).any():
-                        raise ValueError(f"NaN in embeddings at segment {seg}, patch {p}")
-                    
-                    # Assign embeddings
-                    seq_pos = seg * num_patches + p
-                    vectors[:, seq_pos] = embeddings
-                    
-                    # Clean up intermediates
-                    del x1, x2, patch_0, patch_1
-                    
-                    if torch.cuda.is_available():
-                        torch.cuda.synchronize()
-            
-            # Clean up after each segment
-            if torch.cuda.is_available():
-                torch.cuda.empty_cache()
-        
+
+        # Reshape to process all patches in one vectorized pass: [B*total_patches, 2, C, H, W]
+        patches_flat = patches.contiguous().view(batch_size * total_patches, frames, channels, height, width)
+
+        # Concatenate both frames on channel dim — tubelet encoding: [B*P, 256, H, W]
+        # This replaces the previous per-frame separate encoding + average (which destroyed temporal info)
+        patch_both = torch.cat([patches_flat[:, 0], patches_flat[:, 1]], dim=1)
+
+        if torch.isnan(patch_both).any():
+            raise ValueError("NaN in tubelet input to FullPatchEncoder")
+
+        # Forward through conv stack
+        x = self.gn1(F.relu(self.conv1(patch_both)))
+        x = self.gn2(F.relu(self.conv2(x)))
+        x = self.gn3(F.relu(self.conv3(x)))
+        embeddings = self.norm(x.flatten(start_dim=1))  # [B*total_patches, 768]
+
+        if torch.isnan(embeddings).any():
+            raise ValueError("NaN in FullPatchEncoder output embeddings")
+
+        # Reshape back: [B, total_patches, 768]
+        vectors = embeddings.view(batch_size, total_patches, 768)
+
         return vectors
 
 class FullClassifier(nn.Module):
