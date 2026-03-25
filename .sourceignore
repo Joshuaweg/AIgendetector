@@ -1,0 +1,12 @@
+saved_videos/
+temp_uploads/
+model/
+visuals.zip
+_meta/
+*.mp4
+*.pt
+*.zip
+.git/
+__pycache__/
+*.pyc
+*.pyo

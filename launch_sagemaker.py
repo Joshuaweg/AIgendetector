@@ -64,7 +64,7 @@ def get_role():
         )
 
 
-def build_estimator(role, use_spot, job_name):
+def build_estimator(role, use_spot, job_name, sagemaker_session=None):
     from sagemaker.pytorch import PyTorch
     s3_checkpoint_uri = f's3://{BUCKET}/{CHECKPOINT_PREFIX}'
     s3_output_path    = f's3://{BUCKET}/{OUTPUT_PREFIX}'
@@ -80,6 +80,7 @@ def build_estimator(role, use_spot, job_name):
         output_path        = s3_output_path,
         role               = role,
         max_run            = MAX_RUN_SECONDS,
+        sagemaker_session  = sagemaker_session,
         # SageMaker reads requirements.txt from source_dir automatically
         # We point it to the SageMaker-specific one via env var trick below
         environment        = {
@@ -174,7 +175,7 @@ def main():
     sagemaker_session = sagemaker.Session(boto_session=boto_session)  # noqa: F841
     role = get_role()
 
-    estimator, output_path = build_estimator(role, use_spot, job_name)
+    estimator, output_path = build_estimator(role, use_spot, job_name, sagemaker_session)
 
     # File mode: SageMaker copies 16GB dataset to EBS (~2-3 min), then reads locally
     training_input = TrainingInput(
