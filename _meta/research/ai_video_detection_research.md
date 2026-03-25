@@ -523,11 +523,11 @@ Your current approach (Captum IntegratedGradients) is:
 
 2. **Implementation for Your Model:**
    ```
-   FullPatchEncoder (768-dim) 
+   FullPatchEncoder (768-dim)
         ↓
    Concept Mapping Layer (768 → K concepts, where K ∈ [10-20])
-   Examples: boundary_blur, temporal_jitter, lighting_inconsistency, 
-             face_anatomy, hand_deformation, flow_discontinuity, 
+   Examples: boundary_blur, temporal_jitter, lighting_inconsistency,
+             face_anatomy, hand_deformation, flow_discontinuity,
              dcт_artifacts, compression_noise, color_banding, edge_defect
         ↓
    Concept Classifier (K → Binary [Fake/Real])
@@ -539,6 +539,36 @@ Your current approach (Captum IntegratedGradients) is:
    - Debuggable: Can inspect concept vectors directly
 
 4. **Trade-off:** Requires labeled concept data for intermediate supervision (effort)
+
+5. **AVAILABLE FORENSIC TOOLS (March 2026):** The project already contains discrete forensic
+   analysis scripts whose scalar outputs directly correspond to CBM concept nodes. No labeling
+   effort required — these tools already produce interpretable scores:
+
+   | Concept Node | Existing Tool | Output |
+   |---|---|---|
+   | `high_freq_artifacts` | `spectral_analysis.py` | FFT/DCT energy bands, radial power profile |
+   | `diffusion_checkerboard` | `diffusion_fingerprints.py` | Checkerboard score, wavelet mid-level ratio |
+   | `temporal_discontinuity` | `diffusion_fingerprints.py` | Chunk boundary discontinuity score |
+   | `noise_statistics` | `camera_forensics.py` | Shot noise conformance, RGB independence, FPN |
+   | `sensor_fingerprint` | `camera_forensics.py` | Bayer pattern residual, demosaic artifacts |
+   | `compression_artifacts` | `camera_forensics.py` + `spectral_analysis.py` | JPEG block score, DCT coefficients |
+   | `boundary_blur` | `camera_forensics.py` | Microcontrast, sharpness, edge density |
+   | `chromatic_aberration` | `camera_forensics.py` | Channel misalignment metric |
+   | `color_distribution` | `diffusion_fingerprints.py` | Histogram entropy, channel moments |
+   | `temporal_flow` | `camera_forensics.py` | Optical flow consistency (partial — no dense flow yet) |
+
+   **Architecture with existing tools:**
+   ```
+   video → FullVideoClassifier (existing neural path)
+                ↕ shared or parallel
+   video → [forensic tools] → N scalar concept scores → linear probe → classification
+   ```
+
+   **Gap:** Dense optical flow (RAFT/Farneback) not yet implemented — identified as Phase 1
+   priority in Decision 3. Face anatomy constraints also absent (optional, non-universal).
+
+   **Next Step:** Wire forensic tools into inference pipeline as a parallel concept stream.
+   No labeling work needed; the tools already produce named, bounded scalar scores.
 
 **D. TCAV (Testing with Concept Activation Vectors)**
 

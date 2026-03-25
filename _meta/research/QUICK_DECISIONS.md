@@ -35,25 +35,27 @@ Use this when deciding between competing approaches.
 
 **Scenario:** Need to explain to stakeholder "why is this fake?"
 
-**Option A: IntegratedGradients (Current)** 🟡
-- Pro: Theoretically rigorous
-- Con: Slow (5-10 sec per video); user waits
-- Decision: Use for detailed forensic reports; batch offline
+**Decision: Integrated Gradients (IG) exclusively** ✅
 
-**Option B: GradCAM (Quick)** ✅
-- Pro: 10x faster (sub-second); simple to visualize
-- Con: Less theoretically grounded
-- Decision: Use for real-time UI; show which patches drove decision
+Classification and IG evidence generation run on **separate async streams**, so IG latency is not a bottleneck. The frontend receives the classification result first, then the IG heatmap arrives independently. This removes the original motivation for GradCAM (real-time feedback) while retaining IG's theoretical guarantees (completeness, sensitivity).
 
-**Option C: Concept Bottleneck (Best Explanation)** ✅
-- Pro: Can say "detected boundary blur + optical flow anomaly"
-- Con: Requires engineering (15-20 human-labeled concepts)
-- Decision: Implement in Phase 2 if time permits; highest user trust
+**Performance headroom:** IG steps can be parallelized later by increasing `internal_batch_size` in `ig.attribute()` — currently set to 1 in most places, can be tuned up based on available VRAM.
 
-**Recommendation for Real-Time Product:**
-1. **UI Shows:** GradCAM heatmap (fast feedback)
-2. **Background Inference:** Trigger IG computation for detailed report
-3. **Future:** Migrate to Concept Bottleneck when ready
+**GradCAM: not used.** Violated completeness axiom; less meaningful for fine-grained texture artifact detection in AI-generated content.
+
+**Option C: Concept Bottleneck** 🟢 (more feasible than previously estimated)
+- Pro: Can say "detected boundary blur + optical flow anomaly"; highest user trust
+- **Revised Con:** Previously estimated 15-20 human-labeled concepts as blocking effort.
+  This is no longer true — the project already has discrete forensic tools
+  (`spectral_analysis.py`, `camera_forensics.py`, `diffusion_fingerprints.py`) whose
+  scalar outputs directly map to concept nodes. No labeling effort required.
+- **Gap:** Dense optical flow and face anatomy not yet implemented. Everything else covered.
+- Decision: Wire forensic tools as a parallel concept stream alongside IG in Phase 2.
+
+**Recommendation:**
+1. **UI Shows:** IG heatmap via async stream (no GradCAM fallback needed)
+2. **Optimization Path:** Increase `internal_batch_size` when VRAM allows
+3. **Phase 2:** Add concept stream — forensic tool outputs as named scalar scores alongside IG
 
 ---
 
