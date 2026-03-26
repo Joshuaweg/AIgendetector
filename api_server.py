@@ -136,8 +136,8 @@ def initialize_model(model_path=None):
 
         # Use provided path or default
         if model_path is None:
-            base_dir = '/media/joshua/WD_BLACK/Gen-Video'
-            model_path = os.path.join(base_dir, 'model', 'full_classifier_best.pt')
+            script_dir = os.path.dirname(os.path.abspath(__file__))
+            model_path = os.path.join(script_dir, 'models', 'ninox_1.pt')
 
         # Check if model exists locally
         if not os.path.exists(model_path):

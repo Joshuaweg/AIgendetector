@@ -33,3 +33,5 @@
 {"timestamp":"2026-03-25T20:53:54Z","tool":"Write","file":"/home/ubuntu/AIgendetector/.sourceignore"}
 {"timestamp":"2026-03-26T00:17:22Z","tool":"Edit","file":"/home/ubuntu/AIgendetector/launch_sagemaker.py"}
 {"timestamp":"2026-03-26T00:17:29Z","tool":"Edit","file":"/home/ubuntu/AIgendetector/launch_sagemaker.py"}
+{"timestamp":"2026-03-26T19:16:39Z","tool":"Edit","file":"/home/ubuntu/AIgendetector/app.py"}
+{"timestamp":"2026-03-26T19:18:19Z","tool":"Edit","file":"/home/ubuntu/AIgendetector/api_server.py"}
