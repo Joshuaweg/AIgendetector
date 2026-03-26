@@ -44,7 +44,7 @@ HYPERPARAMETERS = {
 }
 
 MAX_RUN_SECONDS  = 90_000   # 25 hours — enough buffer beyond expected 24hr
-MAX_WAIT_SECONDS = 7_200    # 2 hours to wait for spot capacity before failing
+MAX_WAIT_SECONDS = 97_200   # MAX_RUN + 2hr buffer (must be >= MAX_RUN for spot)
 
 # ---------------------------------------------------------------------------
 
@@ -143,7 +143,7 @@ def main():
     print(f"  Output:        s3://{BUCKET}/{OUTPUT_PREFIX}")
     print(f"  Rate:          ~${rate:.2f}/hr")
     print(f"  Cost estimate: ${low:.0f}–${high:.0f}  (20–25hr window)")
-    print(f"  Max wait:      {MAX_WAIT_SECONDS//3600}hr (spot only)")
+    print(f"  Max wait:      {MAX_WAIT_SECONDS//3600:.0f}hr (spot only)")
     print(f"  Max run:       {MAX_RUN_SECONDS//3600}hr")
     print("\nHyperparameters:")
     for k, v in HYPERPARAMETERS.items():
