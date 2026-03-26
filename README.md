@@ -198,6 +198,42 @@ Main requirements:
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
+## Changelog
+
+### 2026-03-26 — API Server & Explainability Improvements
+
+#### Asynchronous Attribution Pipeline
+- Attribution generation (Integrated Gradients) now runs in a background thread so the `/api/predict` endpoint returns immediately with the classification result
+- Clients poll `/api/attributions/status/<video_id>` for completion (`processing` → `ready` | `error`)
+- Attribution video is served via `/api/download/<video_id>` with HTTP Range request support for browser streaming
+
+#### IG Baseline: Real-Frame Average (replaces zeros)
+- Previous baseline was `torch.zeros_like(video_tensor)` — in normalized input space this represents the ImageNet mean colour, not black, causing colour-blindness and violating the IG completeness axiom
+- New baseline is the pixel-wise average of normalized real (msrvtt) video tensors, computed once at server startup from `saved_videos/` and cached as a global tensor on the active device
+- Deduplication by MD5 prevents repeated user uploads from skewing the mean
+- Falls back to zeros with a warning if no real videos are found
+- Research basis: Bardhan et al. (2024) — distribution-matched baselines achieve 2–3× better attribution localization than zero baselines; Distill.pub (2020)
+
+#### Zero-Attribution Fix in Visualize
+- Fixed `AssertionError: Cannot normalize by scale factor = 0` in captum's `visualize_image_attr` that silently failed attribution jobs
+- When Integrated Gradients produces all-zero attributions for a frame (e.g. flat gradient regions), a `1e-10` epsilon is added before passing to captum's normalizer
+- Root cause: discovered by adding `PYTHONUNBUFFERED=1` to the systemd service and propagating the real exception instead of swallowing it with a generic message
+
+#### Error Logging Improvements
+- Added `PYTHONUNBUFFERED=1` to `aigendetector.service` so Python output flushes immediately to `journalctl`
+- `generate_attributions()` now re-raises exceptions after logging the full traceback to stderr, so the actual error message is stored in the attribution job tracker and returned by the status endpoint instead of the generic `"Attribution generation failed"`
+
+#### CORS Fix for Attribution Video Streaming
+- Added `expose_headers` configuration to flask-cors for the `/api/download` endpoint to support HTTP Range requests from browsers
+
+#### Model Update — v2 Epoch 4 (ninox_1.pt)
+- Pulled `checkpoint_epoch_0004.pt` from `s3://genvideo-complete/checkpoints/fullvideo_v2/`
+- Validation accuracy: **92.14%** | F1: **0.9242** | AUC: **0.9719**
+- Checkpoint verified: 186/186 state dict keys matched, clean load with no missing or unexpected keys
+- Previous best: 85.12% accuracy
+
+---
+
 ## Citation
 
 If you use this work in your research, please cite:

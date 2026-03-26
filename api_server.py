@@ -5,6 +5,7 @@ Designed to integrate with Next.js frontend via REST API
 
 from flask import Flask, request, jsonify, send_file, Response
 from flask_cors import CORS
+import sys
 import torch
 import cv2
 import numpy as np
@@ -122,13 +123,68 @@ os.makedirs(FEEDBACK_FOLDER, exist_ok=True)
 model = None
 device = None
 
+# Pre-computed IG baseline: average of real video frames (distribution-matched).
+# Shape: (1, 24, 512, 512, 3) float32, on the active device.
+# Falls back to zeros if no real videos are available.
+_ig_baseline = None
+
 # Attribution job tracker: video_id -> {"status": "processing"|"ready"|"error", "error": str}
 _attribution_jobs: dict = {}
 _attribution_jobs_lock = threading.Lock()
 
+
+def _compute_ig_baseline(saved_videos_dir, n_samples=10):
+    """
+    Build the IG baseline by averaging normalized real-video tensors.
+
+    Real videos are identified by 'msrvtt' or 'real' in the filename — these
+    are natural camera recordings absent of AI-generation artifacts.  Averaging
+    N samples produces a stable reference point that lives inside the natural-
+    video data distribution, so IG attributions measure 'deviation from natural'
+    rather than 'deviation from black/zero', which is semantically correct for
+    AI-artifact detection.  See: Bardhan et al. (2024), Distill.pub (2020).
+    """
+    real_files = [
+        os.path.join(saved_videos_dir, f)
+        for f in os.listdir(saved_videos_dir)
+        if ("msrvtt" in f.lower() or "real" in f.lower())
+        and f.endswith((".mp4", ".avi", ".mov", ".mkv", ".webm", ".MOV"))
+    ]
+
+    if not real_files:
+        print("⚠  No real videos found for IG baseline — falling back to zeros.")
+        return None
+
+    # Deduplicate by MD5 to avoid skewing the mean with repeated uploads
+    import hashlib
+    seen, unique = set(), []
+    for path in real_files:
+        h = hashlib.md5(open(path, "rb").read(1 << 20)).hexdigest()  # first 1 MB
+        if h not in seen:
+            seen.add(h)
+            unique.append(path)
+
+    sample = unique[:n_samples]
+    tensors = []
+    for path in sample:
+        try:
+            tensor, _, _, _ = load_video(path)   # (24, 512, 512, 3), normalized
+            tensors.append(tensor)
+        except Exception as e:
+            print(f"  Skipping {os.path.basename(path)} for baseline: {e}")
+
+    if not tensors:
+        print("⚠  Could not load any real videos — falling back to zeros.")
+        return None
+
+    baseline = torch.stack(tensors).mean(dim=0).unsqueeze(0)  # (1, 24, 512, 512, 3)
+    print(f"✓ IG baseline computed from {len(tensors)} unique real video(s).")
+    return baseline
+
+
 def initialize_model(model_path=None):
     """Initialize the model once at startup"""
-    global model, device
+    global model, device, _ig_baseline
 
     if model is None:
         device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -154,6 +210,13 @@ def initialize_model(model_path=None):
         model = load_model_correctly(model_path, device)
         model.eval()
         print("Model loaded successfully!")
+
+        # Build IG baseline from real videos (one-time, cached for all requests)
+        baseline_cpu = _compute_ig_baseline(SAVED_VIDEOS_FOLDER)
+        if baseline_cpu is not None:
+            _ig_baseline = baseline_cpu.to(device)
+        else:
+            _ig_baseline = None  # signals callers to use zeros_like fallback
 
     return model, device
 
@@ -400,7 +463,11 @@ def analyze_frames():
             pred = torch.argmax(output, dim=1).item()
 
         # Calculate attributions
-        baseline = torch.zeros_like(video_tensor)
+        baseline = (
+            _ig_baseline.expand_as(video_tensor).clone()
+            if _ig_baseline is not None
+            else torch.zeros_like(video_tensor)
+        )
         ig = IntegratedGradients(model)
 
         attributions, _ = ig.attribute(
@@ -645,8 +712,12 @@ def generate_attributions(video_tensor, frames, pred_class, video_id):
         # Enable gradients
         video_tensor.requires_grad = True
 
-        # Create baseline
-        baseline = torch.zeros_like(video_tensor)
+        # Create baseline (distribution-matched real-frame average; falls back to zeros)
+        baseline = (
+            _ig_baseline.expand_as(video_tensor).clone()
+            if _ig_baseline is not None
+            else torch.zeros_like(video_tensor)
+        )
 
         # Initialize IG
         ig = IntegratedGradients(model)
@@ -676,8 +747,9 @@ def generate_attributions(video_tensor, frames, pred_class, video_id):
         return output_path
 
     except Exception as e:
-        print(f"Error generating attributions: {e}")
-        return None
+        import traceback
+        print(f"Error generating attributions: {e}\n{traceback.format_exc()}", flush=True, file=sys.stderr)
+        raise
 
     finally:
         shutil.rmtree(temp_dir, ignore_errors=True)

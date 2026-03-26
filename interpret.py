@@ -348,6 +348,10 @@ def visualize(attributions, video, save_path='plots', label=""):
             axis=2
         )
 
+        # Prevent captum's zero-scale normalization error when all attributions are zero
+        if np.max(np.abs(a_smooth)) == 0:
+            a_smooth = a_smooth + 1e-10
+
         fig, ax = viz.visualize_image_attr(
             a_smooth,
             v_frame,
