@@ -7,3 +7,4 @@
 {"video_id": "a32b84ab-9092-49c0-8b39-782fa42ccf74", "prediction": "AI-Generated", "was_correct": true, "model_used": "Veo3", "timestamp": "2026-03-26T22:10:56.556885"}
 {"video_id": "38327317-6cc5-4372-b3eb-af2d3e68016b", "prediction": "Real", "was_correct": true, "model_used": null, "timestamp": "2026-03-26T22:14:47.517631"}
 {"video_id": "2c529950-8fb7-4f8d-8c3b-ea8138c9cb9a", "prediction": "AI-Generated", "was_correct": false, "model_used": null, "timestamp": "2026-03-26T22:31:03.379979"}
+{"video_id": "9a3a9c46-f754-4213-9878-bdc44da70183", "prediction": "AI-Generated", "was_correct": false, "model_used": null, "timestamp": "2026-03-27T02:21:20.106712"}
