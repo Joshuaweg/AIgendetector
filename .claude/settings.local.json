@@ -1,7 +1,15 @@
 {
   "permissions": {
     "allow": [
-      "WebSearch"
+      "WebSearch",
+      "Bash(export PATH=\"/c/Users/joshu/Vaults/.local/bin:$PATH\")",
+      "Bash(agentdb contract:*)",
+      "Bash(python -m venv venv)",
+      "Bash(cmd /c \"dir F:\\\\Gen-Video\\\\dataset\" 2>&1)",
+      "Bash(cmd /c \"dir /b F:\\\\Gen-Video\\\\dataset 2>&1\")",
+      "WebFetch(domain:arxiv.org)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:paperswithcode.com)"
     ]
   }
 }

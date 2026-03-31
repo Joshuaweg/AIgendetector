@@ -500,6 +500,202 @@ def preprocess_videos(video_paths, output_dir, transform=None):
         frames_np = np.array(frames)
         np.save(os.path.join(output_dir, f"video_{idx}.npy"), frames_np)
 
+# ---------------------------------------------------------------------------
+# Optical Flow Dataset
+# ---------------------------------------------------------------------------
+
+def compute_flow_maps(frames_np, flow_h=64, flow_w=64):
+    """
+    Compute 6-channel optical flow maps between consecutive frame pairs.
+
+    Args:
+        frames_np: numpy array [T, H, W, 3] float32 in [0,1]
+        flow_h, flow_w: spatial resolution for flow maps
+
+    Returns:
+        flow_tensor: torch.FloatTensor [T-1, 6, flow_h, flow_w]
+    """
+    T = len(frames_np)
+    flow_maps = []
+
+    prev_gray = None
+    prev_u, prev_v = None, None
+
+    for i in range(T):
+        frame_uint8 = (frames_np[i] * 255).astype(np.uint8)
+        gray = cv2.cvtColor(frame_uint8, cv2.COLOR_RGB2GRAY)
+        gray_resized = cv2.resize(gray, (flow_w, flow_h))
+
+        if prev_gray is not None:
+            flow = cv2.calcOpticalFlowFarneback(
+                prev_gray, gray_resized,
+                None,
+                pyr_scale=0.5, levels=3, winsize=15,
+                iterations=3, poly_n=5, poly_sigma=1.2, flags=0
+            )
+            u, v = flow[..., 0], flow[..., 1]
+            mag = np.sqrt(u**2 + v**2)
+            angle = np.arctan2(v, u)
+
+            if prev_u is not None:
+                delta_u = u - prev_u
+                delta_v = v - prev_v
+            else:
+                delta_u = np.zeros_like(u)
+                delta_v = np.zeros_like(v)
+
+            # Stack 6 channels: [u, v, mag, angle, delta_u, delta_v]
+            flow_6ch = np.stack([u, v, mag, angle, delta_u, delta_v], axis=0)  # [6, H_f, W_f]
+
+            # Normalize each channel to [-1, 1] using percentile clipping
+            for c in range(6):
+                p99 = np.percentile(np.abs(flow_6ch[c]), 99) + 1e-6
+                flow_6ch[c] = np.clip(flow_6ch[c] / p99, -1.0, 1.0)
+
+            flow_maps.append(flow_6ch)
+            prev_u, prev_v = u, v
+
+        prev_gray = gray_resized
+
+    if len(flow_maps) == 0:
+        # Single-frame video — return zeros
+        return torch.zeros(1, 6, flow_h, flow_w, dtype=torch.float32)
+
+    flow_array = np.stack(flow_maps, axis=0)  # [T-1, 6, H_f, W_f]
+    return torch.from_numpy(flow_array).float()
+
+
+class FlowVideoDataset(Dataset):
+    """
+    Wraps VideoDataset to also return optical flow maps.
+    Returns: (frames_tensor, flow_maps, label, path)
+      - frames_tensor: [T, H, W, C] float32
+      - flow_maps:     [T-1, 6, flow_h, flow_w] float32
+      - label:         int (0=AI, 1=Real)
+      - path:          str
+    """
+    def __init__(self, data_dir, target_size=512, max_frames=24,
+                 video_paths=None, flow_h=64, flow_w=64):
+        self.inner = VideoDataset(
+            data_dir, target_size=target_size, max_frames=max_frames,
+            video_paths=video_paths
+        )
+        self.flow_h = flow_h
+        self.flow_w = flow_w
+
+    def __len__(self):
+        return len(self.inner)
+
+    def __getitem__(self, idx):
+        frames, label, path = self.inner[idx]
+        if frames is None:
+            return None, None, None, path
+
+        frames_np = frames.numpy()  # [T, H, W, C] float32 in [0,1]
+        try:
+            flow_maps = compute_flow_maps(frames_np, self.flow_h, self.flow_w)
+        except Exception as e:
+            print(f"Flow computation failed for {path}: {e}")
+            T = frames_np.shape[0]
+            flow_maps = torch.zeros(T - 1, 6, self.flow_h, self.flow_w)
+
+        return frames, flow_maps, label, path
+
+    @property
+    def videos(self):
+        return self.inner.videos
+
+
+class ManifestFlowDataset(Dataset):
+    """
+    Loads videos from a manifest CSV (path, label, generator, split).
+    Returns: (frames_tensor, flow_maps, label, path)
+    """
+    def __init__(self, manifest_path, split='train', target_size=512,
+                 max_frames=24, flow_h=64, flow_w=64):
+        df = pd.read_csv(manifest_path)
+        self.df = df[df['split'] == split].reset_index(drop=True)
+        self.target_size = target_size
+        self.max_frames = max_frames
+        self.flow_h = flow_h
+        self.flow_w = flow_w
+
+        # Build (path, label) list for VideoDataset
+        video_paths = self.df['path'].tolist()
+        labels = self.df['label'].tolist()
+
+        # Create inner VideoDataset with explicit paths
+        self._inner = VideoDataset(
+            data_dir=None,
+            target_size=target_size,
+            max_frames=max_frames,
+            video_paths=video_paths,
+        )
+        # Override labels from manifest (VideoDataset infers from filename — ignore its stats print)
+        self._inner.videos = list(zip(video_paths, labels))
+
+        real_count = sum(1 for l in labels if l == 1)
+        ai_count = sum(1 for l in labels if l == 0)
+        print(f"ManifestFlowDataset [{split}]: {len(self._inner)} videos ({real_count} real / {ai_count} AI)")
+
+    def __len__(self):
+        return len(self.df)
+
+    def __getitem__(self, idx):
+        frames, label, path = self._inner[idx]
+        if frames is None:
+            return None, None, None, path
+        frames_np = frames.numpy()
+        try:
+            flow_maps = compute_flow_maps(frames_np, self.flow_h, self.flow_w)
+        except Exception as e:
+            T = frames_np.shape[0]
+            flow_maps = torch.zeros(T - 1, 6, self.flow_h, self.flow_w)
+        return frames, flow_maps, label, path
+
+    @property
+    def videos(self):
+        return self._inner.videos
+
+
+def flow_collate_fn(batch):
+    """Collate function for FlowVideoDataset — filters None entries."""
+    batch = [(f, fl, l, p) for f, fl, l, p in batch if f is not None]
+    if not batch:
+        return None, None, None, []
+
+    frames_list, flow_list, labels_list, paths = zip(*batch)
+
+    # Pad frames to same shape
+    max_T = max(f.shape[0] for f in frames_list)
+    max_H = max(f.shape[1] for f in frames_list)
+    max_W = max(f.shape[2] for f in frames_list)
+
+    padded_frames = []
+    for f in frames_list:
+        T, H, W, C = f.shape
+        pad = torch.zeros(max_T - T, H, W, C)
+        padded_frames.append(torch.cat([f, pad], dim=0))
+
+    # Flow maps: [T-1, 6, H_f, W_f] — T-1 consistent if max_frames fixed
+    max_T1 = max(fl.shape[0] for fl in flow_list)
+    _, flow_C, flow_H, flow_W = flow_list[0].shape
+    padded_flows = []
+    for fl in flow_list:
+        T1 = fl.shape[0]
+        if T1 < max_T1:
+            pad = torch.zeros(max_T1 - T1, flow_C, flow_H, flow_W)
+            fl = torch.cat([fl, pad], dim=0)
+        padded_flows.append(fl)
+
+    return (
+        torch.stack(padded_frames),
+        torch.stack(padded_flows),
+        torch.tensor(labels_list, dtype=torch.long),
+        list(paths)
+    )
+
+
 if __name__ == '__main__':
     # Example usage
     dataset = VideoDataset('F:/Gen-Video/dataset')

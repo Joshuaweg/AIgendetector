@@ -234,6 +234,35 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ---
 
+### 2026-03-30 — Optical Flow Branch (Stage 1 complete)
+
+#### Dataset: Flow Manifest (`data/flow_manifest.csv`)
+- Built balanced manifest of **30,790 videos** across **19 generators** (15,395 real / 15,395 AI)
+- 1,000-video cap per generator; smaller generators (Sora=56, Veo3=16, Kling1.6=323) fully included
+- Pre-computed train / val / test splits (80/10/10) with fixed seed for reproducibility
+- I2VGEN_XL excluded (`.gif` format, not `.mp4`) — tracked for future support
+- Scripts: `scripts/build_flow_dataset.py`, `scripts/analyze_generators.py`
+
+#### New Classes: `dataset.py`
+- `ManifestFlowDataset` — loads videos from manifest CSV, computes Farneback optical flow maps on-the-fly, returns `(frames, flow_maps, label, path)`
+- `flow_collate_fn` — collates variable-length flow batches with zero-padding
+
+#### New Classes: `full_scale_classifier.py`
+- `FlowEncoder` — 6-channel flow map encoder (u, v, magnitude, angle, Δu, Δv) → 768-dim tokens via Conv2d stack + AdaptiveAvgPool + Linear
+- `FlowVideoClassifier` — token-append fusion: concatenates flow tokens with tubelet tokens before the transformer (`[B, N+T-1, 768]`)
+- `FlowStageOneModel` — standalone probe: FlowEncoder + mean pool + Linear head for Stage 1 validation
+
+#### Stage 1 Training (`flow_train.py`)
+- Trains FlowEncoder only (0.6M params) with a temporary classification head; backbone frozen
+- **Result: 74.7% accuracy** (threshold was >65% to proceed) — flow features confirmed discriminative
+- Supports both manifest-based and directory-based datasets; spot-safe checkpoint recovery
+
+#### Stage 2 SageMaker Training (`sm_train_v3.py`, `launch_flow_sagemaker.py`)
+- `sm_train_v3.py` — SageMaker entry point for Stage 2; reads `SM_CHANNEL_*` env vars, loads backbone from `backbone.pt` and FlowEncoder weights from `flow_stage1.pt` via `SM_CHANNEL_CHECKPOINTS`; freezes LatentEncoder + PatchEncoder, trains FlowEncoder + Classifier
+- `launch_flow_sagemaker.py` — launcher: uploads `model/checkpoint_epoch_0004.pt` and `flow_model_output/best_flow_model.pt` to S3 as init weights, launches `ml.g5.2xlarge` spot job (~$9–24 estimated)
+
+---
+
 ## Citation
 
 If you use this work in your research, please cite:

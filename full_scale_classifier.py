@@ -340,5 +340,98 @@ class FullVideoClassifier(nn.Module):
             outputs = self.classifier(st_vectors)
             
             del st_vectors
-            
+
             return outputs
+
+
+class FlowEncoder(nn.Module):
+    """
+    Encodes optical flow maps into 768-dim tokens, one per frame pair.
+    Input:  [B, T-1, 6, H_f, W_f]  — 6-channel flow (u,v,mag,angle,Δu,Δv)
+    Output: [B, T-1, 768]
+    """
+    def __init__(self):
+        super().__init__()
+        self.conv1 = nn.Conv2d(6,   32,  3, padding=1)
+        self.conv2 = nn.Conv2d(32,  64,  3, padding=1)
+        self.conv3 = nn.Conv2d(64,  128, 3, stride=2, padding=1)
+        self.conv4 = nn.Conv2d(128, 256, 3, stride=2, padding=1)
+        self.gn1 = nn.GroupNorm(8,  32)
+        self.gn2 = nn.GroupNorm(8,  64)
+        self.gn3 = nn.GroupNorm(16, 128)
+        self.gn4 = nn.GroupNorm(32, 256)
+        self.pool = nn.AdaptiveAvgPool2d((1, 1))
+        self.proj = nn.Linear(256, 768)
+        self.norm = nn.LayerNorm(768)
+        self._init_weights()
+
+    def _init_weights(self):
+        for m in self.modules():
+            if isinstance(m, nn.Conv2d):
+                nn.init.kaiming_normal_(m.weight, mode='fan_out', nonlinearity='relu')
+                if m.bias is not None:
+                    nn.init.zeros_(m.bias)
+            elif isinstance(m, nn.Linear):
+                nn.init.trunc_normal_(m.weight, std=0.02)
+                nn.init.zeros_(m.bias)
+            elif isinstance(m, (nn.LayerNorm, nn.GroupNorm)):
+                nn.init.ones_(m.weight)
+                nn.init.zeros_(m.bias)
+
+    def forward(self, flow_maps):
+        # flow_maps: [B, T-1, 6, H_f, W_f]
+        B, T1, C, H, W = flow_maps.shape
+        x = flow_maps.view(B * T1, C, H, W)
+        x = F.relu(self.gn1(self.conv1(x)))
+        x = F.relu(self.gn2(self.conv2(x)))
+        x = F.relu(self.gn3(self.conv3(x)))
+        x = F.relu(self.gn4(self.conv4(x)))
+        x = self.pool(x).flatten(1)       # [B*T1, 256]
+        x = self.norm(self.proj(x))        # [B*T1, 768]
+        return x.view(B, T1, 768)
+
+
+class FlowVideoClassifier(nn.Module):
+    """
+    Full model with token-append optical flow fusion.
+    Accepts (videos, flow_maps) and concatenates flow tokens with tubelet tokens
+    before the transformer classifier.
+    """
+    def __init__(self, latent_encoder, patch_encoder, flow_encoder, classifier):
+        super().__init__()
+        self.latent_encoder = latent_encoder
+        self.patch_encoder = patch_encoder
+        self.flow_encoder = flow_encoder
+        self.classifier = classifier
+
+    def forward(self, videos, flow_maps):
+        # videos:    [B, T, H, W, C]
+        # flow_maps: [B, T-1, 6, H_f, W_f]
+        with torch.amp.autocast('cuda'):
+            latents = self.latent_encoder(videos)          # [B, T, 128, H', W']
+            tubelet_tokens = self.patch_encoder(latents)   # [B, N_patches, 768]
+            del latents
+            flow_tokens = self.flow_encoder(flow_maps)     # [B, T-1, 768]
+            # Token-append: flow tokens appended after tubelet tokens
+            tokens = torch.cat([tubelet_tokens, flow_tokens], dim=1)  # [B, N+T-1, 768]
+            del tubelet_tokens, flow_tokens
+            return self.classifier(tokens)
+
+
+class FlowStageOneModel(nn.Module):
+    """
+    Stage 1: FlowEncoder + mean pool + Linear head.
+    Verifies flow features are discriminative before full integration.
+    """
+    def __init__(self):
+        super().__init__()
+        self.flow_encoder = FlowEncoder()
+        self.head = nn.Linear(768, 2)
+        nn.init.trunc_normal_(self.head.weight, std=0.01)
+        nn.init.zeros_(self.head.bias)
+
+    def forward(self, flow_maps):
+        # flow_maps: [B, T-1, 6, H_f, W_f]
+        tokens = self.flow_encoder(flow_maps)   # [B, T-1, 768]
+        pooled = tokens.mean(dim=1)              # [B, 768]
+        return self.head(pooled)
