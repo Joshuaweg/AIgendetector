@@ -309,10 +309,11 @@ class FullVideoClassifier(nn.Module):
     
     def forward(self, videos):
         batch_size, num_frames, height, width, channels = videos.shape
-        
-        
+
+
         # Process entire video at once through latent encoder
-        with torch.amp.autocast('cuda'):  # Updated to new API
+        # autocast only during training — fp16 underflows IG gradients in eval
+        with torch.amp.autocast('cuda', enabled=self.training):
             # Use checkpointing for latent encoder during training
             latents = self.latent_encoder(videos)
             
@@ -407,7 +408,7 @@ class FlowVideoClassifier(nn.Module):
     def forward(self, videos, flow_maps):
         # videos:    [B, T, H, W, C]
         # flow_maps: [B, T-1, 6, H_f, W_f]
-        with torch.amp.autocast('cuda'):
+        with torch.amp.autocast('cuda', enabled=self.training):
             latents = self.latent_encoder(videos)          # [B, T, 128, H', W']
             tubelet_tokens = self.patch_encoder(latents)   # [B, N_patches, 768]
             del latents

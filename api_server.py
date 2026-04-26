@@ -23,7 +23,11 @@ import time
 import urllib.request
 
 # Import model components
-from full_scale_classifier import FullLatentEncoder, FullPatchEncoder, FullClassifier, FullVideoClassifier
+from full_scale_classifier import (
+    FullLatentEncoder, FullPatchEncoder, FullClassifier, FullVideoClassifier,
+    FlowEncoder, FlowVideoClassifier,
+)
+from dataset import compute_flow_maps
 from interpret import load_video, load_model_correctly, visualize, save_attributions_video
 from captum.attr import IntegratedGradients
 
@@ -104,6 +108,29 @@ def _start_watchdog_if_ec2():
     except Exception:
         print("Not running on EC2 — idle watchdog disabled.")
 
+_SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# ---------------------------------------------------------------------------
+# Ninox model registry
+# ---------------------------------------------------------------------------
+MODEL_REGISTRY = {
+    'ninox1': {
+        'display_name': 'Ninox 1',
+        'architecture': 'FullVideoClassifier',
+        'accuracy': '85.12%',
+        'requires_flow': False,
+        'attribution_supported': True,
+    },
+    'ninox1.1-flow': {
+        'display_name': 'Ninox 1.1-Flow',
+        'architecture': 'FlowVideoClassifier',
+        'accuracy': '93.53%',
+        'requires_flow': True,
+        'attribution_supported': True,  # IG on video input; flow maps frozen at inference values
+        'checkpoint': os.path.join(_SCRIPT_DIR, 'flow_stage2_checkpoints', 'checkpoint_epoch_0004.pt'),
+    },
+}
+
 # Configuration
 UPLOAD_FOLDER = 'temp_uploads'
 RESULTS_FOLDER = 'saved_attributions'
@@ -119,13 +146,11 @@ os.makedirs(RESULTS_FOLDER, exist_ok=True)
 os.makedirs(SAVED_VIDEOS_FOLDER, exist_ok=True)
 os.makedirs(FEEDBACK_FOLDER, exist_ok=True)
 
-# Global model instance
-model = None
+# Multi-model cache: model_id -> model instance
+_models: dict = {}
 device = None
 
-# Pre-computed IG baseline: average of real video frames (distribution-matched).
-# Shape: (1, 24, 512, 512, 3) float32, on the active device.
-# Falls back to zeros if no real videos are available.
+# Pre-computed IG baseline (shared across models that support attribution)
 _ig_baseline = None
 
 # Attribution job tracker: video_id -> {"status": "processing"|"ready"|"error", "error": str}
@@ -182,43 +207,79 @@ def _compute_ig_baseline(saved_videos_dir, n_samples=10):
     return baseline
 
 
-def initialize_model(model_path=None):
-    """Initialize the model once at startup"""
-    global model, device, _ig_baseline
+def _get_ninox1_path():
+    """Locate Ninox 1 checkpoint with fallbacks."""
+    for candidate in [
+        os.path.join(_SCRIPT_DIR, 'models', 'ninox_1.pt'),
+        os.path.join(_SCRIPT_DIR, 'model', 'full_classifier_best.pt'),
+        os.path.join(_SCRIPT_DIR, 'model', 'checkpoint_epoch_0004.pt'),
+    ]:
+        if os.path.exists(candidate):
+            return candidate
+    raise FileNotFoundError(
+        "Ninox 1 checkpoint not found. Expected at models/ninox_1.pt or model/full_classifier_best.pt"
+    )
 
-    if model is None:
+
+def _load_flow_model(model_path, dev):
+    """Instantiate and load FlowVideoClassifier from a Stage-2 checkpoint."""
+    latent_encoder = FullLatentEncoder().to(dev)
+    patch_encoder = FullPatchEncoder().to(dev)
+    flow_encoder = FlowEncoder().to(dev)
+    classifier = FullClassifier().to(dev)
+    m = FlowVideoClassifier(latent_encoder, patch_encoder, flow_encoder, classifier).to(dev)
+
+    try:
+        checkpoint = torch.load(model_path, map_location=dev, weights_only=False)
+    except Exception:
+        import numpy.core.multiarray
+        with torch.serialization.safe_globals([numpy.core.multiarray.scalar]):
+            checkpoint = torch.load(model_path, map_location=dev, weights_only=True)
+
+    state_dict = checkpoint['model_state_dict']
+    if any(k.startswith('module.') for k in state_dict.keys()):
+        state_dict = {k.replace('module.', ''): v for k, v in state_dict.items()}
+    m.load_state_dict(state_dict)
+    m.eval()
+    print(
+        f"Ninox 1.1-Flow loaded — epoch {checkpoint.get('epoch')}, "
+        f"accuracy {checkpoint.get('best_accuracy', 'N/A'):.2f}%"
+        if isinstance(checkpoint.get('best_accuracy'), float)
+        else f"Ninox 1.1-Flow loaded — epoch {checkpoint.get('epoch')}"
+    )
+    return m
+
+
+def initialize_model(model_id='ninox1'):
+    """Load and cache a Ninox model by ID. Returns (model, device)."""
+    global _models, device, _ig_baseline
+
+    if model_id not in MODEL_REGISTRY:
+        raise ValueError(f"Unknown model id '{model_id}'. Valid: {list(MODEL_REGISTRY)}")
+
+    if device is None:
         device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-        print(f"Initializing model on device: {device}")
+        print(f"Using device: {device}")
 
-        # Use provided path or default
-        if model_path is None:
-            script_dir = os.path.dirname(os.path.abspath(__file__))
-            model_path = os.path.join(script_dir, 'models', 'ninox_1.pt')
+    if model_id not in _models:
+        if model_id == 'ninox1':
+            model_path = _get_ninox1_path()
+            print(f"Loading Ninox 1 from {model_path}")
+            _models['ninox1'] = load_model_correctly(model_path, device)
+        elif model_id == 'ninox1.1-flow':
+            model_path = MODEL_REGISTRY['ninox1.1-flow']['checkpoint']
+            print(f"Loading Ninox 1.1-Flow from {model_path}")
+            _models['ninox1.1-flow'] = _load_flow_model(model_path, device)
 
-        # Check if model exists locally
-        if not os.path.exists(model_path):
-            # Try relative to this script's directory
-            script_dir = os.path.dirname(os.path.abspath(__file__))
-            model_path = os.path.join(script_dir, 'model', 'full_classifier_best.pt')
+        _models[model_id].eval()
+        print(f"{MODEL_REGISTRY[model_id]['display_name']} ready.")
 
-        if not os.path.exists(model_path):
-            raise FileNotFoundError(
-                f"Model not found at {model_path}. "
-                f"Please place your trained model at this location."
-            )
+        # Build IG baseline once (used by Ninox 1 attributions)
+        if _ig_baseline is None:
+            baseline_cpu = _compute_ig_baseline(SAVED_VIDEOS_FOLDER)
+            _ig_baseline = baseline_cpu.to(device) if baseline_cpu is not None else None
 
-        model = load_model_correctly(model_path, device)
-        model.eval()
-        print("Model loaded successfully!")
-
-        # Build IG baseline from real videos (one-time, cached for all requests)
-        baseline_cpu = _compute_ig_baseline(SAVED_VIDEOS_FOLDER)
-        if baseline_cpu is not None:
-            _ig_baseline = baseline_cpu.to(device)
-        else:
-            _ig_baseline = None  # signals callers to use zeros_like fallback
-
-    return model, device
+    return _models[model_id], device
 
 def allowed_file(filename):
     """Check if file extension is allowed"""
@@ -259,7 +320,7 @@ def health_check():
     """Health check endpoint"""
     return jsonify({
         'status': 'healthy',
-        'model_loaded': model is not None,
+        'models_loaded': list(_models.keys()),
         'device': str(device) if device else 'not initialized',
         'timestamp': datetime.now().isoformat()
     })
@@ -269,92 +330,75 @@ def predict():
     """
     Main prediction endpoint
 
-    Request:
-        - file: video file (multipart/form-data)
-        - generate_explanations: boolean (optional, default: false)
+    Request (multipart/form-data):
+        - file: video file
+        - model: "ninox1" | "ninox1.1-flow"  (optional, default: "ninox1")
+        - generate_explanations: "true" | "false"  (optional, Ninox 1 only)
 
     Response:
         {
             "success": true,
+            "model": "ninox1",
+            "model_name": "Ninox 1",
             "prediction": {
-                "class": "AI-Generated" or "Real",
+                "class": "AI-Generated" | "Real",
                 "confidence": 0.95,
-                "probabilities": {
-                    "ai_generated": 0.95,
-                    "real": 0.05
-                }
+                "probabilities": {"ai_generated": 0.95, "real": 0.05}
             },
             "video_id": "uuid",
-            "attribution_video_url": "/api/download/uuid" (if explanations requested)
+            "attribution_video_url": "/api/download/uuid"  (if explanations requested)
         }
     """
-    global model, device
+    model_id = request.form.get('model', 'ninox1')
+    if model_id not in MODEL_REGISTRY:
+        return jsonify({'success': False, 'error': f'Unknown model: {model_id}. Valid: {list(MODEL_REGISTRY)}'}), 400
 
-    # Initialize model if not already done
-    if model is None:
-        try:
-            initialize_model()
-        except Exception as e:
-            return jsonify({
-                'success': False,
-                'error': f'Model initialization failed: {str(e)}'
-            }), 500
+    try:
+        m, dev = initialize_model(model_id)
+    except Exception as e:
+        return jsonify({'success': False, 'error': f'Model initialization failed: {str(e)}'}), 500
 
-    # Check if file is present
     if 'file' not in request.files:
-        return jsonify({
-            'success': False,
-            'error': 'No file provided'
-        }), 400
+        return jsonify({'success': False, 'error': 'No file provided'}), 400
 
     file = request.files['file']
-
-    # Check if file is empty
     if file.filename == '':
-        return jsonify({
-            'success': False,
-            'error': 'Empty filename'
-        }), 400
-
-    # Check file extension
+        return jsonify({'success': False, 'error': 'Empty filename'}), 400
     if not allowed_file(file.filename):
-        return jsonify({
-            'success': False,
-            'error': f'Invalid file type. Allowed: {", ".join(ALLOWED_EXTENSIONS)}'
-        }), 400
+        return jsonify({'success': False, 'error': f'Invalid file type. Allowed: {", ".join(ALLOWED_EXTENSIONS)}'}), 400
 
-    # Get options
     generate_explanations = request.form.get('generate_explanations', 'false').lower() == 'true'
+    requires_flow = MODEL_REGISTRY[model_id]['requires_flow']
+    attribution_supported = MODEL_REGISTRY[model_id]['attribution_supported']
 
-    # Generate unique ID for this request
     video_id = str(uuid.uuid4())
-
-    # Save uploaded file to temp location
     filename = f"{video_id}_{file.filename}"
     filepath = os.path.join(UPLOAD_FOLDER, filename)
     file.save(filepath)
-
-    # Persist a permanent copy immediately after saving
     save_video_permanently(filepath, video_id, file.filename)
 
     try:
-        # Process video
         video_tensor, frames = process_video_from_path(filepath)
-        video_tensor = video_tensor.to(device)
+        video_tensor = video_tensor.to(dev)
 
-        # Make prediction
         with torch.no_grad():
-            output = model(video_tensor)
+            if requires_flow:
+                frames_float = np.array(frames).astype(np.float32) / 255.0
+                flow_maps = compute_flow_maps(frames_float).unsqueeze(0).to(dev)
+                output = m(video_tensor, flow_maps)
+            else:
+                output = m(video_tensor)
+
             probs = torch.softmax(output, dim=1)[0]
             pred = torch.argmax(output, dim=1).item()
             confidence = probs[pred].item()
 
         classes = ['AI-Generated', 'Real']
-
-        # Build response
         response_data = {
             'success': True,
             'video_id': video_id,
+            'model': model_id,
+            'model_name': MODEL_REGISTRY[model_id]['display_name'],
             'prediction': {
                 'class': classes[pred],
                 'class_index': pred,
@@ -367,132 +411,109 @@ def predict():
             'timestamp': datetime.now().isoformat()
         }
 
-        # Generate explanations if requested — runs in background to avoid timeout
         if generate_explanations:
             with _attribution_jobs_lock:
                 _attribution_jobs[video_id] = {'status': 'processing'}
             t = threading.Thread(
                 target=_run_attributions_background,
-                args=(video_tensor.detach().clone(), frames, pred, video_id),
+                args=(
+                    m,
+                    video_tensor.detach().clone(),
+                    flow_maps.detach().clone() if requires_flow else None,
+                    frames,
+                    pred,
+                    video_id,
+                ),
                 daemon=True,
             )
             t.start()
             response_data['attribution_video_url'] = f'/api/download/{video_id}'
             response_data['attribution_status'] = 'processing'
 
-        # Cleanup temp only (permanent copy is already saved)
         cleanup_old_files(UPLOAD_FOLDER)
-
         return jsonify(response_data)
 
     except Exception as e:
-        # Cleanup temp on error (permanent copy is kept)
         try:
             os.remove(filepath)
         except:
             pass
-
-        return jsonify({
-            'success': False,
-            'error': str(e)
-        }), 500
+        return jsonify({'success': False, 'error': str(e)}), 500
 
 @app.route('/api/analyze/frames', methods=['POST'])
 def analyze_frames():
     """
-    Analyze frame-level importance
+    Analyze frame-level importance via IG attributions (Ninox 1 only).
 
-    Request:
-        - file: video file (multipart/form-data)
-
-    Response:
-        {
-            "success": true,
-            "frame_importance": [0.1, 0.5, 0.9, ...],
-            "key_frames": [2, 10, 15],
-            "statistics": {
-                "mean": 0.45,
-                "std": 0.25,
-                "max_frame": 10
-            }
-        }
+    Request (multipart/form-data):
+        - file: video file
+        - model: "ninox1" | "ninox1.1-flow"  (optional, default: "ninox1")
     """
-    global model, device
+    model_id = request.form.get('model', 'ninox1')
+    if model_id not in MODEL_REGISTRY:
+        return jsonify({'success': False, 'error': f'Unknown model: {model_id}'}), 400
 
-    if model is None:
-        try:
-            initialize_model()
-        except Exception as e:
-            return jsonify({
-                'success': False,
-                'error': f'Model initialization failed: {str(e)}'
-            }), 500
+    try:
+        m, dev = initialize_model(model_id)
+    except Exception as e:
+        return jsonify({'success': False, 'error': f'Model initialization failed: {str(e)}'}), 500
 
     if 'file' not in request.files:
-        return jsonify({
-            'success': False,
-            'error': 'No file provided'
-        }), 400
+        return jsonify({'success': False, 'error': 'No file provided'}), 400
 
     file = request.files['file']
-
     if file.filename == '' or not allowed_file(file.filename):
-        return jsonify({
-            'success': False,
-            'error': 'Invalid file'
-        }), 400
+        return jsonify({'success': False, 'error': 'Invalid file'}), 400
 
-    # Save temporary file
+    requires_flow = MODEL_REGISTRY[model_id]['requires_flow']
+
     video_id = str(uuid.uuid4())
     filename = f"{video_id}_{file.filename}"
     filepath = os.path.join(UPLOAD_FOLDER, filename)
     file.save(filepath)
-
-    # Persist a permanent copy immediately after saving
     save_video_permanently(filepath, video_id, file.filename)
 
     try:
-        # Process video
         video_tensor, frames = process_video_from_path(filepath)
-        video_tensor = video_tensor.to(device)
+        video_tensor = video_tensor.to(dev)
         video_tensor.requires_grad = True
 
-        # Make prediction
         with torch.no_grad():
-            output = model(video_tensor)
+            if requires_flow:
+                frames_float = np.array(frames).astype(np.float32) / 255.0
+                flow_maps = compute_flow_maps(frames_float).unsqueeze(0).to(dev)
+                output = m(video_tensor, flow_maps)
+            else:
+                flow_maps = None
+                output = m(video_tensor)
             pred = torch.argmax(output, dim=1).item()
 
-        # Calculate attributions
         baseline = (
             _ig_baseline.expand_as(video_tensor).clone()
             if _ig_baseline is not None
             else torch.zeros_like(video_tensor)
         )
-        ig = IntegratedGradients(model)
+        if flow_maps is not None:
+            frozen_flow = flow_maps.detach()
+            def _forward(videos):
+                return m(videos, frozen_flow)
+            ig = IntegratedGradients(_forward)
+        else:
+            ig = IntegratedGradients(m)
+        attributions, _ = ig.attribute(video_tensor, baseline, target=pred, n_steps=50)
 
-        attributions, _ = ig.attribute(
-            video_tensor,
-            baseline,
-            target=pred,
-            n_steps=50
-        )
-
-        # Compute frame importance
         frame_importance = attributions.abs().mean(dim=[0, 2, 3, 4]).cpu().numpy()
-
-        # Normalize
         frame_importance_norm = (frame_importance - frame_importance.min()) / \
-                               (frame_importance.max() - frame_importance.min() + 1e-8)
-
-        # Find key frames
+                                (frame_importance.max() - frame_importance.min() + 1e-8)
         threshold = frame_importance_norm.mean() + frame_importance_norm.std()
         key_frames = np.where(frame_importance_norm > threshold)[0].tolist()
 
-        # Cleanup temp only
         os.remove(filepath)
 
         return jsonify({
             'success': True,
+            'model': model_id,
+            'model_name': MODEL_REGISTRY[model_id]['display_name'],
             'frame_importance': frame_importance_norm.tolist(),
             'key_frames': key_frames,
             'statistics': {
@@ -509,11 +530,7 @@ def analyze_frames():
             os.remove(filepath)
         except:
             pass
-
-        return jsonify({
-            'success': False,
-            'error': str(e)
-        }), 500
+        return jsonify({'success': False, 'error': str(e)}), 500
 
 @app.route('/api/download/<video_id>', methods=['GET'])
 def download_attribution(video_id):
@@ -557,80 +574,58 @@ def download_attribution(video_id):
 @app.route('/api/batch/predict', methods=['POST'])
 def batch_predict():
     """
-    Batch prediction endpoint for multiple videos
+    Batch prediction endpoint for multiple videos.
 
-    Request:
+    Request (multipart/form-data):
         - files[]: multiple video files
-
-    Response:
-        {
-            "success": true,
-            "results": [
-                {
-                    "filename": "video1.mp4",
-                    "prediction": {...}
-                },
-                ...
-            ]
-        }
+        - model: "ninox1" | "ninox1.1-flow"  (optional, default: "ninox1")
     """
-    global model, device
+    model_id = request.form.get('model', 'ninox1')
+    if model_id not in MODEL_REGISTRY:
+        return jsonify({'success': False, 'error': f'Unknown model: {model_id}'}), 400
 
-    if model is None:
-        try:
-            initialize_model()
-        except Exception as e:
-            return jsonify({
-                'success': False,
-                'error': f'Model initialization failed: {str(e)}'
-            }), 500
+    try:
+        m, dev = initialize_model(model_id)
+    except Exception as e:
+        return jsonify({'success': False, 'error': f'Model initialization failed: {str(e)}'}), 500
 
     if 'files[]' not in request.files:
-        return jsonify({
-            'success': False,
-            'error': 'No files provided'
-        }), 400
+        return jsonify({'success': False, 'error': 'No files provided'}), 400
 
     files = request.files.getlist('files[]')
-
     if len(files) == 0:
-        return jsonify({
-            'success': False,
-            'error': 'Empty file list'
-        }), 400
+        return jsonify({'success': False, 'error': 'Empty file list'}), 400
 
+    requires_flow = MODEL_REGISTRY[model_id]['requires_flow']
+    classes = ['AI-Generated', 'Real']
     results = []
 
     for file in files:
         if file.filename == '' or not allowed_file(file.filename):
-            results.append({
-                'filename': file.filename,
-                'success': False,
-                'error': 'Invalid file'
-            })
+            results.append({'filename': file.filename, 'success': False, 'error': 'Invalid file'})
             continue
 
-        # Save temporary file
         video_id = str(uuid.uuid4())
         filename = f"{video_id}_{file.filename}"
         filepath = os.path.join(UPLOAD_FOLDER, filename)
         file.save(filepath)
-
-        # Persist a permanent copy immediately after saving
         save_video_permanently(filepath, video_id, file.filename)
 
         try:
-            # Process and predict
-            video_tensor, _ = process_video_from_path(filepath)
-            video_tensor = video_tensor.to(device)
+            video_tensor, frames = process_video_from_path(filepath)
+            video_tensor = video_tensor.to(dev)
 
             with torch.no_grad():
-                output = model(video_tensor)
+                if requires_flow:
+                    frames_float = np.array(frames).astype(np.float32) / 255.0
+                    flow_maps = compute_flow_maps(frames_float).unsqueeze(0).to(dev)
+                    output = m(video_tensor, flow_maps)
+                else:
+                    output = m(video_tensor)
+
                 probs = torch.softmax(output, dim=1)[0]
                 pred = torch.argmax(output, dim=1).item()
                 confidence = probs[pred].item()
-
-            classes = ['AI-Generated', 'Real']
 
             results.append({
                 'filename': file.filename,
@@ -645,17 +640,10 @@ def batch_predict():
                     }
                 }
             })
-
-            # Cleanup temp only
             os.remove(filepath)
 
         except Exception as e:
-            results.append({
-                'filename': file.filename,
-                'success': False,
-                'error': str(e)
-            })
-
+            results.append({'filename': file.filename, 'success': False, 'error': str(e)})
             try:
                 os.remove(filepath)
             except:
@@ -663,16 +651,19 @@ def batch_predict():
 
     return jsonify({
         'success': True,
+        'model': model_id,
+        'model_name': MODEL_REGISTRY[model_id]['display_name'],
         'total': len(files),
         'results': results,
         'timestamp': datetime.now().isoformat()
     })
 
-def _run_attributions_background(video_tensor, frames, pred_class, video_id):
+def _run_attributions_background(m, video_tensor, flow_maps, frames, pred_class, video_id):
     """Run attribution generation in a background thread and update job status."""
     try:
         video_tensor = video_tensor.to(device)
-        result = generate_attributions(video_tensor, frames, pred_class, video_id)
+        flow_maps = flow_maps.to(device) if flow_maps is not None else None
+        result = generate_attributions(m, video_tensor, flow_maps, frames, pred_class, video_id)
         with _attribution_jobs_lock:
             if result:
                 _attribution_jobs[video_id] = {'status': 'ready'}
@@ -704,8 +695,14 @@ def attribution_status(video_id):
     return jsonify(response)
 
 
-def generate_attributions(video_tensor, frames, pred_class, video_id):
-    """Generate attribution visualizations"""
+def generate_attributions(m, video_tensor, flow_maps, frames, pred_class, video_id):
+    """Generate attribution visualizations.
+
+    For FlowVideoClassifier (flow_maps is not None), IG is computed w.r.t. the
+    video input only with flow maps frozen at their inference values.  The flow
+    tokens and spatial tokens share the same transformer, so gradients flowing
+    back through the video pathway already incorporate the joint attention signal.
+    """
     temp_dir = tempfile.mkdtemp()
 
     try:
@@ -719,8 +716,14 @@ def generate_attributions(video_tensor, frames, pred_class, video_id):
             else torch.zeros_like(video_tensor)
         )
 
-        # Initialize IG
-        ig = IntegratedGradients(model)
+        # For flow model: wrap forward so IG only differentiates w.r.t. video input
+        if flow_maps is not None:
+            frozen_flow = flow_maps.detach()
+            def _forward(videos):
+                return m(videos, frozen_flow)
+            ig = IntegratedGradients(_forward)
+        else:
+            ig = IntegratedGradients(m)
 
         # Calculate attributions
         attributions, _ = ig.attribute(
@@ -886,19 +889,21 @@ def submit_feedback():
 
 @app.route('/api/stats', methods=['GET'])
 def get_stats():
-    """Get API statistics"""
+    """Get API statistics and available models"""
+    models_info = {}
+    for model_id, info in MODEL_REGISTRY.items():
+        models_info[model_id] = {
+            'display_name': info['display_name'],
+            'architecture': info['architecture'],
+            'accuracy': info['accuracy'],
+            'requires_flow': info['requires_flow'],
+            'attribution_supported': info['attribution_supported'],
+            'loaded': model_id in _models,
+        }
+
     return jsonify({
         'success': True,
-        'model_info': {
-            'architecture': 'CNN-Transformer Hybrid',
-            'accuracy': '85.12%',
-            'f1_score': '86.72%',
-            'parameters': {
-                'latent_encoder': 'FullLatentEncoder',
-                'patch_encoder': 'FullPatchEncoder',
-                'classifier': 'FullClassifier (12 layers, 12 heads)'
-            }
-        },
+        'models': models_info,
         'device': str(device) if device else 'not initialized',
         'supported_formats': list(ALLOWED_EXTENSIONS),
         'max_file_size_mb': MAX_FILE_SIZE / (1024 * 1024)
@@ -923,14 +928,15 @@ def internal_error(error):
 if __name__ == '__main__':
     print("=" * 60)
     print("AI-Generated Video Detector - API Server")
+    print("Ninox Model Family")
     print("=" * 60)
 
-    # Initialize model
+    # Pre-warm Ninox 1 at startup; Ninox 1.1-Flow loads on first use
     try:
-        initialize_model()
-        print("\n✓ Model initialized successfully")
+        initialize_model('ninox1')
+        print("\n✓ Ninox 1 initialized successfully")
     except Exception as e:
-        print(f"\n✗ Error initializing model: {e}")
+        print(f"\n✗ Error initializing Ninox 1: {e}")
         print("The server will start but predictions will fail until model is loaded.")
 
     # Start idle watchdog (no-op when not on EC2)

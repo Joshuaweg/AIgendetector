@@ -26,7 +26,7 @@ import os
 # ---------------------------------------------------------------------------
 
 BUCKET            = 'genvideo-complete'
-DATA_PREFIX       = 'complete_dataset/dataset/'        # S3 prefix for training videos
+DATA_PREFIX       = 's2_flow_dataset/'                 # S3 prefix for training videos
 CHECKPOINT_PREFIX = 'checkpoints/flow_stage2/'        # S3 prefix for spot checkpoints
 INIT_PREFIX       = 'checkpoints/flow_stage2_init/'   # S3 prefix for backbone + flow init weights
 OUTPUT_PREFIX     = 'output/flow_stage2/'             # S3 prefix for final model
@@ -49,7 +49,7 @@ HYPERPARAMETERS = {
     'max-frames':      24,
     'flow-h':          64,
     'flow-w':          64,
-    'num-workers':     4,
+    'num-workers':     8,
     'label-smoothing': 0.05,
     'seed':            314159,
 }

@@ -56,3 +56,22 @@ nextjs-integration/
 
 # Misc
 *.log
+
+# Training output / TensorBoard logs
+flow_output/
+
+# Upload state checkpoints
+*upload_checkpoint*.json
+
+# Claude Code local settings
+.claude/settings.local.json
+
+# Local agent state (AgentDB, action logs)
+_meta/agentdb/
+_meta/logs/
+
+# API server runtime folders
+temp_uploads/
+saved_attributions/
+saved_videos/
+feedback/

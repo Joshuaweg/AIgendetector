@@ -119,10 +119,11 @@ class VideoDataset(Dataset):
             print(f"Initializing dataset from local path: {data_dir}")
             self.data_dir = Path(data_dir)
             self.videos = []
-            for video in self.data_dir.glob('**/*.mp4'):  # Recursive search
-                if video.name.startswith(('real_', 'REAL_')):
+            for video in self.data_dir.glob('**/*.mp4'):
+                parts = video.parts
+                if 'Real' in parts:
                     self.videos.append((str(video), 1))
-                elif video.name.startswith(('ai_', 'AI_', 'fake_', 'FAKE_')):
+                elif 'AI-Generated' in parts:
                     self.videos.append((str(video), 0))
         
         # Shuffle the videos
@@ -504,6 +505,13 @@ def preprocess_videos(video_paths, output_dir, transform=None):
 # Optical Flow Dataset
 # ---------------------------------------------------------------------------
 
+def evenly_spaced_indices(total_frames, n=24):
+    """Return n evenly-spaced frame indices covering [0, total_frames-1]."""
+    if total_frames <= n:
+        return list(range(total_frames))
+    return [int(round(i * (total_frames - 1) / (n - 1))) for i in range(n)]
+
+
 def compute_flow_maps(frames_np, flow_h=64, flow_w=64):
     """
     Compute 6-channel optical flow maps between consecutive frame pairs.
@@ -656,6 +664,150 @@ class ManifestFlowDataset(Dataset):
     @property
     def videos(self):
         return self._inner.videos
+
+
+def _load_cached_item(video_path, label, npy_path, target_size, n_frames, flow_h, flow_w):
+    """
+    Shared loader for cached flow datasets.
+    Loads precomputed flow from npy_path and the corresponding n_frames
+    evenly-spaced RGB frames from video_path for spatial input.
+
+    Returns: (frames_tensor [T, H, W, C], flow_maps [T-1, 6, flow_h, flow_w], label, path)
+    """
+    # Load cached flow
+    if not os.path.exists(npy_path):
+        return None, None, label, str(video_path)
+    flow_array = np.load(npy_path)                            # [T-1, 6, H_f, W_f]
+    flow_maps  = torch.from_numpy(flow_array).float()
+
+    # Load evenly-spaced RGB frames from video.
+    cap = cv2.VideoCapture(str(video_path))
+    if not cap.isOpened():
+        return None, None, label, str(video_path)
+
+    frames = []
+    while len(frames) < n_frames * 2:
+        ret, frame = cap.read()
+        if not ret:
+            break
+        frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        frame = cv2.resize(frame, (target_size, target_size))
+        frames.append(frame)
+    cap.release()
+
+    if not frames:
+        return None, None, label, str(video_path)
+
+    sample_idx = evenly_spaced_indices(len(frames), n_frames)
+    frames = [frames[i] for i in sample_idx]
+
+    if not frames:
+        return None, None, label, str(video_path)
+
+    frames_np     = np.array(frames, dtype=np.float32) / 255.0   # [T, H, W, C]
+    frames_tensor = torch.from_numpy(frames_np)
+    return frames_tensor, flow_maps, label, str(video_path)
+
+
+class CachedFlowDataset(Dataset):
+    """
+    Directory-scanning dataset that loads precomputed flow from a cache root
+    and reads the matching evenly-spaced RGB frames from the source video.
+
+    Directory layout expected (mirrored between src and cache):
+        src_root/AI-Generated/<gen>/<name>.mp4
+        flow_cache_root/AI-Generated/<gen>/<name>.npy
+
+    Returns: (frames_tensor, flow_maps, label, path)
+      - frames_tensor: [n_frames, H, W, C] float32 in [0, 1]
+      - flow_maps:     [n_frames-1, 6, flow_h, flow_w] float32
+    """
+
+    def __init__(self, src_root, flow_cache_root, target_size=512,
+                 n_frames=24, flow_h=64, flow_w=64):
+        self.src_root        = Path(src_root)
+        self.flow_cache_root = Path(flow_cache_root)
+        self.target_size     = target_size
+        self.n_frames        = n_frames
+        self.flow_h          = flow_h
+        self.flow_w          = flow_w
+
+        self.videos = []
+        for video in self.src_root.rglob('*.mp4'):
+            parts = video.parts
+            if 'Real' in parts:
+                self.videos.append((str(video), 1))
+            elif 'AI-Generated' in parts:
+                self.videos.append((str(video), 0))
+
+        random.shuffle(self.videos)
+        real_count = sum(1 for _, l in self.videos if l == 1)
+        print(f"CachedFlowDataset: {len(self.videos)} videos  "
+              f"({real_count} real / {len(self.videos) - real_count} AI)")
+
+    def __len__(self):
+        return len(self.videos)
+
+    def __getitem__(self, idx):
+        video_path, label = self.videos[idx]
+        rel      = Path(video_path).relative_to(self.src_root)
+        npy_path = (self.flow_cache_root / rel).with_suffix('.npy')
+        return _load_cached_item(
+            video_path, label, str(npy_path),
+            self.target_size, self.n_frames, self.flow_h, self.flow_w,
+        )
+
+
+class CachedManifestFlowDataset(Dataset):
+    """
+    Manifest-based dataset that loads precomputed flow from a cache root
+    and reads matching evenly-spaced RGB frames from source videos.
+
+    Args:
+        manifest_path:   path to flow_manifest.csv (columns: path, label, split)
+        src_root:        root that video paths in the manifest are relative to
+                         (used to compute relative paths for cache lookup)
+        flow_cache_root: root of precomputed .npy files
+        split:           'train' or 'val'
+
+    Returns: (frames_tensor, flow_maps, label, path)
+    """
+
+    def __init__(self, manifest_path, src_root, flow_cache_root,
+                 split='train', target_size=512, n_frames=24,
+                 flow_h=64, flow_w=64):
+        df = pd.read_csv(manifest_path)
+        self.df              = df[df['split'] == split].reset_index(drop=True)
+        self.src_root        = Path(src_root)
+        self.flow_cache_root = Path(flow_cache_root)
+        self.target_size     = target_size
+        self.n_frames        = n_frames
+        self.flow_h          = flow_h
+        self.flow_w          = flow_w
+
+        self.videos = list(zip(self.df['path'].tolist(), self.df['label'].tolist()))
+        real_count  = sum(1 for _, l in self.videos if l == 1)
+        print(f"CachedManifestFlowDataset [{split}]: {len(self.videos)} videos  "
+              f"({real_count} real / {len(self.videos) - real_count} AI)")
+
+    def __len__(self):
+        return len(self.videos)
+
+    def __getitem__(self, idx):
+        video_path, label = self.videos[idx]
+        try:
+            rel = Path(video_path).relative_to(self.src_root)
+        except ValueError:
+            print(f"CachedManifestFlowDataset: path not under src_root.\n"
+                  f"  path:     {video_path}\n"
+                  f"  src_root: {self.src_root}\n"
+                  f"  Pass --src-root matching the manifest path prefix.")
+            return None, None, label, str(video_path)
+        npy_path = (self.flow_cache_root / rel).with_suffix('.npy')
+        return _load_cached_item(
+            video_path, label, str(npy_path),
+            self.target_size, self.n_frames, self.flow_h, self.flow_w,
+        )
 
 
 def flow_collate_fn(batch):
