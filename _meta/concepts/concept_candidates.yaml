@@ -1,0 +1,1864 @@
+concept_candidates:
+- cluster_id: 0
+  name: concept_cluster_0
+  description: '[TODO: inspect top-20 videos and describe the spatial/temporal pattern]'
+  n_videos: 84
+  ai_count: 76
+  real_count: 8
+  typical_onset: '[TODO: early / mid / late / consistent — from top-20 inspection]'
+  primary_region: '[TODO: face / background / boundary / motion region — from top-20]'
+  top_20_videos:
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_47261.mp4
+    label: 0
+    dist: 0.044132884591817856
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_1944.mp4
+    label: 0
+    dist: 0.05078733712434769
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0603199_5_10.mp4
+    label: 1
+    dist: 0.055454131215810776
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_39401.mp4
+    label: 0
+    dist: 0.05849241465330124
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_80217.mp4
+    label: 0
+    dist: 0.0667092427611351
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_26660.mp4
+    label: 0
+    dist: 0.06888768076896667
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_21404.mp4
+    label: 0
+    dist: 0.07540594041347504
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_56161.mp4
+    label: 0
+    dist: 0.07755527645349503
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_83712.mp4
+    label: 0
+    dist: 0.08152440935373306
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_36139.mp4
+    label: 0
+    dist: 0.08741314709186554
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_1227.mp4
+    label: 0
+    dist: 0.09545950591564178
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_3247.mp4
+    label: 0
+    dist: 0.0957423597574234
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_426.mp4
+    label: 0
+    dist: 0.09688118100166321
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_414.mp4
+    label: 0
+    dist: 0.10263985395431519
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0502572_0_10.mp4
+    label: 1
+    dist: 0.10284318774938583
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_21771.mp4
+    label: 0
+    dist: 0.10729242861270905
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_69370.mp4
+    label: 0
+    dist: 0.10962358117103577
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_81385.mp4
+    label: 0
+    dist: 0.10981974750757217
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_17754.mp4
+    label: 0
+    dist: 0.11284273117780685
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_78780.mp4
+    label: 0
+    dist: 0.11672317236661911
+- cluster_id: 1
+  name: concept_cluster_1
+  description: '[TODO: inspect top-20 videos and describe the spatial/temporal pattern]'
+  n_videos: 75
+  ai_count: 72
+  real_count: 3
+  typical_onset: '[TODO: early / mid / late / consistent — from top-20 inspection]'
+  primary_region: '[TODO: face / background / boundary / motion region — from top-20]'
+  top_20_videos:
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_seine_SEINE_23776.mp4
+    label: 0
+    dist: 0.0529235415160656
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_seine_SEINE_23358.mp4
+    label: 0
+    dist: 0.05665246769785881
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_seine_SEINE_24070.mp4
+    label: 0
+    dist: 0.05765886604785919
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_seine_SEINE_21473.mp4
+    label: 0
+    dist: 0.07196401059627533
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_seine_SEINE_24362.mp4
+    label: 0
+    dist: 0.07214505225419998
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_seine_SEINE_24068.mp4
+    label: 0
+    dist: 0.08024153858423233
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_seine_SEINE_23551.mp4
+    label: 0
+    dist: 0.08334401249885559
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_seine_SEINE_22936.mp4
+    label: 0
+    dist: 0.09155771136283875
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_seine_SEINE_19994.mp4
+    label: 0
+    dist: 0.09503858536481857
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_seine_SEINE_20661.mp4
+    label: 0
+    dist: 0.10841810703277588
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_seine_SEINE_23146.mp4
+    label: 0
+    dist: 0.11132904887199402
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_seine_SEINE_21650.mp4
+    label: 0
+    dist: 0.1288805454969406
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_seine_SEINE_22949.mp4
+    label: 0
+    dist: 0.13753826916217804
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_seine_SEINE_21079.mp4
+    label: 0
+    dist: 0.14240050315856934
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_seine_SEINE_20182.mp4
+    label: 0
+    dist: 0.1883394569158554
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_seine_SEINE_21025.mp4
+    label: 0
+    dist: 0.20266763865947723
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_seine_SEINE_23835.mp4
+    label: 0
+    dist: 0.20849809050559998
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_seine_SEINE_23969.mp4
+    label: 0
+    dist: 0.2273263782262802
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_seine_SEINE_24215.mp4
+    label: 0
+    dist: 0.22897331416606903
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_seine_SEINE_21326.mp4
+    label: 0
+    dist: 0.2294788360595703
+- cluster_id: 2
+  name: concept_cluster_2
+  description: '[TODO: inspect top-20 videos and describe the spatial/temporal pattern]'
+  n_videos: 2841
+  ai_count: 1586
+  real_count: 1255
+  typical_onset: '[TODO: early / mid / late / consistent — from top-20 inspection]'
+  primary_region: '[TODO: face / background / boundary / motion region — from top-20]'
+  top_20_videos:
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0130491_23_10.mp4
+    label: 1
+    dist: 0.41253039240837097
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0021584_51_10.mp4
+    label: 1
+    dist: 0.42356717586517334
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_opensora_OpenSoraL_47153.mp4
+    label: 0
+    dist: 0.4499751031398773
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0575061_0_10.mp4
+    label: 1
+    dist: 0.4927332103252411
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0673521_51_10.mp4
+    label: 1
+    dist: 0.5091220736503601
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_dynamiccrafter_DynamicCrafter_4341.mp4
+    label: 0
+    dist: 0.5244735479354858
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_videocrafter_VideoCrafter_38969.mp4
+    label: 0
+    dist: 0.5271207094192505
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_114557.mp4
+    label: 0
+    dist: 0.5300305485725403
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0495055_0_10.mp4
+    label: 1
+    dist: 0.5395937561988831
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_dynamiccrafter_DynamicCrafter_24332.mp4
+    label: 0
+    dist: 0.5454089641571045
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0144227_86_10.mp4
+    label: 1
+    dist: 0.5500656962394714
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0103894_56_10.mp4
+    label: 1
+    dist: 0.5532040596008301
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0807551_64_10.mp4
+    label: 1
+    dist: 0.5547037720680237
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0364124_35_10.mp4
+    label: 1
+    dist: 0.5579777956008911
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0107045_12_10.mp4
+    label: 1
+    dist: 0.5664265155792236
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0279164_34_10.mp4
+    label: 1
+    dist: 0.5676563382148743
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0083844_6_10.mp4
+    label: 1
+    dist: 0.5784780383110046
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_opensora_OpenSoraL_16765.mp4
+    label: 0
+    dist: 0.580883264541626
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0075860_1_10.mp4
+    label: 1
+    dist: 0.5953583717346191
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0124525_26_10.mp4
+    label: 1
+    dist: 0.5972712635993958
+- cluster_id: 3
+  name: concept_cluster_3
+  description: '[TODO: inspect top-20 videos and describe the spatial/temporal pattern]'
+  n_videos: 66
+  ai_count: 46
+  real_count: 20
+  typical_onset: '[TODO: early / mid / late / consistent — from top-20 inspection]'
+  primary_region: '[TODO: face / background / boundary / motion region — from top-20]'
+  top_20_videos:
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0402255_7_10.mp4
+    label: 1
+    dist: 0.017236003652215004
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0701668_10_10.mp4
+    label: 1
+    dist: 0.018212754279375076
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_videocrafter_VideoCrafter_30765.mp4
+    label: 0
+    dist: 0.02132825367152691
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_seine_SEINE_12798.mp4
+    label: 0
+    dist: 0.02465132251381874
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0274651_22_10.mp4
+    label: 1
+    dist: 0.02506176568567753
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0996982_1_10.mp4
+    label: 1
+    dist: 0.026390474289655685
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_131458.mp4
+    label: 0
+    dist: 0.030356355011463165
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0409349_0_10.mp4
+    label: 1
+    dist: 0.03046664409339428
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_dynamiccrafter_DynamicCrafter_15196.mp4
+    label: 0
+    dist: 0.0322115421295166
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_29878.mp4
+    label: 0
+    dist: 0.033898212015628815
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_videocrafter_VideoCrafter_34521.mp4
+    label: 0
+    dist: 0.0369945727288723
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_sd_SD_196377.mp4
+    label: 0
+    dist: 0.04014274477958679
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_60070.mp4
+    label: 0
+    dist: 0.04042805731296539
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0588402_41_10.mp4
+    label: 1
+    dist: 0.0452229380607605
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_dynamiccrafter_DynamicCrafter_42751.mp4
+    label: 0
+    dist: 0.05054817348718643
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0668172_71_10.mp4
+    label: 1
+    dist: 0.05097372084856033
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_svd_SVD_57391.mp4
+    label: 0
+    dist: 0.05230147764086723
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_37132.mp4
+    label: 0
+    dist: 0.054316774010658264
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_dynamiccrafter_DynamicCrafter_33567.mp4
+    label: 0
+    dist: 0.055369190871715546
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0251369_78_10.mp4
+    label: 1
+    dist: 0.05718306452035904
+- cluster_id: 4
+  name: concept_cluster_4
+  description: '[TODO: inspect top-20 videos and describe the spatial/temporal pattern]'
+  n_videos: 52
+  ai_count: 33
+  real_count: 19
+  typical_onset: '[TODO: early / mid / late / consistent — from top-20 inspection]'
+  primary_region: '[TODO: face / background / boundary / motion region — from top-20]'
+  top_20_videos:
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_49939.mp4
+    label: 0
+    dist: 0.008012861013412476
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_72315.mp4
+    label: 0
+    dist: 0.012910696677863598
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_videocrafter_VideoCrafter_26153.mp4
+    label: 0
+    dist: 0.015906166285276413
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_svd_SVD_66017.mp4
+    label: 0
+    dist: 0.018949080258607864
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0128302_26_10.mp4
+    label: 1
+    dist: 0.022840116173028946
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0302217_1_10.mp4
+    label: 1
+    dist: 0.023182997480034828
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_72458.mp4
+    label: 0
+    dist: 0.025824392214417458
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_videocrafter_VideoCrafter_6027.mp4
+    label: 0
+    dist: 0.03187273442745209
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_seine_SEINE_13886.mp4
+    label: 0
+    dist: 0.035468801856040955
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0098542_50_10.mp4
+    label: 1
+    dist: 0.03559198975563049
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0753494_7_10.mp4
+    label: 1
+    dist: 0.03676687180995941
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_118726.mp4
+    label: 0
+    dist: 0.040825240314006805
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_82233.mp4
+    label: 0
+    dist: 0.042941298335790634
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_sd_SD_165948.mp4
+    label: 0
+    dist: 0.04823613539338112
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_opensora_OpenSoraL_162350.mp4
+    label: 0
+    dist: 0.04842759296298027
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_123648.mp4
+    label: 0
+    dist: 0.049020953476428986
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_svd_SVD_133672.mp4
+    label: 0
+    dist: 0.05281217768788338
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_dynamiccrafter_DynamicCrafter_31071.mp4
+    label: 0
+    dist: 0.05957406759262085
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_76870.mp4
+    label: 0
+    dist: 0.06495703011751175
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0334014_39_10.mp4
+    label: 1
+    dist: 0.06695087999105453
+- cluster_id: 5
+  name: concept_cluster_5
+  description: '[TODO: inspect top-20 videos and describe the spatial/temporal pattern]'
+  n_videos: 59
+  ai_count: 40
+  real_count: 19
+  typical_onset: '[TODO: early / mid / late / consistent — from top-20 inspection]'
+  primary_region: '[TODO: face / background / boundary / motion region — from top-20]'
+  top_20_videos:
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_svd_SVD_19625.mp4
+    label: 0
+    dist: 0.00936973374336958
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0284553_17_10.mp4
+    label: 1
+    dist: 0.010422852821648121
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_latte_Latte_19457.mp4
+    label: 0
+    dist: 0.01537355687469244
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0876591_7_10.mp4
+    label: 1
+    dist: 0.01595010980963707
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_latte_Latte_127727.mp4
+    label: 0
+    dist: 0.016478432342410088
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_videocrafter_VideoCrafter_26560.mp4
+    label: 0
+    dist: 0.016729388386011124
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0128615_93_10.mp4
+    label: 1
+    dist: 0.01728792116045952
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_77175.mp4
+    label: 0
+    dist: 0.021122461184859276
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_svd_SVD_120997.mp4
+    label: 0
+    dist: 0.02373010851442814
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_dynamiccrafter_DynamicCrafter_29822.mp4
+    label: 0
+    dist: 0.02429560013115406
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_96608.mp4
+    label: 0
+    dist: 0.026498274877667427
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_seine_SEINE_18355.mp4
+    label: 0
+    dist: 0.03103027306497097
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_svd_SVD_25181.mp4
+    label: 0
+    dist: 0.03281480446457863
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_videocrafter_VideoCrafter_15180.mp4
+    label: 0
+    dist: 0.036425456404685974
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_108240.mp4
+    label: 0
+    dist: 0.03814424201846123
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_117650.mp4
+    label: 0
+    dist: 0.038156330585479736
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0028264_3_10.mp4
+    label: 1
+    dist: 0.04379677399992943
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_111847.mp4
+    label: 0
+    dist: 0.04504835605621338
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_107600.mp4
+    label: 0
+    dist: 0.045325975865125656
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_26590.mp4
+    label: 0
+    dist: 0.04621676355600357
+- cluster_id: 6
+  name: concept_cluster_6
+  description: '[TODO: inspect top-20 videos and describe the spatial/temporal pattern]'
+  n_videos: 60
+  ai_count: 39
+  real_count: 21
+  typical_onset: '[TODO: early / mid / late / consistent — from top-20 inspection]'
+  primary_region: '[TODO: face / background / boundary / motion region — from top-20]'
+  top_20_videos:
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_sd_SD_55721.mp4
+    label: 0
+    dist: 0.0073129162192344666
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0197727_21_10.mp4
+    label: 1
+    dist: 0.011319505050778389
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0914960_4_10.mp4
+    label: 1
+    dist: 0.01872694492340088
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_svd_SVD_143793.mp4
+    label: 0
+    dist: 0.024501575157046318
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_72963.mp4
+    label: 0
+    dist: 0.025259725749492645
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_102856.mp4
+    label: 0
+    dist: 0.0258862916380167
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_sd_SD_160992.mp4
+    label: 0
+    dist: 0.027067530900239944
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_3140.mp4
+    label: 0
+    dist: 0.027474427595734596
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_54463.mp4
+    label: 0
+    dist: 0.030422018840909004
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_svd_SVD_13835.mp4
+    label: 0
+    dist: 0.03202495723962784
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_sd_SD_185407.mp4
+    label: 0
+    dist: 0.043574415147304535
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_7381.mp4
+    label: 0
+    dist: 0.045156080275774
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_svd_SVD_132382.mp4
+    label: 0
+    dist: 0.05061664804816246
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_svd_SVD_103779.mp4
+    label: 0
+    dist: 0.052064280956983566
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_130383.mp4
+    label: 0
+    dist: 0.05281133949756622
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_svd_SVD_39751.mp4
+    label: 0
+    dist: 0.06057513877749443
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_131723.mp4
+    label: 0
+    dist: 0.06791684776544571
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_51886.mp4
+    label: 0
+    dist: 0.06891058385372162
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0716037_5_10.mp4
+    label: 1
+    dist: 0.07234389334917068
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0552453_38_10.mp4
+    label: 1
+    dist: 0.0730275809764862
+- cluster_id: 7
+  name: concept_cluster_7
+  description: '[TODO: inspect top-20 videos and describe the spatial/temporal pattern]'
+  n_videos: 60
+  ai_count: 41
+  real_count: 19
+  typical_onset: '[TODO: early / mid / late / consistent — from top-20 inspection]'
+  primary_region: '[TODO: face / background / boundary / motion region — from top-20]'
+  top_20_videos:
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_61624.mp4
+    label: 0
+    dist: 0.007168952375650406
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0860336_0_10.mp4
+    label: 1
+    dist: 0.010893029160797596
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_svd_SVD_67391.mp4
+    label: 0
+    dist: 0.01617436669766903
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_110120.mp4
+    label: 0
+    dist: 0.018012186512351036
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_72714.mp4
+    label: 0
+    dist: 0.02599695511162281
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0927323_55_10.mp4
+    label: 1
+    dist: 0.03729083389043808
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_opensora_OpenSoraL_118019.mp4
+    label: 0
+    dist: 0.04095369577407837
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_113688.mp4
+    label: 0
+    dist: 0.0410257950425148
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0708259_80_10.mp4
+    label: 1
+    dist: 0.04115592688322067
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_82092.mp4
+    label: 0
+    dist: 0.04179497808218002
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0127378_10_10.mp4
+    label: 1
+    dist: 0.041847795248031616
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_svd_SVD_142002.mp4
+    label: 0
+    dist: 0.04562846198678017
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0631401_18_10.mp4
+    label: 1
+    dist: 0.04789144545793533
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0521544_40_10.mp4
+    label: 1
+    dist: 0.050575368106365204
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0720037_19_10.mp4
+    label: 1
+    dist: 0.05583836883306503
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_videocrafter_VideoCrafter_1755.mp4
+    label: 0
+    dist: 0.057680971920490265
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0391073_88_10.mp4
+    label: 1
+    dist: 0.05907893180847168
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_seine_SEINE_7630.mp4
+    label: 0
+    dist: 0.060461435467004776
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0398437_28_10.mp4
+    label: 1
+    dist: 0.06294415891170502
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_svd_SVD_98201.mp4
+    label: 0
+    dist: 0.0637795552611351
+- cluster_id: 8
+  name: concept_cluster_8
+  description: '[TODO: inspect top-20 videos and describe the spatial/temporal pattern]'
+  n_videos: 56
+  ai_count: 32
+  real_count: 24
+  typical_onset: '[TODO: early / mid / late / consistent — from top-20 inspection]'
+  primary_region: '[TODO: face / background / boundary / motion region — from top-20]'
+  top_20_videos:
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0742435_35_10.mp4
+    label: 1
+    dist: 0.011112664826214314
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0897737_27_10.mp4
+    label: 1
+    dist: 0.012545161880552769
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_svd_SVD_62541.mp4
+    label: 0
+    dist: 0.016461769118905067
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_dynamiccrafter_DynamicCrafter_35896.mp4
+    label: 0
+    dist: 0.023611946031451225
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_seine_SEINE_3214.mp4
+    label: 0
+    dist: 0.023911399766802788
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_631.mp4
+    label: 0
+    dist: 0.024296501651406288
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0885905_3_10.mp4
+    label: 1
+    dist: 0.029425593093037605
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_dynamiccrafter_DynamicCrafter_38031.mp4
+    label: 0
+    dist: 0.03003052808344364
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0739247_21_10.mp4
+    label: 1
+    dist: 0.03358214348554611
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_svd_SVD_115532.mp4
+    label: 0
+    dist: 0.035857412964105606
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_79983.mp4
+    label: 0
+    dist: 0.04937077686190605
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0054982_11_10.mp4
+    label: 1
+    dist: 0.05140630155801773
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_dynamiccrafter_DynamicCrafter_663.mp4
+    label: 0
+    dist: 0.05174849554896355
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_115090.mp4
+    label: 0
+    dist: 0.05368085578083992
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0760090_30_10.mp4
+    label: 1
+    dist: 0.0540059469640255
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0404542_1_10.mp4
+    label: 1
+    dist: 0.05542904883623123
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_dynamiccrafter_DynamicCrafter_19197.mp4
+    label: 0
+    dist: 0.05638830363750458
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_5435.mp4
+    label: 0
+    dist: 0.05984620749950409
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0338997_4_10.mp4
+    label: 1
+    dist: 0.060109060257673264
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_sd_SD_181075.mp4
+    label: 0
+    dist: 0.06253141164779663
+- cluster_id: 9
+  name: concept_cluster_9
+  description: '[TODO: inspect top-20 videos and describe the spatial/temporal pattern]'
+  n_videos: 55
+  ai_count: 37
+  real_count: 18
+  typical_onset: '[TODO: early / mid / late / consistent — from top-20 inspection]'
+  primary_region: '[TODO: face / background / boundary / motion region — from top-20]'
+  top_20_videos:
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_videocrafter_VideoCrafter_26863.mp4
+    label: 0
+    dist: 0.00655390415340662
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0535256_50_10.mp4
+    label: 1
+    dist: 0.008569912053644657
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_122762.mp4
+    label: 0
+    dist: 0.009830175898969173
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_56170.mp4
+    label: 0
+    dist: 0.011022468097507954
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0160076_16_10.mp4
+    label: 1
+    dist: 0.01682105101644993
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_videocrafter_VideoCrafter_17823.mp4
+    label: 0
+    dist: 0.019053444266319275
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_108760.mp4
+    label: 0
+    dist: 0.020694274455308914
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0592882_9_10.mp4
+    label: 1
+    dist: 0.03344621881842613
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0790259_15_10.mp4
+    label: 1
+    dist: 0.042895350605249405
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_4744.mp4
+    label: 0
+    dist: 0.04366989806294441
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_62672.mp4
+    label: 0
+    dist: 0.04400942847132683
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_latte_Latte_141574.mp4
+    label: 0
+    dist: 0.04630976542830467
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0682563_4_10.mp4
+    label: 1
+    dist: 0.04730610549449921
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_4387.mp4
+    label: 0
+    dist: 0.05189964920282364
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_opensora_OpenSoraL_3854.mp4
+    label: 0
+    dist: 0.05631944537162781
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_72735.mp4
+    label: 0
+    dist: 0.0575801283121109
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_sd_SD_166149.mp4
+    label: 0
+    dist: 0.05937793478369713
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_svd_SVD_123340.mp4
+    label: 0
+    dist: 0.06004585325717926
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0559529_1_10.mp4
+    label: 1
+    dist: 0.060497984290122986
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_svd_SVD_46595.mp4
+    label: 0
+    dist: 0.06203889846801758
+- cluster_id: 10
+  name: concept_cluster_10
+  description: '[TODO: inspect top-20 videos and describe the spatial/temporal pattern]'
+  n_videos: 72
+  ai_count: 48
+  real_count: 24
+  typical_onset: '[TODO: early / mid / late / consistent — from top-20 inspection]'
+  primary_region: '[TODO: face / background / boundary / motion region — from top-20]'
+  top_20_videos:
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0219442_22_10.mp4
+    label: 1
+    dist: 0.0049604508094489574
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_87622.mp4
+    label: 0
+    dist: 0.008002222515642643
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0316852_26_10.mp4
+    label: 1
+    dist: 0.01268776971846819
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0072066_5_10.mp4
+    label: 1
+    dist: 0.023414913564920425
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_svd_SVD_20409.mp4
+    label: 0
+    dist: 0.03205723688006401
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_videocrafter_VideoCrafter_35480.mp4
+    label: 0
+    dist: 0.03227673098444939
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_sd_SD_104276.mp4
+    label: 0
+    dist: 0.037366606295108795
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_opensora_OpenSoraL_30375.mp4
+    label: 0
+    dist: 0.04245565086603165
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_seine_SEINE_9269.mp4
+    label: 0
+    dist: 0.043253615498542786
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_88117.mp4
+    label: 0
+    dist: 0.04886111244559288
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0546575_7_10.mp4
+    label: 1
+    dist: 0.05135690048336983
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_102899.mp4
+    label: 0
+    dist: 0.05141272023320198
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0506781_3_10.mp4
+    label: 1
+    dist: 0.05301050841808319
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0527077_74_10.mp4
+    label: 1
+    dist: 0.054168496280908585
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_35542.mp4
+    label: 0
+    dist: 0.054957009851932526
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_41200.mp4
+    label: 0
+    dist: 0.05558791011571884
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_opensora_OpenSoraL_133943.mp4
+    label: 0
+    dist: 0.06115778535604477
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_svd_SVD_18452.mp4
+    label: 0
+    dist: 0.06300729513168335
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_93986.mp4
+    label: 0
+    dist: 0.06514458358287811
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0014013_43_10.mp4
+    label: 1
+    dist: 0.06940119713544846
+- cluster_id: 11
+  name: concept_cluster_11
+  description: '[TODO: inspect top-20 videos and describe the spatial/temporal pattern]'
+  n_videos: 73
+  ai_count: 45
+  real_count: 28
+  typical_onset: '[TODO: early / mid / late / consistent — from top-20 inspection]'
+  primary_region: '[TODO: face / background / boundary / motion region — from top-20]'
+  top_20_videos:
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_svd_SVD_22689.mp4
+    label: 0
+    dist: 0.008371008560061455
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0306863_1_10.mp4
+    label: 1
+    dist: 0.01768520660698414
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0559623_9_10.mp4
+    label: 1
+    dist: 0.021278442814946175
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_opensora_OpenSoraL_148181.mp4
+    label: 0
+    dist: 0.02276901714503765
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_56687.mp4
+    label: 0
+    dist: 0.024967502802610397
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0965304_7_10.mp4
+    label: 1
+    dist: 0.030332393944263458
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_svd_SVD_134817.mp4
+    label: 0
+    dist: 0.03147334232926369
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0084222_5_10.mp4
+    label: 1
+    dist: 0.03860810026526451
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0858674_2_10.mp4
+    label: 1
+    dist: 0.03924724459648132
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_svd_SVD_54025.mp4
+    label: 0
+    dist: 0.04060307890176773
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_118460.mp4
+    label: 0
+    dist: 0.04427193105220795
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_dynamiccrafter_DynamicCrafter_11226.mp4
+    label: 0
+    dist: 0.04727894440293312
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0416378_10_10.mp4
+    label: 1
+    dist: 0.04813266918063164
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0989903_4_10.mp4
+    label: 1
+    dist: 0.04960288107395172
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_svd_SVD_27876.mp4
+    label: 0
+    dist: 0.05134851485490799
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0674470_19_10.mp4
+    label: 1
+    dist: 0.05488455668091774
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0637792_18_10.mp4
+    label: 1
+    dist: 0.055998820811510086
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_dynamiccrafter_DynamicCrafter_15923.mp4
+    label: 0
+    dist: 0.056590545922517776
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_svd_SVD_21641.mp4
+    label: 0
+    dist: 0.056938234716653824
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_seine_SEINE_8514.mp4
+    label: 0
+    dist: 0.05740474537014961
+- cluster_id: 12
+  name: concept_cluster_12
+  description: '[TODO: inspect top-20 videos and describe the spatial/temporal pattern]'
+  n_videos: 73
+  ai_count: 44
+  real_count: 29
+  typical_onset: '[TODO: early / mid / late / consistent — from top-20 inspection]'
+  primary_region: '[TODO: face / background / boundary / motion region — from top-20]'
+  top_20_videos:
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_seine_SEINE_3397.mp4
+    label: 0
+    dist: 0.0068928091786801815
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_latte_Latte_106864.mp4
+    label: 0
+    dist: 0.007963215000927448
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_11421.mp4
+    label: 0
+    dist: 0.008463239297270775
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0049927_25_10.mp4
+    label: 1
+    dist: 0.020271172747015953
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_svd_SVD_77135.mp4
+    label: 0
+    dist: 0.021931806579232216
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0172615_43_10.mp4
+    label: 1
+    dist: 0.02665737271308899
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_svd_SVD_143022.mp4
+    label: 0
+    dist: 0.03229790925979614
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_56085.mp4
+    label: 0
+    dist: 0.03333580493927002
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_svd_SVD_65875.mp4
+    label: 0
+    dist: 0.04082437977194786
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0363152_45_10.mp4
+    label: 1
+    dist: 0.04373176768422127
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_119656.mp4
+    label: 0
+    dist: 0.043845854699611664
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0605564_62_10.mp4
+    label: 1
+    dist: 0.044697728008031845
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_76341.mp4
+    label: 0
+    dist: 0.04550623893737793
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0962924_2_10.mp4
+    label: 1
+    dist: 0.052376508712768555
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_sd_SD_86685.mp4
+    label: 0
+    dist: 0.054077837616205215
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0092720_8_10.mp4
+    label: 1
+    dist: 0.05587855353951454
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_svd_SVD_112945.mp4
+    label: 0
+    dist: 0.05674257501959801
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0655149_47_10.mp4
+    label: 1
+    dist: 0.05833333730697632
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_91811.mp4
+    label: 0
+    dist: 0.06029854342341423
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0480080_2_10.mp4
+    label: 1
+    dist: 0.061104584485292435
+- cluster_id: 13
+  name: concept_cluster_13
+  description: '[TODO: inspect top-20 videos and describe the spatial/temporal pattern]'
+  n_videos: 70
+  ai_count: 52
+  real_count: 18
+  typical_onset: '[TODO: early / mid / late / consistent — from top-20 inspection]'
+  primary_region: '[TODO: face / background / boundary / motion region — from top-20]'
+  top_20_videos:
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_sd_SD_145446.mp4
+    label: 0
+    dist: 0.007704406511038542
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0356966_74_10.mp4
+    label: 1
+    dist: 0.009123983792960644
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_49931.mp4
+    label: 0
+    dist: 0.012634623795747757
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_sd_SD_126768.mp4
+    label: 0
+    dist: 0.015597954392433167
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_92326.mp4
+    label: 0
+    dist: 0.019707029685378075
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0535012_7_10.mp4
+    label: 1
+    dist: 0.020839128643274307
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_svd_SVD_4974.mp4
+    label: 0
+    dist: 0.021842703223228455
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_85905.mp4
+    label: 0
+    dist: 0.025849688798189163
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_50824.mp4
+    label: 0
+    dist: 0.02614441141486168
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_svd_SVD_29801.mp4
+    label: 0
+    dist: 0.03756733238697052
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_seine_SEINE_9848.mp4
+    label: 0
+    dist: 0.038596782833337784
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_dynamiccrafter_DynamicCrafter_26272.mp4
+    label: 0
+    dist: 0.038599591702222824
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0489795_26_10.mp4
+    label: 1
+    dist: 0.040910303592681885
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0458807_14_10.mp4
+    label: 1
+    dist: 0.04364240542054176
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_videocrafter_VideoCrafter_2757.mp4
+    label: 0
+    dist: 0.04514239355921745
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_svd_SVD_88040.mp4
+    label: 0
+    dist: 0.04708423465490341
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_svd_SVD_23840.mp4
+    label: 0
+    dist: 0.04782259464263916
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_62221.mp4
+    label: 0
+    dist: 0.05114012584090233
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_113290.mp4
+    label: 0
+    dist: 0.053783152252435684
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_svd_SVD_117471.mp4
+    label: 0
+    dist: 0.05378977954387665
+- cluster_id: 14
+  name: concept_cluster_14
+  description: '[TODO: inspect top-20 videos and describe the spatial/temporal pattern]'
+  n_videos: 58
+  ai_count: 38
+  real_count: 20
+  typical_onset: '[TODO: early / mid / late / consistent — from top-20 inspection]'
+  primary_region: '[TODO: face / background / boundary / motion region — from top-20]'
+  top_20_videos:
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_svd_SVD_127378.mp4
+    label: 0
+    dist: 0.00944667961448431
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0160780_2_10.mp4
+    label: 1
+    dist: 0.012133900076150894
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_50040.mp4
+    label: 0
+    dist: 0.012759863398969173
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_svd_SVD_39560.mp4
+    label: 0
+    dist: 0.016302766278386116
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0265722_5_10.mp4
+    label: 1
+    dist: 0.01866387389600277
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_29231.mp4
+    label: 0
+    dist: 0.020514266565442085
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_106763.mp4
+    label: 0
+    dist: 0.02525911293923855
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_84787.mp4
+    label: 0
+    dist: 0.026313897222280502
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_34884.mp4
+    label: 0
+    dist: 0.035195738077163696
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_84983.mp4
+    label: 0
+    dist: 0.03591112419962883
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_23109.mp4
+    label: 0
+    dist: 0.03595393896102905
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_opensora_OpenSoraL_59864.mp4
+    label: 0
+    dist: 0.03827638924121857
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_47055.mp4
+    label: 0
+    dist: 0.039238158613443375
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_59462.mp4
+    label: 0
+    dist: 0.044866401702165604
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_78105.mp4
+    label: 0
+    dist: 0.047667816281318665
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0602783_94_10.mp4
+    label: 1
+    dist: 0.05087956786155701
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0793502_57_10.mp4
+    label: 1
+    dist: 0.05258084461092949
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_latte_Latte_35411.mp4
+    label: 0
+    dist: 0.05379277095198631
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_latte_Latte_130797.mp4
+    label: 0
+    dist: 0.055364929139614105
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_sd_SD_94911.mp4
+    label: 0
+    dist: 0.058971308171749115
+- cluster_id: 15
+  name: concept_cluster_15
+  description: '[TODO: inspect top-20 videos and describe the spatial/temporal pattern]'
+  n_videos: 66
+  ai_count: 43
+  real_count: 23
+  typical_onset: '[TODO: early / mid / late / consistent — from top-20 inspection]'
+  primary_region: '[TODO: face / background / boundary / motion region — from top-20]'
+  top_20_videos:
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_sd_SD_149789.mp4
+    label: 0
+    dist: 0.017710503190755844
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_svd_SVD_87349.mp4
+    label: 0
+    dist: 0.027121393010020256
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0782735_88_10.mp4
+    label: 1
+    dist: 0.027690192684531212
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_73423.mp4
+    label: 0
+    dist: 0.03625740855932236
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0813300_22_10.mp4
+    label: 1
+    dist: 0.03645767644047737
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_7520.mp4
+    label: 0
+    dist: 0.036892037838697433
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_6206.mp4
+    label: 0
+    dist: 0.039575912058353424
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_28476.mp4
+    label: 0
+    dist: 0.03970452770590782
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_videocrafter_VideoCrafter_6417.mp4
+    label: 0
+    dist: 0.040352948009967804
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_latte_Latte_59765.mp4
+    label: 0
+    dist: 0.04133191704750061
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_64971.mp4
+    label: 0
+    dist: 0.04233608767390251
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0236738_51_10.mp4
+    label: 1
+    dist: 0.04468049854040146
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_latte_Latte_59909.mp4
+    label: 0
+    dist: 0.04558160528540611
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_65840.mp4
+    label: 0
+    dist: 0.04735199734568596
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0771065_1_10.mp4
+    label: 1
+    dist: 0.049269478768110275
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_dynamiccrafter_DynamicCrafter_7081.mp4
+    label: 0
+    dist: 0.04946151003241539
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_75415.mp4
+    label: 0
+    dist: 0.05048238858580589
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0339815_2_10.mp4
+    label: 1
+    dist: 0.05050404742360115
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_seine_SEINE_8869.mp4
+    label: 0
+    dist: 0.05198846012353897
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_65162.mp4
+    label: 0
+    dist: 0.052923478186130524
+- cluster_id: 16
+  name: concept_cluster_16
+  description: '[TODO: inspect top-20 videos and describe the spatial/temporal pattern]'
+  n_videos: 66
+  ai_count: 38
+  real_count: 28
+  typical_onset: '[TODO: early / mid / late / consistent — from top-20 inspection]'
+  primary_region: '[TODO: face / background / boundary / motion region — from top-20]'
+  top_20_videos:
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_dynamiccrafter_DynamicCrafter_27675.mp4
+    label: 0
+    dist: 0.007863325998187065
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_111324.mp4
+    label: 0
+    dist: 0.010093070566654205
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0172022_0_10.mp4
+    label: 1
+    dist: 0.011526895686984062
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_dynamiccrafter_DynamicCrafter_7782.mp4
+    label: 0
+    dist: 0.01573975756764412
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0629003_21_10.mp4
+    label: 1
+    dist: 0.020221449434757233
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_dynamiccrafter_DynamicCrafter_3454.mp4
+    label: 0
+    dist: 0.020866330713033676
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0234730_3_10.mp4
+    label: 1
+    dist: 0.022703086957335472
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0949849_1_10.mp4
+    label: 1
+    dist: 0.024002209305763245
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0291294_35_10.mp4
+    label: 1
+    dist: 0.029399113729596138
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_38048.mp4
+    label: 0
+    dist: 0.030079402029514313
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_129216.mp4
+    label: 0
+    dist: 0.039771802723407745
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0892034_22_10.mp4
+    label: 1
+    dist: 0.04199105501174927
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0320887_1_10.mp4
+    label: 1
+    dist: 0.042255252599716187
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_110355.mp4
+    label: 0
+    dist: 0.0470832958817482
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0146230_52_10.mp4
+    label: 1
+    dist: 0.05265716835856438
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0679377_0_10.mp4
+    label: 1
+    dist: 0.052916016429662704
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0932704_1_10.mp4
+    label: 1
+    dist: 0.054181598126888275
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0051553_49_10.mp4
+    label: 1
+    dist: 0.05425473675131798
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_opensora_OpenSoraL_131564.mp4
+    label: 0
+    dist: 0.05581730231642723
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_96789.mp4
+    label: 0
+    dist: 0.05676264315843582
+- cluster_id: 17
+  name: concept_cluster_17
+  description: '[TODO: inspect top-20 videos and describe the spatial/temporal pattern]'
+  n_videos: 60
+  ai_count: 41
+  real_count: 19
+  typical_onset: '[TODO: early / mid / late / consistent — from top-20 inspection]'
+  primary_region: '[TODO: face / background / boundary / motion region — from top-20]'
+  top_20_videos:
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_29315.mp4
+    label: 0
+    dist: 0.008473665453493595
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0754503_0_10.mp4
+    label: 1
+    dist: 0.009848595596849918
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_117927.mp4
+    label: 0
+    dist: 0.009936916641891003
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_43133.mp4
+    label: 0
+    dist: 0.010065793059766293
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_videocrafter_VideoCrafter_22582.mp4
+    label: 0
+    dist: 0.010253547690808773
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_sd_SD_130277.mp4
+    label: 0
+    dist: 0.011092180386185646
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_sd_SD_179842.mp4
+    label: 0
+    dist: 0.015735218301415443
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0259643_16_10.mp4
+    label: 1
+    dist: 0.01741115003824234
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_128376.mp4
+    label: 0
+    dist: 0.020644422620534897
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_42193.mp4
+    label: 0
+    dist: 0.027076495811343193
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_123360.mp4
+    label: 0
+    dist: 0.027278291061520576
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_opensora_OpenSoraL_36565.mp4
+    label: 0
+    dist: 0.03218118101358414
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0042049_61_10.mp4
+    label: 1
+    dist: 0.03510712832212448
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_sd_SD_129168.mp4
+    label: 0
+    dist: 0.03983569145202637
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_svd_SVD_74219.mp4
+    label: 0
+    dist: 0.0414806492626667
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_opensora_OpenSoraL_170242.mp4
+    label: 0
+    dist: 0.0424269363284111
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_seine_SEINE_8229.mp4
+    label: 0
+    dist: 0.04539472982287407
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_75608.mp4
+    label: 0
+    dist: 0.05030260980129242
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0352762_3_10.mp4
+    label: 1
+    dist: 0.05542203411459923
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_videocrafter_VideoCrafter_28593.mp4
+    label: 0
+    dist: 0.0562075711786747
+- cluster_id: 18
+  name: concept_cluster_18
+  description: '[TODO: inspect top-20 videos and describe the spatial/temporal pattern]'
+  n_videos: 64
+  ai_count: 45
+  real_count: 19
+  typical_onset: '[TODO: early / mid / late / consistent — from top-20 inspection]'
+  primary_region: '[TODO: face / background / boundary / motion region — from top-20]'
+  top_20_videos:
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_94756.mp4
+    label: 0
+    dist: 0.014194932766258717
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0478752_3_10.mp4
+    label: 1
+    dist: 0.014247644692659378
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_93557.mp4
+    label: 0
+    dist: 0.018819555640220642
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_videocrafter_VideoCrafter_35705.mp4
+    label: 0
+    dist: 0.019717883318662643
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_dynamiccrafter_DynamicCrafter_33576.mp4
+    label: 0
+    dist: 0.02126511186361313
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0315080_0_10.mp4
+    label: 1
+    dist: 0.02178872562944889
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_sd_SD_123523.mp4
+    label: 0
+    dist: 0.02642115019261837
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_videocrafter_VideoCrafter_19328.mp4
+    label: 0
+    dist: 0.028521275147795677
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_latte_Latte_134259.mp4
+    label: 0
+    dist: 0.02886761538684368
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_sd_SD_167757.mp4
+    label: 0
+    dist: 0.028972333297133446
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0966272_0_10.mp4
+    label: 1
+    dist: 0.028994977474212646
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_sd_SD_127119.mp4
+    label: 0
+    dist: 0.02970321848988533
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_85832.mp4
+    label: 0
+    dist: 0.03676948323845863
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0243775_52_10.mp4
+    label: 1
+    dist: 0.037420205771923065
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_videocrafter_VideoCrafter_32528.mp4
+    label: 0
+    dist: 0.03925764560699463
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_104525.mp4
+    label: 0
+    dist: 0.04039963707327843
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0239479_3_10.mp4
+    label: 1
+    dist: 0.0414225310087204
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_seine_SEINE_18960.mp4
+    label: 0
+    dist: 0.042911045253276825
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_126638.mp4
+    label: 0
+    dist: 0.04800078272819519
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0008606_1_10.mp4
+    label: 1
+    dist: 0.051773007959127426
+- cluster_id: 19
+  name: concept_cluster_19
+  description: '[TODO: inspect top-20 videos and describe the spatial/temporal pattern]'
+  n_videos: 59
+  ai_count: 41
+  real_count: 18
+  typical_onset: '[TODO: early / mid / late / consistent — from top-20 inspection]'
+  primary_region: '[TODO: face / background / boundary / motion region — from top-20]'
+  top_20_videos:
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_sd_SD_64987.mp4
+    label: 0
+    dist: 0.009544712491333485
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_70772.mp4
+    label: 0
+    dist: 0.014925237745046616
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_svd_SVD_53991.mp4
+    label: 0
+    dist: 0.0165130402892828
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0783620_34_10.mp4
+    label: 1
+    dist: 0.01780364289879799
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0433713_6_10.mp4
+    label: 1
+    dist: 0.020205151289701462
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0601996_8_10.mp4
+    label: 1
+    dist: 0.020657695829868317
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_dynamiccrafter_DynamicCrafter_34872.mp4
+    label: 0
+    dist: 0.02404143661260605
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_svd_SVD_24851.mp4
+    label: 0
+    dist: 0.024124879390001297
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_svd_SVD_9027.mp4
+    label: 0
+    dist: 0.027850009500980377
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0095962_41_10.mp4
+    label: 1
+    dist: 0.03203869238495827
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_115756.mp4
+    label: 0
+    dist: 0.03527013957500458
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_videocrafter_VideoCrafter_13424.mp4
+    label: 0
+    dist: 0.038862526416778564
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0856912_1_10.mp4
+    label: 1
+    dist: 0.04411407187581062
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_dynamiccrafter_DynamicCrafter_31371.mp4
+    label: 0
+    dist: 0.04625536501407623
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_90102.mp4
+    label: 0
+    dist: 0.0476670004427433
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_sd_SD_174952.mp4
+    label: 0
+    dist: 0.04937272518873215
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_seine_SEINE_15826.mp4
+    label: 0
+    dist: 0.05042495205998421
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_dynamiccrafter_DynamicCrafter_39367.mp4
+    label: 0
+    dist: 0.05321940407156944
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_93001.mp4
+    label: 0
+    dist: 0.053759824484586716
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0417525_50_10.mp4
+    label: 1
+    dist: 0.05422044172883034
+- cluster_id: 20
+  name: concept_cluster_20
+  description: '[TODO: inspect top-20 videos and describe the spatial/temporal pattern]'
+  n_videos: 73
+  ai_count: 45
+  real_count: 28
+  typical_onset: '[TODO: early / mid / late / consistent — from top-20 inspection]'
+  primary_region: '[TODO: face / background / boundary / motion region — from top-20]'
+  top_20_videos:
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_opensora_OpenSoraL_102330.mp4
+    label: 0
+    dist: 0.012859925627708435
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_23236.mp4
+    label: 0
+    dist: 0.015901731327176094
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0403390_2_10.mp4
+    label: 1
+    dist: 0.029316985979676247
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_96456.mp4
+    label: 0
+    dist: 0.03318922221660614
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0079986_51_10.mp4
+    label: 1
+    dist: 0.033599380403757095
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_svd_SVD_94862.mp4
+    label: 0
+    dist: 0.03558095917105675
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_dynamiccrafter_DynamicCrafter_30195.mp4
+    label: 0
+    dist: 0.03750785067677498
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_85400.mp4
+    label: 0
+    dist: 0.03767678141593933
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_sd_SD_84678.mp4
+    label: 0
+    dist: 0.03870974853634834
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_6495.mp4
+    label: 0
+    dist: 0.03873368725180626
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0207530_70_10.mp4
+    label: 1
+    dist: 0.03940895199775696
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_svd_SVD_83298.mp4
+    label: 0
+    dist: 0.051782988011837006
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0608526_1_10.mp4
+    label: 1
+    dist: 0.055519770830869675
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0102774_12_10.mp4
+    label: 1
+    dist: 0.05607468634843826
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_svd_SVD_64242.mp4
+    label: 0
+    dist: 0.056238602846860886
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_76120.mp4
+    label: 0
+    dist: 0.05763718858361244
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_seine_SEINE_4956.mp4
+    label: 0
+    dist: 0.06037268415093422
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_videocrafter_VideoCrafter_26550.mp4
+    label: 0
+    dist: 0.061044543981552124
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_latte_Latte_18664.mp4
+    label: 0
+    dist: 0.06274013221263885
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_75766.mp4
+    label: 0
+    dist: 0.0657854750752449
+- cluster_id: 21
+  name: concept_cluster_21
+  description: '[TODO: inspect top-20 videos and describe the spatial/temporal pattern]'
+  n_videos: 63
+  ai_count: 42
+  real_count: 21
+  typical_onset: '[TODO: early / mid / late / consistent — from top-20 inspection]'
+  primary_region: '[TODO: face / background / boundary / motion region — from top-20]'
+  top_20_videos:
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0672846_12_10.mp4
+    label: 1
+    dist: 0.0057220133021473885
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_27267.mp4
+    label: 0
+    dist: 0.006287655793130398
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_latte_Latte_85791.mp4
+    label: 0
+    dist: 0.006435311399400234
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_dynamiccrafter_DynamicCrafter_36163.mp4
+    label: 0
+    dist: 0.009674501605331898
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_opensora_OpenSoraL_96043.mp4
+    label: 0
+    dist: 0.009733864106237888
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_dynamiccrafter_DynamicCrafter_34665.mp4
+    label: 0
+    dist: 0.009996462613344193
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0441078_13_10.mp4
+    label: 1
+    dist: 0.01214873231947422
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0242694_23_10.mp4
+    label: 1
+    dist: 0.018459729850292206
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_sd_SD_54296.mp4
+    label: 0
+    dist: 0.0229670237749815
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_svd_SVD_12068.mp4
+    label: 0
+    dist: 0.02697141095995903
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0090281_17_10.mp4
+    label: 1
+    dist: 0.028470173478126526
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_55194.mp4
+    label: 0
+    dist: 0.028978796675801277
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0416966_7_10.mp4
+    label: 1
+    dist: 0.029032880440354347
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_svd_SVD_64209.mp4
+    label: 0
+    dist: 0.030077576637268066
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_dynamiccrafter_DynamicCrafter_31151.mp4
+    label: 0
+    dist: 0.03294839337468147
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_videocrafter_VideoCrafter_22553.mp4
+    label: 0
+    dist: 0.039636071771383286
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0566741_8_10.mp4
+    label: 1
+    dist: 0.04488249868154526
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0792611_12_10.mp4
+    label: 1
+    dist: 0.04496791958808899
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0268841_20_10.mp4
+    label: 1
+    dist: 0.04811393469572067
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_32146.mp4
+    label: 0
+    dist: 0.04915584623813629
+- cluster_id: 22
+  name: concept_cluster_22
+  description: '[TODO: inspect top-20 videos and describe the spatial/temporal pattern]'
+  n_videos: 56
+  ai_count: 39
+  real_count: 17
+  typical_onset: '[TODO: early / mid / late / consistent — from top-20 inspection]'
+  primary_region: '[TODO: face / background / boundary / motion region — from top-20]'
+  top_20_videos:
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_dynamiccrafter_DynamicCrafter_34800.mp4
+    label: 0
+    dist: 0.021558012813329697
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0723999_4_10.mp4
+    label: 1
+    dist: 0.026659443974494934
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_svd_SVD_20733.mp4
+    label: 0
+    dist: 0.02694764733314514
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_12753.mp4
+    label: 0
+    dist: 0.027437200769782066
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_seine_SEINE_4142.mp4
+    label: 0
+    dist: 0.02884402684867382
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_50798.mp4
+    label: 0
+    dist: 0.032854873687028885
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_76457.mp4
+    label: 0
+    dist: 0.03312883898615837
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_59710.mp4
+    label: 0
+    dist: 0.038233187049627304
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_69169.mp4
+    label: 0
+    dist: 0.038964007049798965
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_132501.mp4
+    label: 0
+    dist: 0.04435459524393082
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_78718.mp4
+    label: 0
+    dist: 0.045095667243003845
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_31533.mp4
+    label: 0
+    dist: 0.049537528306245804
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_40323.mp4
+    label: 0
+    dist: 0.05109741538763046
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0843969_38_10.mp4
+    label: 1
+    dist: 0.053274646401405334
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0390243_45_10.mp4
+    label: 1
+    dist: 0.05497198551893234
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_svd_SVD_96715.mp4
+    label: 0
+    dist: 0.055095333606004715
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0165726_11_10.mp4
+    label: 1
+    dist: 0.05579078942537308
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_opensora_OpenSoraL_98494.mp4
+    label: 0
+    dist: 0.056323904544115067
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_videocrafter_VideoCrafter_10635.mp4
+    label: 0
+    dist: 0.06093648076057434
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_dynamiccrafter_DynamicCrafter_3798.mp4
+    label: 0
+    dist: 0.06323409080505371
+- cluster_id: 23
+  name: concept_cluster_23
+  description: '[TODO: inspect top-20 videos and describe the spatial/temporal pattern]'
+  n_videos: 57
+  ai_count: 31
+  real_count: 26
+  typical_onset: '[TODO: early / mid / late / consistent — from top-20 inspection]'
+  primary_region: '[TODO: face / background / boundary / motion region — from top-20]'
+  top_20_videos:
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0629925_10_10.mp4
+    label: 1
+    dist: 0.012509122490882874
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0679915_15_10.mp4
+    label: 1
+    dist: 0.016237838193774223
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_77942.mp4
+    label: 0
+    dist: 0.019480153918266296
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_sd_SD_125318.mp4
+    label: 0
+    dist: 0.02072528935968876
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0420487_11_10.mp4
+    label: 1
+    dist: 0.0318404957652092
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0156061_0_10.mp4
+    label: 1
+    dist: 0.03431178256869316
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_29844.mp4
+    label: 0
+    dist: 0.03479534015059471
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_124316.mp4
+    label: 0
+    dist: 0.035526763647794724
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_81024.mp4
+    label: 0
+    dist: 0.043287795037031174
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_svd_SVD_63650.mp4
+    label: 0
+    dist: 0.04374396428465843
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_78331.mp4
+    label: 0
+    dist: 0.046027492731809616
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_dynamiccrafter_DynamicCrafter_18355.mp4
+    label: 0
+    dist: 0.04745554178953171
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0306582_6_10.mp4
+    label: 1
+    dist: 0.05118115246295929
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0086830_12_10.mp4
+    label: 1
+    dist: 0.05376632139086723
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_40624.mp4
+    label: 0
+    dist: 0.05713561549782753
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_latte_Latte_27634.mp4
+    label: 0
+    dist: 0.05718977749347687
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_sd_SD_176256.mp4
+    label: 0
+    dist: 0.05757386237382889
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_latte_Latte_28209.mp4
+    label: 0
+    dist: 0.059355951845645905
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_40613.mp4
+    label: 0
+    dist: 0.06066888943314552
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0037152_34_10.mp4
+    label: 1
+    dist: 0.060772284865379333
+- cluster_id: 24
+  name: concept_cluster_24
+  description: '[TODO: inspect top-20 videos and describe the spatial/temporal pattern]'
+  n_videos: 71
+  ai_count: 48
+  real_count: 23
+  typical_onset: '[TODO: early / mid / late / consistent — from top-20 inspection]'
+  primary_region: '[TODO: face / background / boundary / motion region — from top-20]'
+  top_20_videos:
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_seine_SEINE_8772.mp4
+    label: 0
+    dist: 0.026128264144062996
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_91685.mp4
+    label: 0
+    dist: 0.02956349030137062
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_sd_SD_76294.mp4
+    label: 0
+    dist: 0.03918162360787392
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0837803_0_10.mp4
+    label: 1
+    dist: 0.042590443044900894
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_svd_SVD_9479.mp4
+    label: 0
+    dist: 0.042604900896549225
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_88755.mp4
+    label: 0
+    dist: 0.04314081370830536
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_26562.mp4
+    label: 0
+    dist: 0.044158853590488434
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0048567_1_10.mp4
+    label: 1
+    dist: 0.044575199484825134
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_20689.mp4
+    label: 0
+    dist: 0.04533025622367859
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_sd_SD_48141.mp4
+    label: 0
+    dist: 0.046587493270635605
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0297420_54_10.mp4
+    label: 1
+    dist: 0.04745106399059296
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_64660.mp4
+    label: 0
+    dist: 0.05049796774983406
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0833005_24_10.mp4
+    label: 1
+    dist: 0.05118256062269211
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0352698_58_10.mp4
+    label: 1
+    dist: 0.05153632164001465
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0141963_63_10.mp4
+    label: 1
+    dist: 0.0539238303899765
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0219888_4_10.mp4
+    label: 1
+    dist: 0.0602116584777832
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0239893_33_10.mp4
+    label: 1
+    dist: 0.06464879214763641
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0488440_34_10.mp4
+    label: 1
+    dist: 0.06663818657398224
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0487181_22_10.mp4
+    label: 1
+    dist: 0.06767241656780243
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_581.mp4
+    label: 0
+    dist: 0.06869876384735107
+- cluster_id: 25
+  name: concept_cluster_25
+  description: '[TODO: inspect top-20 videos and describe the spatial/temporal pattern]'
+  n_videos: 73
+  ai_count: 48
+  real_count: 25
+  typical_onset: '[TODO: early / mid / late / consistent — from top-20 inspection]'
+  primary_region: '[TODO: face / background / boundary / motion region — from top-20]'
+  top_20_videos:
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_sd_SD_108606.mp4
+    label: 0
+    dist: 0.021244261413812637
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_49536.mp4
+    label: 0
+    dist: 0.025136487558484077
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_svd_SVD_5756.mp4
+    label: 0
+    dist: 0.030630065128207207
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_svd_SVD_7062.mp4
+    label: 0
+    dist: 0.033850956708192825
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_svd_SVD_89301.mp4
+    label: 0
+    dist: 0.03478134796023369
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_114313.mp4
+    label: 0
+    dist: 0.035162802785634995
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_svd_SVD_45586.mp4
+    label: 0
+    dist: 0.039633575826883316
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_117412.mp4
+    label: 0
+    dist: 0.039637137204408646
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0001792_2_10.mp4
+    label: 1
+    dist: 0.04186638817191124
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_116666.mp4
+    label: 0
+    dist: 0.04278980568051338
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_45103.mp4
+    label: 0
+    dist: 0.04481390491127968
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0804032_2_10.mp4
+    label: 1
+    dist: 0.04861176013946533
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_126273.mp4
+    label: 0
+    dist: 0.050164204090833664
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_opensora_OpenSoraL_86584.mp4
+    label: 0
+    dist: 0.05209391564130783
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_opensora_OpenSoraL_136714.mp4
+    label: 0
+    dist: 0.052216943353414536
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_91597.mp4
+    label: 0
+    dist: 0.05360936000943184
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_81267.mp4
+    label: 0
+    dist: 0.05431749299168587
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_124388.mp4
+    label: 0
+    dist: 0.05676651746034622
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_121541.mp4
+    label: 0
+    dist: 0.05819762498140335
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0321662_19_10.mp4
+    label: 1
+    dist: 0.060413211584091187
+- cluster_id: 26
+  name: concept_cluster_26
+  description: '[TODO: inspect top-20 videos and describe the spatial/temporal pattern]'
+  n_videos: 114
+  ai_count: 72
+  real_count: 42
+  typical_onset: '[TODO: early / mid / late / consistent — from top-20 inspection]'
+  primary_region: '[TODO: face / background / boundary / motion region — from top-20]'
+  top_20_videos:
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_51885.mp4
+    label: 0
+    dist: 0.2911583483219147
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0817624_0_10.mp4
+    label: 1
+    dist: 0.3342786431312561
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0000821_39_10.mp4
+    label: 1
+    dist: 0.35189077258110046
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_88588.mp4
+    label: 0
+    dist: 0.36147430539131165
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_77373.mp4
+    label: 0
+    dist: 0.39157170057296753
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_dynamiccrafter_DynamicCrafter_33745.mp4
+    label: 0
+    dist: 0.4367055594921112
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0197235_0_10.mp4
+    label: 1
+    dist: 0.4610804617404938
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_sd_SD_153052.mp4
+    label: 0
+    dist: 0.4643745422363281
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_svd_SVD_88203.mp4
+    label: 0
+    dist: 0.4674904942512512
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0601513_33_10.mp4
+    label: 1
+    dist: 0.46766790747642517
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_17344.mp4
+    label: 0
+    dist: 0.4830479323863983
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0288733_73_10.mp4
+    label: 1
+    dist: 0.48401132225990295
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_104620.mp4
+    label: 0
+    dist: 0.4883989095687866
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0631647_8_10.mp4
+    label: 1
+    dist: 0.4888502061367035
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_75753.mp4
+    label: 0
+    dist: 0.4910852611064911
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_zeroscope_VideoCrafter_111212.mp4
+    label: 0
+    dist: 0.49349263310432434
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_svd_SVD_87864.mp4
+    label: 0
+    dist: 0.4947255253791809
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0313346_5_10.mp4
+    label: 1
+    dist: 0.49854776263237
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0768394_86_10.mp4
+    label: 1
+    dist: 0.5000636577606201
+  - path: /media/joshua/WD_BLACK/Gen-Video/dataset/real_yplug_pre_train_0012104_25_10.mp4
+    label: 1
+    dist: 0.5022317171096802

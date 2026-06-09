@@ -382,7 +382,7 @@ class FlowEncoder(nn.Module):
     def forward(self, flow_maps):
         # flow_maps: [B, T-1, 6, H_f, W_f]
         B, T1, C, H, W = flow_maps.shape
-        x = flow_maps.view(B * T1, C, H, W)
+        x = flow_maps.reshape(B * T1, C, H, W)
         x = F.relu(self.gn1(self.conv1(x)))
         x = F.relu(self.gn2(self.conv2(x)))
         x = F.relu(self.gn3(self.conv3(x)))

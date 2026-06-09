@@ -7,7 +7,8 @@ from captum.attr import IntegratedGradients, LayerIntegratedGradients, LRP
 from captum.attr import visualization as viz
 from classifier import *
 from full_scale_classifier import *
-from dataset import VideoDataset, custom_collate_fn
+from dataset import VideoDataset, custom_collate_fn, compute_flow_maps
+from full_scale_classifier import FlowVideoClassifier, FlowEncoder
 import random
 import cv2
 import numpy as np
@@ -192,48 +193,63 @@ def forward_and_interpret(video, frames):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     print("device: ", device)
     torch.cuda.empty_cache()
-    
-    # Base directory and model path
-    base_dir = '/media/joshua/WD_BLACK/Gen-Video'
-    model_path = os.path.join(base_dir, 'model', 'full_classifier_1_85.pt')
-    vclf = load_model_correctly(model_path, device)
+
+    # Load FlowVideoClassifier (Ninox 1.1-Flow)
+    checkpoint_path = '/home/joshua/Desktop/full_website/AIgendetector/flow_stage2_checkpoints/checkpoint_epoch_0004.pt'
+    vclf = FlowVideoClassifier(
+        FullLatentEncoder(), FullPatchEncoder(), FlowEncoder(), FullClassifier()
+    ).to(device)
+    try:
+        ckpt = torch.load(checkpoint_path, map_location=device, weights_only=False)
+    except Exception:
+        import numpy.core.multiarray
+        with torch.serialization.safe_globals([numpy.core.multiarray.scalar]):
+            ckpt = torch.load(checkpoint_path, map_location=device, weights_only=True)
+    sd = ckpt['model_state_dict']
+    if any(k.startswith('module.') for k in sd):
+        sd = {k.replace('module.', ''): v for k, v in sd.items()}
+    vclf.load_state_dict(sd)
     vclf.eval()
-    
-    # Store original unnormalized video for visualization
-    video_unnorm = video.clone()
-    
-    # Normalize video for model input
-   
-    
-    # Enable gradients for the input
+
+    # Compute flow maps from raw frames
+    frames_np = np.array(frames).astype(np.float32) / 255.0   # [T, H, W, 3]
+    flow_maps = compute_flow_maps(frames_np, 64, 64).unsqueeze(0).to(device)  # [1,T-1,6,64,64]
+
+    # Wrap model so IG only differentiates w.r.t. video frames (flow held constant)
+    class _FlowWrapper(nn.Module):
+        def __init__(self, model, flow):
+            super().__init__()
+            self.model = model
+            self.flow  = flow
+        def forward(self, videos):
+            flow = self.flow.expand(videos.shape[0], -1, -1, -1, -1)
+            return self.model(videos, flow)
+
+    wrapper = _FlowWrapper(vclf, flow_maps)
+
     video = video.to(device)
     video.requires_grad = True
-    
-    # Create baseline (black frames)
-    baseline = torch.zeros_like(video, device=device)
-    
-    # Initialize IG with the model
-    ig = IntegratedGradients(vclf)
-    
-    # Forward pass to get prediction
+    baseline = torch.zeros_like(video)
+
     with torch.no_grad():
-        output = vclf(video)
+        output = wrapper(video)
         pred = torch.argmax(output, dim=1)
         confidence = torch.softmax(output, dim=1)[0][pred.item()].item()
         print("\nPrediction Results:")
         print(f"Predicted class: {classes[pred.item()]}")
         print(f"Confidence: {confidence:.4f}")
         print(f"Probabilities: AI-Gen: {torch.softmax(output, dim=1)[0][0]:.4f}, Real: {torch.softmax(output, dim=1)[0][1]:.4f}")
-    
-    # Calculate attributions with progress bar
+
+    ig = IntegratedGradients(wrapper)
+
     print("\nCalculating frame attributions...")
     progress_bar = tqdm(total=300, desc='Processing', position=0, leave=True)
-    
+
     def hook_fn(module, inputs):
         progress_bar.update(1)
-    
-    hook = vclf.register_forward_pre_hook(hook_fn)
-    
+
+    hook = wrapper.register_forward_pre_hook(hook_fn)
+
     try:
         attributions, delta = ig.attribute(
             video,
@@ -243,23 +259,19 @@ def forward_and_interpret(video, frames):
             n_steps=300,
             internal_batch_size=1
         )
-        
-        # Check if attributions are meaningful
+
         if torch.all(attributions == 0) or torch.isnan(attributions).any():
-            print("\nWarning: Initial attributions are zero or NaN. Trying alternative approach...")
-            noise = torch.randn_like(video) * 0.1
-            baseline = torch.zeros_like(video) + noise
-            video_perturbed = video + torch.randn_like(video) * 1e-7
-            
+            print("\nWarning: attributions zero/NaN, retrying with noisy baseline...")
+            baseline = torch.randn_like(video) * 0.1
             attributions, delta = ig.attribute(
-                video_perturbed,
+                video + torch.randn_like(video) * 1e-7,
                 baseline,
                 target=pred.item(),
                 return_convergence_delta=True,
                 n_steps=5,
                 internal_batch_size=2
             )
-    
+
     finally:
         progress_bar.close()
         hook.remove()
@@ -462,23 +474,15 @@ def save_attributions_video(image_folder, output_video, fps=30):
     print(f"Video saved as {output_video}")
 
 if __name__ == "__main__":
-    # Process a single video with attributions
-    # Updated to use your specific directory structure
-    base_dir = '/home/joshua/'
-    video_path = os.path.join(base_dir, "Downloads", "v3o_1.mp4")
-    print(f"\nProcessing video: {video_path}")
-    
-    # Load and preprocess the video
-    video, frames, label, _ = load_video(video_path)
-    video = video.unsqueeze(0)  # Add batch dimension
-    
-    # Ensure video is on the correct device
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument('video_path', help='Path to video file')
+    args = parser.parse_args()
+
+    print(f"\nProcessing video: {args.video_path}")
+    video, frames, label, _ = load_video(args.video_path)
+    video = video.unsqueeze(0)
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     video = video.to(device)
-    
-    # Run attribution analysis
     attributions, output, prediction = forward_and_interpret(video, frames)
-    
     print("\nAttribution analysis complete!")
-    print(f"Check '{os.path.join(base_dir, 'plots')}' directory for frame visualizations")
-    print(f"Check '{os.path.join(base_dir, 'attributions_5.mp4')}' for the complete visualization video")

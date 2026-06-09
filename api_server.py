@@ -29,7 +29,7 @@ from full_scale_classifier import (
 )
 from dataset import compute_flow_maps
 from interpret import load_video, load_model_correctly, visualize, save_attributions_video
-from captum.attr import IntegratedGradients
+from captum.attr import IntegratedGradients, NoiseTunnel
 
 # Initialize Flask app
 app = Flask(__name__)
@@ -413,7 +413,7 @@ def predict():
 
         if generate_explanations:
             with _attribution_jobs_lock:
-                _attribution_jobs[video_id] = {'status': 'processing'}
+                _attribution_jobs[video_id] = {'status': 'processing', 'progress': 0}
             t = threading.Thread(
                 target=_run_attributions_background,
                 args=(
@@ -496,11 +496,16 @@ def analyze_frames():
         if flow_maps is not None:
             frozen_flow = flow_maps.detach()
             def _forward(videos):
-                return m(videos, frozen_flow)
+                return m(videos, frozen_flow.expand(videos.shape[0], *frozen_flow.shape[1:]))
             ig = IntegratedGradients(_forward)
         else:
             ig = IntegratedGradients(m)
-        attributions, _ = ig.attribute(video_tensor, baseline, target=pred, n_steps=50)
+        nt = NoiseTunnel(ig)
+        attributions = nt.attribute(
+            video_tensor, baseline,
+            nt_type='smoothgrad', nt_samples=5, stdevs=0.02,
+            target=pred, n_steps=200, internal_batch_size=1,
+        )
 
         frame_importance = attributions.abs().mean(dim=[0, 2, 3, 4]).cpu().numpy()
         frame_importance_norm = (frame_importance - frame_importance.min()) / \
@@ -687,9 +692,10 @@ def attribution_status(video_id):
             return jsonify({'status': 'ready', 'attribution_video_url': f'/api/download/{video_id}'})
         return jsonify({'status': 'not_found'}), 404
 
-    response = {'status': job['status']}
+    response = {'status': job['status'], 'progress': job.get('progress', 0)}
     if job['status'] == 'ready':
         response['attribution_video_url'] = f'/api/download/{video_id}'
+        response['progress'] = 100
     if job['status'] == 'error':
         response['error'] = job.get('error', 'Unknown error')
     return jsonify(response)
@@ -720,20 +726,44 @@ def generate_attributions(m, video_tensor, flow_maps, frames, pred_class, video_
         if flow_maps is not None:
             frozen_flow = flow_maps.detach()
             def _forward(videos):
-                return m(videos, frozen_flow)
+                # expand frozen_flow to match batch dim NoiseTunnel passes (nt_samples)
+                return m(videos, frozen_flow.expand(videos.shape[0], *frozen_flow.shape[1:]))
             ig = IntegratedGradients(_forward)
         else:
             ig = IntegratedGradients(m)
 
-        # Calculate attributions
-        attributions, _ = ig.attribute(
-            video_tensor,
-            baseline,
-            target=pred_class,
-            n_steps=50,
-            internal_batch_size=1,
-            return_convergence_delta=True
-        )
+        # NoiseTunnel averages attributions over N noisy copies of the input,
+        # smoothing over gradient cliffs from attention saturation and clamp boundaries.
+        nt = NoiseTunnel(ig)
+
+        # Forward hook counts model calls to track IG progress.
+        # NoiseTunnel batches all nt_samples together, so the model fires once
+        # per interpolation step — total ≈ n_steps calls.
+        N_STEPS = 200
+        _call_count = [0]
+
+        def _progress_hook(module, inp, out):
+            _call_count[0] += 1
+            pct = min(int(_call_count[0] / N_STEPS * 100), 99)
+            with _attribution_jobs_lock:
+                if video_id in _attribution_jobs:
+                    _attribution_jobs[video_id]['progress'] = pct
+
+        _hook = m.register_forward_hook(_progress_hook)
+
+        try:
+            attributions = nt.attribute(
+                video_tensor,
+                nt_type='smoothgrad',
+                nt_samples=5,
+                stdevs=0.02,
+                baselines=baseline,
+                target=pred_class,
+                n_steps=N_STEPS,
+                internal_batch_size=1,
+            )
+        finally:
+            _hook.remove()
 
         # Visualize
         visualize(
