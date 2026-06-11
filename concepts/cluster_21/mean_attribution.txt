@@ -1,0 +1,5 @@
+Cluster 21
+Videos averaged: 20/20
+AI: 42  Real: 21
+Hot cells: top-left, top-center, top-right, mid-left, mid-center, mid-right, bottom-left, bottom-center, bottom-right
+Peak pixel: x=93% from left, y=93% from top

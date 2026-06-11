@@ -1,12 +1,12 @@
 concept_candidates:
 - cluster_id: 0
-  name: concept_cluster_0
-  description: '[TODO: inspect top-20 videos and describe the spatial/temporal pattern]'
+  name: 'focal_region_composition_bias'
+  description: 'the model detects the unnatural subject/background sharpness contrast and center-composition bias typical of AI art generators'
   n_videos: 84
   ai_count: 76
   real_count: 8
-  typical_onset: '[TODO: early / mid / late / consistent — from top-20 inspection]'
-  primary_region: '[TODO: face / background / boundary / motion region — from top-20]'
+  typical_onset: 'consistent'
+  primary_region: 'subject_center'
   top_20_videos:
   - path: /media/joshua/WD_BLACK/Gen-Video/dataset/ai_pika_Pika_47261.mp4
     label: 0

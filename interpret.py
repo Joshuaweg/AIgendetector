@@ -215,24 +215,12 @@ def forward_and_interpret(video, frames):
     frames_np = np.array(frames).astype(np.float32) / 255.0   # [T, H, W, 3]
     flow_maps = compute_flow_maps(frames_np, 64, 64).unsqueeze(0).to(device)  # [1,T-1,6,64,64]
 
-    # Wrap model so IG only differentiates w.r.t. video frames (flow held constant)
-    class _FlowWrapper(nn.Module):
-        def __init__(self, model, flow):
-            super().__init__()
-            self.model = model
-            self.flow  = flow
-        def forward(self, videos):
-            flow = self.flow.expand(videos.shape[0], -1, -1, -1, -1)
-            return self.model(videos, flow)
-
-    wrapper = _FlowWrapper(vclf, flow_maps)
-
     video = video.to(device)
-    video.requires_grad = True
-    baseline = torch.zeros_like(video)
+    video_baseline = torch.zeros_like(video)
+    flow_baseline  = torch.zeros_like(flow_maps)
 
     with torch.no_grad():
-        output = wrapper(video)
+        output = vclf(video, flow_maps)
         pred = torch.argmax(output, dim=1)
         confidence = torch.softmax(output, dim=1)[0][pred.item()].item()
         print("\nPrediction Results:")
@@ -240,7 +228,10 @@ def forward_and_interpret(video, frames):
         print(f"Confidence: {confidence:.4f}")
         print(f"Probabilities: AI-Gen: {torch.softmax(output, dim=1)[0][0]:.4f}, Real: {torch.softmax(output, dim=1)[0][1]:.4f}")
 
-    ig = IntegratedGradients(wrapper)
+    # Multi-input IG: interpolate both video AND flow from zero baselines simultaneously.
+    # Holding flow at the real video's values while frames start at zero creates an
+    # inconsistent state that kills the gradient signal for the frame pathway.
+    ig = IntegratedGradients(vclf)
 
     print("\nCalculating frame attributions...")
     progress_bar = tqdm(total=300, desc='Processing', position=0, leave=True)
@@ -248,29 +239,18 @@ def forward_and_interpret(video, frames):
     def hook_fn(module, inputs):
         progress_bar.update(1)
 
-    hook = wrapper.register_forward_pre_hook(hook_fn)
+    hook = vclf.register_forward_pre_hook(hook_fn)
 
     try:
-        attributions, delta = ig.attribute(
-            video,
-            baseline,
+        attr_video, attr_flow = ig.attribute(
+            inputs=(video, flow_maps),
+            baselines=(video_baseline, flow_baseline),
             target=pred.item(),
-            return_convergence_delta=True,
+            return_convergence_delta=False,
             n_steps=300,
             internal_batch_size=1
         )
-
-        if torch.all(attributions == 0) or torch.isnan(attributions).any():
-            print("\nWarning: attributions zero/NaN, retrying with noisy baseline...")
-            baseline = torch.randn_like(video) * 0.1
-            attributions, delta = ig.attribute(
-                video + torch.randn_like(video) * 1e-7,
-                baseline,
-                target=pred.item(),
-                return_convergence_delta=True,
-                n_steps=5,
-                internal_batch_size=2
-            )
+        attributions = attr_video
 
     finally:
         progress_bar.close()
