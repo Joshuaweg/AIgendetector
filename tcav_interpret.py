@@ -707,6 +707,23 @@ def validate_concept_per_token(
     )
 
     concept_out = output_dir / concept_name
+    concept_out.mkdir(parents=True, exist_ok=True)
+
+    # Persist CAVs for production inference (loaded by tcav_overlay.py at runtime)
+    layer_idx = int(layer_path.rsplit('.', 1)[-1])
+    cav_path  = concept_out / f'cavs_layer{layer_idx}.npy'
+    np.save(cav_path, cavs)
+    meta_path = concept_out / 'cav_meta.json'
+    with open(meta_path, 'w') as f:
+        json.dump({
+            'layer':                    layer_path,
+            'layer_idx':                layer_idx,
+            'n_frame_tokens':           n_frame_tokens,
+            'mean_cav_accuracy_spatial': round(mean_acc, 4),
+            'valid_token_positions':    valid_pos,
+        }, f, indent=2)
+    print(f"  CAVs saved → {cav_path}")
+
     build_concept_heatmap(counts, concept_out)
     print(f"  Heatmaps → {concept_out}/heatmaps/")
 
@@ -731,6 +748,45 @@ _DISPLAY_NAMES = {
 }
 
 
+# ── per-token helper (shared by --per-token and --per-token-only) ──────────────
+
+def _run_per_token(
+    args,
+    validated_results: list,
+    probe_dir: Path,
+    output_dir: Path,
+    test_records: list,
+    model: 'FlowVideoClassifier',
+    device: torch.device,
+) -> None:
+    per_token_layer = args.per_token_layer
+    print(f"\n[per-token TCAV] {len(validated_results)} validated concept(s) "
+          f"@ layer {per_token_layer.split('.')[-1]}")
+    per_token_results = []
+    for res in validated_results:
+        concept = res['concept']
+        probe_f = probe_dir / f'probe_{concept}.json'
+        if not probe_f.exists():
+            print(f"  [skip] {concept}: no probe file")
+            continue
+        with open(probe_f) as f:
+            probe = json.load(f)
+        pt_res = validate_concept_per_token(
+            concept,
+            probe['positive'],
+            probe['negative'],
+            model,
+            per_token_layer,
+            test_records,
+            device,
+            output_dir,
+        )
+        per_token_results.append(pt_res)
+    with open(output_dir / 'per_token_results.json', 'w') as f:
+        json.dump(per_token_results, f, indent=2)
+    print(f"[saved] per_token_results.json → {output_dir}")
+
+
 # ── entry point ────────────────────────────────────────────────────────────────
 
 def parse_args():
@@ -746,6 +802,12 @@ def parse_args():
     p.add_argument('--skip-dual-pathway', action='store_true')
     p.add_argument('--per-token', action='store_true',
                    help='Run spatial per-token TCAV on validated concepts and save heatmaps')
+    p.add_argument('--per-token-layer', default='classifier.transformer_encoder.layers.7',
+                   help='Layer to use for per-token TCAV (default: layer 7). '
+                        'Layer 11 collapses spatial info; layer 7 preserves it.')
+    p.add_argument('--per-token-only', action='store_true',
+                   help='Skip full validation; load validated_concepts from saved '
+                        'tcav_results.json and run only per-token TCAV.')
     return p.parse_args()
 
 
@@ -769,6 +831,22 @@ def main():
     rng.shuffle(test_records)
     test_records = test_records[: args.n_test]
     print(f"[test] {len(test_records)} AI-generated test videos")
+
+    # --per-token-only: skip full validation, reload from saved results
+    if args.per_token_only:
+        results_path = output_dir / 'tcav_results.json'
+        if not results_path.exists():
+            print(f"[error] --per-token-only requires {results_path} (run without flag first)")
+            sys.exit(1)
+        with open(results_path) as f:
+            saved = json.load(f)
+        validated_results = [r for r in saved if r.get('validated')]
+        print(f"[per-token-only] loaded {len(validated_results)} validated concept(s) "
+              f"from {results_path}")
+        _run_per_token(
+            args, validated_results, probe_dir, output_dir, test_records, model, device
+        )
+        return
 
     # Discover probe sets
     probe_files = sorted(probe_dir.glob('probe_*.json'))
@@ -828,31 +906,9 @@ def main():
 
     # Per-token spatial TCAV
     if args.per_token and validated_results:
-        print(f"\n[per-token TCAV] {len(validated_results)} validated concept(s)")
-        per_token_results = []
-        for res in validated_results:
-            concept    = res['concept']
-            best_layer = layer_selection.get(concept, PROBE_LAYERS[-1])
-            probe_f    = probe_dir / f'probe_{concept}.json'
-            if not probe_f.exists():
-                print(f"  [skip] {concept}: no probe file")
-                continue
-            with open(probe_f) as f:
-                probe = json.load(f)
-            pt_res = validate_concept_per_token(
-                concept,
-                probe['positive'],
-                probe['negative'],
-                model,
-                best_layer,
-                test_records,
-                device,
-                output_dir,
-            )
-            per_token_results.append(pt_res)
-        with open(output_dir / 'per_token_results.json', 'w') as f:
-            json.dump(per_token_results, f, indent=2)
-        print(f"[saved] per_token_results.json → {output_dir}")
+        _run_per_token(
+            args, validated_results, probe_dir, output_dir, test_records, model, device
+        )
 
     # Dual-pathway analysis
     if validated_results and not args.skip_dual_pathway:

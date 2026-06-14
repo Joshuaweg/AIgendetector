@@ -30,6 +30,7 @@ from full_scale_classifier import (
 from dataset import compute_flow_maps
 from interpret import load_video, load_model_correctly, visualize, save_attributions_video
 from captum.attr import IntegratedGradients, NoiseTunnel
+from tcav_overlay import load_cavs, run_overlay
 
 # Initialize Flask app
 app = Flask(__name__)
@@ -153,6 +154,10 @@ device = None
 # Pre-computed IG baseline (shared across models that support attribution)
 _ig_baseline = None
 
+# Pre-trained TCAV concept CAVs loaded once at startup
+_tcav_cavs: dict = {}
+_TCAV_DIR = Path(os.path.join(os.path.dirname(__file__), '_meta', 'tcav'))
+
 # Attribution job tracker: video_id -> {"status": "processing"|"ready"|"error", "error": str}
 _attribution_jobs: dict = {}
 _attribution_jobs_lock = threading.Lock()
@@ -252,7 +257,7 @@ def _load_flow_model(model_path, dev):
 
 def initialize_model(model_id='ninox1'):
     """Load and cache a Ninox model by ID. Returns (model, device)."""
-    global _models, device, _ig_baseline
+    global _models, device, _ig_baseline, _tcav_cavs
 
     if model_id not in MODEL_REGISTRY:
         raise ValueError(f"Unknown model id '{model_id}'. Valid: {list(MODEL_REGISTRY)}")
@@ -278,6 +283,14 @@ def initialize_model(model_id='ninox1'):
         if _ig_baseline is None:
             baseline_cpu = _compute_ig_baseline(SAVED_VIDEOS_FOLDER)
             _ig_baseline = baseline_cpu.to(device) if baseline_cpu is not None else None
+
+        # Load TCAV CAVs once (used by overlay for Ninox 1.1-Flow)
+        if not _tcav_cavs and _TCAV_DIR.exists():
+            _tcav_cavs = load_cavs(_TCAV_DIR)
+            if _tcav_cavs:
+                print(f"TCAV CAVs loaded: {list(_tcav_cavs.keys())}")
+            else:
+                print("TCAV CAVs not found — overlay disabled until tcav_interpret.py --per-token runs")
 
     return _models[model_id], device
 
@@ -668,10 +681,15 @@ def _run_attributions_background(m, video_tensor, flow_maps, frames, pred_class,
     try:
         video_tensor = video_tensor.to(device)
         flow_maps = flow_maps.to(device) if flow_maps is not None else None
-        result = generate_attributions(m, video_tensor, flow_maps, frames, pred_class, video_id)
+        video_path, overlay_path = generate_attributions(
+            m, video_tensor, flow_maps, frames, pred_class, video_id
+        )
         with _attribution_jobs_lock:
-            if result:
-                _attribution_jobs[video_id] = {'status': 'ready'}
+            if video_path:
+                job = {'status': 'ready'}
+                if overlay_path:
+                    job['overlay_url'] = f'/api/overlay/{video_id}'
+                _attribution_jobs[video_id] = job
             else:
                 _attribution_jobs[video_id] = {'status': 'error', 'error': 'Attribution generation failed'}
     except Exception as e:
@@ -696,9 +714,20 @@ def attribution_status(video_id):
     if job['status'] == 'ready':
         response['attribution_video_url'] = f'/api/download/{video_id}'
         response['progress'] = 100
+        if 'overlay_url' in job:
+            response['overlay_url'] = job['overlay_url']
     if job['status'] == 'error':
         response['error'] = job.get('error', 'Unknown error')
     return jsonify(response)
+
+
+@app.route('/api/overlay/<video_id>', methods=['GET'])
+def download_overlay(video_id):
+    """Serve the TCAV concept overlay HTML for a given video_id."""
+    filepath = os.path.join(RESULTS_FOLDER, f"{video_id}_overlay.html")
+    if not os.path.exists(filepath):
+        return jsonify({'error': 'Overlay not found'}), 404
+    return send_file(filepath, mimetype='text/html')
 
 
 def generate_attributions(m, video_tensor, flow_maps, frames, pred_class, video_id):
@@ -727,7 +756,10 @@ def generate_attributions(m, video_tensor, flow_maps, frames, pred_class, video_
             frozen_flow = flow_maps.detach()
             def _forward(videos):
                 # expand frozen_flow to match batch dim NoiseTunnel passes (nt_samples)
-                return m(videos, frozen_flow.expand(videos.shape[0], *frozen_flow.shape[1:]))
+                logits = m(videos, frozen_flow.expand(videos.shape[0], *frozen_flow.shape[1:]))
+                # log_softmax prevents the logits-max clamping in FullClassifier from
+                # zeroing gradients for correctly-classified examples.
+                return torch.log_softmax(logits, dim=1)
             ig = IntegratedGradients(_forward)
         else:
             ig = IntegratedGradients(m)
@@ -777,7 +809,37 @@ def generate_attributions(m, video_tensor, flow_maps, frames, pred_class, video_
         output_path = os.path.join(RESULTS_FOLDER, f"{video_id}_attribution.mp4")
         save_attributions_video(temp_dir, output_path, fps=8)
 
-        return output_path
+        # TCAV overlay — runs for FlowVideoClassifier when CAVs are loaded
+        overlay_path = None
+        if flow_maps is not None and _tcav_cavs and isinstance(m, FlowVideoClassifier):
+            try:
+                classes    = ['AI-Generated', 'Real']
+                prediction = classes[pred_class]
+                with torch.no_grad():
+                    logits     = m(video_tensor, flow_maps)
+                    confidence = float(torch.softmax(logits, dim=1)[0][pred_class])
+                html_path = os.path.join(RESULTS_FOLDER, f"{video_id}_overlay.html")
+                run_overlay(
+                    model          = m,
+                    frames_tensor  = video_tensor,
+                    flow_maps      = flow_maps,
+                    ig_attributions= attributions,
+                    raw_frames     = frames,
+                    cavs           = _tcav_cavs,
+                    output_path    = html_path,
+                    video_id       = video_id,
+                    prediction     = prediction,
+                    confidence     = confidence,
+                    device         = device,
+                )
+                overlay_path = html_path
+                print(f"TCAV overlay saved → {html_path}", flush=True)
+            except Exception as ov_err:
+                import traceback
+                print(f"[warn] TCAV overlay failed: {ov_err}\n"
+                      f"{traceback.format_exc()}", flush=True, file=sys.stderr)
+
+        return output_path, overlay_path
 
     except Exception as e:
         import traceback
