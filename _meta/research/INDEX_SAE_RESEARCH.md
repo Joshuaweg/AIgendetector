@@ -1,12 +1,22 @@
 # SAE for Vision Transformers: Research Index
 
+## Related
+
+**SAE docs:** [[SAE_QUICK_START]] · [[sae-vision-transformer-research]] · [[SAE_INTERPRETABILITY]] · [[SAE_QUICKSTART]]
+
+**Interpretability:** [[per_token_tcav_2026_06_13]] · [[integrated-gradients-baselines-research]]
+
+**Project:** [[MANIFEST]] · [[STATE]] · [[RESEARCH_SUMMARY]]
+
+---
+
 ## Document Files
 
 **Quick Access:**
-- **[SAE_QUICK_START.md](SAE_QUICK_START.md)** ← Start here (5 min read)
+- [[SAE_QUICK_START]] ← Start here (5 min read)
   - Overview, 3-phase implementation, critical success factors, quick reference table
 
-- **[sae-vision-transformer-research.md](sae-vision-transformer-research.md)** ← Deep dive
+- [[sae-vision-transformer-research]] ← Deep dive
   - 400-line comprehensive guide with full methodology, training recipes, Big 5 guidance
 
 ---

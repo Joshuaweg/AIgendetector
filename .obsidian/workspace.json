@@ -1,0 +1,216 @@
+{
+  "main": {
+    "id": "b9ad102867c53208",
+    "type": "split",
+    "children": [
+      {
+        "id": "e02d78e927f131a6",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "66429594dbc9028b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "_meta/research/sae-vision-transformer-research.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "sae-vision-transformer-research"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "a10521b08e5d749a",
+    "type": "split",
+    "children": [
+      {
+        "id": "ce0a646e273d55ad",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d7685643758565f7",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "8cb20db2b792ba26",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "3b0d1482f3c1828a",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "feb04f72eccb12e3",
+    "type": "split",
+    "children": [
+      {
+        "id": "f3949d62088f8ec4",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "2cff12c1d45f76da",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "_meta/research/sae-vision-transformer-research.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for sae-vision-transformer-research"
+            }
+          },
+          {
+            "id": "089941622e95a0c2",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "_meta/research/sae-vision-transformer-research.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from sae-vision-transformer-research"
+            }
+          },
+          {
+            "id": "77bac4182f14e5ad",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "ec07ec36a60378e0",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "b64855ddba1eee4e",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "_meta/research/sae-vision-transformer-research.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of sae-vision-transformer-research"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "66429594dbc9028b",
+  "lastOpenFiles": [
+    "tcav_interpret.py.tmp.3398432.c700eafba723",
+    "_meta/tcav/validated_concepts.yaml",
+    "_meta/tcav/dual_pathway.json",
+    "_meta/tcav/per_token_results.json",
+    "_meta/tcav/texture_boundary_artifact/heatmaps/segment_11.png",
+    "_meta/tcav/texture_boundary_artifact/heatmaps/segment_10.png",
+    "_meta/tcav/texture_boundary_artifact/heatmaps/segment_09.png",
+    "_meta/tcav/texture_boundary_artifact/heatmaps/segment_08.png",
+    "_meta/tcav/texture_boundary_artifact/heatmaps/segment_07.png",
+    "_meta/tcav/texture_boundary_artifact/heatmaps/segment_06.png",
+    "_meta/tcav/texture_boundary_artifact/heatmaps/segment_05.png",
+    "_meta/tcav/texture_boundary_artifact/heatmaps/segment_04.png",
+    "_meta/tcav/texture_boundary_artifact/heatmaps/segment_03.png",
+    "_meta/tcav/texture_boundary_artifact/heatmaps/segment_02.png",
+    "_meta/tcav/texture_boundary_artifact/heatmaps",
+    "_meta/tcav/texture_boundary_artifact",
+    "_meta/tcav/temporal_motion_inconsistency/heatmaps",
+    "_meta/tcav/temporal_motion_inconsistency",
+    "tcav_interpret.py.tmp.3398432.7d37d3c4eec2",
+    "tcav_interpret.py.tmp.3398432.8310000cc894",
+    "_meta/agents/unknown-1623532-snapshot.md",
+    "_meta/research/vivit-tubelet-embeddings.md.tmp.3398432.89dfed20a469",
+    "_meta/handoffs/per_token_tcav_2026_06_13.md",
+    "CLAUDE.md",
+    "_meta/plans/per_token_tcav_plan.md",
+    "APP_SUMMARY.md",
+    "_meta/research/integrated-gradients-baselines-research.md"
+  ]
+}

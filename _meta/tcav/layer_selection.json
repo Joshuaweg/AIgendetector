@@ -1,0 +1,6 @@
+{
+  "frequency_domain_artifact": "classifier.transformer_encoder.layers.11",
+  "lighting_shadow_decoupling": "classifier.transformer_encoder.layers.11",
+  "temporal_motion_inconsistency": "classifier.transformer_encoder.layers.11",
+  "texture_boundary_artifact": "classifier.transformer_encoder.layers.11"
+}

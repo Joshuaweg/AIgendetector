@@ -6,6 +6,16 @@
 
 ---
 
+## Related
+
+**Deep dives:** [[ai_video_detection_research]] · [[frontier-model-detection-research]] · [[mvad-dataset-research]] · [[detection_roadmap]]
+
+**Interpretability:** [[INDEX_SAE_RESEARCH]] · [[sae-vision-transformer-research]] · [[integrated-gradients-baselines-research]] · [[per_token_tcav_2026_06_13]]
+
+**Project:** [[MANIFEST]] · [[EXPERIMENTS_SUMMARY]]
+
+---
+
 ## 8 Research Domains Covered
 
 ### 1. Current SOTA Models (2023-2025)

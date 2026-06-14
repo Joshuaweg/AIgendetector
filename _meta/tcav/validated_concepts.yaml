@@ -1,0 +1,13 @@
+validated_concepts:
+- concept: temporal_motion_inconsistency
+  display_name: Unnatural movement pattern
+  layer: classifier.transformer_encoder.layers.11
+  mean_sign_count: 1.0
+  std_sign_count: 0.0
+  mean_cav_accuracy: 0.9375
+- concept: texture_boundary_artifact
+  display_name: Region boundary artifact
+  layer: classifier.transformer_encoder.layers.11
+  mean_sign_count: 1.0
+  std_sign_count: 0.0
+  mean_cav_accuracy: 0.8432

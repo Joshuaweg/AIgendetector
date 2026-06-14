@@ -1,0 +1,10 @@
+{
+  "temporal_motion_inconsistency": {
+    "frame": null,
+    "flow": null
+  },
+  "texture_boundary_artifact": {
+    "frame": null,
+    "flow": null
+  }
+}

@@ -165,9 +165,11 @@ def _extract_hook_acts(
     def _hook(module, inp, out):
         t = out.detach()
         if t.dim() == 3:
-            t = t.mean(dim=1)   # [B, D]
+            t = t.mean(dim=1)       # [B, seq, D] → [B, D]
         elif t.dim() > 2:
             t = t.view(t.shape[0], -1)
+        if t.dim() == 2:
+            t = t.mean(dim=0, keepdim=True)   # [N_patches, D] → [1, D]
         collected.append(t.squeeze(0).cpu().numpy().astype(np.float32))
 
     handle = layer.register_forward_hook(_hook)
@@ -183,6 +185,51 @@ def _extract_hook_acts(
                 pass
     handle.remove()
     return np.stack(collected) if collected else np.zeros((0, 768), dtype=np.float32)
+
+
+# ── Per-token activation extraction ───────────────────────────────────────────
+
+def extract_per_token_activations(
+    model: FlowVideoClassifier,
+    layer_path: str,
+    dataset: ProbeVideoDataset,
+    device: torch.device,
+) -> np.ndarray:
+    """
+    Extract per-token activations for all examples in dataset.
+    Returns float32 array of shape [N, seq_len, 768] — no mean-pooling.
+    seq_len = N_frame_tokens + N_flow_tokens (791 for standard config).
+    Only supported for transformer layers.
+    """
+    if not layer_path.startswith('classifier.transformer_encoder.layers.'):
+        raise ValueError("extract_per_token_activations requires a transformer layer path")
+
+    layer_idx = int(layer_path.rsplit('.', 1)[-1])
+    layers = model.classifier.transformer_encoder.layers
+    acts: list[np.ndarray] = []
+
+    model.eval()
+    with torch.no_grad():
+        for frames, flow in dataset:
+            try:
+                frames = frames.unsqueeze(0).to(device)
+                flow   = flow.unsqueeze(0).to(device)
+                latents  = model.latent_encoder(frames)
+                tokens   = model.patch_encoder(latents)
+                del latents
+                flow_tok = model.flow_encoder(flow)
+                tokens   = torch.cat([tokens, flow_tok], dim=1)
+                del flow_tok
+                for i in range(layer_idx + 1):
+                    tokens = layers[i](tokens)
+                # [seq_len, 768] — keep every token position
+                acts.append(tokens.squeeze(0).cpu().numpy().astype(np.float32))
+            except Exception:
+                pass
+
+    if not acts:
+        return np.zeros((0, 791, 768), dtype=np.float32)
+    return np.stack(acts)
 
 
 # ── CAV training ───────────────────────────────────────────────────────────────
@@ -223,6 +270,33 @@ def train_cav(
     cav = clf.coef_[0].copy()
     cav /= np.linalg.norm(cav) + 1e-10
     return cav.astype(np.float32), acc
+
+
+# ── Per-token CAV training ─────────────────────────────────────────────────────
+
+def train_per_token_cavs(
+    pos_acts: np.ndarray,
+    neg_acts: np.ndarray,
+    n_frame_tokens: int = 768,
+    seed: int = 42,
+) -> tuple[np.ndarray, np.ndarray]:
+    """
+    Train one CAV per frame token position (positions 0..n_frame_tokens-1).
+    pos_acts, neg_acts: [N, seq_len, 768]
+    Returns:
+      cavs: [n_frame_tokens, 768] unit vectors (zero where degenerate)
+      accs: [n_frame_tokens] held-out accuracies (0.0 where degenerate)
+    """
+    cavs = np.zeros((n_frame_tokens, pos_acts.shape[-1]), dtype=np.float32)
+    accs = np.zeros(n_frame_tokens, dtype=np.float32)
+
+    for p in range(n_frame_tokens):
+        cav, acc = train_cav(pos_acts[:, p, :], neg_acts[:, p, :], seed=seed)
+        if cav is not None:
+            cavs[p] = cav
+            accs[p] = acc
+
+    return cavs, accs
 
 
 # ── TCAV sign count ────────────────────────────────────────────────────────────
@@ -281,8 +355,10 @@ def compute_sign_count(
                 x = layers[i](x)
             pooled = x.mean(dim=1)                          # [1, 768]
             logits = classifier.fc(pooled)
-            logits = (logits - logits.max(dim=1, keepdim=True)[0]).clamp(-15, 15)
-            score  = logits[0, target_class]
+            # log_softmax: gradient is (1 - p_k) for target class, input-dependent.
+            # The original logits-max trick zeroes the gradient for correctly classified
+            # examples (winner class always gets score=0), freezing sc at a fixed count.
+            score  = torch.log_softmax(logits, dim=1)[0, target_class]
 
             score.backward()
 
@@ -298,6 +374,78 @@ def compute_sign_count(
             total += 1
 
     return float(positive / total) if total > 0 else 0.0
+
+
+# ── Per-token sign count ───────────────────────────────────────────────────────
+
+def compute_per_token_sign_counts(
+    model: FlowVideoClassifier,
+    layer_path: str,
+    cavs: np.ndarray,
+    test_dataset: ProbeVideoDataset,
+    device: torch.device,
+    target_class: int = TARGET_CLASS,
+    n_frame_tokens: int = 768,
+) -> np.ndarray:
+    """
+    Per-token TCAV sign count.
+    Returns [n_frame_tokens] array: fraction of test examples where the
+    per-token directional derivative along CAV[p] is positive.
+
+    One backward pass per example (same cost as compute_sign_count).
+    Slices act.grad[0, p, :] per position instead of mean-pooling.
+    """
+    if not layer_path.startswith('classifier.transformer_encoder.layers.'):
+        return np.zeros(n_frame_tokens, dtype=np.float32)
+
+    layer_idx  = int(layer_path.rsplit('.', 1)[-1])
+    layers     = model.classifier.transformer_encoder.layers
+    n_layers   = len(layers)
+    classifier = model.classifier
+    cavs_t     = torch.tensor(cavs, dtype=torch.float32, device=device)  # [n_frame_tokens, 768]
+
+    positive = np.zeros(n_frame_tokens, dtype=np.int32)
+    total    = 0
+
+    model.eval()
+    for frames, flow in test_dataset:
+        try:
+            frames = frames.unsqueeze(0).to(device)
+            flow   = flow.unsqueeze(0).to(device)
+
+            with torch.no_grad():
+                latents  = model.latent_encoder(frames)
+                t_tok    = model.patch_encoder(latents)
+                del latents
+                f_tok    = model.flow_encoder(flow)
+                tokens   = torch.cat([t_tok, f_tok], dim=1)
+                del t_tok, f_tok
+                for i in range(layer_idx + 1):
+                    tokens = layers[i](tokens)
+
+            act = tokens.detach().requires_grad_(True)  # [1, seq_len, 768]
+
+            x = act
+            for i in range(layer_idx + 1, n_layers):
+                x = layers[i](x)
+            pooled = x.mean(dim=1)
+            logits = classifier.fc(pooled)
+            score  = torch.log_softmax(logits, dim=1)[0, target_class]
+            score.backward()
+
+            if act.grad is not None:
+                # grad: [seq_len, 768]; take frame tokens only
+                grad = act.grad[0, :n_frame_tokens, :].cpu().numpy()  # [n_frame_tokens, 768]
+                # Vectorised dot: directional[p] = dot(grad[p], cav[p])
+                directional = (grad * cavs).sum(axis=1)               # [n_frame_tokens]
+                positive   += (directional > 0).astype(np.int32)
+            total += 1
+
+        except Exception:
+            total += 1
+
+    denom = total if total > 0 else 1
+    return (positive / denom).astype(np.float32)
 
 
 # ── layer selection (quick single split) ──────────────────────────────────────
@@ -466,6 +614,112 @@ def run_dual_pathway(
     return results
 
 
+# ── Per-token heatmap rendering ────────────────────────────────────────────────
+
+def build_concept_heatmap(
+    sign_counts: np.ndarray,
+    output_dir: Path,
+    n_segments: int = 12,
+    spatial_h: int = 8,
+    spatial_w: int = 8,
+    frame_size: int = 512,
+    sigma: float = 12.0,
+) -> None:
+    """
+    Convert per-token sign counts to smoothed pixel-space heatmaps.
+    sign_counts: [n_frame_tokens] = [n_segments * spatial_h * spatial_w]
+    Upsample 8×8 patch grid → 512×512, then apply gaussian_filter(sigma=12)
+    to match the smoothing used in interpret.py IG attribution frames.
+    Outputs: output_dir/heatmaps/segment_{i:02d}.png
+    """
+    from scipy.ndimage import gaussian_filter
+    import matplotlib.pyplot as plt
+
+    heatmap_dir = output_dir / 'heatmaps'
+    heatmap_dir.mkdir(parents=True, exist_ok=True)
+
+    # [n_segments, spatial_h, spatial_w]
+    grid = sign_counts.reshape(n_segments, spatial_h, spatial_w)
+
+    for seg_i in range(n_segments):
+        patch_tensor = torch.tensor(
+            grid[seg_i], dtype=torch.float32
+        ).unsqueeze(0).unsqueeze(0)  # [1, 1, 8, 8]
+        up = torch.nn.functional.interpolate(
+            patch_tensor, size=(frame_size, frame_size),
+            mode='bilinear', align_corners=False,
+        )
+        seg_map = up.squeeze().numpy()  # [512, 512]
+
+        # Match IG smoothing: sigma=12 in pixel space
+        seg_map = gaussian_filter(seg_map, sigma=sigma)
+
+        seg_min, seg_max = seg_map.min(), seg_map.max()
+        if seg_max > seg_min:
+            seg_map = (seg_map - seg_min) / (seg_max - seg_min)
+
+        plt.figure(figsize=(6, 6))
+        plt.imshow(seg_map, cmap='RdBu_r', vmin=0, vmax=1)
+        plt.colorbar(label='Concept sign count')
+        plt.title(f'Segment {seg_i:02d}  (frames {seg_i*2}–{seg_i*2+1})')
+        plt.axis('off')
+        plt.tight_layout()
+        plt.savefig(heatmap_dir / f'segment_{seg_i:02d}.png', dpi=150, bbox_inches='tight')
+        plt.close()
+
+
+def validate_concept_per_token(
+    concept_name: str,
+    pos_records: list,
+    neg_records: list,
+    model: FlowVideoClassifier,
+    layer_path: str,
+    test_records: list,
+    device: torch.device,
+    output_dir: Path,
+    n_frame_tokens: int = 768,
+) -> dict:
+    """
+    Per-token TCAV for a validated concept.
+    Trains one CAV per frame patch position, computes per-token sign counts,
+    and writes 12 concept heatmaps to output_dir/{concept}/heatmaps/.
+    """
+    pos_ds  = ProbeVideoDataset(pos_records)
+    neg_ds  = ProbeVideoDataset(neg_records)
+    test_ds = ProbeVideoDataset(test_records)
+
+    print(f"\n[per-token] {concept_name} @ layer {layer_path.split('.')[-1]}")
+
+    pos_acts = extract_per_token_activations(model, layer_path, pos_ds, device)
+    neg_acts = extract_per_token_activations(model, layer_path, neg_ds, device)
+
+    if len(pos_acts) < 4 or len(neg_acts) < 4:
+        return {'concept': concept_name, 'per_token': False, 'reason': 'too few examples'}
+
+    cavs, accs = train_per_token_cavs(pos_acts, neg_acts, n_frame_tokens)
+    valid_pos  = int((accs > 0).sum())
+    mean_acc   = float(accs[accs > 0].mean()) if valid_pos > 0 else 0.0
+    print(f"  {valid_pos}/{n_frame_tokens} token positions have valid CAVs  "
+          f"mean_acc={mean_acc:.3f}")
+
+    counts = compute_per_token_sign_counts(
+        model, layer_path, cavs, test_ds, device, n_frame_tokens=n_frame_tokens
+    )
+
+    concept_out = output_dir / concept_name
+    build_concept_heatmap(counts, concept_out)
+    print(f"  Heatmaps → {concept_out}/heatmaps/")
+
+    return {
+        'concept':                  concept_name,
+        'per_token':                True,
+        'layer':                    layer_path,
+        'per_token_sign_counts':    counts.tolist(),
+        'mean_cav_accuracy_spatial': round(mean_acc, 4),
+        'valid_token_positions':    valid_pos,
+    }
+
+
 # ── display name lookup ────────────────────────────────────────────────────────
 
 _DISPLAY_NAMES = {
@@ -490,6 +744,8 @@ def parse_args():
     p.add_argument('--n-test',     type=int, default=50,
                    help='AI-generated test videos for sign count evaluation')
     p.add_argument('--skip-dual-pathway', action='store_true')
+    p.add_argument('--per-token', action='store_true',
+                   help='Run spatial per-token TCAV on validated concepts and save heatmaps')
     return p.parse_args()
 
 
@@ -569,6 +825,34 @@ def main():
     with open(output_dir / 'layer_selection.json', 'w') as f:
         json.dump(layer_selection, f, indent=2)
     print(f"\n[saved] tcav_results.json, layer_selection.json → {output_dir}")
+
+    # Per-token spatial TCAV
+    if args.per_token and validated_results:
+        print(f"\n[per-token TCAV] {len(validated_results)} validated concept(s)")
+        per_token_results = []
+        for res in validated_results:
+            concept    = res['concept']
+            best_layer = layer_selection.get(concept, PROBE_LAYERS[-1])
+            probe_f    = probe_dir / f'probe_{concept}.json'
+            if not probe_f.exists():
+                print(f"  [skip] {concept}: no probe file")
+                continue
+            with open(probe_f) as f:
+                probe = json.load(f)
+            pt_res = validate_concept_per_token(
+                concept,
+                probe['positive'],
+                probe['negative'],
+                model,
+                best_layer,
+                test_records,
+                device,
+                output_dir,
+            )
+            per_token_results.append(pt_res)
+        with open(output_dir / 'per_token_results.json', 'w') as f:
+            json.dump(per_token_results, f, indent=2)
+        print(f"[saved] per_token_results.json → {output_dir}")
 
     # Dual-pathway analysis
     if validated_results and not args.skip_dual_pathway:

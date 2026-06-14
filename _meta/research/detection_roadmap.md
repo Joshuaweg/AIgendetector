@@ -5,6 +5,18 @@
 
 ---
 
+## Related
+
+**Summary:** [[RESEARCH_SUMMARY]] · [[ai_video_detection_research]] · [[frontier-model-detection-research]] · [[mvad-dataset-research]]
+
+**Experiments:** [[EXPERIMENTS_SUMMARY]] · [[EXPERIMENTS_GUIDE]]
+
+**Architecture:** [[flow_branch_plan]] · [[vivit-tubelet-embeddings]] · [[integrated-gradients-baselines-research]]
+
+**Project:** [[MANIFEST]] · [[STATE]]
+
+---
+
 ## Architecture Philosophy
 
 All models trained from scratch. No pretrained feature extractors (DINOv2, CLIP, etc.) — they break IG traceability because gradients flow through weights optimized for a different task, not this one. Every weight in the system must be optimized for AI video detection so that IG attributions are meaningful.

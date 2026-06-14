@@ -1,5 +1,13 @@
 # ViViT Tubelet Embeddings - Complete Technical Analysis
 
+## Related
+
+**Architecture:** [[detection_roadmap]] · [[flow_branch_plan]] · [[MANIFEST]]
+
+**Interpretability:** [[per_token_tcav_2026_06_13]] · [[integrated-gradients-baselines-research]]
+
+---
+
 **Paper:** ViViT: A Video Vision Transformer  
 **Authors:** Arnab et al., 2021  
 **arXiv:** 2103.15691  

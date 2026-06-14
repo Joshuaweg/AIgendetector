@@ -1,0 +1,94 @@
+[
+  {
+    "concept": "frequency_domain_artifact",
+    "layer": "classifier.transformer_encoder.layers.11",
+    "validated": false,
+    "mean_sign_count": 1.0,
+    "std_sign_count": 0.0,
+    "mean_cav_accuracy": 0.6556,
+    "n_splits": 5,
+    "sign_counts": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "cav_accuracies": [
+      0.6667,
+      0.6667,
+      0.6111,
+      0.6667,
+      0.6667
+    ]
+  },
+  {
+    "concept": "lighting_shadow_decoupling",
+    "layer": "classifier.transformer_encoder.layers.11",
+    "validated": false,
+    "mean_sign_count": 1.0,
+    "std_sign_count": 0.0,
+    "mean_cav_accuracy": 0.7304,
+    "n_splits": 5,
+    "sign_counts": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "cav_accuracies": [
+      0.8696,
+      0.6522,
+      0.6957,
+      0.7826,
+      0.6522
+    ]
+  },
+  {
+    "concept": "temporal_motion_inconsistency",
+    "layer": "classifier.transformer_encoder.layers.11",
+    "validated": true,
+    "mean_sign_count": 1.0,
+    "std_sign_count": 0.0,
+    "mean_cav_accuracy": 0.9375,
+    "n_splits": 5,
+    "sign_counts": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "cav_accuracies": [
+      1.0,
+      0.9375,
+      0.875,
+      0.9375,
+      0.9375
+    ]
+  },
+  {
+    "concept": "texture_boundary_artifact",
+    "layer": "classifier.transformer_encoder.layers.11",
+    "validated": true,
+    "mean_sign_count": 1.0,
+    "std_sign_count": 0.0,
+    "mean_cav_accuracy": 0.8432,
+    "n_splits": 5,
+    "sign_counts": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "cav_accuracies": [
+      0.7297,
+      0.8919,
+      0.7838,
+      0.8919,
+      0.9189
+    ]
+  }
+]

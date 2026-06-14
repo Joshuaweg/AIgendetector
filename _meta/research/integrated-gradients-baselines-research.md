@@ -9,6 +9,16 @@ For AI-generated video detection, **use a distribution-matched baseline (e.g., a
 
 ---
 
+## Related
+
+**Interpretability:** [[per_token_tcav_2026_06_13]] · [[sae-vision-transformer-research]] · [[INDEX_SAE_RESEARCH]]
+
+**Architecture:** [[detection_roadmap]] · [[vivit-tubelet-embeddings]]
+
+**Project:** [[MANIFEST]] · [[STATE]]
+
+---
+
 ## PITFALLS: What Breaks with IG Baselines
 
 ### 1. **Color Blindness Problem (Constant Baselines)**

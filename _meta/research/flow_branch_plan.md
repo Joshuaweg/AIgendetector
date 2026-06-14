@@ -3,6 +3,14 @@
 **Status:** Ready to implement (local environment)
 **Date:** March 2026
 
+## Related
+
+**Architecture:** [[detection_roadmap]] · [[vivit-tubelet-embeddings]] · [[MANIFEST]]
+
+**Interpretability:** [[per_token_tcav_2026_06_13]]
+
+**Project:** [[STATE]]
+
 ---
 
 ## Decision: Token-Append Fusion
